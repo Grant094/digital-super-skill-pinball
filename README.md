@@ -1,4 +1,4 @@
-# Digital Super-Skill Pinball
+# Super-Skill Pinball Digital
 A digital version of the Super-Skill Pinball game by WizKids.
 
 This game is made by [WizKids](https://wizkids.com/) and you can see more info about Super-Skill Pinball: 4-Cade [here](https://wizkids.com/super-skill-pinball-4-cade/).
