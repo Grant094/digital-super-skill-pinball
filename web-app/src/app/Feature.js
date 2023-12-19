@@ -16,16 +16,14 @@ export default function Feature(props) {
     }
 
     function handleClick() {
-        document.getElementById('ball').remove();
-        const child = document.createElement('img');
-        child.setAttribute('src', '/images/ball.jpg');
-        child.setAttribute('id', 'ball');
-        child.setAttribute('height', '25px');
-        child.setAttribute('width', '25px');
-        child.style.position = 'absolute';
-        child.style.top = yCoord;
-        child.style.left = xCoord;
-        document.getElementById('table').appendChild(child);
+        const ball = document.getElementById('ball');
+        ball.setAttribute('src', '/images/ball.jpg');
+        ball.setAttribute('id', 'ball');
+        ball.setAttribute('height', '25px');
+        ball.setAttribute('width', '25px');
+        ball.style.position = 'absolute';
+        ball.style.top = yCoord;
+        ball.style.left = xCoord;
     }
 
     return (
