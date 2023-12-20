@@ -12,8 +12,8 @@ export default function Table(props) {
     return (
         <div id="table" style={{height: "500px", width: "500px"}}>
             <Feature
-                featureId="droptarget-yel-du"
-                imgSrc="/images/DropTargetYelDu.png"
+                featureId="droptarget-yel-12"
+                imgSrc="/images/DropTargetYel12.png"
                 imgAlt="A Yellow Drop Target with a 1 & 2 Combobox"
                 x="0px"
                 y="0px"
@@ -26,8 +26,8 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
             />
             <Feature
-                featureId="droptarget-yel-ck"
-                imgSrc="/images/DropTargetYelCk.png"
+                featureId="droptarget-yel-34"
+                imgSrc="/images/DropTargetYel34.png"
                 imgAlt="A Yellow Drop Target with a 3 & 4 Combobox"
                 x="50px"
                 y="0px"
@@ -40,8 +40,8 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
             />
             <Feature
-                featureId="droptarget-yel-ies"
-                imgSrc="/images/DropTargetYelIes.png"
+                featureId="droptarget-yel-56"
+                imgSrc="/images/DropTargetYel56.png"
                 imgAlt="A Yellow Drop Target with a 5 & 6 Combobox"
                 x="100px"
                 y="0px"
@@ -54,8 +54,8 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
             />
             <Feature
-                featureId="droptarget-red-ba"
-                imgSrc="/images/DropTargetRedBa.png"
+                featureId="droptarget-red-12"
+                imgSrc="/images/DropTargetRed12.png"
                 imgAlt="A Red Drop Target with a 1 & 2 Combobox"
                 x="200px"
                 y="0px"
@@ -68,8 +68,8 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
             />
             <Feature
-                featureId="droptarget-red-ll"
-                imgSrc="/images/DropTargetRedLl.png"
+                featureId="droptarget-red-3"
+                imgSrc="/images/DropTargetRed3.png"
                 imgAlt="A Red Drop Target with a 3 Box"
                 x="250px"
                 y="0px"
@@ -82,8 +82,8 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
             />
             <Feature
-                featureId="droptarget-red-oo"
-                imgSrc="/images/DropTargetRedOo.png"
+                featureId="droptarget-red-4"
+                imgSrc="/images/DropTargetRed4.png"
                 imgAlt="A Red Drop Target with a 4 Box"
                 x="300px"
                 y="0px"
@@ -96,8 +96,8 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
             />
             <Feature
-                featureId="droptarget-red-ns"
-                imgSrc="/images/DropTargetRedNs.png"
+                featureId="droptarget-red-56"
+                imgSrc="/images/DropTargetRed56.png"
                 imgAlt="A Red Drop Target with a 5 & 6 Combobox"
                 x="350px"
                 y="0px"
@@ -119,13 +119,13 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yellow-flipper',
-                    'droptarget-yel-du',
-                    'droptarget-yel-ck',
-                    'droptarget-yel-ies',
-                    'droptarget-red-ba',
-                    'droptarget-red-ll',
-                    'droptarget-red-oo',
-                    'droptarget-red-ns',
+                    'droptarget-yel-12',
+                    'droptarget-yel-34',
+                    'droptarget-yel-56',
+                    'droptarget-red-12',
+                    'droptarget-red-3',
+                    'droptarget-red-4',
+                    'droptarget-red-56',
                     'start'
                 ]}
                 ball1FeatureId={ball1FeatureId}
@@ -143,13 +143,13 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yellow-flipper',
-                    'droptarget-yel-du',
-                    'droptarget-yel-ck',
-                    'droptarget-yel-ies',
-                    'droptarget-red-ba',
-                    'droptarget-red-ll',
-                    'droptarget-red-oo',
-                    'droptarget-red-ns',
+                    'droptarget-yel-12',
+                    'droptarget-yel-34',
+                    'droptarget-yel-56',
+                    'droptarget-red-12',
+                    'droptarget-red-3',
+                    'droptarget-red-4',
+                    'droptarget-red-56',
                     'start'
                 ]}
                 ball1FeatureId={ball1FeatureId}
