@@ -19,7 +19,7 @@ export default function Table(props) {
                 y="0px"
                 height="50px"
                 width="50px"
-                canReceiveFrom={['yellow-flipper']}
+                canReceiveFrom={['yel-flipper']}
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -33,7 +33,7 @@ export default function Table(props) {
                 y="0px"
                 height="50px"
                 width="50px"
-                canReceiveFrom={['yellow-flipper']}
+                canReceiveFrom={['yel-flipper']}
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -47,7 +47,7 @@ export default function Table(props) {
                 y="0px"
                 height="50px"
                 width="50px"
-                canReceiveFrom={['yellow-flipper']}
+                canReceiveFrom={['yel-flipper']}
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -118,7 +118,7 @@ export default function Table(props) {
                 width="50px"
                 canReceiveFrom={[
                     'red-flipper',
-                    'yellow-flipper',
+                    'yel-flipper',
                     'droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
@@ -133,8 +133,8 @@ export default function Table(props) {
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
             />
-            <Flipper featureId="yellow-flipper" 
-                imgSrc="/images/yellow-flipper.png" 
+            <Flipper featureId="yel-flipper" 
+                imgSrc="/images/yel-flipper.png" 
                 imgAlt="A Yellow Flipper" 
                 x="100px" 
                 y="100px"
@@ -142,7 +142,7 @@ export default function Table(props) {
                 width="50px"
                 canReceiveFrom={[
                     'red-flipper',
-                    'yellow-flipper',
+                    'yel-flipper',
                     'droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
