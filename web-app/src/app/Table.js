@@ -102,7 +102,7 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Flipper featureId="red-flipper" 
+            <Flipper featureId="red-flipper"
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
@@ -119,9 +119,9 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/red-flipper.png" 
-                imgAlt="A Red Flipper" 
-                x="0px" 
+                imgSrc="/images/red-flipper.png"
+                imgAlt="A Red Flipper"
+                x="0px"
                 y="100px"
                 height="50px"
                 width="50px"
@@ -143,8 +143,8 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/yel-flipper.png" 
-                imgAlt="A Yellow Flipper" 
+                imgSrc="/images/yel-flipper.png"
+                imgAlt="A Yellow Flipper"
                 x="100px" 
                 y="100px"
                 height="50px"
