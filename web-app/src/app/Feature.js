@@ -28,7 +28,7 @@ export default function Feature(props) {
 
     return (
         <div id={id} enterableFromAbove={enterableFromAbove} style={{position: "absolute", top: yCoord, left: xCoord}}>
-            <img src={imgSrc} alt={imgAlt} onClick={handleClick}/>
+            <img src={imgSrc} alt={imgAlt} onClick={handleClick} height={props.height} width={props.width} />
         </div>
     );
 }
