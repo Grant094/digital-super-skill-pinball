@@ -1,6 +1,7 @@
 'use client'
 
 import React from "react";
+import styles from './box.module.css'
 
 export default function Box(props) {
     function handleClick() {
@@ -16,7 +17,8 @@ export default function Box(props) {
     }
 
     return (
-        <div id={props.featureId}
+        <div id={props.boxId}
+            className={styles.box}
             onClick={handleClick}
             style={{position: "absolute", top: props.y, left: props.x, height: props.height, width: props.width}}
         >
