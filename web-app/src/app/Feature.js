@@ -19,6 +19,7 @@ export default function Feature(props) {
     return (
         <div id={props.featureId}
             className={styles.feature}
+            onClick={handleClick}
             style={{position: "absolute", top: props.y, left: props.x, height: props.height, width: props.width}}
         >
         </div>
