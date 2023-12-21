@@ -6,7 +6,13 @@ import styles from './feature.module.css';
 
 export default function Feature(props) {
     function handleClick() {
-        if (props.canReceiveFrom.includes(props.ball1FeatureId)) {
+        const feature = document.getElementById(props.featureId);
+
+        if (props.canReceiveFrom.includes(props.ball1FeatureId) && feature.style.backgroundColor != 'black') {
+            // black-out feature
+            feature.style.backgroundColor = 'black';
+            
+            // move the ball to this feature
             const ball = document.getElementById('ball');
             ball.style.left = props.x;
             ball.style.top = props.y;
