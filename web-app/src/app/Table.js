@@ -51,10 +51,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="200px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="630px"
+                y="570px"
+                height="55px"
+                width="35px"
             />
             <Feature featureId="droptarget-red-3"
                 canReceiveFrom={['red-flipper']}
@@ -62,10 +62,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="250px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="650px"
+                y="610px"
+                height="55px"
+                width="35px"
             />
             <Feature featureId="droptarget-red-4"
                 canReceiveFrom={['red-flipper']}
@@ -73,10 +73,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="300px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="675px"
+                y="660px"
+                height="55px"
+                width="35px"
             />
             <Feature featureId="droptarget-red-56"
                 canReceiveFrom={['red-flipper']}
@@ -84,10 +84,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="350px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="695px"
+                y="710px"
+                height="55px"
+                width="35px"
             />
             <Feature featureId="red-flipper"
                 canReceiveFrom={[
