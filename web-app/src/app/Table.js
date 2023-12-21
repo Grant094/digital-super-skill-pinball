@@ -19,6 +19,23 @@ export default function Table(props) {
         'box-droptarget-red-4',
         'box-droptarget-red-56'
     ];
+    const redFlipperBoxIds = [
+        'red-flipper-box-3',
+        'red-flipper-box-45',
+        'red-flipper-box-6'
+    ];
+    const yelFlipperBoxIds = [
+        'yel-flipper-box-1',
+        'yel-flipper-box-23',
+        'yel-flipper-box-4'
+    ];
+    const flipperBoxIds = redFlipperBoxIds.concat(yelFlipperBoxIds);
+
+    function drainAction() {
+        for (const flipperBoxId of flipperBoxIds) {
+            document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
+        }
+    }
 
     return (
         <div id="table">
@@ -295,6 +312,31 @@ export default function Table(props) {
                 width="50px"
             />
             <Ball x="660px" y="240px" />
+            <Box boxId="drain"
+                canReceiveFrom={[
+                    'red-flipper',
+                    'yel-flipper',
+                    'feature-droptarget-yel-12',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
+                    'start'
+                ]}
+                correspondingFeatureId='start'
+                action={drainAction}
+                boxIds={['drain']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="436px"
+                y="920px"
+                height="85px"
+                width="98px"
+            />
         </div>
     );
 }
