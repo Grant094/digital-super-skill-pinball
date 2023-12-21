@@ -53,7 +53,7 @@ export default function Table(props) {
                 setBall2FeatureId={setBall2FeatureId}
                 x="630px"
                 y="570px"
-                height="55px"
+                height="50px"
                 width="35px"
             />
             <Feature featureId="droptarget-red-3"
@@ -63,8 +63,8 @@ export default function Table(props) {
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
                 x="650px"
-                y="610px"
-                height="55px"
+                y="621px"
+                height="40px"
                 width="35px"
             />
             <Feature featureId="droptarget-red-4"
@@ -74,8 +74,8 @@ export default function Table(props) {
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
                 x="675px"
-                y="660px"
-                height="55px"
+                y="665px"
+                height="42px"
                 width="35px"
             />
             <Feature featureId="droptarget-red-56"
