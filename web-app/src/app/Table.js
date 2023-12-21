@@ -30,6 +30,22 @@ export default function Table(props) {
         'yel-flipper-box-4'
     ];
     const flipperBoxIds = redFlipperBoxIds.concat(yelFlipperBoxIds);
+    const flipperIds = [
+        'red-flipper',
+        'yel-flipper'
+    ];
+    const yelDropTargetFeatureIds = [
+        'feature-droptarget-yel-12',
+        'feature-droptarget-yel-34',
+        'feature-droptarget-yel-56'
+    ];
+    const redDropTargetFeatureIds = [
+        'feature-droptarget-red-12',
+        'feature-droptarget-red-3',
+        'feature-droptarget-red-4',
+        'feature-droptarget-red-56'
+    ];
+    const allFeatureIds = flipperIds.concat(yelDropTargetFeatureIds, redDropTargetFeatureIds, ['start']);
 
     function drainAction() {
         for (const flipperBoxId of flipperBoxIds) {
@@ -160,18 +176,7 @@ export default function Table(props) {
                 width="35px"
             />
             <Box boxId="red-flipper-box-3"
-                canReceiveFrom={[
-                    'red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
@@ -183,18 +188,7 @@ export default function Table(props) {
                 width="40px"
             />
             <Box boxId="red-flipper-box-45"
-                canReceiveFrom={[
-                    'red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
@@ -206,18 +200,7 @@ export default function Table(props) {
                 width="45px"
             />
             <Box boxId="red-flipper-box-6"
-                canReceiveFrom={[
-                    'red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
@@ -229,18 +212,7 @@ export default function Table(props) {
                 width="45px"
             />
             <Box boxId="yel-flipper-box-1"
-                canReceiveFrom={[
-                    'red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
@@ -252,18 +224,7 @@ export default function Table(props) {
                 width="40px"
             />
             <Box boxId="yel-flipper-box-23"
-                canReceiveFrom={[
-                    'feature-red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
@@ -275,18 +236,7 @@ export default function Table(props) {
                 width="45px"
             />
             <Box boxId="yel-flipper-box-4"
-                canReceiveFrom={[
-                    'red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
@@ -313,18 +263,7 @@ export default function Table(props) {
             />
             <Ball x="660px" y="240px" />
             <Box boxId="drain"
-                canReceiveFrom={[
-                    'red-flipper',
-                    'yel-flipper',
-                    'feature-droptarget-yel-12',
-                    'feature-droptarget-yel-34',
-                    'feature-droptarget-yel-56',
-                    'feature-droptarget-red-12',
-                    'feature-droptarget-red-3',
-                    'feature-droptarget-red-4',
-                    'feature-droptarget-red-56',
-                    'start'
-                ]}
+                canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='start'
                 action={drainAction}
                 boxIds={['drain']}
