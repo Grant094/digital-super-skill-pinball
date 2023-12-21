@@ -26,7 +26,7 @@ export default function Feature(props) {
         <div id={props.featureId}
             className={styles.feature}
             onClick={handleClick}
-            style={{position: "absolute", top: props.y, left: props.x, height: props.height, width: props.width}}
+            style={{position: "absolute", top: props.y, left: props.x, height: "25px", width: "25px"}}
         >
         </div>
     );

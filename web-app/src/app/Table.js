@@ -13,8 +13,18 @@ export default function Table(props) {
     return (
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
-            <Feature featureId="droptarget-yel-12"
+            <Feature featureId="feature-droptarget-yel-12"
                 canReceiveFrom={['yel-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="250px"
+                y="700px"
+            />
+            <Box boxId="box-droptarget-yel-12"
+                canReceiveFrom={['yel-flipper']}
+                correspondingFeatureId="feature-droptarget-yel-12"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -94,7 +104,7 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
-                    'droptarget-yel-12',
+                    'feature-droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
                     'droptarget-red-12',
@@ -117,7 +127,7 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
-                    'droptarget-yel-12',
+                    'feature-droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
                     'droptarget-red-12',
@@ -140,7 +150,7 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
-                    'droptarget-yel-12',
+                    'feature-droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
                     'droptarget-red-12',
@@ -163,7 +173,7 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
-                    'droptarget-yel-12',
+                    'feature-droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
                     'droptarget-red-12',
@@ -184,7 +194,7 @@ export default function Table(props) {
             />
             <Box boxId="yel-flipper-box-23"
                 canReceiveFrom={[
-                    'red-flipper',
+                    'feature-red-flipper',
                     'yel-flipper',
                     'droptarget-yel-12',
                     'droptarget-yel-34',
@@ -209,7 +219,7 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
-                    'droptarget-yel-12',
+                    'feature-droptarget-yel-12',
                     'droptarget-yel-34',
                     'droptarget-yel-56',
                     'droptarget-red-12',
