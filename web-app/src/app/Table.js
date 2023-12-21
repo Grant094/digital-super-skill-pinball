@@ -10,7 +10,8 @@ export default function Table(props) {
     const [ball2FeatureId, setBall2FeatureId] = useState('');
 
     return (
-        <div id="table" style={{height: "500px", width: "500px"}}>
+        <div id="table">
+            <img src="/images/carniball.jpg" alt="Carniball board" />
             <Feature featureId="droptarget-yel-12"
                 canReceiveFrom={['yel-flipper']}
                 ball1FeatureId={ball1FeatureId}
@@ -102,7 +103,7 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Flipper featureId="red-flipper"
+            <Feature featureId="red-flipper"
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
@@ -126,7 +127,7 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Flipper featureId="yel-flipper"
+            <Feature featureId="yel-flipper"
                 canReceiveFrom={[
                     'red-flipper',
                     'yel-flipper',
