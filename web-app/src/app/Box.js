@@ -7,7 +7,11 @@ export default function Box(props) {
     function handleClick() {
         const box = document.getElementById(props.boxId);
 
-        if (props.canReceiveFrom.includes(props.ball1FeatureId) && box.style.backgroundColor != 'black') {
+        if (
+            props.canReceiveFrom.includes(props.ball1FeatureId) &&
+            box.style.backgroundColor != 'black' &&
+            props.correspondingFeatureId
+            ) {
             // black-out box
             box.style.backgroundColor = 'black';
             
@@ -38,6 +42,10 @@ export default function Box(props) {
             
         } else {
             alert("invalid choice!");
+        }
+
+        if (props.action) {
+            props.action();
         }
     }
 
