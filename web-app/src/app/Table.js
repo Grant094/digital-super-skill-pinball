@@ -34,8 +34,18 @@ export default function Table(props) {
                 height="60px"
                 width="35px"
             />
-            <Feature featureId="droptarget-yel-34"
+            <Feature featureId="feature-droptarget-yel-34"
                 canReceiveFrom={['yel-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="285px"
+                y="630px"
+            />
+            <Box boxId="box-droptarget-yel-34"
+                canReceiveFrom={['yel-flipper']}
+                correspondingFeatureId="feature-droptarget-yel-34"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -45,8 +55,18 @@ export default function Table(props) {
                 height="60px"
                 width="35px"
             />
-            <Feature featureId="droptarget-yel-56"
+            <Feature featureId="feature-droptarget-yel-56"
                 canReceiveFrom={['yel-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="315px"
+                y="575px"
+            />
+            <Box boxId="box-droptarget-yel-56"
+                canReceiveFrom={['yel-flipper']}
+                correspondingFeatureId="feature-droptarget-yel-56"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -56,8 +76,18 @@ export default function Table(props) {
                 height="60px"
                 width="35px"
             />
-            <Feature featureId="droptarget-red-12"
+            <Feature featureId="feature-droptarget-red-12"
                 canReceiveFrom={['red-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="635px"
+                y="585px"
+            />
+            <Box boxId="box-droptarget-red-12"
+                canReceiveFrom={['red-flipper']}
+                correspondingFeatureId="feature-droptarget-red-12"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -67,8 +97,18 @@ export default function Table(props) {
                 height="50px"
                 width="35px"
             />
-            <Feature featureId="droptarget-red-3"
+            <Feature featureId="feature-droptarget-red-3"
                 canReceiveFrom={['red-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="655px"
+                y="628px"
+            />
+            <Box boxId="box-droptarget-red-3"
+                canReceiveFrom={['red-flipper']}
+                correspondingFeatureId="feature-droptarget-red-3"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -78,8 +118,18 @@ export default function Table(props) {
                 height="40px"
                 width="35px"
             />
-            <Feature featureId="droptarget-red-4"
+            <Feature featureId="feature-droptarget-red-4"
                 canReceiveFrom={['red-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="680px"
+                y="674px"
+            />
+            <Box boxId="box-droptarget-red-4"
+                canReceiveFrom={['red-flipper']}
+                correspondingFeatureId="feature-droptarget-red-4"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -89,8 +139,18 @@ export default function Table(props) {
                 height="42px"
                 width="35px"
             />
-            <Feature featureId="droptarget-red-56"
+            <Feature featureId="feature-droptarget-red-56"
                 canReceiveFrom={['red-flipper']}
+                ball1FeatureId={ball1FeatureId}
+                ball2FeatureId={ball2FeatureId}
+                setBall1FeatureId={setBall1FeatureId}
+                setBall2FeatureId={setBall2FeatureId}
+                x="700px"
+                y="725px"
+            />
+            <Box boxId="box-droptarget-red-56"
+                canReceiveFrom={['red-flipper']}
+                correspondingFeatureId="feature-droptarget-red-56"
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
@@ -105,12 +165,12 @@ export default function Table(props) {
                     'red-flipper',
                     'yel-flipper',
                     'feature-droptarget-yel-12',
-                    'droptarget-yel-34',
-                    'droptarget-yel-56',
-                    'droptarget-red-12',
-                    'droptarget-red-3',
-                    'droptarget-red-4',
-                    'droptarget-red-56',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
                     'start'
                 ]}
                 correspondingFeatureId='red-flipper'
@@ -128,12 +188,12 @@ export default function Table(props) {
                     'red-flipper',
                     'yel-flipper',
                     'feature-droptarget-yel-12',
-                    'droptarget-yel-34',
-                    'droptarget-yel-56',
-                    'droptarget-red-12',
-                    'droptarget-red-3',
-                    'droptarget-red-4',
-                    'droptarget-red-56',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
                     'start'
                 ]}
                 correspondingFeatureId='red-flipper'
@@ -151,12 +211,12 @@ export default function Table(props) {
                     'red-flipper',
                     'yel-flipper',
                     'feature-droptarget-yel-12',
-                    'droptarget-yel-34',
-                    'droptarget-yel-56',
-                    'droptarget-red-12',
-                    'droptarget-red-3',
-                    'droptarget-red-4',
-                    'droptarget-red-56',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
                     'start'
                 ]}
                 correspondingFeatureId='red-flipper'
@@ -174,12 +234,12 @@ export default function Table(props) {
                     'red-flipper',
                     'yel-flipper',
                     'feature-droptarget-yel-12',
-                    'droptarget-yel-34',
-                    'droptarget-yel-56',
-                    'droptarget-red-12',
-                    'droptarget-red-3',
-                    'droptarget-red-4',
-                    'droptarget-red-56',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
                     'start'
                 ]}
                 correspondingFeatureId='yel-flipper'
@@ -196,13 +256,13 @@ export default function Table(props) {
                 canReceiveFrom={[
                     'feature-red-flipper',
                     'yel-flipper',
-                    'droptarget-yel-12',
-                    'droptarget-yel-34',
-                    'droptarget-yel-56',
-                    'droptarget-red-12',
-                    'droptarget-red-3',
-                    'droptarget-red-4',
-                    'droptarget-red-56',
+                    'feature-droptarget-yel-12',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
                     'start'
                 ]}
                 correspondingFeatureId='yel-flipper'
@@ -220,12 +280,12 @@ export default function Table(props) {
                     'red-flipper',
                     'yel-flipper',
                     'feature-droptarget-yel-12',
-                    'droptarget-yel-34',
-                    'droptarget-yel-56',
-                    'droptarget-red-12',
-                    'droptarget-red-3',
-                    'droptarget-red-4',
-                    'droptarget-red-56',
+                    'feature-droptarget-yel-34',
+                    'feature-droptarget-yel-56',
+                    'feature-droptarget-red-12',
+                    'feature-droptarget-red-3',
+                    'feature-droptarget-red-4',
+                    'feature-droptarget-red-56',
                     'start'
                 ]}
                 correspondingFeatureId='yel-flipper'
