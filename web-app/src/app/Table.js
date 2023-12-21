@@ -106,10 +106,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="350px"
-                y="825px"
-                height="175px"
-                width="120px"
+                x="410px"
+                y="970px"
+                height="25px"
+                width="25px"
             />
             <Feature featureId="yel-flipper"
                 canReceiveFrom={[
@@ -128,10 +128,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="500px" 
-                y="825px"
-                height="175px"
-                width="120px"
+                x="540px" 
+                y="970px"
+                height="25px"
+                width="25px"
             />
             <Feature featureId="start"
                 x="660px"
