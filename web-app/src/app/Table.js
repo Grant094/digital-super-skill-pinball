@@ -2,7 +2,6 @@
 
 import React, { useState } from "react"
 import Feature from "./Feature";
-import Flipper from "./Flipper";
 import Ball from "./Ball";
 import Box from "./Box";
 
