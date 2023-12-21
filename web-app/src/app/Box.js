@@ -5,9 +5,10 @@ import styles from './box.module.css'
 
 export default function Box(props) {
     function handleClick() {
-        if (props.canReceiveFrom.includes(props.ball1FeatureId)) {
+        const box = document.getElementById(props.boxId);
+
+        if (props.canReceiveFrom.includes(props.ball1FeatureId) && box.style.backgroundColor != 'black') {
             // black-out box
-            const box = document.getElementById(props.boxId);
             box.style.backgroundColor = 'black';
             
             // move the ball to the corresponding feature
