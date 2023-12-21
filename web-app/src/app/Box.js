@@ -17,6 +17,25 @@ export default function Box(props) {
             ball.style.left = correspondingFeature.style.left;
             ball.style.top = correspondingFeature.style.top;
             props.setBall1FeatureId(correspondingFeature.id);
+
+            // check if the set this is in is completed
+            if (props.boxIds) {
+                var filledInBoxes = 0;
+                for (const boxId of props.boxIds) {
+                    if (document.getElementById(boxId).style.backgroundColor === 'black') {
+                        filledInBoxes++;
+                    } else {
+                        break;
+                    }
+                }
+                if (filledInBoxes === props.boxIds.length) {
+                    // set has been completed, so the boxes should be cleared
+                    for (const boxId of props.boxIds) {
+                        document.getElementById(boxId).style.backgroundColor = 'transparent';
+                    }
+                }
+            }
+            
         } else {
             alert("invalid choice!");
         }
