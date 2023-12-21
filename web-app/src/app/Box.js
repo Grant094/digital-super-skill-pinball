@@ -26,7 +26,13 @@ export default function Box(props) {
         <div id={props.boxId}
             className={styles.box}
             onClick={handleClick}
-            style={{position: "absolute", top: props.y, left: props.x, height: props.height, width: props.width}}
+            style={{
+                position: "absolute",
+                top: props.y,
+                left: props.x,
+                height: props.height,
+                width: props.width
+            }}
         >
         </div>
     )
