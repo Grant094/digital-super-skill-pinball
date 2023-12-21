@@ -18,10 +18,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="0px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="245px"
+                y="675px"
+                height="60px"
+                width="35px"
             />
             <Feature featureId="droptarget-yel-34"
                 canReceiveFrom={['yel-flipper']}
@@ -29,10 +29,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="50px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="280px"
+                y="615px"
+                height="60px"
+                width="35px"
             />
             <Feature featureId="droptarget-yel-56"
                 canReceiveFrom={['yel-flipper']}
@@ -40,10 +40,10 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                x="100px"
-                y="0px"
-                height="50px"
-                width="50px"
+                x="310px"
+                y="560px"
+                height="60px"
+                width="35px"
             />
             <Feature featureId="droptarget-red-12"
                 canReceiveFrom={['red-flipper']}
