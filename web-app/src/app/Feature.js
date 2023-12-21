@@ -17,8 +17,10 @@ export default function Feature(props) {
     }
 
     return (
-        <div id={props.featureId} className={styles.feature} style={{position: "absolute", top: props.y, left: props.x}}>
-            <img src={props.imgSrc} alt={props.imgAlt} onClick={handleClick} height={props.height} width={props.width} />
+        <div id={props.featureId}
+            className={styles.feature}
+            style={{position: "absolute", top: props.y, left: props.x, height: props.height, width: props.width}}
+        >
         </div>
     );
 }

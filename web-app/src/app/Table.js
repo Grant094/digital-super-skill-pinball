@@ -18,8 +18,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetYel12.png"
-                imgAlt="A Yellow Drop Target with a 1 & 2 Combobox"
                 x="0px"
                 y="0px"
                 height="50px"
@@ -31,8 +29,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetYel34.png"
-                imgAlt="A Yellow Drop Target with a 3 & 4 Combobox"
                 x="50px"
                 y="0px"
                 height="50px"
@@ -44,8 +40,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetYel56.png"
-                imgAlt="A Yellow Drop Target with a 5 & 6 Combobox"
                 x="100px"
                 y="0px"
                 height="50px"
@@ -57,8 +51,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetRed12.png"
-                imgAlt="A Red Drop Target with a 1 & 2 Combobox"
                 x="200px"
                 y="0px"
                 height="50px"
@@ -70,8 +62,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetRed3.png"
-                imgAlt="A Red Drop Target with a 3 Box"
                 x="250px"
                 y="0px"
                 height="50px"
@@ -83,8 +73,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetRed4.png"
-                imgAlt="A Red Drop Target with a 4 Box"
                 x="300px"
                 y="0px"
                 height="50px"
@@ -96,8 +84,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/DropTargetRed56.png"
-                imgAlt="A Red Drop Target with a 5 & 6 Combobox"
                 x="350px"
                 y="0px"
                 height="50px"
@@ -120,8 +106,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/red-flipper.png"
-                imgAlt="A Red Flipper"
                 x="0px"
                 y="100px"
                 height="50px"
@@ -144,8 +128,6 @@ export default function Table(props) {
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
                 setBall2FeatureId={setBall2FeatureId}
-                imgSrc="/images/yel-flipper.png"
-                imgAlt="A Yellow Flipper"
                 x="100px" 
                 y="100px"
                 height="50px"
