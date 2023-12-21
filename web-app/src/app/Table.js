@@ -14,11 +14,6 @@ export default function Table(props) {
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
             <Feature featureId="feature-droptarget-yel-12"
-                canReceiveFrom={['yel-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="250px"
                 y="700px"
             />
@@ -35,11 +30,6 @@ export default function Table(props) {
                 width="35px"
             />
             <Feature featureId="feature-droptarget-yel-34"
-                canReceiveFrom={['yel-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="285px"
                 y="630px"
             />
@@ -56,11 +46,6 @@ export default function Table(props) {
                 width="35px"
             />
             <Feature featureId="feature-droptarget-yel-56"
-                canReceiveFrom={['yel-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="315px"
                 y="575px"
             />
@@ -77,11 +62,6 @@ export default function Table(props) {
                 width="35px"
             />
             <Feature featureId="feature-droptarget-red-12"
-                canReceiveFrom={['red-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="635px"
                 y="585px"
             />
@@ -98,11 +78,6 @@ export default function Table(props) {
                 width="35px"
             />
             <Feature featureId="feature-droptarget-red-3"
-                canReceiveFrom={['red-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="655px"
                 y="628px"
             />
@@ -119,11 +94,6 @@ export default function Table(props) {
                 width="35px"
             />
             <Feature featureId="feature-droptarget-red-4"
-                canReceiveFrom={['red-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="680px"
                 y="674px"
             />
@@ -140,11 +110,6 @@ export default function Table(props) {
                 width="35px"
             />
             <Feature featureId="feature-droptarget-red-56"
-                canReceiveFrom={['red-flipper']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="700px"
                 y="725px"
             />
@@ -299,24 +264,12 @@ export default function Table(props) {
                 width="45px"
             />
             <Feature featureId="red-flipper"
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="410px"
                 y="970px"
-                height="25px"
-                width="25px"
             />
             <Feature featureId="yel-flipper"
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
                 x="540px" 
                 y="970px"
-                height="25px"
-                width="25px"
             />
             <Feature featureId="start"
                 x="660px"
