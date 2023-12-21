@@ -103,6 +103,7 @@ export default function Table(props) {
                     'droptarget-red-56',
                     'start'
                 ]}
+                correspondingFeatureId='red-flipper'
                 ball1FeatureId={ball1FeatureId}
                 ball2FeatureId={ball2FeatureId}
                 setBall1FeatureId={setBall1FeatureId}
