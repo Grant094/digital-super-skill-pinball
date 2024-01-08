@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
-import getRndIntegerInclusive from "./getRndIntegerInclusive";
+import React from "react";
 import styles from './dicetray.module.css'
 
 export default function DiceTray(props) {
