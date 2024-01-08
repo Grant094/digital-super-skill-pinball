@@ -29,7 +29,7 @@ export default function Table(props) {
         'yel-flipper-box-23',
         'yel-flipper-box-4'
     ];
-    const flipperBoxIds = redFlipperBoxIds.concat(yelFlipperBoxIds);
+    const flipperBoxIds = [...redFlipperBoxIds, ...yelFlipperBoxIds];
     const flipperIds = [
         'red-flipper',
         'yel-flipper'
@@ -45,7 +45,7 @@ export default function Table(props) {
         'feature-droptarget-red-4',
         'feature-droptarget-red-56'
     ];
-    const allFeatureIds = flipperIds.concat(yelDropTargetFeatureIds, redDropTargetFeatureIds, ['start']);
+    const allFeatureIds = [...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
 
     function drainAction() {
         for (const flipperBoxId of flipperBoxIds) {
