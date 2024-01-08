@@ -289,6 +289,7 @@ export default function Table(props) {
             />
             <Ball x="660px" y="240px" />
             <Box boxId="drain"
+                canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='start'
                 action={drainAction}
