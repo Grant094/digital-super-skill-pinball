@@ -43,6 +43,8 @@ export default function Box(props) {
                     }
                 }
             }
+
+            props.rollDice();
             
         } else {
             alert(`

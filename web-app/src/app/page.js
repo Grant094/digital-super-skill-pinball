@@ -20,6 +20,7 @@ export default function Home() {
       <Table
         die1={die1}
         die2={die2}
+        rollDice={rollDice}
       />
       <DiceTray
         die1={die1}
