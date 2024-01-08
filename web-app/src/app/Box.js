@@ -8,9 +8,13 @@ export default function Box(props) {
         const box = document.getElementById(props.boxId);
 
         if (
-            props.canReceiveFrom.includes(props.ball1FeatureId) &&
-            box.style.backgroundColor != 'black' &&
-            props.correspondingFeatureId
+                props.canReceiveFrom.includes(props.ball1FeatureId) &&
+                box.style.backgroundColor != 'black' &&
+                props.correspondingFeatureId &&
+                (
+                    props.canReceiveOn.includes(props.die1) ||
+                    props.canReceiveOn.includes(props.die2)
+                )
             ) {
             // black-out box
             box.style.backgroundColor = 'black';
@@ -39,9 +43,16 @@ export default function Box(props) {
                     }
                 }
             }
+
+            props.rollDice();
             
         } else {
-            alert("invalid choice!");
+            alert(`
+                invalid choice!
+                Die1: ${props.die1}
+                Die2: ${props.die2}
+                canRecieveOn: ${props.canReceiveOn}
+            `);
         }
 
         if (props.action) {
