@@ -61,7 +61,7 @@ export default function Table(props) {
                 y="700px"
             />
             <Box boxId="box-droptarget-yel-12"
-                canReceiveFrom={['yel-flipper']}
+                canReceiveFrom={['yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-12"
                 boxIds={yelDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
@@ -78,7 +78,7 @@ export default function Table(props) {
                 y="630px"
             />
             <Box boxId="box-droptarget-yel-34"
-                canReceiveFrom={['yel-flipper']}
+                canReceiveFrom={['yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-34"
                 boxIds={yelDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
@@ -95,7 +95,7 @@ export default function Table(props) {
                 y="575px"
             />
             <Box boxId="box-droptarget-yel-56"
-                canReceiveFrom={['yel-flipper']}
+                canReceiveFrom={['yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-56"
                 boxIds={yelDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
@@ -112,7 +112,7 @@ export default function Table(props) {
                 y="585px"
             />
             <Box boxId="box-droptarget-red-12"
-                canReceiveFrom={['red-flipper']}
+                canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-12"
                 boxIds={redDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
@@ -129,7 +129,7 @@ export default function Table(props) {
                 y="628px"
             />
             <Box boxId="box-droptarget-red-3"
-                canReceiveFrom={['red-flipper']}
+                canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-3"
                 boxIds={redDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
@@ -146,7 +146,7 @@ export default function Table(props) {
                 y="674px"
             />
             <Box boxId="box-droptarget-red-4"
-                canReceiveFrom={['red-flipper']}
+                canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-4"
                 boxIds={redDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
@@ -163,7 +163,7 @@ export default function Table(props) {
                 y="725px"
             />
             <Box boxId="box-droptarget-red-56"
-                canReceiveFrom={['red-flipper']}
+                canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-56"
                 boxIds={redDropTargetBoxIds}
                 ball1FeatureId={ball1FeatureId}
