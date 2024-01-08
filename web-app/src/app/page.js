@@ -17,7 +17,10 @@ export default function Home() {
 
   return (
     <div>
-      <Table />
+      <Table
+        die1={die1}
+        die2={die2}
+      />
       <DiceTray
         die1={die1}
         die2={die2}
