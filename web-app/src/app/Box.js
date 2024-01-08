@@ -27,18 +27,18 @@ export default function Box(props) {
             props.setBall1FeatureId(correspondingFeature.id);
 
             // check if the set this is in is completed
-            if (props.boxIds) {
+            if (props.groupBoxIds) {
                 var filledInBoxes = 0;
-                for (const boxId of props.boxIds) {
+                for (const boxId of props.groupBoxIds) {
                     if (document.getElementById(boxId).style.backgroundColor === 'black') {
                         filledInBoxes++;
                     } else {
                         break;
                     }
                 }
-                if (filledInBoxes === props.boxIds.length) {
+                if (filledInBoxes === props.groupBoxIds.length) {
                     // set has been completed, so the boxes should be cleared
-                    for (const boxId of props.boxIds) {
+                    for (const boxId of props.groupBoxIds) {
                         document.getElementById(boxId).style.backgroundColor = 'transparent';
                     }
                 }
