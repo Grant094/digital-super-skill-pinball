@@ -72,6 +72,7 @@ export default function Table(props) {
                 y="675px"
                 height="60px"
                 width="35px"
+                {...props}
             />
             <Feature featureId="feature-droptarget-yel-34"
                 x="285px"
@@ -89,6 +90,7 @@ export default function Table(props) {
                 y="615px"
                 height="60px"
                 width="35px"
+                {...props}
             />
             <Feature featureId="feature-droptarget-yel-56"
                 x="315px"
@@ -106,6 +108,7 @@ export default function Table(props) {
                 y="560px"
                 height="60px"
                 width="35px"
+                {...props}
             />
             <Feature featureId="feature-droptarget-red-12"
                 x="635px"
@@ -123,6 +126,7 @@ export default function Table(props) {
                 y="570px"
                 height="50px"
                 width="35px"
+                {...props}
             />
             <Feature featureId="feature-droptarget-red-3"
                 x="655px"
@@ -140,6 +144,7 @@ export default function Table(props) {
                 y="621px"
                 height="40px"
                 width="35px"
+                {...props}
             />
             <Feature featureId="feature-droptarget-red-4"
                 x="680px"
@@ -157,6 +162,7 @@ export default function Table(props) {
                 y="665px"
                 height="42px"
                 width="35px"
+                {...props}
             />
             <Feature featureId="feature-droptarget-red-56"
                 x="700px"
@@ -174,6 +180,7 @@ export default function Table(props) {
                 y="710px"
                 height="55px"
                 width="35px"
+                {...props}
             />
             <Box boxId="red-flipper-box-3"
                 canReceiveFrom={allFeatureIds}
@@ -186,6 +193,7 @@ export default function Table(props) {
                 y="840px"
                 height="35px"
                 width="40px"
+                {...props}
             />
             <Box boxId="red-flipper-box-45"
                 canReceiveFrom={allFeatureIds}
@@ -198,6 +206,7 @@ export default function Table(props) {
                 y="875px"
                 height="45px"
                 width="45px"
+                {...props}
             />
             <Box boxId="red-flipper-box-6"
                 canReceiveFrom={allFeatureIds}
@@ -210,6 +219,7 @@ export default function Table(props) {
                 y="915px"
                 height="45px"
                 width="45px"
+                {...props}
             />
             <Box boxId="yel-flipper-box-1"
                 canReceiveFrom={allFeatureIds}
@@ -222,6 +232,7 @@ export default function Table(props) {
                 y="840px"
                 height="40px"
                 width="40px"
+                {...props}
             />
             <Box boxId="yel-flipper-box-23"
                 canReceiveFrom={allFeatureIds}
@@ -234,6 +245,7 @@ export default function Table(props) {
                 y="875px"
                 height="45px"
                 width="45px"
+                {...props}
             />
             <Box boxId="yel-flipper-box-4"
                 canReceiveFrom={allFeatureIds}
@@ -246,6 +258,7 @@ export default function Table(props) {
                 y="915px"
                 height="45px"
                 width="45px"
+                {...props}
             />
             <Feature featureId="red-flipper"
                 x="410px"
@@ -275,6 +288,7 @@ export default function Table(props) {
                 y="920px"
                 height="85px"
                 width="98px"
+                {...props}
             />
         </div>
     );
