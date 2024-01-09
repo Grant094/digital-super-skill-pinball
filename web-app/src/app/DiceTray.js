@@ -14,7 +14,8 @@ export default function DiceTray(props) {
         >
             <p className={styles.Die1}>{props.die1}</p>
             <p className={styles.Die2}>{props.die2}</p>
-            {/* <button className={styles.RollButton} type="button" onClick={props.rollDice}>Roll</button> */}
+            <button id="nudge-die-1" className={styles.NudgeButton1} type="button">Nudge</button>
+            <button id="nudge-die-2" className={styles.NudgeButton2} type="button">Nudge</button>
         </div>
     );
 }
