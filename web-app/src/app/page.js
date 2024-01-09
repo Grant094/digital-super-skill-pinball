@@ -25,6 +25,8 @@ export default function Home() {
       <DiceTray
         die1={die1}
         die2={die2}
+        setDie1={setDie1}
+        setDie2={setDie2}
         rollDice={rollDice}
       />
     </div>
