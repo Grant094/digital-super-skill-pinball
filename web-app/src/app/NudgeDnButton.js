@@ -6,8 +6,9 @@ import NudgeButton from "./NudgeButton";
 export default function NudgeDnButton(props) {
 
     function handleClick() {
+        props.dieSetter(Number(props.die) - 1);
         if (Number(props.die) > 1) {
-            props.dieSetter(Number(props.die) - 1);
+            
         }
     }
 
@@ -15,6 +16,7 @@ export default function NudgeDnButton(props) {
         <NudgeButton buttonId={props.buttonId}
             onClick={handleClick}
             symbol="-"
+            atMinOrMax={Number(props.die) === 1}
             {...props}
         />
     );
