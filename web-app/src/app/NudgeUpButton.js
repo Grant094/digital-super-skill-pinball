@@ -7,9 +7,6 @@ export default function NudgeUpButton(props) {
 
     function handleClick() {
         props.dieSetter(Number(props.die) + 1);
-        if (Number(props.die) < 6) {
-            
-        }
     }
 
     return (
