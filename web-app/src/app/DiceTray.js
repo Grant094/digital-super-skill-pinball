@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import styles from './dicetray.module.css'
+import NudgeButton from "./NudgeButton";
 
 export default function DiceTray(props) {
     useEffect(() => {
@@ -14,8 +15,8 @@ export default function DiceTray(props) {
         >
             <p className={styles.Die1}>{props.die1}</p>
             <p className={styles.Die2}>{props.die2}</p>
-            <button id="nudge-die-1" className={styles.NudgeButton1} type="button">Nudge</button>
-            <button id="nudge-die-2" className={styles.NudgeButton2} type="button">Nudge</button>
+            <NudgeButton buttonId="nudge-button-1" />
+            <NudgeButton buttonId="nudge-button-2" />
         </div>
     );
 }
