@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import getRndIntegerInclusive from "./getRndIntegerInclusive";
 import styles from './page.module.css'
 import Table from './Table'
@@ -15,6 +15,12 @@ export default function Home() {
   const [nudgesUsed, setNudgesUsed] = useState(0);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
+
+  useEffect(() => {
+    if (round > 3) {
+      alert(`Game over!`);
+    }
+  })
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Feature from "./Feature";
 import Ball from "./Ball";
 import Box from "./Box";
@@ -52,6 +52,8 @@ export default function Table(props) {
         for (const flipperBoxId of flipperGroupBoxIds) {
             document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
         }
+
+        props.setRound(() => Number(props.round) + 1);
     }
 
     return (
