@@ -6,6 +6,7 @@ import styles from './page.module.css'
 import Table from './Table'
 import DiceTray from './DiceTray';
 import ScoreIndicator from "./ScoreIndicator";
+import RestartTray from "./RestartTray";
 
 export default function Home() {
   const [die1, setDie1] = useState(0);
@@ -21,6 +22,28 @@ export default function Home() {
       alert(`Game over!`);
     }
   }, [round])
+
+  function restart() {
+    setScore(0);
+    setRound(1);
+    setNudgesUsed(0);
+
+    // clear all boxes
+    const allDivs = document.querySelectorAll("div");
+    for (const div of allDivs) {
+      if (div.className.includes("box") || div.className.includes("feature")) {
+        div.style.backgroundColor = 'transparent';
+      }
+    }
+
+    // move ball back to start
+    const ball = document.getElementById('ball');
+    const start = document.getElementById('start');
+    ball.style.top = start.style.top;
+    ball.style.left = start.style.left;
+
+    rollDice();
+  }
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));
@@ -56,6 +79,7 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
       />
       <ScoreIndicator score={score} />
+      <RestartTray restartFn={restart} />
     </div>
   );
 }
