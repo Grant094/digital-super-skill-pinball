@@ -6,6 +6,7 @@ import NudgeUpButton from "./NudgeUpButton";
 import NudgeDnButton from "./NudgeDnButton";
 
 export default function DiceTray(props) {
+    let netNudgeAmount = Math.abs(props.die1AmountNudgedBy + props.die2AmountNudgedBy); // since one of them is always zero, you can just add both of them to get the nudge amount from either die.
     
     useEffect(() => {
         props.rollDice();
@@ -48,6 +49,7 @@ export default function DiceTray(props) {
                 nudgesUsed={props.nudgesUsed}
             />
             <p>Nudges Used: {props.nudgesUsed}</p>
+            <p>{netNudgeAmount? `Tilt if difference >= ${netNudgeAmount}`: `Cannot Tilt`}</p> {/* if one of the dice has been nudged, display by how much, otherwise do not show anything */}
         </div>
     );
 }
