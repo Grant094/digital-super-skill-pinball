@@ -1,0 +1,15 @@
+.ScoreIndicator {
+    width: 200px;
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
+    background-color: orange;
+    left: 550px;
+    top: 150px;
+    position: absolute;
+}
+
+.Score {
+    font-size: 32px;
+    text-align: center;
+}

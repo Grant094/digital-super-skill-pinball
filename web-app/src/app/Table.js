@@ -73,6 +73,7 @@ export default function Table(props) {
                 y="675px"
                 height="60px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Feature featureId="feature-droptarget-yel-34"
@@ -92,6 +93,7 @@ export default function Table(props) {
                 y="615px"
                 height="60px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Feature featureId="feature-droptarget-yel-56"
@@ -111,6 +113,7 @@ export default function Table(props) {
                 y="560px"
                 height="60px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Feature featureId="feature-droptarget-red-12"
@@ -130,6 +133,7 @@ export default function Table(props) {
                 y="570px"
                 height="50px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Feature featureId="feature-droptarget-red-3"
@@ -149,6 +153,7 @@ export default function Table(props) {
                 y="621px"
                 height="40px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Feature featureId="feature-droptarget-red-4"
@@ -168,6 +173,7 @@ export default function Table(props) {
                 y="665px"
                 height="42px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Feature featureId="feature-droptarget-red-56"
@@ -187,6 +193,7 @@ export default function Table(props) {
                 y="710px"
                 height="55px"
                 width="35px"
+                points="1"
                 {...props}
             />
             <Box boxId="red-flipper-box-3"
