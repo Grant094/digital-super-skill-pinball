@@ -9,8 +9,6 @@ import DiceTray from './DiceTray';
 export default function Home() {
   const [die1, setDie1] = useState(0);
   const [die2, setDie2] = useState(0);
-  const [isDie1Nudged, setIsDie1Nudged] = useState(false);
-  const [isDie2Nudged, setIsDie2Nudged] = useState(false);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
