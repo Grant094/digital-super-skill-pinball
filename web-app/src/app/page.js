@@ -9,7 +9,8 @@ import DiceTray from './DiceTray';
 export default function Home() {
   const [die1, setDie1] = useState(0);
   const [die2, setDie2] = useState(0);
-  const [isRollNudged, setIsRollNudged] = useState(false);
+  const [isDie1Nudged, setIsDie1Nudged] = useState(false);
+  const [isDie2Nudged, setIsDie2Nudged] = useState(false);
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));
@@ -29,8 +30,10 @@ export default function Home() {
         setDie1={setDie1}
         setDie2={setDie2}
         rollDice={rollDice}
-        isRollNudged={isRollNudged}
-        setIsRollNudged={setIsRollNudged}
+        isDie1Nudged={isDie1Nudged}
+        setIsDie1Nudged={setIsDie1Nudged}
+        isDie2Nudged={isDie2Nudged}
+        setIsDie2Nudged={setIsDie2Nudged}
       />
     </div>
   );

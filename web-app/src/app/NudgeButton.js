@@ -9,7 +9,7 @@ export default function NudgeButton(props) {
             className={styles.NudgeButton}
             type="button"
             onClick={props.onClick}
-            disabled={(props.haveMaxNudgesBeenUsed) || (props.atMinOrMax)}
+            disabled={(props.atMinOrMax)}
         >
             {props.symbol}
         </button>

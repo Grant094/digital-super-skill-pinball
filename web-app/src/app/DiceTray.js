@@ -6,8 +6,6 @@ import NudgeUpButton from "./NudgeUpButton";
 import NudgeDnButton from "./NudgeDnButton";
 
 export default function DiceTray(props) {
-    const [nudgesUsed, setNudgesUsed] = useState(0);
-    const maxNudges = 3;
     
     useEffect(() => {
         props.rollDice();
@@ -23,29 +21,21 @@ export default function DiceTray(props) {
                 buttonId="nudge-up-button-die1"
                 die={props.die1}
                 dieSetter={props.setDie1}
-                haveMaxNudgesBeenUsed={Number(nudgesUsed === maxNudges)? true: false}
-                setNudgesUsed={() => setNudgesUsed}
             />
             <NudgeDnButton
                 buttonId="nudge-dn-button-die1"
                 die={props.die1}
                 dieSetter={props.setDie1}
-                haveMaxNudgesBeenUsed={Number(nudgesUsed === maxNudges)? true: false}
-                setNudgesUsed={() => setNudgesUsed}
             />
             <NudgeUpButton
                 buttonId="nudge-up-button-die2"
                 die={props.die2}
                 dieSetter={props.setDie2}
-                haveMaxNudgesBeenUsed={Number(nudgesUsed === maxNudges)? true: false}
-                setNudgesUsed={() => setNudgesUsed}
             />
             <NudgeDnButton
                 buttonId="nudge-dn-button-die2"
                 die={props.die2}
                 dieSetter={props.setDie2}
-                haveMaxNudgesBeenUsed={Number(nudgesUsed === maxNudges)? true: false}
-                setNudgesUsed={() => setNudgesUsed}
             />
         </div>
     );
