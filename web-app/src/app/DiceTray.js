@@ -21,6 +21,7 @@ export default function DiceTray(props) {
                 otherDieAmountNudgedBy={props.die2AmountNudgedBy}
                 thisDieAmountNudgedBy={props.die1AmountNudgedBy}
                 setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
+                nudgesUsed={props.nudgesUsed}
             />
             <NudgeDnButton buttonId="nudge-dn-button-die1"
                 die={props.die1}
@@ -28,6 +29,7 @@ export default function DiceTray(props) {
                 otherDieAmountNudgedBy={props.die2AmountNudgedBy}
                 thisDieAmountNudgedBy={props.die1AmountNudgedBy}
                 setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
+                nudgesUsed={props.nudgesUsed}
             />
             <NudgeUpButton buttonId="nudge-up-button-die2"
                 die={props.die2}
@@ -35,6 +37,7 @@ export default function DiceTray(props) {
                 otherDieAmountNudgedBy={props.die1AmountNudgedBy}
                 thisDieAmountNudgedBy={props.die2AmountNudgedBy}
                 setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
+                nudgesUsed={props.nudgesUsed}
             />
             <NudgeDnButton buttonId="nudge-dn-button-die2"
                 die={props.die2}
@@ -42,7 +45,9 @@ export default function DiceTray(props) {
                 otherDieAmountNudgedBy={props.die1AmountNudgedBy}
                 thisDieAmountNudgedBy={props.die2AmountNudgedBy}
                 setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
+                nudgesUsed={props.nudgesUsed}
             />
+            <p>Nudges Used: {props.nudgesUsed}</p>
         </div>
     );
 }

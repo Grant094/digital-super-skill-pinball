@@ -13,10 +13,16 @@ export default function Home() {
   const [isDie2Nudged, setIsDie2Nudged] = useState(false);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
+  const [nudgesUsed, setNudgesUsed] = useState(0);
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));
     setDie2(getRndIntegerInclusive(1, 6));
+    if (die1AmountNudgedBy || die2AmountNudgedBy) {
+      setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+      setDie1AmountNudgedBy(0);
+      setDie2AmountNudgedBy(0);
+    }
   }
 
   return (
@@ -36,6 +42,7 @@ export default function Home() {
         setDie1AmountNudgedBy={setDie1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
         setDie2AmountNudgedBy={setDie2AmountNudgedBy}
+        nudgesUsed={nudgesUsed}
       />
     </div>
   );

@@ -10,7 +10,8 @@ export default function NudgeButton(props) {
             type="button"
             onClick={props.onClick}
             disabled={
-                (props.atMinOrMax) || 
+                (props.atMinOrMax) ||
+                (props.nudgesUsed === 3) ||
                 (props.otherDieAmountNudgedBy) // if the other die has been nudged, do not allow this die to be nudged
             }
         >
