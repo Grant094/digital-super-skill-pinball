@@ -21,29 +21,33 @@ export default function DiceTray(props) {
                 buttonId="nudge-up-button-die1"
                 die={props.die1}
                 dieSetter={props.setDie1}
-                isOtherDieNudged={props.isDie2Nudged}
-                setIsThisDieNudged={props.setIsDie1Nudged}
+                otherDieAmountNudgedBy={props.die2AmountNudgedBy}
+                thisDieAmountNudgedBy={props.die1AmountNudgedBy}
+                setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
             />
             <NudgeDnButton
                 buttonId="nudge-dn-button-die1"
                 die={props.die1}
                 dieSetter={props.setDie1}
-                isOtherDieNudged={props.isDie2Nudged}
-                setIsThisDieNudged={props.setIsDie1Nudged}
+                otherDieAmountNudgedBy={props.die2AmountNudgedBy}
+                thisDieAmountNudgedBy={props.die1AmountNudgedBy}
+                setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
             />
             <NudgeUpButton
                 buttonId="nudge-up-button-die2"
                 die={props.die2}
                 dieSetter={props.setDie2}
-                isOtherDieNudged={props.isDie1Nudged}
-                setIsThisDieNudged={props.setIsDie2Nudged}
+                otherDieAmountNudgedBy={props.die1AmountNudgedBy}
+                thisDieAmountNudgedBy={props.die2AmountNudgedBy}
+                setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
             />
             <NudgeDnButton
                 buttonId="nudge-dn-button-die2"
                 die={props.die2}
                 dieSetter={props.setDie2}
-                isOtherDieNudged={props.isDie1Nudged}
-                setIsThisDieNudged={props.setIsDie2Nudged}
+                otherDieAmountNudgedBy={props.die1AmountNudgedBy}
+                thisDieAmountNudgedBy={props.die2AmountNudgedBy}
+                setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
             />
         </div>
     );

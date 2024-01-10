@@ -11,6 +11,8 @@ export default function Home() {
   const [die2, setDie2] = useState(0);
   const [isDie1Nudged, setIsDie1Nudged] = useState(false);
   const [isDie2Nudged, setIsDie2Nudged] = useState(false);
+  const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
+  const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));
@@ -30,10 +32,10 @@ export default function Home() {
         setDie1={setDie1}
         setDie2={setDie2}
         rollDice={rollDice}
-        isDie1Nudged={isDie1Nudged}
-        setIsDie1Nudged={setIsDie1Nudged}
-        isDie2Nudged={isDie2Nudged}
-        setIsDie2Nudged={setIsDie2Nudged}
+        die1AmountNudgedBy={die1AmountNudgedBy}
+        setDie1AmountNudgedBy={setDie1AmountNudgedBy}
+        die2AmountNudgedBy={die2AmountNudgedBy}
+        setDie2AmountNudgedBy={setDie2AmountNudgedBy}
       />
     </div>
   );
