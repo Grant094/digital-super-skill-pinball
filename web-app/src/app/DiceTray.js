@@ -12,9 +12,7 @@ export default function DiceTray(props) {
     },[])
 
     return (
-        <div id="dice-tray"
-            className={styles.DiceTray}
-        >
+        <div id="dice-tray" className={styles.DiceTray}>
             <p className={styles.Die1}>{props.die1}</p>
             <p className={styles.Die2}>{props.die2}</p>
             <NudgeUpButton buttonId="nudge-up-button-die1"
