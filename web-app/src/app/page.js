@@ -20,7 +20,7 @@ export default function Home() {
     if (round > 3) {
       alert(`Game over!`);
     }
-  })
+  }, [round])
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));

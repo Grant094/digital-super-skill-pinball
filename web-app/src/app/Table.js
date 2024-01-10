@@ -48,6 +48,10 @@ export default function Table(props) {
     ];
     const allFeatureIds = [...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
 
+    useEffect(() => {
+        
+    }, [props.round])
+
     function drainAction() {
         for (const flipperBoxId of flipperGroupBoxIds) {
             document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
@@ -297,7 +301,7 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Ball x="450px" y="240px" />
+            <Ball x="450px" y="240px" round={props.round} />
             <Box boxId="drain"
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={allFeatureIds}
