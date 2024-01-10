@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import Feature from "./Feature";
 import Ball from "./Ball";
 import Box from "./Box";
+import RoundIndicator from "./RoundIndicator";
 
 export default function Table(props) {
     const [ball1FeatureId, setBall1FeatureId] = useState('start');
@@ -311,6 +312,9 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
+            <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" x="950px" y="414px" {...props}/>
+            <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" x="950px" y="451px" {...props}/>
+            <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" x="950px" y="487px" {...props}/>
         </div>
     );
 }

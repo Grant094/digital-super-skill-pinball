@@ -14,6 +14,7 @@ export default function Home() {
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
   const [score, setScore] = useState(0);
+  const [round, setRound] = useState(1);
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));
@@ -33,6 +34,8 @@ export default function Home() {
         rollDice={rollDice}
         score={score}
         setScore={setScore}
+        round={round}
+        setRound={setRound}
       />
       <DiceTray
         die1={die1}
