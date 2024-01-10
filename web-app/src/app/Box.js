@@ -26,6 +26,11 @@ export default function Box(props) {
             ball.style.top = correspondingFeature.style.top;
             props.setBall1FeatureId(correspondingFeature.id);
 
+            // add points from this box to the total score
+            if (props.points) {
+                props.setScore(Number(props.score) + Number(props.points));
+            }
+
             // check if the set this is in is completed
             if (props.groupBoxIds) {
                 var filledInBoxes = 0;

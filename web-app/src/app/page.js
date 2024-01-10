@@ -5,6 +5,7 @@ import getRndIntegerInclusive from "./getRndIntegerInclusive";
 import styles from './page.module.css'
 import Table from './Table'
 import DiceTray from './DiceTray';
+import ScoreIndicator from "./ScoreIndicator";
 
 export default function Home() {
   const [die1, setDie1] = useState(0);
@@ -12,6 +13,7 @@ export default function Home() {
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
+  const [score, setScore] = useState(0);
 
   function rollDice() {
     setDie1(getRndIntegerInclusive(1, 6));
@@ -29,6 +31,8 @@ export default function Home() {
         die1={die1}
         die2={die2}
         rollDice={rollDice}
+        score={score}
+        setScore={setScore}
       />
       <DiceTray
         die1={die1}
@@ -42,6 +46,7 @@ export default function Home() {
         setDie2AmountNudgedBy={setDie2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
       />
+      <ScoreIndicator score={score} />
     </div>
   );
 }
