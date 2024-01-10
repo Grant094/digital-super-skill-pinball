@@ -7,6 +7,7 @@ export default function NudgeUpButton(props) {
 
     function handleClick() {
         props.dieSetter(Number(props.die) + 1);
+        props.setIsThisDieNudged(true);
     }
 
     return (

@@ -21,21 +21,29 @@ export default function DiceTray(props) {
                 buttonId="nudge-up-button-die1"
                 die={props.die1}
                 dieSetter={props.setDie1}
+                isOtherDieNudged={props.isDie2Nudged}
+                setIsThisDieNudged={props.setIsDie1Nudged}
             />
             <NudgeDnButton
                 buttonId="nudge-dn-button-die1"
                 die={props.die1}
                 dieSetter={props.setDie1}
+                isOtherDieNudged={props.isDie2Nudged}
+                setIsThisDieNudged={props.setIsDie1Nudged}
             />
             <NudgeUpButton
                 buttonId="nudge-up-button-die2"
                 die={props.die2}
                 dieSetter={props.setDie2}
+                isOtherDieNudged={props.isDie1Nudged}
+                setIsThisDieNudged={props.setIsDie2Nudged}
             />
             <NudgeDnButton
                 buttonId="nudge-dn-button-die2"
                 die={props.die2}
                 dieSetter={props.setDie2}
+                isOtherDieNudged={props.isDie1Nudged}
+                setIsThisDieNudged={props.setIsDie2Nudged}
             />
         </div>
     );
