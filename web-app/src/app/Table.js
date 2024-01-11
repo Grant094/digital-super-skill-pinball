@@ -78,6 +78,9 @@ export default function Table(props) {
         }
 
         props.setRound(() => Number(props.round) + 1);
+
+        document.getElementById("red-outlane-1").style.backgroundColor = 'transparent';
+        document.getElementById("yel-outlane-6").style.backgroundColor = 'transparent';
     }
 
     return (
