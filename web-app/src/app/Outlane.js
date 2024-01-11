@@ -15,9 +15,6 @@ export default function Outlane(props) {
     }
     
     return (
-        <Box boxId={props.boxId}
-            action={awardOutlanePoints}
-            {...props}
-        />
+        <Box action={awardOutlanePoints} {...props} />
     );
 }
