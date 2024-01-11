@@ -39,11 +39,13 @@ export default function Table(props) {
         'box-droptarget-red-56'
     ];
     const redFlipperGroupBoxIds = [
+        'red-flipper-inlane-box-2',
         'red-flipper-box-3',
         'red-flipper-box-45',
         'red-flipper-box-6'
     ];
     const yelFlipperGroupBoxIds = [
+        'yel-flipper-inlane-box-5',
         'yel-flipper-box-1',
         'yel-flipper-box-23',
         'yel-flipper-box-4'
@@ -429,12 +431,30 @@ export default function Table(props) {
                 {...props}
             />
             <Outlane boxId="red-outlane-1"
+                canReceiveOn={[1]}
+                canReceiveFrom={allFeatureIds}
+                correspondingFeatureId='start'
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                relevantFlipperBoxIds={redFlipperGroupBoxIds}
                 x="18px"
                 y="815px"
+                {...props}
             />
             <Outlane boxId="yel-outlane-6"
+                canReceiveOn={[6]}
+                canReceiveFrom={allFeatureIds}
+                correspondingFeatureId='start'
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                relevantFlipperBoxIds={yelFlipperGroupBoxIds}
                 x="458px"
                 y="815px"
+                {...props}
             />
             <Box boxId="red-flipper-inlane-box-2"
                 canReceiveOn={[2]}
