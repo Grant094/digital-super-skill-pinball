@@ -15,6 +15,11 @@ export default function Outlane(props) {
     }
     
     return (
-        <Box action={awardOutlanePoints} {...props} />
+        <Box
+            height="130px"
+            width="62px"
+            action={awardOutlanePoints}
+            {...props}
+        />
     );
 }

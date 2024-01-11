@@ -5,6 +5,7 @@ import Feature from "./Feature";
 import Ball from "./Ball";
 import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
+import Outlane from "./Outlane";
 
 export default function Table(props) {
     const bumperGroupBoxIds = [
@@ -426,6 +427,14 @@ export default function Table(props) {
                 width="35px"
                 points="1"
                 {...props}
+            />
+            <Outlane boxId="red-outlane-1"
+                x="18px"
+                y="815px"
+            />
+            <Outlane boxId="yel-outlane-6"
+                x="458px"
+                y="815px"
             />
             <Box boxId="red-flipper-inlane-box-2"
                 canReceiveOn={[2]}
