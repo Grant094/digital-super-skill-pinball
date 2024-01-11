@@ -427,6 +427,21 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
+            <Box boxId="red-flipper-inlane-box-2"
+                canReceiveOn={[2]}
+                canReceiveFrom={allFeatureIds}
+                correspondingFeatureId='red-flipper'
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="94px"
+                y="821px"
+                height="25px"
+                width="25px"
+                points="2"
+                {...props}
+            />
             <Box boxId="red-flipper-box-3"
                 canReceiveOn={[3]}
                 canReceiveFrom={allFeatureIds}
@@ -467,6 +482,21 @@ export default function Table(props) {
                 y="915px"
                 height="45px"
                 width="45px"
+                {...props}
+            />
+            <Box boxId="yel-flipper-inlane-box-5"
+                canReceiveOn={[5]}
+                canReceiveFrom={allFeatureIds}
+                correspondingFeatureId='yel-flipper'
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="419px"
+                y="821px"
+                height="25px"
+                width="25px"
+                points="2"
                 {...props}
             />
             <Box boxId="yel-flipper-box-1"
