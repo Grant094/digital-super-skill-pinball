@@ -46,10 +46,22 @@ export default function Home() {
   }
 
   function rollDice() {
-    setDie1(getRndIntegerInclusive(1, 6));
-    setDie2(getRndIntegerInclusive(1, 6));
+    const prevValueOfDie1 = Number(die1);
+    const prevValueOfDie2 = Number(die2);
+    const nextValueOfDie1 = getRndIntegerInclusive(1, 6);
+    const nextValueOfDie2 = getRndIntegerInclusive(1, 6);
+    setDie1(nextValueOfDie1);
+    setDie2(nextValueOfDie2);
     if (die1AmountNudgedBy || die2AmountNudgedBy) {
       setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+      // TODO check whether player tilted and if so end the round
+      let netNudgeAmount = Math.abs(die1AmountNudgedBy + die2AmountNudgedBy); // since one of them is always zero, you can just add both of them to get the nudge amount from either die.
+
+      if (netNudgeAmount > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
+        alert(`Tilted!`);
+      }
+
+      // after checking tilt status, remove any nudging from both dice
       setDie1AmountNudgedBy(0);
       setDie2AmountNudgedBy(0);
     }

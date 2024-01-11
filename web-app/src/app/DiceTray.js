@@ -49,7 +49,7 @@ export default function DiceTray(props) {
                 nudgesUsed={props.nudgesUsed}
             />
             <p>Nudges Used: {props.nudgesUsed}</p>
-            <p>{netNudgeAmount? `Tilt if difference >= ${netNudgeAmount}`: `Cannot Tilt`}</p> {/* if one of the dice has been nudged, display by how much, otherwise do not show anything */}
+            <p>{netNudgeAmount? `Tilt if difference <= ${netNudgeAmount}`: `Cannot Tilt`}</p> {/* if one of the dice has been nudged, display by how much, otherwise do not show anything */}
         </div>
     );
 }
