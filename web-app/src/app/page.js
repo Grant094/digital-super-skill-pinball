@@ -59,7 +59,11 @@ export default function Home() {
         // end the round and start the next one
         alert(`Tilted!`);
 
-        document.getElementById('drain').click();
+        for (const flipperBoxId of flipperGroupBoxIds) {
+          document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
+        }
+
+        props.setRound(() => Number(props.round) + 1);
       }
 
       // after checking tilt status, remove any nudging from both dice
