@@ -7,6 +7,25 @@ import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 
 export default function Table(props) {
+    const bumperGroupBoxIds = [
+        'box-bumper-12-1st-1',
+        'box-bumper-12-2nd-1',
+        'box-bumper-12-1st-2',
+        'box-bumper-12-2nd-2',
+        'box-bumper-34-1st-3',
+        'box-bumper-34-2nd-3',
+        'box-bumper-34-1st-4',
+        'box-bumper-34-2nd-4',
+        'box-bumper-56-1st-5',
+        'box-bumper-56-2nd-5',
+        'box-bumper-56-1st-6',
+        'box-bumper-56-2nd-6'
+    ];
+    const bumperFeatureIds = [
+        'feature-bumper-12',
+        'feature-bumper-34',
+        'feature-bumper-56'
+    ];
     const yelDropTargetGroupBoxIds = [
         'box-droptarget-yel-12',
         'box-droptarget-yel-34',
@@ -44,7 +63,7 @@ export default function Table(props) {
         'feature-droptarget-red-4',
         'feature-droptarget-red-56'
     ];
-    const allFeatureIds = [...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
+    const allFeatureIds = [...bumperFeatureIds, ...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
 
     useEffect(() => {
         
@@ -61,13 +80,220 @@ export default function Table(props) {
     return (
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
+            {/* bumper-12 */}
+            <Box boxId="box-bumper-12-1st-1"
+                canReceiveOn={[1]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-12"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="155px"
+                y="373px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-12-2nd-1"
+                canReceiveOn={[1]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-12"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="155px"
+                y="402px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-12-1st-2"
+                canReceiveOn={[2]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-12"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="185px"
+                y="373px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-12-2nd-2"
+                canReceiveOn={[2]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-12"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="185px"
+                y="402px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Feature featureId="feature-bumper-12"
+                x="170px"
+                y="388px"
+            />
+            {/* bumper-34 */}
+            <Box boxId="box-bumper-34-1st-3"
+                canReceiveOn={[3]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-34"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="288px"
+                y="373px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-34-2nd-3"
+                canReceiveOn={[3]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-34"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="288px"
+                y="402px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-34-1st-4"
+                canReceiveOn={[4]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-34"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="317px"
+                y="373px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-34-2nd-4"
+                canReceiveOn={[4]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-34"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="317px"
+                y="402px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Feature featureId="feature-bumper-34"
+                x="303px"
+                y="388px"
+            />
+            {/* bumper-56 */}
+            <Box boxId="box-bumper-56-1st-5"
+                canReceiveOn={[5]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-56"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="221px"
+                y="475px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-56-2nd-5"
+                canReceiveOn={[5]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-56"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="221px"
+                y="505px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-56-1st-6"
+                canReceiveOn={[6]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-56"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="251px"
+                y="475px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Box boxId="box-bumper-56-2nd-6"
+                canReceiveOn={[6]}
+                canReceiveFrom={[...flipperIds, 'start']}
+                correspondingFeatureId="feature-bumper-56"
+                groupBoxIds={bumperGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="251px"
+                y="505px"
+                height="25px"
+                width="25px"
+                points="1"
+                {...props}
+            />
+            <Feature featureId="feature-bumper-56"
+                x="236px"
+                y="490px"
+            />
             <Feature featureId="feature-droptarget-yel-12"
                 x="35px"
                 y="700px"
             />
             <Box boxId="box-droptarget-yel-12"
                 canReceiveOn={[1, 2]}
-                canReceiveFrom={['yel-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-12"
                 groupBoxIds={yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -87,7 +313,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-yel-34"
                 canReceiveOn={[3, 4]}
-                canReceiveFrom={['yel-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-34"
                 groupBoxIds={yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -107,7 +333,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-yel-56"
                 canReceiveOn={[5, 6]}
-                canReceiveFrom={['yel-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-56"
                 groupBoxIds={yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -127,7 +353,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-12"
                 canReceiveOn={[1, 2]}
-                canReceiveFrom={['red-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-12"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -147,7 +373,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-3"
                 canReceiveOn={[3]}
-                canReceiveFrom={['red-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-3"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -167,7 +393,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-4"
                 canReceiveOn={[4]}
-                canReceiveFrom={['red-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-4"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -187,7 +413,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-56"
                 canReceiveOn={[5, 6]}
-                canReceiveFrom={['red-flipper', 'start']}
+                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-56"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
