@@ -39,18 +39,25 @@ export default function Table(props) {
         'box-droptarget-red-56'
     ];
     const redFlipperGroupBoxIds = [
-        'red-flipper-inlane-box-2',
         'red-flipper-box-3',
         'red-flipper-box-45',
         'red-flipper-box-6'
     ];
     const yelFlipperGroupBoxIds = [
-        'yel-flipper-inlane-box-5',
         'yel-flipper-box-1',
         'yel-flipper-box-23',
         'yel-flipper-box-4'
     ];
+    const inlaneBoxIds = [
+        'red-flipper-inlane-box-2',
+        'yel-flipper-inlane-box-5',
+    ];
+    const outlaneBoxIds = [
+        'red-outlane-1',
+        'yel-outlane-6'
+    ];
     const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
+    const dashedBoxIds = [...flipperGroupBoxIds, ...inlaneBoxIds, ...outlaneBoxIds];
     const flipperIds = [
         'red-flipper',
         'yel-flipper'
@@ -69,18 +76,17 @@ export default function Table(props) {
     const allFeatureIds = [...bumperFeatureIds, ...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
 
     useEffect(() => {
-        
+        for (const dashedBoxId of dashedBoxIds) {
+            document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
+        }
     }, [props.round])
 
     function drainAction() {
-        for (const flipperBoxId of flipperGroupBoxIds) {
-            document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
+        for (const dashedBoxId of dashedBoxIds) {
+            document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
         }
 
         props.setRound(() => Number(props.round) + 1);
-
-        document.getElementById("red-outlane-1").style.backgroundColor = 'transparent';
-        document.getElementById("yel-outlane-6").style.backgroundColor = 'transparent';
     }
 
     return (

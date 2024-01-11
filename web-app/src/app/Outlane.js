@@ -6,18 +6,21 @@ import Box from "./Box";
 export default function Outlane(props) {
     const POINTS_PER_USED_FLIPPER_BOX = 2;
     const redFlipperGroupBoxIds = [
-        'red-flipper-inlane-box-2',
         'red-flipper-box-3',
         'red-flipper-box-45',
         'red-flipper-box-6'
     ];
     const yelFlipperGroupBoxIds = [
-        'yel-flipper-inlane-box-5',
-        'yel-flipper-box-1',
+                'yel-flipper-box-1',
         'yel-flipper-box-23',
         'yel-flipper-box-4'
     ];
+    const inlaneBoxIds = [
+        'red-flipper-inlane-box-2',
+        'yel-flipper-inlane-box-5'
+    ];
     const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
+    const dashedBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds, ...inlaneBoxIds];
 
     function awardOutlanePoints() {
         let relevantFlipperBoxesUsed = 0;
@@ -31,12 +34,9 @@ export default function Outlane(props) {
 
 
         // end the round
-        for (const flipperBoxId of flipperGroupBoxIds) {
-            document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
+        for (const dashedBoxId of dashedBoxIds) {
+            document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
         }
-
-        document.getElementById("red-outlane-1").style.backgroundColor = 'transparent';
-        document.getElementById("yel-outlane-6").style.backgroundColor = 'transparent';
 
         props.setRound(() => Number(props.round) + 1);
     }
