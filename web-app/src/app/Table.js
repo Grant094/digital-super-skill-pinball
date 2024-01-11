@@ -555,7 +555,6 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Ball x="450px" y="240px" round={props.round} />
             <Box boxId="drain"
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={allFeatureIds}
@@ -572,6 +571,7 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
+            <Ball x="450px" y="240px" round={props.round} />
             <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" x="950px" y="414px" {...props}/>
             <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" x="950px" y="451px" {...props}/>
             <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" x="950px" y="487px" {...props}/>
