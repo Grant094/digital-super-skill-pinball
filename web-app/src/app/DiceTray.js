@@ -49,8 +49,7 @@ export default function DiceTray(props) {
                 nudgesUsed={props.nudgesUsed}
             />
             <p>Nudges Used: {props.nudgesUsed}</p>
-            {/* line below will be used once tilting is implemented as part of limiting the number of rounds in a game
-            <p>{netNudgeAmount? `Tilt if difference >= ${netNudgeAmount}`: `Cannot Tilt`}</p> {/* if one of the dice has been nudged, display by how much, otherwise do not show anything */}
+            <p>{netNudgeAmount? `Tilt if difference <= ${netNudgeAmount}`: `Cannot Tilt`}</p> {/* if one of the dice has been nudged, display by how much, otherwise do not show anything */}
         </div>
     );
 }

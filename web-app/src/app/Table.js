@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Feature from "./Feature";
 import Ball from "./Ball";
 import Box from "./Box";
+import RoundIndicator from "./RoundIndicator";
 
 export default function Table(props) {
-    const [ball1FeatureId, setBall1FeatureId] = useState('start');
-    const [ball2FeatureId, setBall2FeatureId] = useState('');
     const yelDropTargetGroupBoxIds = [
         'box-droptarget-yel-12',
         'box-droptarget-yel-34',
@@ -47,10 +46,16 @@ export default function Table(props) {
     ];
     const allFeatureIds = [...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
 
+    useEffect(() => {
+        
+    }, [props.round])
+
     function drainAction() {
         for (const flipperBoxId of flipperGroupBoxIds) {
             document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
         }
+
+        props.setRound(() => Number(props.round) + 1);
     }
 
     return (
@@ -65,10 +70,10 @@ export default function Table(props) {
                 canReceiveFrom={['yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-12"
                 groupBoxIds={yelDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="30px"
                 y="675px"
                 height="60px"
@@ -85,10 +90,10 @@ export default function Table(props) {
                 canReceiveFrom={['yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-34"
                 groupBoxIds={yelDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="60px"
                 y="615px"
                 height="60px"
@@ -105,10 +110,10 @@ export default function Table(props) {
                 canReceiveFrom={['yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-56"
                 groupBoxIds={yelDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="95px"
                 y="560px"
                 height="60px"
@@ -125,10 +130,10 @@ export default function Table(props) {
                 canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-12"
                 groupBoxIds={redDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="415px"
                 y="570px"
                 height="50px"
@@ -145,10 +150,10 @@ export default function Table(props) {
                 canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-3"
                 groupBoxIds={redDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="435px"
                 y="621px"
                 height="40px"
@@ -165,10 +170,10 @@ export default function Table(props) {
                 canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-4"
                 groupBoxIds={redDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="455px"
                 y="665px"
                 height="42px"
@@ -185,10 +190,10 @@ export default function Table(props) {
                 canReceiveFrom={['red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-56"
                 groupBoxIds={redDropTargetGroupBoxIds}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="480px"
                 y="710px"
                 height="55px"
@@ -200,10 +205,10 @@ export default function Table(props) {
                 canReceiveOn={[3]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="215px"
                 y="840px"
                 height="35px"
@@ -214,10 +219,10 @@ export default function Table(props) {
                 canReceiveOn={[4, 5]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="195px"
                 y="875px"
                 height="45px"
@@ -228,10 +233,10 @@ export default function Table(props) {
                 canReceiveOn={[6]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="178px"
                 y="915px"
                 height="45px"
@@ -242,10 +247,10 @@ export default function Table(props) {
                 canReceiveOn={[1]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="285px"
                 y="840px"
                 height="40px"
@@ -256,10 +261,10 @@ export default function Table(props) {
                 canReceiveOn={[2, 3]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="300px"
                 y="875px"
                 height="45px"
@@ -270,10 +275,10 @@ export default function Table(props) {
                 canReceiveOn={[4]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="315px"
                 y="915px"
                 height="45px"
@@ -294,23 +299,26 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Ball x="450px" y="240px" />
+            <Ball x="450px" y="240px" round={props.round} />
             <Box boxId="drain"
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='start'
                 action={drainAction}
                 groupBoxIds={['drain']}
-                ball1FeatureId={ball1FeatureId}
-                ball2FeatureId={ball2FeatureId}
-                setBall1FeatureId={setBall1FeatureId}
-                setBall2FeatureId={setBall2FeatureId}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
                 x="220px"
                 y="920px"
                 height="85px"
                 width="98px"
                 {...props}
             />
+            <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" x="950px" y="414px" {...props}/>
+            <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" x="950px" y="451px" {...props}/>
+            <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" x="950px" y="487px" {...props}/>
         </div>
     );
 }

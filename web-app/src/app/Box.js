@@ -1,9 +1,14 @@
 'use client'
 
-import React from "react";
+import React, { useEffect } from "react";
 import styles from './box.module.css'
 
 export default function Box(props) {
+
+    useEffect(() => {
+
+    }, [props.round])
+
     function handleClick() {
         const box = document.getElementById(props.boxId);
 
@@ -74,7 +79,8 @@ export default function Box(props) {
                 top: props.y,
                 left: props.x,
                 height: props.height,
-                width: props.width
+                width: props.width,
+                visibility: (Number(props.round) > 3)? "hidden": "visible"
             }}
         >
         </div>
