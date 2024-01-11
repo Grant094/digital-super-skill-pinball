@@ -16,6 +16,8 @@ export default function Home() {
   const [nudgesUsed, setNudgesUsed] = useState(0);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
+  const [ball1FeatureId, setBall1FeatureId] = useState('start');
+  const [ball2FeatureId, setBall2FeatureId] = useState('');
 
   const redFlipperGroupBoxIds = [
     'red-flipper-box-3',
@@ -71,6 +73,20 @@ export default function Home() {
         alert(`Tilted!`);
 
         // TODO end the round and start another one
+        // // clear flipper boxes
+        for (const flipperBoxId of flipperGroupBoxIds) {
+          document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
+        }
+
+        // // increment round
+        setRound(() => Number(round) + 1);
+
+        // // move ball to start
+        const ball = document.getElementById('ball');
+        const start = document.getElementById('start');
+        ball.style.left = start.style.left;
+        ball.style.top = start.style.top;
+        setBall1FeatureId('start');
       }
 
       // after checking tilt status, remove any nudging from both dice
@@ -89,6 +105,10 @@ export default function Home() {
         setScore={setScore}
         round={round}
         setRound={setRound}
+        ball1FeatureId={ball1FeatureId}
+        setBall1FeatureId={setBall1FeatureId}
+        ball2FeatureId={ball2FeatureId}
+        setBall2FeatureId={setBall2FeatureId}
       />
       <DiceTray
         die1={die1}
