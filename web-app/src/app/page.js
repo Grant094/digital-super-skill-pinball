@@ -17,6 +17,18 @@ export default function Home() {
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
 
+  const redFlipperGroupBoxIds = [
+    'red-flipper-box-3',
+    'red-flipper-box-45',
+    'red-flipper-box-6'
+  ];
+  const yelFlipperGroupBoxIds = [
+      'yel-flipper-box-1',
+      'yel-flipper-box-23',
+      'yel-flipper-box-4'
+  ];
+  const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
+
   useEffect(() => {
     if (round > 3) {
       alert(`Game over!`);
@@ -56,14 +68,9 @@ export default function Home() {
       let netNudgeAmount = Math.abs(die1AmountNudgedBy + die2AmountNudgedBy); // since one of them is always zero, you can just add both of them to get the nudge amount from either die.
 
       if (netNudgeAmount > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
-        // end the round and start the next one
         alert(`Tilted!`);
 
-        for (const flipperBoxId of flipperGroupBoxIds) {
-          document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
-        }
-
-        props.setRound(() => Number(props.round) + 1);
+        // TODO end the round and start another one
       }
 
       // after checking tilt status, remove any nudging from both dice
