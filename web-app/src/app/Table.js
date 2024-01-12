@@ -8,6 +8,17 @@ import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
 
 export default function Table(props) {
+    //#region id-arrays
+    const ferriswheelGroupBoxIds = [
+        "box-ferriswheel-car-12",
+        "box-ferriswheel-car-34",
+        "box-ferriswheel-car-56",
+    ];
+    const ferriswheelFeatureIds = [
+        "feature-ferriswheel-car-12",
+        "feature-ferriswheel-car-34",
+        "feature-ferriswheel-car-56",
+    ];
     const bumperGroupBoxIds = [
         'box-bumper-12-1st-1',
         'box-bumper-12-2nd-1',
@@ -73,8 +84,8 @@ export default function Table(props) {
         'feature-droptarget-red-4',
         'feature-droptarget-red-56'
     ];
-    const allFeatureIds = [...bumperFeatureIds, ...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
-
+    const allFeatureIds = [...ferriswheelFeatureIds, ...bumperFeatureIds, ...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
+    //#endregion
     useEffect(() => {
         for (const dashedBoxId of dashedBoxIds) {
             document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
@@ -92,6 +103,71 @@ export default function Table(props) {
     return (
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
+            //#region ferriswheel-cars
+            //#region ferriswheel-car-12
+            <Box boxId="box-ferriswheel-car-12"
+                canReceiveOn={[1, 2]}
+                canReceiveFrom={['start', 'yel-flipper']}
+                correspondingFeatureId="feature-ferriswheel-car-12"
+                groupBoxIds={ferriswheelGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="160px"
+                y="246px"
+                height="48px"
+                width="65px"
+                {...props}
+            />
+            <Feature featureId="feature-ferriswheel-car-12"
+                x="182px"
+                y="304px"
+            />
+            //#endregion
+            //#region ferriswheel-car-34
+            <Box boxId="box-ferriswheel-car-34"
+                canReceiveOn={[3, 4]}
+                canReceiveFrom={['start', 'yel-flipper']}
+                correspondingFeatureId="feature-ferriswheel-car-34"
+                groupBoxIds={ferriswheelGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="255px"
+                y="230px"
+                height="40px"
+                width="62px"
+                {...props}
+            />
+            <Feature featureId="feature-ferriswheel-car-34"
+                x="274px"
+                y="280px"
+            />
+            //#endregion
+            //#region ferriswheel-car-56
+            <Box boxId="box-ferriswheel-car-56"
+                canReceiveOn={[5, 6]}
+                canReceiveFrom={['start', 'yel-flipper']}
+                correspondingFeatureId="feature-ferriswheel-car-56"
+                groupBoxIds={ferriswheelGroupBoxIds}
+                ball1FeatureId={props.ball1FeatureId}
+                ball2FeatureId={props.ball2FeatureId}
+                setBall1FeatureId={props.setBall1FeatureId}
+                setBall2FeatureId={props.setBall2FeatureId}
+                x="350px"
+                y="246px"
+                height="48px"
+                width="62px"
+                {...props}
+            />
+            <Feature featureId="feature-ferriswheel-car-56"
+                x="365px"
+                y="304px"
+            />
+            //#endregion
+            //#endregion
             {/* bumper-12 */}
             <Box boxId="box-bumper-12-1st-1"
                 canReceiveOn={[1]}
@@ -111,7 +187,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-12-2nd-1"
                 canReceiveOn={[1]}
-                canReceiveFrom={['start', 'feature-bumper-56', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-56', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-12"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -127,7 +203,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-12-1st-2"
                 canReceiveOn={[2]}
-                canReceiveFrom={['start', 'feature-bumper-56', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-56', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-12"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -143,7 +219,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-12-2nd-2"
                 canReceiveOn={[2]}
-                canReceiveFrom={['start', 'feature-bumper-56', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-56', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-12"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -164,7 +240,7 @@ export default function Table(props) {
             {/* bumper-34 */}
             <Box boxId="box-bumper-34-1st-3"
                 canReceiveOn={[3]}
-                canReceiveFrom={['start', 'feature-bumper-12', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-12', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-34"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -180,7 +256,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-34-2nd-3"
                 canReceiveOn={[3]}
-                canReceiveFrom={['start', 'feature-bumper-12', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-12', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-34"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -196,7 +272,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-34-1st-4"
                 canReceiveOn={[4]}
-                canReceiveFrom={['start', 'feature-bumper-12', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-12', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-34"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -212,7 +288,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-34-2nd-4"
                 canReceiveOn={[4]}
-                canReceiveFrom={['start', 'feature-bumper-12', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-12', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-34"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -233,7 +309,7 @@ export default function Table(props) {
             {/* bumper-56 */}
             <Box boxId="box-bumper-56-1st-5"
                 canReceiveOn={[5]}
-                canReceiveFrom={['start', 'feature-bumper-34', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-34', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-56"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -249,7 +325,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-56-2nd-5"
                 canReceiveOn={[5]}
-                canReceiveFrom={['start', 'feature-bumper-34', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-34', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-56"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -265,7 +341,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-56-1st-6"
                 canReceiveOn={[6]}
-                canReceiveFrom={['start', 'feature-bumper-34', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-34', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-56"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -281,7 +357,7 @@ export default function Table(props) {
             />
             <Box boxId="box-bumper-56-2nd-6"
                 canReceiveOn={[6]}
-                canReceiveFrom={['start', 'feature-bumper-34', ...flipperIds]}
+                canReceiveFrom={['start', ...ferriswheelFeatureIds, 'feature-bumper-34', ...flipperIds]}
                 correspondingFeatureId="feature-bumper-56"
                 groupBoxIds={bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -305,7 +381,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-yel-12"
                 canReceiveOn={[1, 2]}
-                canReceiveFrom={[...bumperFeatureIds, 'yel-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-12"
                 groupBoxIds={yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -325,7 +401,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-yel-34"
                 canReceiveOn={[3, 4]}
-                canReceiveFrom={[...bumperFeatureIds, 'yel-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-34"
                 groupBoxIds={yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -345,7 +421,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-yel-56"
                 canReceiveOn={[5, 6]}
-                canReceiveFrom={[...bumperFeatureIds, 'yel-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'yel-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-yel-56"
                 groupBoxIds={yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -365,7 +441,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-12"
                 canReceiveOn={[1, 2]}
-                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-12"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -385,7 +461,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-3"
                 canReceiveOn={[3]}
-                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-3"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -405,7 +481,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-4"
                 canReceiveOn={[4]}
-                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-4"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
@@ -425,7 +501,7 @@ export default function Table(props) {
             />
             <Box boxId="box-droptarget-red-56"
                 canReceiveOn={[5, 6]}
-                canReceiveFrom={[...bumperFeatureIds, 'red-flipper', 'start']}
+                canReceiveFrom={[...ferriswheelFeatureIds, ...bumperFeatureIds, 'red-flipper', 'start']}
                 correspondingFeatureId="feature-droptarget-red-56"
                 groupBoxIds={redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
