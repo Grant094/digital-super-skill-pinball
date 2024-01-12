@@ -6,6 +6,7 @@ import Ball from "./Ball";
 import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
+import DashedBox from "./DashedBox";
 
 export default function Table(props) {
     //#region id-arrays
@@ -678,7 +679,7 @@ export default function Table(props) {
                 y="815px"
                 {...props}
             />
-            <Box boxId="red-flipper-inlane-box-2"
+            <DashedBox boxId="red-flipper-inlane-box-2"
                 canReceiveOn={[2]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
@@ -693,7 +694,7 @@ export default function Table(props) {
                 points="2"
                 {...props}
             />
-            <Box boxId="red-flipper-box-3"
+            <DashedBox boxId="red-flipper-box-3"
                 canReceiveOn={[3]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
@@ -707,7 +708,7 @@ export default function Table(props) {
                 width="40px"
                 {...props}
             />
-            <Box boxId="red-flipper-box-45"
+            <DashedBox boxId="red-flipper-box-45"
                 canReceiveOn={[4, 5]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
@@ -721,7 +722,7 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <Box boxId="red-flipper-box-6"
+            <DashedBox boxId="red-flipper-box-6"
                 canReceiveOn={[6]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='red-flipper'
@@ -735,7 +736,7 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <Box boxId="yel-flipper-inlane-box-5"
+            <DashedBox boxId="yel-flipper-inlane-box-5"
                 canReceiveOn={[5]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
@@ -750,7 +751,7 @@ export default function Table(props) {
                 points="2"
                 {...props}
             />
-            <Box boxId="yel-flipper-box-1"
+            <DashedBox boxId="yel-flipper-box-1"
                 canReceiveOn={[1]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
@@ -764,7 +765,7 @@ export default function Table(props) {
                 width="40px"
                 {...props}
             />
-            <Box boxId="yel-flipper-box-23"
+            <DashedBox boxId="yel-flipper-box-23"
                 canReceiveOn={[2, 3]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
@@ -778,7 +779,7 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <Box boxId="yel-flipper-box-4"
+            <DashedBox boxId="yel-flipper-box-4"
                 canReceiveOn={[4]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='yel-flipper'
