@@ -62,6 +62,7 @@ export default function Box(props) {
                 Die1: ${props.die1}
                 Die2: ${props.die2}
                 canRecieveOn: ${props.canReceiveOn}
+                canRecieveFrom: ${props.canReceiveFrom}
             `);
         }
 
