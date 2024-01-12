@@ -102,6 +102,7 @@ export default function Table(props) {
     ];
     const allFeatureIds = [...ferriswheelFeatureIds, ...featofstrengthFeatureIds, ...bumperFeatureIds, ...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
     //#endregion
+    
     useEffect(() => {
         for (const dashedBoxId of dashedBoxIds) {
             document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
@@ -109,10 +110,6 @@ export default function Table(props) {
     }, [props.round])
 
     function drainAction() {
-        for (const dashedBoxId of dashedBoxIds) {
-            document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
-        }
-
         props.setRound(() => Number(props.round) + 1);
     }
 
