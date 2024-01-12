@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from "react"
-import Box from "./Box";
+import DashedBox from "./DashedBox";
 
 export default function Outlane(props) {
     const POINTS_PER_USED_FLIPPER_BOX = 2;
@@ -42,7 +42,7 @@ export default function Outlane(props) {
     }
     
     return (
-        <Box
+        <DashedBox
             height="130px"
             width="62px"
             action={awardOutlanePoints}
