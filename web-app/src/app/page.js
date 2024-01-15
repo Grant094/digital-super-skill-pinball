@@ -65,7 +65,7 @@ export default function Home() {
       if (netNudgeAmount > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
         alert(`Tilted!`);
 
-        // TODO end the round and start another one
+        // end the round and start another one
         // // clear flipper boxes
         for (const flipperBoxId of constants.flipperGroupBoxIds) {
           document.getElementById(flipperBoxId).style.backgroundColor = "transparent";
