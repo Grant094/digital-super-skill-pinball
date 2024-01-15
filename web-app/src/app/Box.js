@@ -80,7 +80,7 @@ export default function Box(props) {
                 left: props.left,
                 height: props.height,
                 width: props.width,
-                visibility: (Number(props.round) > 3)? "hidden": "visible"
+                visibility: (Number(props.round) > 3)? "hidden": "visible",
             }}
         >
         </div>
