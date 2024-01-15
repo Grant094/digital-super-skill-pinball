@@ -1,3 +1,4 @@
+export const start = "start";
 export const redFlipper = "red-flipper";
 export const yelFlipper = "yel-flipper";
 export const flipperIds = [
@@ -34,6 +35,7 @@ export const featofstrengthGroupBoxIds = [
     "box-featofstrength-5",
     "box-featofstrength-6",
 ];
+export const featofstrengthCanReceiveFrom = [redFlipper];
 export const bumperGroupBoxIds = [
     'box-bumper-12-1st-1',
     'box-bumper-12-2nd-1',
@@ -53,6 +55,12 @@ export const bumperFeatureIds = [
     'feature-bumper-34',
     'feature-bumper-56'
 ];
+export const bumperAllCanReceiveFrom = [
+    start,
+    ...ferriswheelFeatureIds,
+    redFlipper,
+    yelFlipper,
+];
 export const yelDropTargetGroupBoxIds = [
     'box-droptarget-yel-12',
     'box-droptarget-yel-34',
@@ -63,6 +71,12 @@ export const redDropTargetGroupBoxIds = [
     'box-droptarget-red-3',
     'box-droptarget-red-4',
     'box-droptarget-red-56'
+];
+export const dropTargetAllCanReceiveFrom = [
+    start,
+    ...ferriswheelFeatureIds,
+    ...bumperFeatureIds,
+    ...featofstrengthFeatureIds,
 ];
 export const redFlipperGroupBoxIds = [
     'red-flipper-box-3',
