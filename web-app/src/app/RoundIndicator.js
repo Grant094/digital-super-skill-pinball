@@ -11,7 +11,7 @@ export default function RoundIndicator(props) {
             style={{
                 top: props.top,
                 left: props.left,
-                visibility: (Number(props.forRound) <= Number(props.round)) ? "visible": "hidden"
+                visibility: (Number(props.forRound) <= Number(props.round)) ? "visible": "hidden",
             }}
         >
             X

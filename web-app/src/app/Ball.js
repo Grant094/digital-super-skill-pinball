@@ -14,7 +14,7 @@ export default function Ball(props) {
                 position: "absolute",
                 top: props.top,
                 left: props.left,
-                visibility: (Number(props.round) > 3)? "hidden": "visible"
+                visibility: (Number(props.round) > 3)? "hidden": "visible",
             }}
             src="/images/ball.jpg"
             height="25px"

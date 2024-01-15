@@ -41,40 +41,67 @@ export const ferriswheelCanReceiveFrom = [
 //#region bumper121BoxIds
 export const bumper121st1BoxId = "box-bumper-12-1st-1";
 export const bumper122nd1BoxId = "box-bumper-12-2nd-1";
-export const bumper121BoxIds = [bumper121st1BoxId, bumper122nd1BoxId,];
+export const bumper121BoxIds = [
+    bumper121st1BoxId,
+    bumper122nd1BoxId,
+];
 //#endregion
 //#region bumper122BoxIds
 export const bumper121st2BoxId = "box-bumper-12-1st-2";
 export const bumper122nd2BoxId = "box-bumper-12-2nd-2";
-export const bumper122BoxIds = [bumper121st2BoxId, bumper122nd2BoxId,];
+export const bumper122BoxIds = [
+    bumper121st2BoxId,
+    bumper122nd2BoxId,
+];
 //#endregion
-export const bumper12BoxIds = [...bumper121BoxIds, ...bumper122BoxIds];
+export const bumper12BoxIds = [
+    ...bumper121BoxIds,
+    ...bumper122BoxIds
+];
 //#endregion
 //#region bumper34
 //#region bumper343BoxIds
 export const bumper341st3BoxId = "box-bumper-34-1st-3";
 export const bumper342nd3BoxId = "box-bumper-34-2nd-3";
-export const bumper343BoxIds = [bumper341st3BoxId, bumper342nd3BoxId,];
+export const bumper343BoxIds = [
+    bumper341st3BoxId,
+    bumper342nd3BoxId,
+];
 //#endregion
 //#region bumper344BoxIds
 export const bumper341st4BoxId = "box-bumper-34-1st-4";
 export const bumper342nd4BoxId = "box-bumper-34-2nd-4";
-export const bumper344BoxIds = [bumper341st4BoxId, bumper342nd4BoxId,];
+export const bumper344BoxIds = [
+    bumper341st4BoxId,
+    bumper342nd4BoxId,
+];
 //#endregion
-export const bumper34BoxIds = [...bumper343BoxIds, ...bumper344BoxIds];
+export const bumper34BoxIds = [
+    ...bumper343BoxIds,
+    ...bumper344BoxIds
+];
 //#endregion
 //#region bumper56
 //#region bumper565BoxIds
 export const bumper561st5BoxId = "box-bumper-56-1st-5";
 export const bumper562nd5BoxId = "box-bumper-56-2nd-5";
-export const bumper565BoxIds = [bumper561st5BoxId, bumper562nd5BoxId,];
+export const bumper565BoxIds = [
+    bumper561st5BoxId,
+    bumper562nd5BoxId,
+];
 //#endregion
 //#region bumper566BoxIds
 export const bumper561st6BoxId = "box-bumper-56-1st-6";
 export const bumper562nd6BoxId = "box-bumper-56-2nd-6";
-export const bumper566BoxIds = [bumper561st6BoxId, bumper562nd6BoxId];
+export const bumper566BoxIds = [
+    bumper561st6BoxId,
+    bumper562nd6BoxId
+];
 //#endregion
-export const bumper56BoxIds = [...bumper565BoxIds, ...bumper566BoxIds];
+export const bumper56BoxIds = [
+    ...bumper565BoxIds,
+    ...bumper566BoxIds
+];
 //#endregion
 export const bumperGroupBoxIds = [
     ...bumper12BoxIds,
@@ -248,12 +275,23 @@ export const outlaneBoxIds = [
     yelOutlaneBox,
 ];
 //#endregion
-export const dashedBoxIds = [...flipperGroupBoxIds, ...inlaneBoxIds, ...outlaneBoxIds];
+export const dashedBoxIds = [
+    ...flipperGroupBoxIds,
+    ...inlaneBoxIds,
+    ...outlaneBoxIds,
+];
 //#endregion
 //#region drain
 export const drainBoxId = "box-drain-123456";
 export const drainGroupBoxIds = [drainBoxId];
 //#endregion
 //#region allFeatureIds
-export const allFeatureIds = [startFeatureId, ...ferriswheelFeatureIds, ...featofstrengthFeatureIds, ...bumperFeatureIds, ...flipperIds, ...dropTargetFeatureIds];
+export const allFeatureIds = [
+    startFeatureId,
+    ...ferriswheelFeatureIds,
+    ...featofstrengthFeatureIds,
+    ...bumperFeatureIds,
+    ...flipperIds,
+    ...dropTargetFeatureIds
+];
 //#endregion
