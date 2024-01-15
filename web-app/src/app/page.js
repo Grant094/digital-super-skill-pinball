@@ -10,6 +10,7 @@ import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
 
 export default function Home() {
+  //#region state
   const [die1, setDie1] = useState(0);
   const [die2, setDie2] = useState(0);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
@@ -19,6 +20,7 @@ export default function Home() {
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState("");
+  //#endregion
 
   useEffect(() => {
     if (round > 3) {
@@ -39,11 +41,12 @@ export default function Home() {
       }
     }
 
-    // move ball back to start
+    //#region move-ball-to-start
     const ball = document.getElementById("ball");
     const start = document.getElementById(constants.startFeatureId);
     ball.style.top = start.style.top;
     ball.style.left = start.style.left;
+    //#endregion
 
     rollDice();
   }
@@ -55,6 +58,7 @@ export default function Home() {
     setDie2(nextValueOfDie2);
     if (die1AmountNudgedBy || die2AmountNudgedBy) {
       setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+      
       // check whether player tilted and if so end the round
       let netNudgeAmount = Math.abs(die1AmountNudgedBy + die2AmountNudgedBy); // since one of them is always zero, you can just add both of them to get the nudge amount from either die.
 
@@ -70,12 +74,13 @@ export default function Home() {
         // // increment round
         setRound(() => Number(round) + 1);
 
-        // // move ball to start
+        //#region move-ball-to-start
         const ball = document.getElementById("ball");
         const start = document.getElementById(constants.startFeatureId);
         ball.style.left = start.style.left;
         ball.style.top = start.style.top;
         setBall1FeatureId(constants.startFeatureId);
+        //#endregion
       }
 
       // after checking tilt status, remove any nudging from both dice
