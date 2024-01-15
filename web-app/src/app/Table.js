@@ -44,7 +44,7 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="ferriswheelcar34">
-                    <Box boxId={constants.ferriswheelcar34FeatureId}
+                    <Box boxId={constants.ferriswheelcar34BoxId}
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.ferriswheelCanReceiveFrom}
                         correspondingFeatureId={constants.ferriswheelcar34FeatureId}
@@ -774,9 +774,9 @@ export default function Table(props) {
             />
             <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="roundindicators">
-                <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" left="950px" top="414px" {...props} />
-                <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" left="950px" top="451px" {...props} />
-                <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" left="950px" top="487px" {...props} />
+                <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />
+                <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" top="950px" left="451px" {...props} />
+                <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" top="950px" left="487px" {...props} />
             </Fragment>
         </div>
     );

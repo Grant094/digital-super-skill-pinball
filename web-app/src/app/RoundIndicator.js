@@ -9,8 +9,8 @@ export default function RoundIndicator(props) {
             className={styles.RoundIndicator}
             // TMK .module.css files cannot access props, so this styling needs to be defined here
             style={{
-                top: props.x,
-                left: props.y,
+                top: props.top,
+                left: props.left,
                 visibility: (Number(props.forRound) <= Number(props.round)) ? "visible": "hidden"
             }}
         >
