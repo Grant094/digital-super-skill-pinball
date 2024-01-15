@@ -44,7 +44,7 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="ferriswheelcar34">
-                    <Box boxId={constants.ferriswheelcar34FeatureId}
+                    <Box boxId={constants.ferriswheelcar34BoxId}
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.ferriswheelCanReceiveFrom}
                         correspondingFeatureId={constants.ferriswheelcar34FeatureId}
