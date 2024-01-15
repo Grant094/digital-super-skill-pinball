@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect, Fragment } from "react";
 import styles from "./dicetray.module.css"
+import calcNetNudgeAmount from "./CalcNetNudgeAmount";
 import NudgeUpButton from "./NudgeUpButton";
 import NudgeDnButton from "./NudgeDnButton";
 
 export default function DiceTray(props) {
-    let netNudgeAmount = Math.abs(props.die1AmountNudgedBy + props.die2AmountNudgedBy); // since one of them is always zero, you can just add both of them to get the nudge amount from either die.
+    let netNudgeAmount = calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy);
     
     useEffect(() => {
         props.rollDice();

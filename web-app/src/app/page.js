@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import * as constants from "./constants";
+import calcNetNudgeAmount from "./CalcNetNudgeAmount";
 import getRndIntegerInclusive from "./getRndIntegerInclusive";
 import styles from "./page.module.css"
 import Table from "./Table"
@@ -37,9 +38,7 @@ export default function Home() {
       setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
       
       // check whether player tilted and if so end the round
-      let netNudgeAmount = Math.abs(die1AmountNudgedBy + die2AmountNudgedBy); // since one of them is always zero, you can just add both of them to get the nudge amount from either die.
-
-      if (netNudgeAmount > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
+      if (calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
         alert(`Tilted!`);
 
         // end the round and start another one
