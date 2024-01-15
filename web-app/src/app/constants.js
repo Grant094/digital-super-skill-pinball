@@ -1,3 +1,9 @@
+export const redFlipper = "red-flipper";
+export const yelFlipper = "yel-flipper";
+export const flipperIds = [
+    redFlipper,
+    yelFlipper,
+];
 export const ferriswheelGroupBoxIds = [
     "box-ferriswheel-car-12",
     "box-ferriswheel-car-34",
@@ -7,6 +13,10 @@ export const ferriswheelFeatureIds = [
     "feature-ferriswheel-car-12",
     "feature-ferriswheel-car-34",
     "feature-ferriswheel-car-56",
+];
+export const ferriswheelCanReceiveFrom = [
+    start,
+    yelFlipper,
 ];
 export const featofstrengthFeatureIds = [
     "feature-featofstrength-1",
@@ -74,10 +84,6 @@ export const outlaneBoxIds = [
 ];
 export const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
 export const dashedBoxIds = [...flipperGroupBoxIds, ...inlaneBoxIds, ...outlaneBoxIds];
-export const flipperIds = [
-    'red-flipper',
-    'yel-flipper'
-];
 export const redDropTargetFeatureIds = [
     'feature-droptarget-red-12',
     'feature-droptarget-red-3',
