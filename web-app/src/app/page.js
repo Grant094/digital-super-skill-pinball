@@ -17,7 +17,7 @@ export default function Home() {
   const [nudgesUsed, setNudgesUsed] = useState(0);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
-  const [ball1FeatureId, setBall1FeatureId] = useState(constants.start);
+  const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState('');
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Home() {
 
     // move ball back to start
     const ball = document.getElementById('ball');
-    const start = document.getElementById(constants.start);
+    const start = document.getElementById(constants.startFeatureId);
     ball.style.top = start.style.top;
     ball.style.left = start.style.left;
 
@@ -72,10 +72,10 @@ export default function Home() {
 
         // // move ball to start
         const ball = document.getElementById('ball');
-        const start = document.getElementById(constants.start);
+        const start = document.getElementById(constants.startFeatureId);
         ball.style.left = start.style.left;
         ball.style.top = start.style.top;
-        setBall1FeatureId(constants.start);
+        setBall1FeatureId(constants.startFeatureId);
       }
 
       // after checking tilt status, remove any nudging from both dice

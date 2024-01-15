@@ -560,7 +560,7 @@ export default function Table(props) {
             <Outlane boxId={constants.redOutlaneBox}
                 canReceiveOn={[1]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId={constants.start}
+                correspondingFeatureId={constants.startFeatureId}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -573,7 +573,7 @@ export default function Table(props) {
             <Outlane boxId={constants.yelOutlaneBox}
                 canReceiveOn={[6]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId={constants.start}
+                correspondingFeatureId={constants.startFeatureId}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -705,7 +705,7 @@ export default function Table(props) {
                 x="320px" 
                 y="970px"
             />
-            <Feature featureId={constants.start}
+            <Feature featureId={constants.startFeatureId}
                 x="450px"
                 y="240px"
                 height="50px"
@@ -714,7 +714,7 @@ export default function Table(props) {
             <Drain boxId={constants.drainBoxId}
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId={constants.start}
+                correspondingFeatureId={constants.startFeatureId}
                 groupBoxIds={constants.drainGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}

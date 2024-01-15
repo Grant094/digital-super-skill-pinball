@@ -1,4 +1,4 @@
-export const start = "start";
+export const startFeatureId = "start";
 export const redFlipper = "red-flipper";
 export const yelFlipper = "yel-flipper";
 export const flipperIds = [
@@ -22,7 +22,7 @@ export const ferriswheelGroupBoxIds = [
     ferriswheelcar56BoxId,
 ];
 export const ferriswheelCanReceiveFrom = [
-    start,
+    startFeatureId,
     yelFlipper,
 ];
 export const featofstrengthSpace1FeatureId = "feature-featofstrength-1";
@@ -89,7 +89,7 @@ export const bumperFeatureIds = [
     bumper56FeatureId,
 ];
 export const bumperAllCanReceiveFrom = [
-    start,
+    startFeatureId,
     ...ferriswheelFeatureIds,
     redFlipper,
     yelFlipper,
@@ -125,7 +125,7 @@ export const redDropTargetGroupBoxIds = [
     redDropTarget56BoxId,
 ];
 export const dropTargetAllCanReceiveFrom = [
-    start,
+    startFeatureId,
     ...ferriswheelFeatureIds,
     ...bumperFeatureIds,
     ...featofstrengthFeatureIds,
@@ -184,4 +184,4 @@ export const dropTargetFeatureIds = [
 ];
 export const drainBoxId = "box-drain-123456";
 export const drainGroupBoxIds = [drainBoxId];
-export const allFeatureIds = [start, ...ferriswheelFeatureIds, ...featofstrengthFeatureIds, ...bumperFeatureIds, ...flipperIds, ...dropTargetFeatureIds];
+export const allFeatureIds = [startFeatureId, ...ferriswheelFeatureIds, ...featofstrengthFeatureIds, ...bumperFeatureIds, ...flipperIds, ...dropTargetFeatureIds];
