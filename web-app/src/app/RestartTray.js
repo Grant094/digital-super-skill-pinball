@@ -15,7 +15,7 @@ export default function RestartTray(props) {
         //#region clear-all-boxes
         const allDivs = document.querySelectorAll("div");
         for (const div of allDivs) {
-            if (div.className.includes("box") || div.className.includes("feature")) {
+            if (div.className.includes("box")) {
                 div.style.backgroundColor = "transparent";
             }
         }
