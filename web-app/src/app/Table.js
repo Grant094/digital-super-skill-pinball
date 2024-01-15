@@ -7,6 +7,7 @@ import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
 import DashedBox from "./DashedBox";
+import Drain from "./Drain";
 
 export default function Table(props) {
     //#region id-arrays
@@ -109,10 +110,6 @@ export default function Table(props) {
             document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
         }
     }, [props.round])
-
-    function drainAction() {
-        props.setRound(() => Number(props.round) + 1);
-    }
 
     return (
         <div id="table">
@@ -807,11 +804,10 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Box boxId="drain"
+            <Drain boxId="drain"
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={allFeatureIds}
                 correspondingFeatureId='start'
-                action={drainAction}
                 groupBoxIds={['drain']}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
