@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from "react";
 import * as constants from "./constants";
 import getRndIntegerInclusive from "./getRndIntegerInclusive";
-import styles from './page.module.css'
-import Table from './Table'
-import DiceTray from './DiceTray';
+import styles from "./page.module.css"
+import Table from "./Table"
+import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
 
@@ -18,7 +18,7 @@ export default function Home() {
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
-  const [ball2FeatureId, setBall2FeatureId] = useState('');
+  const [ball2FeatureId, setBall2FeatureId] = useState("");
 
   useEffect(() => {
     if (round > 3) {
@@ -35,12 +35,12 @@ export default function Home() {
     const allDivs = document.querySelectorAll("div");
     for (const div of allDivs) {
       if (div.className.includes("box") || div.className.includes("feature")) {
-        div.style.backgroundColor = 'transparent';
+        div.style.backgroundColor = "transparent";
       }
     }
 
     // move ball back to start
-    const ball = document.getElementById('ball');
+    const ball = document.getElementById("ball");
     const start = document.getElementById(constants.startFeatureId);
     ball.style.top = start.style.top;
     ball.style.left = start.style.left;
@@ -64,14 +64,14 @@ export default function Home() {
         // TODO end the round and start another one
         // // clear flipper boxes
         for (const flipperBoxId of constants.flipperGroupBoxIds) {
-          document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
+          document.getElementById(flipperBoxId).style.backgroundColor = "transparent";
         }
 
         // // increment round
         setRound(() => Number(round) + 1);
 
         // // move ball to start
-        const ball = document.getElementById('ball');
+        const ball = document.getElementById("ball");
         const start = document.getElementById(constants.startFeatureId);
         ball.style.left = start.style.left;
         ball.style.top = start.style.top;

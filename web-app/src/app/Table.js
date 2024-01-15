@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from "react"
 import * as constants from "./constants"
@@ -14,7 +14,7 @@ export default function Table(props) {
             
     useEffect(() => {
         for (const dashedBoxId of constants.dashedBoxIds) {
-            document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
+            document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
     }, [props.round])
 

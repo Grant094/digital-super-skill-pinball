@@ -106,18 +106,18 @@ export const bumper56CanReceiveFrom = [
     ...bumperAllCanReceiveFrom,
     bumper34FeatureId,
 ]
-export const yelDropTarget12BoxId = 'box-droptarget-yel-12';
-export const yelDropTarget34BoxId = 'box-droptarget-yel-34';
-export const yelDropTarget56BoxId = 'box-droptarget-yel-56';
+export const yelDropTarget12BoxId = "box-droptarget-yel-12";
+export const yelDropTarget34BoxId = "box-droptarget-yel-34";
+export const yelDropTarget56BoxId = "box-droptarget-yel-56";
 export const yelDropTargetGroupBoxIds = [
     yelDropTarget12BoxId,
     yelDropTarget34BoxId,
     yelDropTarget56BoxId,
 ];
-export const redDropTarget12BoxId = 'box-droptarget-red-12';
-export const redDropTarget3BoxId = 'box-droptarget-red-3';
-export const redDropTarget4BoxId = 'box-droptarget-red-4';
-export const redDropTarget56BoxId = 'box-droptarget-red-56';
+export const redDropTarget12BoxId = "box-droptarget-red-12";
+export const redDropTarget3BoxId = "box-droptarget-red-3";
+export const redDropTarget4BoxId = "box-droptarget-red-4";
+export const redDropTarget56BoxId = "box-droptarget-red-56";
 export const redDropTargetGroupBoxIds = [
     redDropTarget12BoxId,
     redDropTarget3BoxId,
@@ -160,7 +160,7 @@ export const outlaneBoxIds = [
 ];
 export const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
 export const dashedBoxIds = [...flipperGroupBoxIds, ...inlaneBoxIds, ...outlaneBoxIds];
-export const redDropTarget12FeatureId = 'feature-droptarget-red-12';
+export const redDropTarget12FeatureId = "feature-droptarget-red-12";
 export const redDropTarget3FeatureId = "feature-droptarget-red-3";
 export const redDropTarget4FeatureId = "feature-droptarget-red-4";
 export const redDropTarget56FeatureId = "feature-droptarget-red-56";

@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
 import React, { useEffect } from "react";
-import styles from './box.module.css'
+import styles from "./box.module.css"
 
 export default function Box(props) {
 
@@ -14,7 +14,7 @@ export default function Box(props) {
 
         if (
                 props.canReceiveFrom.includes(props.ball1FeatureId) &&
-                box.style.backgroundColor != 'black' &&
+                box.style.backgroundColor != "black" &&
                 props.correspondingFeatureId &&
                 (
                     props.canReceiveOn.includes(props.die1) ||
@@ -22,10 +22,10 @@ export default function Box(props) {
                 )
             ) {
             // black-out box
-            box.style.backgroundColor = 'black';
+            box.style.backgroundColor = "black";
             
             // move the ball to the corresponding feature
-            const ball = document.getElementById('ball');
+            const ball = document.getElementById("ball");
             const correspondingFeature = document.getElementById(props.correspondingFeatureId);
             ball.style.left = correspondingFeature.style.left;
             ball.style.top = correspondingFeature.style.top;
@@ -40,7 +40,7 @@ export default function Box(props) {
             if (props.groupBoxIds) {
                 var filledInBoxes = 0;
                 for (const boxId of props.groupBoxIds) {
-                    if (document.getElementById(boxId).style.backgroundColor === 'black') {
+                    if (document.getElementById(boxId).style.backgroundColor === "black") {
                         filledInBoxes++;
                     } else {
                         break;
@@ -49,7 +49,7 @@ export default function Box(props) {
                 if (filledInBoxes === props.groupBoxIds.length) {
                     // set has been completed, so the boxes should be cleared
                     for (const boxId of props.groupBoxIds) {
-                        document.getElementById(boxId).style.backgroundColor = 'transparent';
+                        document.getElementById(boxId).style.backgroundColor = "transparent";
                     }
                 }
             }

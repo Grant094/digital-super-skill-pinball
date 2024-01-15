@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from "react";
-import styles from './dicetray.module.css'
+import styles from "./dicetray.module.css"
 import NudgeUpButton from "./NudgeUpButton";
 import NudgeDnButton from "./NudgeDnButton";
 
