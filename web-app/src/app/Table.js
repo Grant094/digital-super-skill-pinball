@@ -22,10 +22,10 @@ export default function Table(props) {
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
             <React.Fragment key="ferriswheel">
-                <Box boxId="box-ferriswheel-car-12"
+                <Box boxId={constants.ferriswheelcar12BoxId}
                     canReceiveOn={[1, 2]}
-                    canReceiveFrom={['start', 'yel-flipper']}
-                    correspondingFeatureId="feature-ferriswheel-car-12"
+                    canReceiveFrom={constants.ferriswheelCanReceiveFrom}
+                    correspondingFeatureId={constants.ferriswheelcar12FeatureId}
                     groupBoxIds={constants.ferriswheelGroupBoxIds}
                     ball1FeatureId={props.ball1FeatureId}
                     ball2FeatureId={props.ball2FeatureId}
@@ -37,14 +37,14 @@ export default function Table(props) {
                     width="65px"
                     {...props}
                 />
-                <Feature featureId="feature-ferriswheel-car-12"
+                <Feature featureId={constants.ferriswheelcar12FeatureId}
                     x="182px"
                     y="304px"
                 />
-                <Box boxId="box-ferriswheel-car-34"
+                <Box boxId={constants.ferriswheelcar34FeatureId}
                     canReceiveOn={[3, 4]}
-                    canReceiveFrom={['start', 'yel-flipper']}
-                    correspondingFeatureId="feature-ferriswheel-car-34"
+                    canReceiveFrom={constants.ferriswheelCanReceiveFrom}
+                    correspondingFeatureId={constants.ferriswheelcar34FeatureId}
                     groupBoxIds={constants.ferriswheelGroupBoxIds}
                     ball1FeatureId={props.ball1FeatureId}
                     ball2FeatureId={props.ball2FeatureId}
@@ -56,14 +56,14 @@ export default function Table(props) {
                     width="62px"
                     {...props}
                 />
-                <Feature featureId="feature-ferriswheel-car-34"
+                <Feature featureId={constants.ferriswheelcar34FeatureId}
                     x="274px"
                     y="280px"
                 />
-                <Box boxId="box-ferriswheel-car-56"
+                <Box boxId={constants.ferriswheelcar56BoxId}
                     canReceiveOn={[5, 6]}
-                    canReceiveFrom={['start', 'yel-flipper']}
-                    correspondingFeatureId="feature-ferriswheel-car-56"
+                    canReceiveFrom={constants.ferriswheelCanReceiveFrom}
+                    correspondingFeatureId={constants.ferriswheelcar56FeatureId}
                     groupBoxIds={constants.ferriswheelGroupBoxIds}
                     ball1FeatureId={props.ball1FeatureId}
                     ball2FeatureId={props.ball2FeatureId}
@@ -75,21 +75,21 @@ export default function Table(props) {
                     width="62px"
                     {...props}
                 />
-                <Feature featureId="feature-ferriswheel-car-56"
+                <Feature featureId={constants.ferriswheelcar56FeatureId}
                     x="365px"
                     y="304px"
                 />
             </React.Fragment>
             <React.Fragment key="featofstrength">
                 <React.Fragment key="featofstrength-1">
-                    <Feature featureId="feature-featofstrength-1"
+                    <Feature featureId={constants.featofstrengthSpace1FeatureId}
                         x="376px"
                         y="535px"
                     />
-                    <Box boxId="box-featofstrength-1"
+                    <Box boxId={constants.featofstrengthSpace1BoxId}
                         canReceiveOn={[1]}
-                        canReceiveFrom={["red-flipper"]}
-                        correspondingFeatureId="feature-featofstrength-1"
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace1FeatureId}
                         groupBoxIds={constants.featofstrengthGroupBoxIds}
                         ball1FeatureId={props.ball1FeatureId}
                         ball2FeatureId={props.ball2FeatureId}
@@ -103,14 +103,14 @@ export default function Table(props) {
                     />
                 </React.Fragment>
                 <React.Fragment key="featofstrength-2">
-                    <Feature featureId="feature-featofstrength-2"
+                    <Feature featureId={constants.featofstrengthSpace2FeatureId}
                         x="388px"
                         y="505px"
                     />
-                    <Box boxId="box-featofstrength-2"
+                    <Box boxId={constants.featofstrengthSpace2BoxId}
                         canReceiveOn={[2]}
-                        canReceiveFrom={["red-flipper"]}
-                        correspondingFeatureId="feature-featofstrength-2"
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace2FeatureId}
                         groupBoxIds={constants.featofstrengthGroupBoxIds}
                         ball1FeatureId={props.ball1FeatureId}
                         ball2FeatureId={props.ball2FeatureId}
@@ -125,14 +125,14 @@ export default function Table(props) {
                     />
                 </React.Fragment>
                 <React.Fragment key="featofstrength-3">
-                    <Feature featureId="feature-featofstrength-3"
+                    <Feature featureId={constants.featofstrengthSpace3FeatureId}
                         x="398px"
                         y="477px"
                     />
-                    <Box boxId="box-featofstrength-3"
+                    <Box boxId={constants.featofstrengthSpace3BoxId}
                         canReceiveOn={[3]}
-                        canReceiveFrom={["red-flipper"]}
-                        correspondingFeatureId="feature-featofstrength-3"
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace3FeatureId}
                         groupBoxIds={constants.featofstrengthGroupBoxIds}
                         ball1FeatureId={props.ball1FeatureId}
                         ball2FeatureId={props.ball2FeatureId}
@@ -147,14 +147,14 @@ export default function Table(props) {
                     />
                 </React.Fragment>
                 <React.Fragment key="featofstrength-4">
-                    <Feature featureId="feature-featofstrength-4"
+                    <Feature featureId={constants.featofstrengthSpace4FeatureId}
                         x="409px"
                         y="448px"
                     />
-                    <Box boxId="box-featofstrength-4"
+                    <Box boxId={constants.featofstrengthSpace4BoxId}
                         canReceiveOn={[4]}
-                        canReceiveFrom={["red-flipper"]}
-                        correspondingFeatureId="feature-featofstrength-4"
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace4FeatureId}
                         groupBoxIds={constants.featofstrengthGroupBoxIds}
                         ball1FeatureId={props.ball1FeatureId}
                         ball2FeatureId={props.ball2FeatureId}
@@ -169,14 +169,14 @@ export default function Table(props) {
                     />
                 </React.Fragment>
                 <React.Fragment key="featofstrength-5">
-                    <Feature featureId="feature-featofstrength-5"
+                    <Feature featureId={constants.featofstrengthSpace5FeatureId}
                         x="420px"
                         y="420px"
                     />
-                    <Box boxId="box-featofstrength-5"
+                    <Box boxId={constants.featofstrengthSpace5BoxId}
                         canReceiveOn={[5]}
-                        canReceiveFrom={["red-flipper"]}
-                        correspondingFeatureId="feature-featofstrength-5"
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace5FeatureId}
                         groupBoxIds={constants.featofstrengthGroupBoxIds}
                         ball1FeatureId={props.ball1FeatureId}
                         ball2FeatureId={props.ball2FeatureId}
@@ -191,14 +191,14 @@ export default function Table(props) {
                     />
                 </React.Fragment>
                 <React.Fragment key="featofstrength-6">
-                    <Feature featureId="feature-featofstrength-6"
+                    <Feature featureId={constants.featofstrengthSpace6FeatureId}
                         x="430px"
                         y="390px"
                     />
-                    <Box boxId="box-featofstrength-6"
+                    <Box boxId={constants.featofstrengthSpace6BoxId}
                         canReceiveOn={[6]}
-                        canReceiveFrom={["red-flipper"]}
-                        correspondingFeatureId="feature-featofstrength-6"
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace6FeatureId}
                         groupBoxIds={constants.featofstrengthGroupBoxIds}
                         ball1FeatureId={props.ball1FeatureId}
                         ball2FeatureId={props.ball2FeatureId}
@@ -213,10 +213,10 @@ export default function Table(props) {
                     />
                 </React.Fragment>
             </React.Fragment>
-            <Box boxId="box-bumper-12-1st-1"
+            <Box boxId={constants.bumper121st1BoxId}
                 canReceiveOn={[1]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-56', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-12"
+                canReceiveFrom={constants.bumper12CanReceiveFrom}
+                correspondingFeatureId={constants.bumper12FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -229,10 +229,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-12-2nd-1"
+            <Box boxId={constants.bumper122nd1BoxId}
                 canReceiveOn={[1]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-56', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-12"
+                canReceiveFrom={constants.bumper12CanReceiveFrom}
+                correspondingFeatureId={constants.bumper12FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -245,10 +245,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-12-1st-2"
+            <Box boxId={constants.bumper121st2BoxId}
                 canReceiveOn={[2]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-56', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-12"
+                canReceiveFrom={constants.bumper12CanReceiveFrom}
+                correspondingFeatureId={constants.bumper12FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -261,10 +261,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-12-2nd-2"
+            <Box boxId={constants.bumper122nd2BoxId}
                 canReceiveOn={[2]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-56', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-12"
+                canReceiveFrom={constants.bumper12CanReceiveFrom}
+                correspondingFeatureId={constants.bumper12FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -277,14 +277,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-bumper-12"
+            <Feature featureId={constants.bumper12FeatureId}
                 x="170px"
                 y="388px"
             />
-            <Box boxId="box-bumper-34-1st-3"
+            <Box boxId={constants.bumper341st3BoxId}
                 canReceiveOn={[3]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-12', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-34"
+                canReceiveFrom={constants.bumper34CanReceiveFrom}
+                correspondingFeatureId={constants.bumper34FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -297,10 +297,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-34-2nd-3"
+            <Box boxId={constants.bumper342nd3BoxId}
                 canReceiveOn={[3]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-12', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-34"
+                canReceiveFrom={constants.bumper34CanReceiveFrom}
+                correspondingFeatureId={constants.bumper34FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -313,10 +313,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-34-1st-4"
+            <Box boxId={constants.bumper341st4BoxId}
                 canReceiveOn={[4]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-12', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-34"
+                canReceiveFrom={constants.bumper34CanReceiveFrom}
+                correspondingFeatureId={constants.bumper34FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -329,10 +329,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-34-2nd-4"
+            <Box boxId={constants.bumper342nd4BoxId}
                 canReceiveOn={[4]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-12', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-34"
+                canReceiveFrom={constants.bumper34CanReceiveFrom}
+                correspondingFeatureId={constants.bumper34FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -345,14 +345,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-bumper-34"
+            <Feature featureId={constants.bumper34FeatureId}
                 x="303px"
                 y="388px"
             />
-            <Box boxId="box-bumper-56-1st-5"
+            <Box boxId={constants.bumper561st5BoxId}
                 canReceiveOn={[5]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-34', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-56"
+                canReceiveFrom={constants.bumper56CanReceiveFrom}
+                correspondingFeatureId={constants.bumper56FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -365,10 +365,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-56-2nd-5"
+            <Box boxId={constants.bumper562nd5BoxId}
                 canReceiveOn={[5]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-34', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-56"
+                canReceiveFrom={constants.bumper56CanReceiveFrom}
+                correspondingFeatureId={constants.bumper56FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -381,10 +381,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-56-1st-6"
+            <Box boxId={constants.bumper561st6BoxId}
                 canReceiveOn={[6]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-34', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-56"
+                canReceiveFrom={constants.bumper56CanReceiveFrom}
+                correspondingFeatureId={constants.bumper56FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -397,10 +397,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Box boxId="box-bumper-56-2nd-6"
+            <Box boxId={constants.bumper562nd6BoxId}
                 canReceiveOn={[6]}
-                canReceiveFrom={['start', ...constants.ferriswheelFeatureIds, 'feature-bumper-34', ...constants.flipperIds]}
-                correspondingFeatureId="feature-bumper-56"
+                canReceiveFrom={constants.bumper56CanReceiveFrom}
+                correspondingFeatureId={constants.bumper56FeatureId}
                 groupBoxIds={constants.bumperGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -413,18 +413,18 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-bumper-56"
+            <Feature featureId={constants.bumper56FeatureId}
                 x="236px"
                 y="490px"
             />
-            <Feature featureId="feature-droptarget-yel-12"
+            <Feature featureId={constants.yelDropTarget12FeatureId}
                 x="35px"
                 y="700px"
             />
-            <Box boxId="box-droptarget-yel-12"
+            <Box boxId={constants.yelDropTarget12BoxId}
                 canReceiveOn={[1, 2]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'yel-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-yel-12"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.yelDropTarget12FeatureId}
                 groupBoxIds={constants.yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -437,14 +437,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-droptarget-yel-34"
+            <Feature featureId={constants.yelDropTarget34FeatureId}
                 x="65px"
                 y="630px"
             />
-            <Box boxId="box-droptarget-yel-34"
+            <Box boxId={constants.yelDropTarget34BoxId}
                 canReceiveOn={[3, 4]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'yel-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-yel-34"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.yelDropTarget34FeatureId}
                 groupBoxIds={constants.yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -457,14 +457,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-droptarget-yel-56"
+            <Feature featureId={constants.yelDropTarget56FeatureId}
                 x="100px"
                 y="575px"
             />
-            <Box boxId="box-droptarget-yel-56"
+            <Box boxId={constants.yelDropTarget56BoxId}
                 canReceiveOn={[5, 6]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'yel-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-yel-56"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.yelDropTarget56FeatureId}
                 groupBoxIds={constants.yelDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -477,14 +477,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-droptarget-red-12"
+            <Feature featureId={constants.redDropTarget12FeatureId}
                 x="418px"
                 y="585px"
             />
-            <Box boxId="box-droptarget-red-12"
+            <Box boxId={constants.redDropTarget12BoxId}
                 canReceiveOn={[1, 2]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'red-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-red-12"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.redDropTarget12FeatureId}
                 groupBoxIds={constants.redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -497,14 +497,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-droptarget-red-3"
+            <Feature featureId={constants.redDropTarget3FeatureId}
                 x="440px"
                 y="628px"
             />
-            <Box boxId="box-droptarget-red-3"
+            <Box boxId={constants.redDropTarget3BoxId}
                 canReceiveOn={[3]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'red-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-red-3"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.redDropTarget3FeatureId}
                 groupBoxIds={constants.redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -517,14 +517,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-droptarget-red-4"
+            <Feature featureId={constants.redDropTarget4FeatureId}
                 x="460px"
                 y="674px"
             />
-            <Box boxId="box-droptarget-red-4"
+            <Box boxId={constants.redDropTarget4BoxId}
                 canReceiveOn={[4]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'red-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-red-4"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.redDropTarget4FeatureId}
                 groupBoxIds={constants.redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -537,14 +537,14 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Feature featureId="feature-droptarget-red-56"
+            <Feature featureId={constants.redDropTarget56FeatureId}
                 x="485px"
                 y="725px"
             />
-            <Box boxId="box-droptarget-red-56"
+            <Box boxId={constants.redDropTarget56BoxId}
                 canReceiveOn={[5, 6]}
-                canReceiveFrom={[...constants.ferriswheelFeatureIds, ...constants.featofstrengthFeatureIds, ...constants.bumperFeatureIds, 'red-flipper', 'start']}
-                correspondingFeatureId="feature-droptarget-red-56"
+                canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                correspondingFeatureId={constants.redDropTarget56FeatureId}
                 groupBoxIds={constants.redDropTargetGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
@@ -557,10 +557,10 @@ export default function Table(props) {
                 points="1"
                 {...props}
             />
-            <Outlane boxId="red-outlane-1"
+            <Outlane boxId={constants.redOutlaneBox}
                 canReceiveOn={[1]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='start'
+                correspondingFeatureId={constants.startFeatureId}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -570,10 +570,10 @@ export default function Table(props) {
                 y="815px"
                 {...props}
             />
-            <Outlane boxId="yel-outlane-6"
+            <Outlane boxId={constants.yelOutlaneBox}
                 canReceiveOn={[6]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='start'
+                correspondingFeatureId={constants.startFeatureId}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -583,10 +583,10 @@ export default function Table(props) {
                 y="815px"
                 {...props}
             />
-            <DashedBox boxId="red-flipper-inlane-box-2"
+            <DashedBox boxId={constants.redInlaneBox}
                 canReceiveOn={[2]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='red-flipper'
+                correspondingFeatureId={constants.redFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -598,10 +598,10 @@ export default function Table(props) {
                 points="2"
                 {...props}
             />
-            <DashedBox boxId="red-flipper-box-3"
+            <DashedBox boxId={constants.redFlipperBox3BoxId}
                 canReceiveOn={[3]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='red-flipper'
+                correspondingFeatureId={constants.redFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -612,10 +612,10 @@ export default function Table(props) {
                 width="40px"
                 {...props}
             />
-            <DashedBox boxId="red-flipper-box-45"
+            <DashedBox boxId={constants.redFlipperBox45BoxId}
                 canReceiveOn={[4, 5]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='red-flipper'
+                correspondingFeatureId={constants.redFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -626,10 +626,10 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <DashedBox boxId="red-flipper-box-6"
+            <DashedBox boxId={constants.redFlipperBox6BoxId}
                 canReceiveOn={[6]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='red-flipper'
+                correspondingFeatureId={constants.redFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -640,10 +640,10 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <DashedBox boxId="yel-flipper-inlane-box-5"
+            <DashedBox boxId={constants.yelInlaneBox}
                 canReceiveOn={[5]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='yel-flipper'
+                correspondingFeatureId={constants.yelFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -655,10 +655,10 @@ export default function Table(props) {
                 points="2"
                 {...props}
             />
-            <DashedBox boxId="yel-flipper-box-1"
+            <DashedBox boxId={constants.yelFlipperBox1BoxId}
                 canReceiveOn={[1]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='yel-flipper'
+                correspondingFeatureId={constants.yelFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -669,10 +669,10 @@ export default function Table(props) {
                 width="40px"
                 {...props}
             />
-            <DashedBox boxId="yel-flipper-box-23"
+            <DashedBox boxId={constants.yelFlipperBox23BoxId}
                 canReceiveOn={[2, 3]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='yel-flipper'
+                correspondingFeatureId={constants.yelFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -683,10 +683,10 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <DashedBox boxId="yel-flipper-box-4"
+            <DashedBox boxId={constants.yelFlipperBox4BoxId}
                 canReceiveOn={[4]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='yel-flipper'
+                correspondingFeatureId={constants.yelFlipper}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
@@ -697,25 +697,25 @@ export default function Table(props) {
                 width="45px"
                 {...props}
             />
-            <Feature featureId="red-flipper"
+            <Feature featureId={constants.redFlipper}
                 x="195px"
                 y="970px"
             />
-            <Feature featureId="yel-flipper"
+            <Feature featureId={constants.yelFlipper}
                 x="320px" 
                 y="970px"
             />
-            <Feature featureId="start"
+            <Feature featureId={constants.startFeatureId}
                 x="450px"
                 y="240px"
                 height="50px"
                 width="50px"
             />
-            <Drain boxId="drain"
+            <Drain boxId={constants.drainBoxId}
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId='start'
-                groupBoxIds={['drain']}
+                correspondingFeatureId={constants.startFeatureId}
+                groupBoxIds={constants.drainGroupBoxIds}
                 ball1FeatureId={props.ball1FeatureId}
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
