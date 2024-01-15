@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import * as constants from "./constants";
-import calcNetNudgeAmount from "./CalcNetNudgeAmount";
 import * as utilities from "./utilities";
 import styles from "./page.module.css"
 import Table from "./Table"
@@ -38,7 +37,7 @@ export default function Home() {
       setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
       
       // check whether player tilted and if so end the round
-      if (calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
+      if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
         alert(`Tilted!`);
 
         // end the round and start another one
