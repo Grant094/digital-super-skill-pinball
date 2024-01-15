@@ -78,15 +78,19 @@ export const flipperIds = [
     'red-flipper',
     'yel-flipper'
 ];
-export const yelDropTargetFeatureIds = [
-    'feature-droptarget-yel-12',
-    'feature-droptarget-yel-34',
-    'feature-droptarget-yel-56'
-];
 export const redDropTargetFeatureIds = [
     'feature-droptarget-red-12',
     'feature-droptarget-red-3',
     'feature-droptarget-red-4',
     'feature-droptarget-red-56'
 ];
-export const allFeatureIds = [...ferriswheelFeatureIds, ...featofstrengthFeatureIds, ...bumperFeatureIds, ...flipperIds, ...yelDropTargetFeatureIds, ...redDropTargetFeatureIds, 'start'];
+export const yelDropTargetFeatureIds = [
+    'feature-droptarget-yel-12',
+    'feature-droptarget-yel-34',
+    'feature-droptarget-yel-56'
+];
+export const dropTargetFeatureIds = [
+    ...redDropTargetFeatureIds,
+    ...yelDropTargetFeatureIds,
+];
+export const allFeatureIds = [...ferriswheelFeatureIds, ...featofstrengthFeatureIds, ...bumperFeatureIds, ...flipperIds, ...dropTargetFeatureIds, 'start'];
