@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from "react"
 import * as constants from "./constants"
@@ -20,7 +20,7 @@ export default function Outlane(props) {
 
         // end the round
         for (const dashedBoxId of constants.dashedBoxIds) {
-            document.getElementById(dashedBoxId).style.backgroundColor = 'transparent';
+            document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
 
         props.setRound(() => Number(props.round) + 1);

@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
 import React, { useState, useEffect } from "react";
-import styles from './box.module.css'
+import styles from "./box.module.css"
 import Box from "./Box";
 
 export default function DashedBox(props) {

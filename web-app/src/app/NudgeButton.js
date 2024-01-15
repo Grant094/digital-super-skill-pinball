@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
 import React, { useEffect } from "react";
-import styles from './nudgebutton.module.css'
+import styles from "./nudgebutton.module.css"
 
 export default function NudgeButton(props) {
     return (
