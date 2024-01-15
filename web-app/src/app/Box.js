@@ -77,8 +77,8 @@ export default function Box(props) {
             onClick={handleClick}
             style={{
                 position: "absolute",
-                top: props.y,
-                left: props.x,
+                top: props.top,
+                left: props.left,
                 height: props.height,
                 width: props.width,
                 visibility: (Number(props.round) > 3)? "hidden": "visible"

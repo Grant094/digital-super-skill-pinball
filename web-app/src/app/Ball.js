@@ -12,8 +12,8 @@ export default function Ball(props) {
         <img id="ball"
             style={{
                 position: "absolute",
-                top: props.y,
-                left: props.x,
+                top: props.top,
+                left: props.left,
                 visibility: (Number(props.round) > 3)? "hidden": "visible"
             }}
             src="/images/ball.jpg"

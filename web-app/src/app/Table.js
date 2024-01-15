@@ -32,15 +32,15 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="160px"
-                        y="246px"
+                        left="160px"
+                        top="246px"
                         height="48px"
                         width="65px"
                         {...props}
                     />
                     <Feature featureId={constants.ferriswheelcar12FeatureId}
-                        x="182px"
-                        y="304px"
+                        left="182px"
+                        top="304px"
                     />
                 </Fragment>
                 <Fragment key="ferriswheelcar34">
@@ -53,15 +53,15 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="255px"
-                        y="230px"
+                        left="255px"
+                        top="230px"
                         height="40px"
                         width="62px"
                         {...props}
                     />
                     <Feature featureId={constants.ferriswheelcar34FeatureId}
-                        x="274px"
-                        y="280px"
+                        left="274px"
+                        top="280px"
                     />
                 </Fragment>
                 <Fragment key="ferriswheelcar56">
@@ -74,23 +74,23 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="350px"
-                        y="246px"
+                        left="350px"
+                        top="246px"
                         height="48px"
                         width="62px"
                         {...props}
                     />
                     <Feature featureId={constants.ferriswheelcar56FeatureId}
-                        x="365px"
-                        y="304px"
+                        left="365px"
+                        top="304px"
                     />
                 </Fragment>
             </Fragment>
             <Fragment key="featofstrength">
                 <Fragment key="featofstrength-1">
                     <Feature featureId={constants.featofstrengthSpace1FeatureId}
-                        x="376px"
-                        y="535px"
+                        left="376px"
+                        top="535px"
                     />
                     <Box boxId={constants.featofstrengthSpace1BoxId}
                         canReceiveOn={[1]}
@@ -101,8 +101,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="376px"
-                        y="535px"
+                        left="376px"
+                        top="535px"
                         height="25px"
                         width="25px"
                         {...props}
@@ -110,8 +110,8 @@ export default function Table(props) {
                 </Fragment>
                 <Fragment key="featofstrength-2">
                     <Feature featureId={constants.featofstrengthSpace2FeatureId}
-                        x="388px"
-                        y="505px"
+                        left="388px"
+                        top="505px"
                     />
                     <Box boxId={constants.featofstrengthSpace2BoxId}
                         canReceiveOn={[2]}
@@ -122,8 +122,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="388px"
-                        y="505px"
+                        left="388px"
+                        top="505px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -132,8 +132,8 @@ export default function Table(props) {
                 </Fragment>
                 <Fragment key="featofstrength-3">
                     <Feature featureId={constants.featofstrengthSpace3FeatureId}
-                        x="398px"
-                        y="477px"
+                        left="398px"
+                        top="477px"
                     />
                     <Box boxId={constants.featofstrengthSpace3BoxId}
                         canReceiveOn={[3]}
@@ -144,8 +144,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="398px"
-                        y="477px"
+                        left="398px"
+                        top="477px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -154,8 +154,8 @@ export default function Table(props) {
                 </Fragment>
                 <Fragment key="featofstrength-4">
                     <Feature featureId={constants.featofstrengthSpace4FeatureId}
-                        x="409px"
-                        y="448px"
+                        left="409px"
+                        top="448px"
                     />
                     <Box boxId={constants.featofstrengthSpace4BoxId}
                         canReceiveOn={[4]}
@@ -166,8 +166,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="409px"
-                        y="448px"
+                        left="409px"
+                        top="448px"
                         height="25px"
                         width="25px"
                         points="2"
@@ -176,8 +176,8 @@ export default function Table(props) {
                 </Fragment>
                 <Fragment key="featofstrength-5">
                     <Feature featureId={constants.featofstrengthSpace5FeatureId}
-                        x="420px"
-                        y="420px"
+                        left="420px"
+                        top="420px"
                     />
                     <Box boxId={constants.featofstrengthSpace5BoxId}
                         canReceiveOn={[5]}
@@ -188,8 +188,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="420px"
-                        y="420px"
+                        left="420px"
+                        top="420px"
                         height="25px"
                         width="25px"
                         points="5"
@@ -198,8 +198,8 @@ export default function Table(props) {
                 </Fragment>
                 <Fragment key="featofstrength-6">
                     <Feature featureId={constants.featofstrengthSpace6FeatureId}
-                        x="430px"
-                        y="390px"
+                        left="430px"
+                        top="390px"
                     />
                     <Box boxId={constants.featofstrengthSpace6BoxId}
                         canReceiveOn={[6]}
@@ -210,8 +210,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="430px"
-                        y="390px"
+                        left="430px"
+                        top="390px"
                         height="25px"
                         width="25px"
                         points="20"
@@ -230,8 +230,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="155px"
-                        y="373px"
+                        left="155px"
+                        top="373px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -246,8 +246,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="155px"
-                        y="402px"
+                        left="155px"
+                        top="402px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -262,8 +262,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="185px"
-                        y="373px"
+                        left="185px"
+                        top="373px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -278,16 +278,16 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="185px"
-                        y="402px"
+                        left="185px"
+                        top="402px"
                         height="25px"
                         width="25px"
                         points="1"
                         {...props}
                     />
                     <Feature featureId={constants.bumper12FeatureId}
-                        x="170px"
-                        y="388px"
+                        left="170px"
+                        top="388px"
                     />
                 </Fragment>
                 <Fragment key="bumper34">
@@ -300,8 +300,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="288px"
-                        y="373px"
+                        left="288px"
+                        top="373px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -316,8 +316,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="288px"
-                        y="402px"
+                        left="288px"
+                        top="402px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -332,8 +332,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="317px"
-                        y="373px"
+                        left="317px"
+                        top="373px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -348,16 +348,16 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="317px"
-                        y="402px"
+                        left="317px"
+                        top="402px"
                         height="25px"
                         width="25px"
                         points="1"
                         {...props}
                     />
                     <Feature featureId={constants.bumper34FeatureId}
-                        x="303px"
-                        y="388px"
+                        left="303px"
+                        top="388px"
                     />
                 </Fragment>
                 <Fragment key="bumper56">
@@ -370,8 +370,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="221px"
-                        y="475px"
+                        left="221px"
+                        top="475px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -386,8 +386,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="221px"
-                        y="505px"
+                        left="221px"
+                        top="505px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -402,8 +402,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="251px"
-                        y="475px"
+                        left="251px"
+                        top="475px"
                         height="25px"
                         width="25px"
                         points="1"
@@ -418,16 +418,16 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="251px"
-                        y="505px"
+                        left="251px"
+                        top="505px"
                         height="25px"
                         width="25px"
                         points="1"
                         {...props}
                     />
                     <Feature featureId={constants.bumper56FeatureId}
-                        x="236px"
-                        y="490px"
+                        left="236px"
+                        top="490px"
                     />
                 </Fragment>
             </Fragment>
@@ -435,8 +435,8 @@ export default function Table(props) {
                 <Fragment key="yelDropTargets">
                     <Fragment key="yelDropTarget12">
                         <Feature featureId={constants.yelDropTarget12FeatureId}
-                            x="35px"
-                            y="700px"
+                            left="35px"
+                            top="700px"
                         />
                         <Box boxId={constants.yelDropTarget12BoxId}
                             canReceiveOn={[1, 2]}
@@ -447,8 +447,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="30px"
-                            y="675px"
+                            left="30px"
+                            top="675px"
                             height="60px"
                             width="35px"
                             points="1"
@@ -457,8 +457,8 @@ export default function Table(props) {
                     </Fragment>
                     <Fragment key="yelDropTarget34">
                         <Feature featureId={constants.yelDropTarget34FeatureId}
-                            x="65px"
-                            y="630px"
+                            left="65px"
+                            top="630px"
                         />
                         <Box boxId={constants.yelDropTarget34BoxId}
                             canReceiveOn={[3, 4]}
@@ -469,8 +469,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="60px"
-                            y="615px"
+                            left="60px"
+                            top="615px"
                             height="60px"
                             width="35px"
                             points="1"
@@ -479,8 +479,8 @@ export default function Table(props) {
                     </Fragment>
                     <Fragment key="yelDropTarget56">
                         <Feature featureId={constants.yelDropTarget56FeatureId}
-                            x="100px"
-                            y="575px"
+                            left="100px"
+                            top="575px"
                         />
                         <Box boxId={constants.yelDropTarget56BoxId}
                             canReceiveOn={[5, 6]}
@@ -491,8 +491,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="95px"
-                            y="560px"
+                            left="95px"
+                            top="560px"
                             height="60px"
                             width="35px"
                             points="1"
@@ -503,8 +503,8 @@ export default function Table(props) {
                 <Fragment key="redDropTargets">
                     <Fragment key="redDropTarget12">
                         <Feature featureId={constants.redDropTarget12FeatureId}
-                            x="418px"
-                            y="585px"
+                            left="418px"
+                            top="585px"
                         />
                         <Box boxId={constants.redDropTarget12BoxId}
                             canReceiveOn={[1, 2]}
@@ -515,8 +515,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="415px"
-                            y="570px"
+                            left="415px"
+                            top="570px"
                             height="50px"
                             width="35px"
                             points="1"
@@ -525,8 +525,8 @@ export default function Table(props) {
                     </Fragment>
                     <Fragment key="redDropTarget3">
                         <Feature featureId={constants.redDropTarget3FeatureId}
-                            x="440px"
-                            y="628px"
+                            left="440px"
+                            top="628px"
                         />
                         <Box boxId={constants.redDropTarget3BoxId}
                             canReceiveOn={[3]}
@@ -537,8 +537,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="435px"
-                            y="621px"
+                            left="435px"
+                            top="621px"
                             height="40px"
                             width="35px"
                             points="1"
@@ -547,8 +547,8 @@ export default function Table(props) {
                     </Fragment>
                     <Fragment key="redDropTarget4">
                         <Feature featureId={constants.redDropTarget4FeatureId}
-                            x="460px"
-                            y="674px"
+                            left="460px"
+                            top="674px"
                         />
                         <Box boxId={constants.redDropTarget4BoxId}
                             canReceiveOn={[4]}
@@ -559,8 +559,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="455px"
-                            y="665px"
+                            left="455px"
+                            top="665px"
                             height="42px"
                             width="35px"
                             points="1"
@@ -569,8 +569,8 @@ export default function Table(props) {
                     </Fragment>
                     <Fragment key="redDropTarget56">
                         <Feature featureId={constants.redDropTarget56FeatureId}
-                            x="485px"
-                            y="725px"
+                            left="485px"
+                            top="725px"
                         />
                         <Box boxId={constants.redDropTarget56BoxId}
                             canReceiveOn={[5, 6]}
@@ -581,8 +581,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="480px"
-                            y="710px"
+                            left="480px"
+                            top="710px"
                             height="55px"
                             width="35px"
                             points="1"
@@ -601,8 +601,8 @@ export default function Table(props) {
                     setBall1FeatureId={props.setBall1FeatureId}
                     setBall2FeatureId={props.setBall2FeatureId}
                     relevantFlipperBoxIds={constants.redFlipperGroupBoxIds}
-                    x="18px"
-                    y="815px"
+                    left="18px"
+                    top="815px"
                     {...props}
                 />
                 <Outlane boxId={constants.yelOutlaneBox}
@@ -614,8 +614,8 @@ export default function Table(props) {
                     setBall1FeatureId={props.setBall1FeatureId}
                     setBall2FeatureId={props.setBall2FeatureId}
                     relevantFlipperBoxIds={constants.yelFlipperGroupBoxIds}
-                    x="458px"
-                    y="815px"
+                    left="458px"
+                    top="815px"
                     {...props}
                 />
             </Fragment>
@@ -628,8 +628,8 @@ export default function Table(props) {
                     ball2FeatureId={props.ball2FeatureId}
                     setBall1FeatureId={props.setBall1FeatureId}
                     setBall2FeatureId={props.setBall2FeatureId}
-                    x="94px"
-                    y="821px"
+                    left="94px"
+                    top="821px"
                     height="25px"
                     width="25px"
                     points="2"
@@ -644,8 +644,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="215px"
-                        y="840px"
+                        left="215px"
+                        top="840px"
                         height="35px"
                         width="40px"
                         {...props}
@@ -658,8 +658,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="195px"
-                        y="875px"
+                        left="195px"
+                        top="875px"
                         height="45px"
                         width="45px"
                         {...props}
@@ -672,8 +672,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="178px"
-                        y="915px"
+                        left="178px"
+                        top="915px"
                         height="45px"
                         width="45px"
                         {...props}
@@ -688,8 +688,8 @@ export default function Table(props) {
                         ball2FeatureId={props.ball2FeatureId}
                         setBall1FeatureId={props.setBall1FeatureId}
                         setBall2FeatureId={props.setBall2FeatureId}
-                        x="419px"
-                        y="821px"
+                        left="419px"
+                        top="821px"
                         height="25px"
                         width="25px"
                         points="2"
@@ -704,8 +704,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="285px"
-                            y="840px"
+                            left="285px"
+                            top="840px"
                             height="40px"
                             width="40px"
                             {...props}
@@ -718,8 +718,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="300px"
-                            y="875px"
+                            left="300px"
+                            top="875px"
                             height="45px"
                             width="45px"
                             {...props}
@@ -732,8 +732,8 @@ export default function Table(props) {
                             ball2FeatureId={props.ball2FeatureId}
                             setBall1FeatureId={props.setBall1FeatureId}
                             setBall2FeatureId={props.setBall2FeatureId}
-                            x="315px"
-                            y="915px"
+                            left="315px"
+                            top="915px"
                             height="45px"
                             width="45px"
                             {...props}
@@ -743,17 +743,17 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="flippers">
                 <Feature featureId={constants.redFlipper}
-                    x="195px"
-                    y="970px"
+                    left="195px"
+                    top="970px"
                 />
                 <Feature featureId={constants.yelFlipper}
-                    x="320px"
-                    y="970px"
+                    left="320px"
+                    top="970px"
                 />
             </Fragment>
             <Feature featureId={constants.startFeatureId}
-                x="450px"
-                y="240px"
+                left="450px"
+                top="240px"
                 height="50px"
                 width="50px"
             />
@@ -766,17 +766,17 @@ export default function Table(props) {
                 ball2FeatureId={props.ball2FeatureId}
                 setBall1FeatureId={props.setBall1FeatureId}
                 setBall2FeatureId={props.setBall2FeatureId}
-                x="220px"
-                y="920px"
+                left="220px"
+                top="920px"
                 height="85px"
                 width="98px"
                 {...props}
             />
-            <Ball x="450px" y="240px" round={props.round} />
+            <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="roundindicators">
-                <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" x="950px" y="414px" {...props} />
-                <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" x="950px" y="451px" {...props} />
-                <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" x="950px" y="487px" {...props} />
+                <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" left="950px" top="414px" {...props} />
+                <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" left="950px" top="451px" {...props} />
+                <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" left="950px" top="487px" {...props} />
             </Fragment>
         </div>
     );
