@@ -28,29 +28,6 @@ export default function Home() {
     }
   }, [round])
 
-  function restart() {
-    setScore(0);
-    setRound(1);
-    setNudgesUsed(0);
-
-    // clear all boxes
-    const allDivs = document.querySelectorAll("div");
-    for (const div of allDivs) {
-      if (div.className.includes("box") || div.className.includes("feature")) {
-        div.style.backgroundColor = "transparent";
-      }
-    }
-
-    //#region move-ball-to-start
-    const ball = document.getElementById("ball");
-    const start = document.getElementById(constants.startFeatureId);
-    ball.style.top = start.style.top;
-    ball.style.left = start.style.left;
-    //#endregion
-
-    rollDice();
-  }
-
   function rollDice() {
     const nextValueOfDie1 = getRndIntegerInclusive(1, 6);
     const nextValueOfDie2 = getRndIntegerInclusive(1, 6);
@@ -117,7 +94,12 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
       />
       <ScoreIndicator score={score} />
-      <RestartTray restartFn={restart} />
+      <RestartTray 
+        setScore={setScore}
+        setRound={setRound}
+        setNudgesUsed={setNudgesUsed}
+        rollDice={rollDice}
+      />
     </div>
   );
 }
