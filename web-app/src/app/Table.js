@@ -772,7 +772,7 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
-            <Ball x="450px" y="240px" round={props.round} />
+            <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" x="950px" y="414px" {...props} />
                 <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" x="950px" y="451px" {...props} />
