@@ -21,6 +21,13 @@ export default function Table(props) {
     return (
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
+            <Feature featureId={constants.startFeatureId}
+                left="450px"
+                top="240px"
+                height="50px"
+                width="50px"
+            />
+            <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
                     <Box boxId={constants.ferriswheelcar12BoxId}
@@ -83,139 +90,6 @@ export default function Table(props) {
                     <Feature featureId={constants.ferriswheelcar56FeatureId}
                         left="365px"
                         top="304px"
-                    />
-                </Fragment>
-            </Fragment>
-            <Fragment key="featofstrength">
-                <Fragment key="featofstrength-1">
-                    <Feature featureId={constants.featofstrengthSpace1FeatureId}
-                        left="376px"
-                        top="535px"
-                    />
-                    <Box boxId={constants.featofstrengthSpace1BoxId}
-                        canReceiveOn={[1]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace1FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="376px"
-                        top="535px"
-                        height="25px"
-                        width="25px"
-                        {...props}
-                    />
-                </Fragment>
-                <Fragment key="featofstrength-2">
-                    <Feature featureId={constants.featofstrengthSpace2FeatureId}
-                        left="388px"
-                        top="505px"
-                    />
-                    <Box boxId={constants.featofstrengthSpace2BoxId}
-                        canReceiveOn={[2]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace2FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="388px"
-                        top="505px"
-                        height="25px"
-                        width="25px"
-                        points="1"
-                        {...props}
-                    />
-                </Fragment>
-                <Fragment key="featofstrength-3">
-                    <Feature featureId={constants.featofstrengthSpace3FeatureId}
-                        left="398px"
-                        top="477px"
-                    />
-                    <Box boxId={constants.featofstrengthSpace3BoxId}
-                        canReceiveOn={[3]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace3FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="398px"
-                        top="477px"
-                        height="25px"
-                        width="25px"
-                        points="1"
-                        {...props}
-                    />
-                </Fragment>
-                <Fragment key="featofstrength-4">
-                    <Feature featureId={constants.featofstrengthSpace4FeatureId}
-                        left="409px"
-                        top="448px"
-                    />
-                    <Box boxId={constants.featofstrengthSpace4BoxId}
-                        canReceiveOn={[4]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace4FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="409px"
-                        top="448px"
-                        height="25px"
-                        width="25px"
-                        points="2"
-                        {...props}
-                    />
-                </Fragment>
-                <Fragment key="featofstrength-5">
-                    <Feature featureId={constants.featofstrengthSpace5FeatureId}
-                        left="420px"
-                        top="420px"
-                    />
-                    <Box boxId={constants.featofstrengthSpace5BoxId}
-                        canReceiveOn={[5]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace5FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="420px"
-                        top="420px"
-                        height="25px"
-                        width="25px"
-                        points="5"
-                        {...props}
-                    />
-                </Fragment>
-                <Fragment key="featofstrength-6">
-                    <Feature featureId={constants.featofstrengthSpace6FeatureId}
-                        left="430px"
-                        top="390px"
-                    />
-                    <Box boxId={constants.featofstrengthSpace6BoxId}
-                        canReceiveOn={[6]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace6FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="430px"
-                        top="390px"
-                        height="25px"
-                        width="25px"
-                        points="20"
-                        {...props}
                     />
                 </Fragment>
             </Fragment>
@@ -431,6 +305,139 @@ export default function Table(props) {
                     />
                 </Fragment>
             </Fragment>
+            <Fragment key="featofstrength">
+                <Fragment key="featofstrength-1">
+                    <Feature featureId={constants.featofstrengthSpace1FeatureId}
+                        left="376px"
+                        top="535px"
+                    />
+                    <Box boxId={constants.featofstrengthSpace1BoxId}
+                        canReceiveOn={[1]}
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace1FeatureId}
+                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        ball1FeatureId={props.ball1FeatureId}
+                        ball2FeatureId={props.ball2FeatureId}
+                        setBall1FeatureId={props.setBall1FeatureId}
+                        setBall2FeatureId={props.setBall2FeatureId}
+                        left="376px"
+                        top="535px"
+                        height="25px"
+                        width="25px"
+                        {...props}
+                    />
+                </Fragment>
+                <Fragment key="featofstrength-2">
+                    <Feature featureId={constants.featofstrengthSpace2FeatureId}
+                        left="388px"
+                        top="505px"
+                    />
+                    <Box boxId={constants.featofstrengthSpace2BoxId}
+                        canReceiveOn={[2]}
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace2FeatureId}
+                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        ball1FeatureId={props.ball1FeatureId}
+                        ball2FeatureId={props.ball2FeatureId}
+                        setBall1FeatureId={props.setBall1FeatureId}
+                        setBall2FeatureId={props.setBall2FeatureId}
+                        left="388px"
+                        top="505px"
+                        height="25px"
+                        width="25px"
+                        points="1"
+                        {...props}
+                    />
+                </Fragment>
+                <Fragment key="featofstrength-3">
+                    <Feature featureId={constants.featofstrengthSpace3FeatureId}
+                        left="398px"
+                        top="477px"
+                    />
+                    <Box boxId={constants.featofstrengthSpace3BoxId}
+                        canReceiveOn={[3]}
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace3FeatureId}
+                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        ball1FeatureId={props.ball1FeatureId}
+                        ball2FeatureId={props.ball2FeatureId}
+                        setBall1FeatureId={props.setBall1FeatureId}
+                        setBall2FeatureId={props.setBall2FeatureId}
+                        left="398px"
+                        top="477px"
+                        height="25px"
+                        width="25px"
+                        points="1"
+                        {...props}
+                    />
+                </Fragment>
+                <Fragment key="featofstrength-4">
+                    <Feature featureId={constants.featofstrengthSpace4FeatureId}
+                        left="409px"
+                        top="448px"
+                    />
+                    <Box boxId={constants.featofstrengthSpace4BoxId}
+                        canReceiveOn={[4]}
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace4FeatureId}
+                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        ball1FeatureId={props.ball1FeatureId}
+                        ball2FeatureId={props.ball2FeatureId}
+                        setBall1FeatureId={props.setBall1FeatureId}
+                        setBall2FeatureId={props.setBall2FeatureId}
+                        left="409px"
+                        top="448px"
+                        height="25px"
+                        width="25px"
+                        points="2"
+                        {...props}
+                    />
+                </Fragment>
+                <Fragment key="featofstrength-5">
+                    <Feature featureId={constants.featofstrengthSpace5FeatureId}
+                        left="420px"
+                        top="420px"
+                    />
+                    <Box boxId={constants.featofstrengthSpace5BoxId}
+                        canReceiveOn={[5]}
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace5FeatureId}
+                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        ball1FeatureId={props.ball1FeatureId}
+                        ball2FeatureId={props.ball2FeatureId}
+                        setBall1FeatureId={props.setBall1FeatureId}
+                        setBall2FeatureId={props.setBall2FeatureId}
+                        left="420px"
+                        top="420px"
+                        height="25px"
+                        width="25px"
+                        points="5"
+                        {...props}
+                    />
+                </Fragment>
+                <Fragment key="featofstrength-6">
+                    <Feature featureId={constants.featofstrengthSpace6FeatureId}
+                        left="430px"
+                        top="390px"
+                    />
+                    <Box boxId={constants.featofstrengthSpace6BoxId}
+                        canReceiveOn={[6]}
+                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
+                        correspondingFeatureId={constants.featofstrengthSpace6FeatureId}
+                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        ball1FeatureId={props.ball1FeatureId}
+                        ball2FeatureId={props.ball2FeatureId}
+                        setBall1FeatureId={props.setBall1FeatureId}
+                        setBall2FeatureId={props.setBall2FeatureId}
+                        left="430px"
+                        top="390px"
+                        height="25px"
+                        width="25px"
+                        points="20"
+                        {...props}
+                    />
+                </Fragment>
+            </Fragment>
             <Fragment key="droptargets">
                 <Fragment key="yelDropTargets">
                     <Fragment key="yelDropTarget12">
@@ -619,7 +626,7 @@ export default function Table(props) {
                     {...props}
                 />
             </Fragment>
-            <Fragment key="redflipperboxes-and-redinlane">
+            <Fragment key="inlanes">
                 <DashedBox boxId={constants.redInlaneBox}
                     canReceiveOn={[2]}
                     canReceiveFrom={constants.allFeatureIds}
@@ -635,111 +642,109 @@ export default function Table(props) {
                     points="2"
                     {...props}
                 />
-                <Fragment key="redflipperboxes">
-                    <DashedBox boxId={constants.redFlipperBox3BoxId}
-                        canReceiveOn={[3]}
-                        canReceiveFrom={constants.allFeatureIds}
-                        correspondingFeatureId={constants.redFlipper}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="215px"
-                        top="840px"
-                        height="35px"
-                        width="40px"
-                        {...props}
-                    />
-                    <DashedBox boxId={constants.redFlipperBox45BoxId}
-                        canReceiveOn={[4, 5]}
-                        canReceiveFrom={constants.allFeatureIds}
-                        correspondingFeatureId={constants.redFlipper}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="195px"
-                        top="875px"
-                        height="45px"
-                        width="45px"
-                        {...props}
-                    />
-                    <DashedBox boxId={constants.redFlipperBox6BoxId}
-                        canReceiveOn={[6]}
-                        canReceiveFrom={constants.allFeatureIds}
-                        correspondingFeatureId={constants.redFlipper}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="178px"
-                        top="915px"
-                        height="45px"
-                        width="45px"
-                        {...props}
-                    />
-                </Fragment>
-                <Fragment key="yelflipperboxes-and-yelinlane">
-                    <DashedBox boxId={constants.yelInlaneBox}
-                        canReceiveOn={[5]}
-                        canReceiveFrom={constants.allFeatureIds}
-                        correspondingFeatureId={constants.yelFlipper}
-                        ball1FeatureId={props.ball1FeatureId}
-                        ball2FeatureId={props.ball2FeatureId}
-                        setBall1FeatureId={props.setBall1FeatureId}
-                        setBall2FeatureId={props.setBall2FeatureId}
-                        left="419px"
-                        top="821px"
-                        height="25px"
-                        width="25px"
-                        points="2"
-                        {...props}
-                    />
-                    <Fragment key="yelflipperboxes">
-                        <DashedBox boxId={constants.yelFlipperBox1BoxId}
-                            canReceiveOn={[1]}
-                            canReceiveFrom={constants.allFeatureIds}
-                            correspondingFeatureId={constants.yelFlipper}
-                            ball1FeatureId={props.ball1FeatureId}
-                            ball2FeatureId={props.ball2FeatureId}
-                            setBall1FeatureId={props.setBall1FeatureId}
-                            setBall2FeatureId={props.setBall2FeatureId}
-                            left="285px"
-                            top="840px"
-                            height="40px"
-                            width="40px"
-                            {...props}
-                        />
-                        <DashedBox boxId={constants.yelFlipperBox23BoxId}
-                            canReceiveOn={[2, 3]}
-                            canReceiveFrom={constants.allFeatureIds}
-                            correspondingFeatureId={constants.yelFlipper}
-                            ball1FeatureId={props.ball1FeatureId}
-                            ball2FeatureId={props.ball2FeatureId}
-                            setBall1FeatureId={props.setBall1FeatureId}
-                            setBall2FeatureId={props.setBall2FeatureId}
-                            left="300px"
-                            top="875px"
-                            height="45px"
-                            width="45px"
-                            {...props}
-                        />
-                        <DashedBox boxId={constants.yelFlipperBox4BoxId}
-                            canReceiveOn={[4]}
-                            canReceiveFrom={constants.allFeatureIds}
-                            correspondingFeatureId={constants.yelFlipper}
-                            ball1FeatureId={props.ball1FeatureId}
-                            ball2FeatureId={props.ball2FeatureId}
-                            setBall1FeatureId={props.setBall1FeatureId}
-                            setBall2FeatureId={props.setBall2FeatureId}
-                            left="315px"
-                            top="915px"
-                            height="45px"
-                            width="45px"
-                            {...props}
-                        />
-                    </Fragment>
-                </Fragment>
+                <DashedBox boxId={constants.yelInlaneBox}
+                    canReceiveOn={[5]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.yelFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="419px"
+                    top="821px"
+                    height="25px"
+                    width="25px"
+                    points="2"
+                    {...props}
+                />
+            </Fragment>
+            <Fragment key="redflipperboxes">
+                <DashedBox boxId={constants.redFlipperBox3BoxId}
+                    canReceiveOn={[3]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.redFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="215px"
+                    top="840px"
+                    height="35px"
+                    width="40px"
+                    {...props}
+                />
+                <DashedBox boxId={constants.redFlipperBox45BoxId}
+                    canReceiveOn={[4, 5]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.redFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="195px"
+                    top="875px"
+                    height="45px"
+                    width="45px"
+                    {...props}
+                />
+                <DashedBox boxId={constants.redFlipperBox6BoxId}
+                    canReceiveOn={[6]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.redFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="178px"
+                    top="915px"
+                    height="45px"
+                    width="45px"
+                    {...props}
+                />
+            </Fragment>
+            <Fragment key="yelflipperboxes">
+                <DashedBox boxId={constants.yelFlipperBox1BoxId}
+                    canReceiveOn={[1]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.yelFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="285px"
+                    top="840px"
+                    height="40px"
+                    width="40px"
+                    {...props}
+                />
+                <DashedBox boxId={constants.yelFlipperBox23BoxId}
+                    canReceiveOn={[2, 3]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.yelFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="300px"
+                    top="875px"
+                    height="45px"
+                    width="45px"
+                    {...props}
+                />
+                <DashedBox boxId={constants.yelFlipperBox4BoxId}
+                    canReceiveOn={[4]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.yelFlipper}
+                    ball1FeatureId={props.ball1FeatureId}
+                    ball2FeatureId={props.ball2FeatureId}
+                    setBall1FeatureId={props.setBall1FeatureId}
+                    setBall2FeatureId={props.setBall2FeatureId}
+                    left="315px"
+                    top="915px"
+                    height="45px"
+                    width="45px"
+                    {...props}
+                />
             </Fragment>
             <Fragment key="flippers">
                 <Feature featureId={constants.redFlipper}
@@ -751,12 +756,6 @@ export default function Table(props) {
                     top="970px"
                 />
             </Fragment>
-            <Feature featureId={constants.startFeatureId}
-                left="450px"
-                top="240px"
-                height="50px"
-                width="50px"
-            />
             <Drain boxId={constants.drainBoxId}
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={constants.allFeatureIds}
@@ -772,7 +771,6 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
-            <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />
                 <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" top="950px" left="451px" {...props} />

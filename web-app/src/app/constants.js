@@ -35,41 +35,6 @@ export const ferriswheelCanReceiveFrom = [
     yelFlipper,
 ];
 //#endregion
-//#region featofstrength
-//#region featofstrengthFeatureIds
-export const featofstrengthSpace1FeatureId = "feature-featofstrength-1";
-export const featofstrengthSpace2FeatureId = "feature-featofstrength-2";
-export const featofstrengthSpace3FeatureId = "feature-featofstrength-3";
-export const featofstrengthSpace4FeatureId = "feature-featofstrength-4";
-export const featofstrengthSpace5FeatureId = "feature-featofstrength-5";
-export const featofstrengthSpace6FeatureId = "feature-featofstrength-6";
-export const featofstrengthFeatureIds = [
-    featofstrengthSpace1FeatureId,
-    featofstrengthSpace2FeatureId,
-    featofstrengthSpace3FeatureId,
-    featofstrengthSpace4FeatureId,
-    featofstrengthSpace5FeatureId,
-    featofstrengthSpace6FeatureId,
-];
-//#endregion
-//#region featofstrengthBoxIds
-export const featofstrengthSpace1BoxId = "box-featofstrength-1";
-export const featofstrengthSpace2BoxId = "box-featofstrength-2";
-export const featofstrengthSpace3BoxId = "box-featofstrength-3";
-export const featofstrengthSpace4BoxId = "box-featofstrength-4";
-export const featofstrengthSpace5BoxId = "box-featofstrength-5";
-export const featofstrengthSpace6BoxId = "box-featofstrength-6";
-export const featofstrengthGroupBoxIds = [
-    featofstrengthSpace1BoxId,
-    featofstrengthSpace2BoxId,
-    featofstrengthSpace3BoxId,
-    featofstrengthSpace4BoxId,
-    featofstrengthSpace5BoxId,
-    featofstrengthSpace6BoxId,
-];
-//#endregion
-export const featofstrengthCanReceiveFrom = [redFlipper];
-//#endregion
 //#region bumpers
 //#region bumperBoxIds
 //#region bumper12
@@ -147,6 +112,41 @@ export const bumper56CanReceiveFrom = [
     bumper34FeatureId,
 ]
 //#endregion
+//#endregion
+//#region featofstrength
+//#region featofstrengthFeatureIds
+export const featofstrengthSpace1FeatureId = "feature-featofstrength-1";
+export const featofstrengthSpace2FeatureId = "feature-featofstrength-2";
+export const featofstrengthSpace3FeatureId = "feature-featofstrength-3";
+export const featofstrengthSpace4FeatureId = "feature-featofstrength-4";
+export const featofstrengthSpace5FeatureId = "feature-featofstrength-5";
+export const featofstrengthSpace6FeatureId = "feature-featofstrength-6";
+export const featofstrengthFeatureIds = [
+    featofstrengthSpace1FeatureId,
+    featofstrengthSpace2FeatureId,
+    featofstrengthSpace3FeatureId,
+    featofstrengthSpace4FeatureId,
+    featofstrengthSpace5FeatureId,
+    featofstrengthSpace6FeatureId,
+];
+//#endregion
+//#region featofstrengthBoxIds
+export const featofstrengthSpace1BoxId = "box-featofstrength-1";
+export const featofstrengthSpace2BoxId = "box-featofstrength-2";
+export const featofstrengthSpace3BoxId = "box-featofstrength-3";
+export const featofstrengthSpace4BoxId = "box-featofstrength-4";
+export const featofstrengthSpace5BoxId = "box-featofstrength-5";
+export const featofstrengthSpace6BoxId = "box-featofstrength-6";
+export const featofstrengthGroupBoxIds = [
+    featofstrengthSpace1BoxId,
+    featofstrengthSpace2BoxId,
+    featofstrengthSpace3BoxId,
+    featofstrengthSpace4BoxId,
+    featofstrengthSpace5BoxId,
+    featofstrengthSpace6BoxId,
+];
+//#endregion
+export const featofstrengthCanReceiveFrom = [redFlipper];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
