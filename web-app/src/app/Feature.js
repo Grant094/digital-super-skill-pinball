@@ -8,11 +8,8 @@ export default function Feature(props) {
         <div id={props.featureId}
             className={styles.feature}
             style={{
-                position: "absolute",
                 top: props.top,
                 left: props.left,
-                height: "25px",
-                width: "25px"
             }}
         >
         </div>

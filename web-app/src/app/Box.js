@@ -76,7 +76,6 @@ export default function Box(props) {
             className={styles.box}
             onClick={handleClick}
             style={{
-                position: "absolute",
                 top: props.top,
                 left: props.left,
                 height: props.height,
