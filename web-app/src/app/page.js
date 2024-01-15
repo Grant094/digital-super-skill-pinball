@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import * as constants from "./constants";
 import calcNetNudgeAmount from "./CalcNetNudgeAmount";
-import getRndIntegerInclusive from "./getRndIntegerInclusive";
+import * as utilities from "./utilities";
 import styles from "./page.module.css"
 import Table from "./Table"
 import DiceTray from "./DiceTray";
@@ -30,8 +30,8 @@ export default function Home() {
   }, [round])
 
   function rollDice() {
-    const nextValueOfDie1 = getRndIntegerInclusive(1, 6);
-    const nextValueOfDie2 = getRndIntegerInclusive(1, 6);
+    const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
+    const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
     setDie1(nextValueOfDie1);
     setDie2(nextValueOfDie2);
     if (die1AmountNudgedBy || die2AmountNudgedBy) {
