@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from "react";
+import * as constants from "./constants";
 import getRndIntegerInclusive from "./getRndIntegerInclusive";
 import styles from './page.module.css'
 import Table from './Table'
@@ -18,18 +19,6 @@ export default function Home() {
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState('start');
   const [ball2FeatureId, setBall2FeatureId] = useState('');
-
-  const redFlipperGroupBoxIds = [
-    'red-flipper-box-3',
-    'red-flipper-box-45',
-    'red-flipper-box-6'
-  ];
-  const yelFlipperGroupBoxIds = [
-      'yel-flipper-box-1',
-      'yel-flipper-box-23',
-      'yel-flipper-box-4'
-  ];
-  const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
 
   useEffect(() => {
     if (round > 3) {
@@ -74,7 +63,7 @@ export default function Home() {
 
         // TODO end the round and start another one
         // // clear flipper boxes
-        for (const flipperBoxId of flipperGroupBoxIds) {
+        for (const flipperBoxId of constants.flipperGroupBoxIds) {
           document.getElementById(flipperBoxId).style.backgroundColor = 'transparent';
         }
 
