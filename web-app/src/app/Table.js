@@ -27,7 +27,6 @@ export default function Table(props) {
                 height="50px"
                 width="50px"
             />
-            <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
                     <Box boxId={constants.ferriswheelcar12BoxId}
@@ -615,6 +614,7 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
+            <Ball left="450px" top="240px" round={props.round} />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />
                 <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" top="950px" left="451px" {...props} />
