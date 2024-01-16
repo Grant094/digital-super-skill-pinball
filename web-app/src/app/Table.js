@@ -24,8 +24,6 @@ export default function Table(props) {
             <Feature featureId={constants.startFeatureId}
                 left="450px"
                 top="240px"
-                height="50px"
-                width="50px"
             />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
