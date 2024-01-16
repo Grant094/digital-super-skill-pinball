@@ -22,10 +22,8 @@ export default function Table(props) {
         <div id="table">
             <img src="/images/carniball.jpg" alt="Carniball board" />
             <Feature featureId={constants.startFeatureId}
-                left="450px"
-                top="240px"
-                height="50px"
-                width="50px"
+                left={constants.startLeft}
+                top={constants.startTop}
             />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
@@ -614,7 +612,7 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
-            <Ball left="450px" top="240px" round={props.round} />
+            <Ball left={constants.startLeft} top={constants.startTop} round={props.round} />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />
                 <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" top="950px" left="451px" {...props} />

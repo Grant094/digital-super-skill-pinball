@@ -1,5 +1,7 @@
 //#region start
 export const startFeatureId = "start";
+export const startTop = "240px";
+export const startLeft = "450px";
 //#endregion
 //#region flippers
 export const redFlipper = "red-flipper";
