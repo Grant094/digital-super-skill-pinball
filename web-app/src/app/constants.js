@@ -4,11 +4,11 @@ export const startTop = "240px";
 export const startLeft = "450px";
 //#endregion
 //#region flippers
-export const redFlipper = "red-flipper";
-export const yelFlipper = "yel-flipper";
-export const flipperIds = [
-    redFlipper,
-    yelFlipper,
+export const redFlipperFeatureId = "feature-red-flipper";
+export const yelFlipperFeatureId = "feature-yel-flipper";
+export const flipperFeatureIds = [
+    redFlipperFeatureId,
+    yelFlipperFeatureId,
 ];
 //#endregion
 //#region ferriswheel
@@ -32,9 +32,9 @@ export const ferriswheelGroupBoxIds = [
     ferriswheelcar56BoxId,
 ];
 //#endregion
-export const ferriswheelCanReceiveFrom = [
+export const ferriswheelcarsCanReceiveFromFeatureIds = [
     startFeatureId,
-    yelFlipper,
+    yelFlipperFeatureId,
 ];
 //#endregion
 //#region bumpers
@@ -122,22 +122,22 @@ export const bumperGroupBoxIds = [
 ];
 //#endregion
 //#region bumpersCanReceiveFrom
-export const bumperAllCanReceiveFrom = [
+export const bumpersCanReceiveFromFeatureIds = [
     startFeatureId,
     ...ferriswheelFeatureIds,
-    redFlipper,
-    yelFlipper,
+    redFlipperFeatureId,
+    yelFlipperFeatureId,
 ];
-export const bumper12CanReceiveFrom = [
-    ...bumperAllCanReceiveFrom,
+export const bumper12CanReceiveFromFeatureIds = [
+    ...bumpersCanReceiveFromFeatureIds,
     bumper56FeatureId,
 ];
-export const bumper34CanReceiveFrom = [
-    ...bumperAllCanReceiveFrom,
+export const bumper34CanReceiveFromFeatureIds = [
+    ...bumpersCanReceiveFromFeatureIds,
     bumper12FeatureId,
 ];
-export const bumper56CanReceiveFrom = [
-    ...bumperAllCanReceiveFrom,
+export const bumper56CanReceiveFromFeatureIds = [
+    ...bumpersCanReceiveFromFeatureIds,
     bumper34FeatureId,
 ]
 //#endregion
@@ -175,7 +175,7 @@ export const hammerSpaceGroupBoxIds = [
     hammerSpace6BoxId,
 ];
 //#endregion
-export const hammerSpaceCanReceiveFrom = [redFlipper];
+export const hammerSpacesCanReceiveFromFeatureIds = [redFlipperFeatureId];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
@@ -230,19 +230,19 @@ export const dropTargetFeatureIds = [
     ...redDropTargetFeatureIds,
     ...yelDropTargetFeatureIds,
 ];
-export const allDropTargetsCanReceiveFrom = [
+export const dropTargetsCanReceiveFromFeatureIds = [
     startFeatureId,
     ...ferriswheelFeatureIds,
     ...bumperFeatureIds,
     ...hammerSpaceFeatureIds,
 ];
-export const yelDropTargetsCanReceiveFrom = [
-    ...allDropTargetsCanReceiveFrom,
-    yelFlipper,
+export const yelDropTargetsCanReceiveFromFeatureIds = [
+    ...dropTargetsCanReceiveFromFeatureIds,
+    yelFlipperFeatureId,
 ];
-export const redDropTargetsCanReceiveFrom = [
-    ...allDropTargetsCanReceiveFrom,
-    redFlipper,
+export const redDropTargetsCanReceiveFromFeatureIds = [
+    ...dropTargetsCanReceiveFromFeatureIds,
+    redFlipperFeatureId,
 ]
 //#endregion
 //#region dashedBoxIds
@@ -270,19 +270,19 @@ export const yelFlipperGroupBoxIds = [
 export const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
 //#endregion
 //#region inlanes
-export const redInlaneBox = "box-redinlane-2";
-export const yelInlaneBox = "box-yelinlane-5";
+export const redInlaneBoxId = "box-redinlane-2";
+export const yelInlaneBoxId = "box-yelinlane-5";
 export const inlaneBoxIds = [
-    redInlaneBox,
-    yelInlaneBox,
+    redInlaneBoxId,
+    yelInlaneBoxId,
 ];
 //#endregion
 //#region outlanes
-export const redOutlaneBox = "box-redoutlane-1";
-export const yelOutlaneBox = "box-yeloutlane-6";
+export const redOutlaneBoxId = "box-redoutlane-1";
+export const yelOutlaneBoxId = "box-yeloutlane-6";
 export const outlaneBoxIds = [
-    redOutlaneBox,
-    yelOutlaneBox,
+    redOutlaneBoxId,
+    yelOutlaneBoxId,
 ];
 //#endregion
 export const dashedBoxIds = [
@@ -301,7 +301,7 @@ export const allFeatureIds = [
     ...ferriswheelFeatureIds,
     ...hammerSpaceFeatureIds,
     ...bumperFeatureIds,
-    ...flipperIds,
+    ...flipperFeatureIds,
     ...dropTargetFeatureIds
 ];
 //#endregion

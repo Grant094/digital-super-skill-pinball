@@ -17,8 +17,8 @@ export default function Box(props) {
 
         if (
             (
-                props.boxId === constants.redOutlaneBox ||
-                props.boxId === constants.yelOutlaneBox
+                props.boxId === constants.redOutlaneBoxId ||
+                props.boxId === constants.yelOutlaneBoxId
             ) &&
             utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy) != 0
         ) {

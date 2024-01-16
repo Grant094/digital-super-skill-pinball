@@ -33,7 +33,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.ferriswheelcar12BoxId}
                         canReceiveOn={[1, 2]}
-                        canReceiveFrom={constants.ferriswheelCanReceiveFrom}
+                        canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.ferriswheelcar12FeatureId}
                         groupBoxIds={constants.ferriswheelGroupBoxIds}
                         left="160px"
@@ -50,7 +50,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.ferriswheelcar34BoxId}
                         canReceiveOn={[3, 4]}
-                        canReceiveFrom={constants.ferriswheelCanReceiveFrom}
+                        canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.ferriswheelcar34FeatureId}
                         groupBoxIds={constants.ferriswheelGroupBoxIds}
                         left="255px"
@@ -67,7 +67,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.ferriswheelcar56BoxId}
                         canReceiveOn={[5, 6]}
-                        canReceiveFrom={constants.ferriswheelCanReceiveFrom}
+                        canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.ferriswheelcar56FeatureId}
                         groupBoxIds={constants.ferriswheelGroupBoxIds}
                         left="350px"
@@ -86,7 +86,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper121st1BoxId}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.bumper12CanReceiveFrom}
+                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="155px"
@@ -98,7 +98,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper122nd1BoxId}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.bumper12CanReceiveFrom}
+                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="155px"
@@ -110,7 +110,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper121st2BoxId}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.bumper12CanReceiveFrom}
+                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="185px"
@@ -122,7 +122,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper122nd2BoxId}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.bumper12CanReceiveFrom}
+                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="185px"
@@ -140,7 +140,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper341st3BoxId}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.bumper34CanReceiveFrom}
+                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="288px"
@@ -152,7 +152,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper342nd3BoxId}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.bumper34CanReceiveFrom}
+                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="288px"
@@ -164,7 +164,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper341st4BoxId}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.bumper34CanReceiveFrom}
+                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="317px"
@@ -176,7 +176,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper342nd4BoxId}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.bumper34CanReceiveFrom}
+                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="317px"
@@ -194,7 +194,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper561st5BoxId}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.bumper56CanReceiveFrom}
+                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="221px"
@@ -206,7 +206,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper562nd5BoxId}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.bumper56CanReceiveFrom}
+                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="221px"
@@ -218,7 +218,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper561st6BoxId}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.bumper56CanReceiveFrom}
+                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="251px"
@@ -230,7 +230,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.bumper562nd6BoxId}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.bumper56CanReceiveFrom}
+                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
                         left="251px"
@@ -250,7 +250,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.hammerSpace1BoxId}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace1FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="376px"
@@ -267,7 +267,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.hammerSpace2BoxId}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace2FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="388px"
@@ -285,7 +285,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.hammerSpace3BoxId}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace3FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="398px"
@@ -303,7 +303,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.hammerSpace4BoxId}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace4FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="409px"
@@ -321,7 +321,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.hammerSpace5BoxId}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace5FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="420px"
@@ -339,7 +339,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.hammerSpace6BoxId}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace6FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="430px"
@@ -360,7 +360,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.yelDropTarget12BoxId}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.yelDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.yelDropTarget12FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
                             left="30px"
@@ -378,7 +378,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.yelDropTarget34BoxId}
                             canReceiveOn={[3, 4]}
-                            canReceiveFrom={constants.yelDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.yelDropTarget34FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
                             left="60px"
@@ -396,7 +396,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.yelDropTarget56BoxId}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.yelDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.yelDropTarget56FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
                             left="95px"
@@ -416,7 +416,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget12BoxId}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget12FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="415px"
@@ -434,7 +434,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget3BoxId}
                             canReceiveOn={[3]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget3FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="435px"
@@ -452,7 +452,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget4BoxId}
                             canReceiveOn={[4]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget4FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="455px"
@@ -470,7 +470,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget56BoxId}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget56FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="480px"
@@ -484,7 +484,7 @@ export default function Table(props) {
                 </Fragment>
             </Fragment>
             <Fragment key="outlanes">
-                <Outlane boxId={constants.redOutlaneBox}
+                <Outlane boxId={constants.redOutlaneBoxId}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.startFeatureId}
@@ -493,7 +493,7 @@ export default function Table(props) {
                     top="815px"
                     {...props}
                 />
-                <Outlane boxId={constants.yelOutlaneBox}
+                <Outlane boxId={constants.yelOutlaneBoxId}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.startFeatureId}
@@ -504,10 +504,10 @@ export default function Table(props) {
                 />
             </Fragment>
             <Fragment key="inlanes">
-                <DashedBox boxId={constants.redInlaneBox}
+                <DashedBox boxId={constants.redInlaneBoxId}
                     canReceiveOn={[2]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipper}
+                    correspondingFeatureId={constants.redFlipperFeatureId}
                     left="94px"
                     top="821px"
                     height="25px"
@@ -515,10 +515,10 @@ export default function Table(props) {
                     points="2"
                     {...props}
                 />
-                <DashedBox boxId={constants.yelInlaneBox}
+                <DashedBox boxId={constants.yelInlaneBoxId}
                     canReceiveOn={[5]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipper}
+                    correspondingFeatureId={constants.yelFlipperFeatureId}
                     left="419px"
                     top="821px"
                     height="25px"
@@ -528,11 +528,11 @@ export default function Table(props) {
                 />
             </Fragment>
             <Fragment key="flippers">
-                <Feature featureId={constants.redFlipper}
+                <Feature featureId={constants.redFlipperFeatureId}
                     left="195px"
                     top="970px"
                 />
-                <Feature featureId={constants.yelFlipper}
+                <Feature featureId={constants.yelFlipperFeatureId}
                     left="320px"
                     top="970px"
                 />
@@ -541,7 +541,7 @@ export default function Table(props) {
                 <DashedBox boxId={constants.redFlipperBox3BoxId}
                     canReceiveOn={[3]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipper}
+                    correspondingFeatureId={constants.redFlipperFeatureId}
                     left="215px"
                     top="840px"
                     height="35px"
@@ -551,7 +551,7 @@ export default function Table(props) {
                 <DashedBox boxId={constants.redFlipperBox45BoxId}
                     canReceiveOn={[4, 5]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipper}
+                    correspondingFeatureId={constants.redFlipperFeatureId}
                     left="195px"
                     top="875px"
                     height="45px"
@@ -561,7 +561,7 @@ export default function Table(props) {
                 <DashedBox boxId={constants.redFlipperBox6BoxId}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipper}
+                    correspondingFeatureId={constants.redFlipperFeatureId}
                     left="178px"
                     top="915px"
                     height="45px"
@@ -573,7 +573,7 @@ export default function Table(props) {
                 <DashedBox boxId={constants.yelFlipperBox1BoxId}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipper}
+                    correspondingFeatureId={constants.yelFlipperFeatureId}
                     left="285px"
                     top="840px"
                     height="40px"
@@ -583,7 +583,7 @@ export default function Table(props) {
                 <DashedBox boxId={constants.yelFlipperBox23BoxId}
                     canReceiveOn={[2, 3]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipper}
+                    correspondingFeatureId={constants.yelFlipperFeatureId}
                     left="300px"
                     top="875px"
                     height="45px"
@@ -593,7 +593,7 @@ export default function Table(props) {
                 <DashedBox boxId={constants.yelFlipperBox4BoxId}
                     canReceiveOn={[4]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipper}
+                    correspondingFeatureId={constants.yelFlipperFeatureId}
                     left="315px"
                     top="915px"
                     height="45px"
