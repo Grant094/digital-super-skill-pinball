@@ -78,6 +78,8 @@ export default function Home() {
         setBall1FeatureId={setBall1FeatureId}
         ball2FeatureId={ball2FeatureId}
         setBall2FeatureId={setBall2FeatureId}
+        die1AmountNudgedBy={die1AmountNudgedBy}
+        die2AmountNudgedBy={die2AmountNudgedBy}
       />
       <DiceTray
         die1={die1}
