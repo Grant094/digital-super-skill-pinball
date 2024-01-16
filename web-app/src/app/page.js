@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import * as constants from "./constants";
 import * as utilities from "./utilities";
-import styles from "./page.module.css"
-import Table from "./Table"
+import styles from "./page.module.css";
+import Table from "./Table";
 import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
