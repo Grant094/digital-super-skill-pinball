@@ -54,6 +54,10 @@ export default function Box(props) {
                 }
             }
 
+            if (props.action) {
+                props.action();
+            }
+
             props.rollDice();
             
         } else {
@@ -66,9 +70,7 @@ export default function Box(props) {
             `);
         }
 
-        if (props.action) {
-            props.action();
-        }
+        
     }
 
     return (
