@@ -1,12 +1,14 @@
 "use client"
 
-import React, { useEffect } from "react";
-import styles from "./box.module.css"
+import React, { useState, useEffect } from "react";
+import styles from "./box.module.css";
+import * as utilities from "./utilities";
 
 export default function Box(props) {
+    const [boxVisibility, setBoxVisibility] = useState("visible");
 
     useEffect(() => {
-
+        setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
 
     function handleClick() {
@@ -82,7 +84,7 @@ export default function Box(props) {
                 left: props.left,
                 height: props.height,
                 width: props.width,
-                visibility: (Number(props.round) > 3)? "hidden": "visible",
+                visibility: boxVisibility,
             }}
         >
         </div>
