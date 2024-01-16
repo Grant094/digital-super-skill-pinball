@@ -362,7 +362,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.yelDropTarget12BoxId}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.yelDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.yelDropTarget12FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
                             left="30px"
@@ -380,7 +380,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.yelDropTarget34BoxId}
                             canReceiveOn={[3, 4]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.yelDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.yelDropTarget34FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
                             left="60px"
@@ -398,7 +398,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.yelDropTarget56BoxId}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.yelDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.yelDropTarget56FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
                             left="95px"
@@ -418,7 +418,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget12BoxId}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.redDropTarget12FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="415px"
@@ -436,7 +436,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget3BoxId}
                             canReceiveOn={[3]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.redDropTarget3FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="435px"
@@ -454,7 +454,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget4BoxId}
                             canReceiveOn={[4]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.redDropTarget4FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="455px"
@@ -472,7 +472,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.redDropTarget56BoxId}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.dropTargetAllCanReceiveFrom}
+                            canReceiveFrom={constants.redDropTargetsCanReceiveFrom}
                             correspondingFeatureId={constants.redDropTarget56FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
                             left="480px"
