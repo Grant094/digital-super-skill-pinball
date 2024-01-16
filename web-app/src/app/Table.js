@@ -29,6 +29,10 @@ export default function Table(props) {
             />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
+                    <Feature featureId={constants.ferriswheelcar12FeatureId}
+                        left="182px"
+                        top="304px"
+                    />
                     <Box boxId={constants.ferriswheelcar12BoxId}
                         canReceiveOn={[1, 2]}
                         canReceiveFrom={constants.ferriswheelCanReceiveFrom}
@@ -40,12 +44,12 @@ export default function Table(props) {
                         width="65px"
                         {...props}
                     />
-                    <Feature featureId={constants.ferriswheelcar12FeatureId}
-                        left="182px"
-                        top="304px"
-                    />
                 </Fragment>
                 <Fragment key="ferriswheelcar34">
+                    <Feature featureId={constants.ferriswheelcar34FeatureId}
+                        left="274px"
+                        top="280px"
+                    />
                     <Box boxId={constants.ferriswheelcar34BoxId}
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.ferriswheelCanReceiveFrom}
@@ -57,12 +61,12 @@ export default function Table(props) {
                         width="62px"
                         {...props}
                     />
-                    <Feature featureId={constants.ferriswheelcar34FeatureId}
-                        left="274px"
-                        top="280px"
-                    />
                 </Fragment>
                 <Fragment key="ferriswheelcar56">
+                    <Feature featureId={constants.ferriswheelcar56FeatureId}
+                        left="365px"
+                        top="304px"
+                    />
                     <Box boxId={constants.ferriswheelcar56BoxId}
                         canReceiveOn={[5, 6]}
                         canReceiveFrom={constants.ferriswheelCanReceiveFrom}
@@ -74,14 +78,14 @@ export default function Table(props) {
                         width="62px"
                         {...props}
                     />
-                    <Feature featureId={constants.ferriswheelcar56FeatureId}
-                        left="365px"
-                        top="304px"
-                    />
                 </Fragment>
             </Fragment>
             <Fragment key="bumpers">
                 <Fragment key="bumper12">
+                    <Feature featureId={constants.bumper12FeatureId}
+                        left="170px"
+                        top="388px"
+                    />
                     <Box boxId={constants.bumper121st1BoxId}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.bumper12CanReceiveFrom}
@@ -130,12 +134,12 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Feature featureId={constants.bumper12FeatureId}
-                        left="170px"
-                        top="388px"
-                    />
                 </Fragment>
                 <Fragment key="bumper34">
+                    <Feature featureId={constants.bumper34FeatureId}
+                        left="303px"
+                        top="388px"
+                    />
                     <Box boxId={constants.bumper341st3BoxId}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.bumper34CanReceiveFrom}
@@ -184,12 +188,12 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Feature featureId={constants.bumper34FeatureId}
-                        left="303px"
-                        top="388px"
-                    />
                 </Fragment>
                 <Fragment key="bumper56">
+                    <Feature featureId={constants.bumper56FeatureId}
+                        left="236px"
+                        top="490px"
+                    />
                     <Box boxId={constants.bumper561st5BoxId}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.bumper56CanReceiveFrom}
@@ -237,10 +241,6 @@ export default function Table(props) {
                         width="25px"
                         points="1"
                         {...props}
-                    />
-                    <Feature featureId={constants.bumper56FeatureId}
-                        left="236px"
-                        top="490px"
                     />
                 </Fragment>
             </Fragment>
@@ -529,6 +529,16 @@ export default function Table(props) {
                     {...props}
                 />
             </Fragment>
+            <Fragment key="flippers">
+                <Feature featureId={constants.redFlipper}
+                    left="195px"
+                    top="970px"
+                />
+                <Feature featureId={constants.yelFlipper}
+                    left="320px"
+                    top="970px"
+                />
+            </Fragment>
             <Fragment key="redflipperboxes">
                 <DashedBox boxId={constants.redFlipperBox3BoxId}
                     canReceiveOn={[3]}
@@ -591,16 +601,6 @@ export default function Table(props) {
                     height="45px"
                     width="45px"
                     {...props}
-                />
-            </Fragment>
-            <Fragment key="flippers">
-                <Feature featureId={constants.redFlipper}
-                    left="195px"
-                    top="970px"
-                />
-                <Feature featureId={constants.yelFlipper}
-                    left="320px"
-                    top="970px"
                 />
             </Fragment>
             <Drain boxId={constants.drainBoxId}
