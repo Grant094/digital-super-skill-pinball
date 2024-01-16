@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
 import Box from "./Box";
 
 export default function Drain(props) {

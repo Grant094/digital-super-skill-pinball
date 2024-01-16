@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import * as constants from "./constants";
-import styles from "./restarttray.module.css"
+import styles from "./restarttray.module.css";
 
 export default function RestartTray(props) {
     function handleClick() {

@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useState, useEffect, Fragment } from "react"
-import * as constants from "./constants"
+import React, { useState, useEffect, Fragment } from "react";
+import * as constants from "./constants";
 import Feature from "./Feature";
 import Ball from "./Ball";
 import Box from "./Box";

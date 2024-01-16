@@ -1,7 +1,7 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
-import styles from "./roundindicator.module.css"
+import React, { useState, useEffect } from "react";
+import styles from "./roundindicator.module.css";
 
 export default function RoundIndicator(props) {
     const [roundIndicatorVisibility, setRoundIndicatorVisibility] = useState("hidden");

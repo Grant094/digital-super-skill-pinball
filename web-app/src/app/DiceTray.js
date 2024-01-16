@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, Fragment } from "react";
-import styles from "./dicetray.module.css"
+import styles from "./dicetray.module.css";
 import * as utilities from "./utilities";
 import NudgeUpButton from "./NudgeUpButton";
 import NudgeDnButton from "./NudgeDnButton";
