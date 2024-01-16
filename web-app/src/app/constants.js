@@ -303,3 +303,5 @@ export const allFeatureIds = [
     ...dropTargetFeatureIds
 ];
 //#endregion
+
+export const MAX_ROUNDS = 3;

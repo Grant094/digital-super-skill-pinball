@@ -1,11 +1,13 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react";
+import * as utilities from "./utilities";
 
 export default function Ball(props) {
+    const [ballVisibility, setBallVisibility] = useState("visible");
 
     useEffect(() => {
-
+        setBallVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
 
     return (
@@ -14,7 +16,7 @@ export default function Ball(props) {
                 position: "absolute",
                 top: props.top,
                 left: props.left,
-                visibility: (Number(props.round) > 3)? "hidden": "visible",
+                visibility: ballVisibility,
             }}
             src="/images/ball.jpg"
             height="25px"
