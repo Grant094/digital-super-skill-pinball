@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "./box.module.css";
+import * as constants from "./constants";
 import * as utilities from "./utilities";
 
 export default function Box(props) {
@@ -15,6 +16,15 @@ export default function Box(props) {
         const box = document.getElementById(props.boxId);
 
         if (
+            (
+                props.boxId === constants.redOutlaneBox ||
+                props.boxId === constants.yelOutlaneBox
+            ) &&
+            utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy) != 0
+        ) {
+            // a user cannot nudge to use an outlane, so this situation is checked for first
+            alert("You cannot nudge into an outlane");
+        } else if (
                 props.canReceiveFrom.includes(props.ball1FeatureId) &&
                 box.style.backgroundColor != "black" &&
                 props.correspondingFeatureId &&
