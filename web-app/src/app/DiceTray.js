@@ -26,6 +26,7 @@ export default function DiceTray(props) {
                     otherDieAmountNudgedBy={props.die2AmountNudgedBy}
                     thisDieAmountNudgedBy={props.die1AmountNudgedBy}
                     setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
+                    {...props}
                 />
                 <NudgeDnButton buttonId="nudge-dn-button-die1"
                     die={props.die1}
@@ -33,6 +34,7 @@ export default function DiceTray(props) {
                     otherDieAmountNudgedBy={props.die2AmountNudgedBy}
                     thisDieAmountNudgedBy={props.die1AmountNudgedBy}
                     setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
+                    {...props}
                 />
                 <NudgeUpButton buttonId="nudge-up-button-die2"
                     die={props.die2}
@@ -40,6 +42,7 @@ export default function DiceTray(props) {
                     otherDieAmountNudgedBy={props.die1AmountNudgedBy}
                     thisDieAmountNudgedBy={props.die2AmountNudgedBy}
                     setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
+                    {...props}
                 />
                 <NudgeDnButton buttonId="nudge-dn-button-die2"
                     die={props.die2}
@@ -47,6 +50,7 @@ export default function DiceTray(props) {
                     otherDieAmountNudgedBy={props.die1AmountNudgedBy}
                     thisDieAmountNudgedBy={props.die2AmountNudgedBy}
                     setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
+                    {...props}
                 />
             </Fragment>
             <Fragment key="nudge-and-tilt-info">
