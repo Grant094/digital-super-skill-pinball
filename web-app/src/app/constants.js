@@ -140,40 +140,40 @@ export const bumper56CanReceiveFrom = [
 ]
 //#endregion
 //#endregion
-//#region featofstrength
-//#region featofstrengthFeatureIds
-export const featofstrengthSpace1FeatureId = "feature-featofstrength-1";
-export const featofstrengthSpace2FeatureId = "feature-featofstrength-2";
-export const featofstrengthSpace3FeatureId = "feature-featofstrength-3";
-export const featofstrengthSpace4FeatureId = "feature-featofstrength-4";
-export const featofstrengthSpace5FeatureId = "feature-featofstrength-5";
-export const featofstrengthSpace6FeatureId = "feature-featofstrength-6";
-export const featofstrengthFeatureIds = [
-    featofstrengthSpace1FeatureId,
-    featofstrengthSpace2FeatureId,
-    featofstrengthSpace3FeatureId,
-    featofstrengthSpace4FeatureId,
-    featofstrengthSpace5FeatureId,
-    featofstrengthSpace6FeatureId,
+//#region hammerSpaces
+//#region hammerSpaceFeatureIds
+export const hammerSpace1FeatureId = "feature-hammer-space-1";
+export const hammerSpace2FeatureId = "feature-hammer-space-2";
+export const hammerSpace3FeatureId = "feature-hammer-space-3";
+export const hammerSpace4FeatureId = "feature-hammer-space-4";
+export const hammerSpace5FeatureId = "feature-hammer-space-5";
+export const hammerSpace6FeatureId = "feature-hammer-space-6";
+export const hammerSpaceFeatureIds = [
+    hammerSpace1FeatureId,
+    hammerSpace2FeatureId,
+    hammerSpace3FeatureId,
+    hammerSpace4FeatureId,
+    hammerSpace5FeatureId,
+    hammerSpace6FeatureId,
 ];
 //#endregion
-//#region featofstrengthBoxIds
-export const featofstrengthSpace1BoxId = "box-featofstrength-1";
-export const featofstrengthSpace2BoxId = "box-featofstrength-2";
-export const featofstrengthSpace3BoxId = "box-featofstrength-3";
-export const featofstrengthSpace4BoxId = "box-featofstrength-4";
-export const featofstrengthSpace5BoxId = "box-featofstrength-5";
-export const featofstrengthSpace6BoxId = "box-featofstrength-6";
-export const featofstrengthGroupBoxIds = [
-    featofstrengthSpace1BoxId,
-    featofstrengthSpace2BoxId,
-    featofstrengthSpace3BoxId,
-    featofstrengthSpace4BoxId,
-    featofstrengthSpace5BoxId,
-    featofstrengthSpace6BoxId,
+//#region hammerSpaceGroupBoxIds
+export const hammerSpace1BoxId = "box-hammer-space-1";
+export const hammerSpace2BoxId = "box-hammer-space-2";
+export const hammerSpace3BoxId = "box-hammer-space-3";
+export const hammerSpace4BoxId = "box-hammer-space-4";
+export const hammerSpace5BoxId = "box-hammer-space-5";
+export const hammerSpace6BoxId = "box-hammer-space-6";
+export const hammerSpaceGroupBoxIds = [
+    hammerSpace1BoxId,
+    hammerSpace2BoxId,
+    hammerSpace3BoxId,
+    hammerSpace4BoxId,
+    hammerSpace5BoxId,
+    hammerSpace6BoxId,
 ];
 //#endregion
-export const featofstrengthCanReceiveFrom = [redFlipper];
+export const hammerSpaceCanReceiveFrom = [redFlipper];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
@@ -232,7 +232,7 @@ export const allDropTargetsCanReceiveFrom = [
     startFeatureId,
     ...ferriswheelFeatureIds,
     ...bumperFeatureIds,
-    ...featofstrengthFeatureIds,
+    ...hammerSpaceFeatureIds,
 ];
 export const yelDropTargetsCanReceiveFrom = [
     ...allDropTargetsCanReceiveFrom,
@@ -297,7 +297,7 @@ export const drainGroupBoxIds = [drainBoxId];
 export const allFeatureIds = [
     startFeatureId,
     ...ferriswheelFeatureIds,
-    ...featofstrengthFeatureIds,
+    ...hammerSpaceFeatureIds,
     ...bumperFeatureIds,
     ...flipperIds,
     ...dropTargetFeatureIds

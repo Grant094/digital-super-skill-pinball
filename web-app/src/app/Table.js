@@ -246,15 +246,15 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="featofstrength">
                 <Fragment key="featofstrength-1">
-                    <Feature featureId={constants.featofstrengthSpace1FeatureId}
+                    <Feature featureId={constants.hammerSpace1FeatureId}
                         left="376px"
                         top="535px"
                     />
-                    <Box boxId={constants.featofstrengthSpace1BoxId}
+                    <Box boxId={constants.hammerSpace1BoxId}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace1FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        correspondingFeatureId={constants.hammerSpace1FeatureId}
+                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -263,15 +263,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="featofstrength-2">
-                    <Feature featureId={constants.featofstrengthSpace2FeatureId}
+                    <Feature featureId={constants.hammerSpace2FeatureId}
                         left="388px"
                         top="505px"
                     />
-                    <Box boxId={constants.featofstrengthSpace2BoxId}
+                    <Box boxId={constants.hammerSpace2BoxId}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace2FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        correspondingFeatureId={constants.hammerSpace2FeatureId}
+                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="388px"
                         top="505px"
                         height="25px"
@@ -281,15 +281,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="featofstrength-3">
-                    <Feature featureId={constants.featofstrengthSpace3FeatureId}
+                    <Feature featureId={constants.hammerSpace3FeatureId}
                         left="398px"
                         top="477px"
                     />
-                    <Box boxId={constants.featofstrengthSpace3BoxId}
+                    <Box boxId={constants.hammerSpace3BoxId}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace3FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        correspondingFeatureId={constants.hammerSpace3FeatureId}
+                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="398px"
                         top="477px"
                         height="25px"
@@ -299,15 +299,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="featofstrength-4">
-                    <Feature featureId={constants.featofstrengthSpace4FeatureId}
+                    <Feature featureId={constants.hammerSpace4FeatureId}
                         left="409px"
                         top="448px"
                     />
-                    <Box boxId={constants.featofstrengthSpace4BoxId}
+                    <Box boxId={constants.hammerSpace4BoxId}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace4FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        correspondingFeatureId={constants.hammerSpace4FeatureId}
+                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="409px"
                         top="448px"
                         height="25px"
@@ -317,15 +317,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="featofstrength-5">
-                    <Feature featureId={constants.featofstrengthSpace5FeatureId}
+                    <Feature featureId={constants.hammerSpace5FeatureId}
                         left="420px"
                         top="420px"
                     />
-                    <Box boxId={constants.featofstrengthSpace5BoxId}
+                    <Box boxId={constants.hammerSpace5BoxId}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace5FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        correspondingFeatureId={constants.hammerSpace5FeatureId}
+                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="420px"
                         top="420px"
                         height="25px"
@@ -335,15 +335,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="featofstrength-6">
-                    <Feature featureId={constants.featofstrengthSpace6FeatureId}
+                    <Feature featureId={constants.hammerSpace6FeatureId}
                         left="430px"
                         top="390px"
                     />
-                    <Box boxId={constants.featofstrengthSpace6BoxId}
+                    <Box boxId={constants.hammerSpace6BoxId}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.featofstrengthCanReceiveFrom}
-                        correspondingFeatureId={constants.featofstrengthSpace6FeatureId}
-                        groupBoxIds={constants.featofstrengthGroupBoxIds}
+                        canReceiveFrom={constants.hammerSpaceCanReceiveFrom}
+                        correspondingFeatureId={constants.hammerSpace6FeatureId}
+                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
                         left="430px"
                         top="390px"
                         height="25px"
