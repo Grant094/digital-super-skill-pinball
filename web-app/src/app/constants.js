@@ -36,6 +36,16 @@ export const ferriswheelCanReceiveFrom = [
 ];
 //#endregion
 //#region bumpers
+//#region bumperFeatureIds
+export const bumper12FeatureId = "feature-bumper-12";
+export const bumper34FeatureId = "feature-bumper-34";
+export const bumper56FeatureId = "feature-bumper-56";
+export const bumperFeatureIds = [
+    bumper12FeatureId,
+    bumper34FeatureId,
+    bumper56FeatureId,
+];
+//#endregion
 //#region bumperBoxIds
 //#region bumper12
 //#region bumper121BoxIds
@@ -109,16 +119,6 @@ export const bumperGroupBoxIds = [
     ...bumper56BoxIds,
 ];
 //#endregion
-//#region bumperFeatureIds
-export const bumper12FeatureId = "feature-bumper-12";
-export const bumper34FeatureId = "feature-bumper-34";
-export const bumper56FeatureId = "feature-bumper-56";
-export const bumperFeatureIds = [
-    bumper12FeatureId,
-    bumper34FeatureId,
-    bumper56FeatureId,
-];
-//#endregion
 //#region bumpersCanReceiveFrom
 export const bumperAllCanReceiveFrom = [
     startFeatureId,
@@ -177,16 +177,6 @@ export const featofstrengthCanReceiveFrom = [redFlipper];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
-//#region yelDropTargetBoxIds
-export const yelDropTarget12BoxId = "box-droptarget-yel-12";
-export const yelDropTarget34BoxId = "box-droptarget-yel-34";
-export const yelDropTarget56BoxId = "box-droptarget-yel-56";
-export const yelDropTargetGroupBoxIds = [
-    yelDropTarget12BoxId,
-    yelDropTarget34BoxId,
-    yelDropTarget56BoxId,
-];
-//#endregion
 //#region yelDropTargetFeatureIds
 export const yelDropTarget12FeatureId = "feature-droptarget-yel-12";
 export const yelDropTarget34FeatureId = "feature-droptarget-yel-34";
@@ -197,20 +187,18 @@ export const yelDropTargetFeatureIds = [
     yelDropTarget56FeatureId,
 ];
 //#endregion
-//#endregion
-//#region redDropTargets
-//#region redDropTargetBoxIds
-export const redDropTarget12BoxId = "box-droptarget-red-12";
-export const redDropTarget3BoxId = "box-droptarget-red-3";
-export const redDropTarget4BoxId = "box-droptarget-red-4";
-export const redDropTarget56BoxId = "box-droptarget-red-56";
-export const redDropTargetGroupBoxIds = [
-    redDropTarget12BoxId,
-    redDropTarget3BoxId,
-    redDropTarget4BoxId,
-    redDropTarget56BoxId,
+//#region yelDropTargetBoxIds
+export const yelDropTarget12BoxId = "box-droptarget-yel-12";
+export const yelDropTarget34BoxId = "box-droptarget-yel-34";
+export const yelDropTarget56BoxId = "box-droptarget-yel-56";
+export const yelDropTargetGroupBoxIds = [
+    yelDropTarget12BoxId,
+    yelDropTarget34BoxId,
+    yelDropTarget56BoxId,
 ];
 //#endregion
+//#endregion
+//#region redDropTargets
 //#region redDropTargetFeatureIds
 export const redDropTarget12FeatureId = "feature-droptarget-red-12";
 export const redDropTarget3FeatureId = "feature-droptarget-red-3";
@@ -221,6 +209,18 @@ export const redDropTargetFeatureIds = [
     redDropTarget3FeatureId,
     redDropTarget4FeatureId,
     redDropTarget56FeatureId,
+];
+//#endregion
+//#region redDropTargetBoxIds
+export const redDropTarget12BoxId = "box-droptarget-red-12";
+export const redDropTarget3BoxId = "box-droptarget-red-3";
+export const redDropTarget4BoxId = "box-droptarget-red-4";
+export const redDropTarget56BoxId = "box-droptarget-red-56";
+export const redDropTargetGroupBoxIds = [
+    redDropTarget12BoxId,
+    redDropTarget3BoxId,
+    redDropTarget4BoxId,
+    redDropTarget56BoxId,
 ];
 //#endregion
 //#endregion
