@@ -16,7 +16,7 @@ export default function Table(props) {
         for (const dashedBoxId of constants.dashedBoxIds) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
-    }, [props.round])
+    }, [props.round]);
 
     return (
         <div id="table">

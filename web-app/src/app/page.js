@@ -26,7 +26,7 @@ export default function Home() {
     if (round > 3) {
       alert(`Game over!`);
     }
-  }, [round])
+  }, [round]);
 
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
