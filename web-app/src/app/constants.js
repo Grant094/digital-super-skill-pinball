@@ -228,12 +228,20 @@ export const dropTargetFeatureIds = [
     ...redDropTargetFeatureIds,
     ...yelDropTargetFeatureIds,
 ];
-export const dropTargetAllCanReceiveFrom = [
+export const allDropTargetsCanReceiveFrom = [
     startFeatureId,
     ...ferriswheelFeatureIds,
     ...bumperFeatureIds,
     ...featofstrengthFeatureIds,
 ];
+export const yelDropTargetsCanReceiveFrom = [
+    ...allDropTargetsCanReceiveFrom,
+    yelFlipper,
+];
+export const redDropTargetsCanReceiveFrom = [
+    ...allDropTargetsCanReceiveFrom,
+    redFlipper,
+]
 //#endregion
 //#region dashedBoxIds
 //#region flipperBoxIds
