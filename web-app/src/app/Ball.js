@@ -6,7 +6,7 @@ export default function Ball(props) {
 
     useEffect(() => {
 
-    }, [props.round])
+    }, [props.round]);
 
     return (
         <img id="ball"

@@ -11,7 +11,7 @@ export default function DiceTray(props) {
     
     useEffect(() => {
         props.rollDice();
-    },[])
+    },[]);
 
     return (
         <div id="dice-tray" className={styles.DiceTray}>

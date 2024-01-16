@@ -7,7 +7,7 @@ export default function Box(props) {
 
     useEffect(() => {
 
-    }, [props.round])
+    }, [props.round]);
 
     function handleClick() {
         const box = document.getElementById(props.boxId);
