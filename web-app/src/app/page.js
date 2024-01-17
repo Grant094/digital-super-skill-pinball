@@ -94,6 +94,10 @@ export default function Home() {
     rollDice();
   }
 
+  function addPoints(pointsToAdd) {
+    setScore(Number(score) + Number(pointsToAdd));
+  }
+
   return (
     <div>
       <Table
@@ -105,6 +109,7 @@ export default function Home() {
         round={round}
         setRound={setRound}
         ball1MoveHandler={handleBall1Move}
+        addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
         setBall1FeatureId={setBall1FeatureId}
         ball2FeatureId={ball2FeatureId}

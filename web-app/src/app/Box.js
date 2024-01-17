@@ -43,12 +43,11 @@ export default function Box(props) {
 
             // move ball
             props.onBall1Move();
-
-            // add points from this box to the total score
+            
             if (props.points) {
-                props.setScore(Number(props.score) + Number(props.points));
+                props.addPoints(props.points);
             }
-
+            
             // check if the set this is in is completed
             if (props.groupBoxIds) {
                 var filledInBoxes = 0;
