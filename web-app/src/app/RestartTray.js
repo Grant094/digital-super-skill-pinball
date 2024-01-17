@@ -23,9 +23,9 @@ export default function RestartTray(props) {
 
         //#region move-ball-to-start
         const ball = document.getElementById("ball");
-        const start = document.getElementById(constants.startFeatureId);
-        ball.style.top = start.style.top;
-        ball.style.left = start.style.left;
+        props.setBall1FeatureId(constants.startFeatureId);
+        ball.style.top = constants.startTop;
+        ball.style.left = constants.startLeft;
         //#endregion
 
         props.rollDice();
