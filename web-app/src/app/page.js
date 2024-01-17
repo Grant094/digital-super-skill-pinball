@@ -65,6 +65,26 @@ export default function Home() {
     }
   }
 
+  function handleNudge(dieId, symbol) {
+    if (dieId === "1") {
+      if (symbol === "+") {
+        setDie1(Number(die1) + 1);
+        setDie1AmountNudgedBy(Number(die1AmountNudgedBy) + 1);
+      } else {
+        setDie1(Number(die1) - 1);
+        setDie1AmountNudgedBy(Number(die1AmountNudgedBy) - 1);
+      }
+    } else {
+      if (symbol === "+") {
+        setDie2(Number(die2) + 1);
+        setDie2AmountNudgedBy(Number(die2AmountNudgedBy) + 1);
+      } else {
+        setDie2(Number(die2) - 1);
+        setDie2AmountNudgedBy(Number(die2AmountNudgedBy) - 1);
+      }
+    }
+  }
+  
   function handleBall1Move(correspondingFeatureId) {
     const ball1 = document.getElementById("ball");
     const correspondingFeature = document.getElementById(correspondingFeatureId);
@@ -122,14 +142,11 @@ export default function Home() {
       <DiceTray
         die1={die1}
         die2={die2}
-        setDie1={setDie1}
-        setDie2={setDie2}
-        rollDice={rollDice}
         die1AmountNudgedBy={die1AmountNudgedBy}
-        setDie1AmountNudgedBy={setDie1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
-        setDie2AmountNudgedBy={setDie2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
+        onNudge={handleNudge}
+        rollDice={rollDice}
       />
       <ScoreIndicator score={score} />
       <RestartTray onClick={handleRestart} />
