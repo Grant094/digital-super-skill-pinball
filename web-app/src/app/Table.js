@@ -8,7 +8,7 @@ import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
 import DashedBox from "./DashedBox";
-import Drain from "./Drain";
+import DrainBox from "./DrainBox";
 
 export default function Table(props) {
 
@@ -601,7 +601,7 @@ export default function Table(props) {
                     {...props}
                 />
             </Fragment>
-            <Drain boxId={constants.drainBoxId}
+            <DrainBox boxId={constants.drainBoxId}
                 canReceiveOn={[1, 2, 3, 4, 5, 6]}
                 canReceiveFrom={constants.allFeatureIds}
                 correspondingFeatureId={constants.startFeatureId}
