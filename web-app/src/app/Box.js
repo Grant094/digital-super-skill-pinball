@@ -25,23 +25,30 @@ export default function Box(props) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
         } else if (
-                props.canReceiveFrom.includes(props.ball1FeatureId) &&
-                box.style.backgroundColor != "black" &&
-                props.correspondingFeatureId &&
-                (
-                    props.canReceiveOn.includes(props.die1) ||
-                    props.canReceiveOn.includes(props.die2)
-                )
-            ) {
+            props.canReceiveFrom.includes(props.ball1FeatureId) &&
+            box.style.backgroundColor != "black" &&
+            props.correspondingFeatureId &&
+            (
+                props.canReceiveOn.includes(props.die1) ||
+                props.canReceiveOn.includes(props.die2)
+            )
+        ) {
+            // if nudged, increment nudges used
+            if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
+                props.setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+            }
+
             // black-out box
             box.style.backgroundColor = "black";
             
+            //#region move-ball
             // move the ball to the corresponding feature
             const ball = document.getElementById("ball");
             const correspondingFeature = document.getElementById(props.correspondingFeatureId);
             ball.style.left = correspondingFeature.style.left;
             ball.style.top = correspondingFeature.style.top;
             props.setBall1FeatureId(correspondingFeature.id);
+            //#endregion
 
             // add points from this box to the total score
             if (props.points) {
