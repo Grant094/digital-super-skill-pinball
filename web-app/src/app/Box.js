@@ -33,16 +33,22 @@ export default function Box(props) {
                 props.canReceiveOn.includes(props.die2)
             )
         ) {
-            
+            // if nudged, increment nudges used
+            if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
+                props.setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+            }
+
             // black-out box
             box.style.backgroundColor = "black";
             
+            //#region move-ball
             // move the ball to the corresponding feature
             const ball = document.getElementById("ball");
             const correspondingFeature = document.getElementById(props.correspondingFeatureId);
             ball.style.left = correspondingFeature.style.left;
             ball.style.top = correspondingFeature.style.top;
             props.setBall1FeatureId(correspondingFeature.id);
+            //#endregion
 
             // add points from this box to the total score
             if (props.points) {

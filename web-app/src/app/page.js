@@ -33,9 +33,7 @@ export default function Home() {
     const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
     setDie1(nextValueOfDie1);
     setDie2(nextValueOfDie2);
-    if (die1AmountNudgedBy || die2AmountNudgedBy) {
-      setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
-      
+    if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
       // check whether player tilted and if so end the round
       if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
         alert(`Tilted!`);
@@ -80,6 +78,8 @@ export default function Home() {
         setBall2FeatureId={setBall2FeatureId}
         die1AmountNudgedBy={die1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
+        nudgesUsed={nudgesUsed}
+        setNudgesUsed={setNudgesUsed}
       />
       <DiceTray
         die1={die1}
