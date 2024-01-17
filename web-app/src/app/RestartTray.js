@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useEffect } from "react";
-import * as constants from "./constants";
+import React from "react";
 import styles from "./restarttray.module.css";
 
 export default function RestartTray(props) {
