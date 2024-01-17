@@ -28,6 +28,9 @@ export default function Home() {
     }
   }, [round]);
 
+  const resetNudgesUsed = (() => setNudgesUsed(0));
+  const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
+
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
     const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
@@ -70,8 +73,26 @@ export default function Home() {
     setBall1FeatureId(correspondingFeatureId);
   }
 
-  const resetNudgesUsed = (() => setNudgesUsed(0));
-  const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
+  function handleRestart() {
+    //#region reset-state
+    setScore(0);
+    setRound(1);
+    resetNudgesUsed();
+    //#endregion
+
+    //#region clear-all-boxes
+    const allDivs = document.querySelectorAll("div");
+    for (const div of allDivs) {
+      if (div.className.includes("box")) {
+        div.style.backgroundColor = "transparent";
+      }
+    }
+    //#endregion
+
+    handleBall1Move(constants.startFeatureId);
+
+    rollDice();
+  }
 
   return (
     <div>
@@ -106,13 +127,7 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
       />
       <ScoreIndicator score={score} />
-      <RestartTray
-        setScore={setScore}
-        setRound={setRound}
-        rollDice={rollDice}
-        setBall1FeatureId={setBall1FeatureId}
-        resetNudgesUsed={resetNudgesUsed}
-      />
+      <RestartTray onClick={handleRestart} />
     </div>
   );
 }
