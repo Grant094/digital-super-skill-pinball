@@ -62,6 +62,9 @@ export default function Home() {
     }
   }
 
+  const resetNudgesUsed = (() => setNudgesUsed(0));
+  const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
+
   return (
     <div>
       <Table
@@ -79,7 +82,7 @@ export default function Home() {
         die1AmountNudgedBy={die1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
-        setNudgesUsed={setNudgesUsed}
+        incNudgesUsed={incNudgesUsed}
       />
       <DiceTray
         die1={die1}
@@ -97,9 +100,9 @@ export default function Home() {
       <RestartTray 
         setScore={setScore}
         setRound={setRound}
-        setNudgesUsed={setNudgesUsed}
         rollDice={rollDice}
         setBall1FeatureId={setBall1FeatureId}
+        resetNudgesUsed={resetNudgesUsed}
       />
     </div>
   );

@@ -35,7 +35,7 @@ export default function Box(props) {
         ) {
             // if nudged, increment nudges used
             if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
-                props.setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+                props.incNudgesUsed();
             }
 
             // black-out box

@@ -9,7 +9,7 @@ export default function RestartTray(props) {
         //#region reset-state
         props.setScore(0);
         props.setRound(1);
-        props.setNudgesUsed(0);
+        props.resetNudgesUsed();
         //#endregion
 
         //#region clear-all-boxes
