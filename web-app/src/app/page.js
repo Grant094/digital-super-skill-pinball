@@ -62,6 +62,14 @@ export default function Home() {
     }
   }
 
+  function handleBall1Move(correspondingFeatureId) {
+    const ball1 = document.getElementById("ball");
+    const correspondingFeature = document.getElementById(correspondingFeatureId);
+    ball1.style.left = correspondingFeature.style.left;
+    ball1.style.top = correspondingFeature.style.top;
+    setBall1FeatureId(correspondingFeatureId);
+  }
+
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
 
@@ -75,6 +83,7 @@ export default function Home() {
         setScore={setScore}
         round={round}
         setRound={setRound}
+        ball1MoveHandler={handleBall1Move}
         ball1FeatureId={ball1FeatureId}
         setBall1FeatureId={setBall1FeatureId}
         ball2FeatureId={ball2FeatureId}
@@ -97,7 +106,7 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
       />
       <ScoreIndicator score={score} />
-      <RestartTray 
+      <RestartTray
         setScore={setScore}
         setRound={setRound}
         rollDice={rollDice}

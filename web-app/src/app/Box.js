@@ -40,15 +40,9 @@ export default function Box(props) {
 
             // black-out box
             box.style.backgroundColor = "black";
-            
-            //#region move-ball
-            // move the ball to the corresponding feature
-            const ball = document.getElementById("ball");
-            const correspondingFeature = document.getElementById(props.correspondingFeatureId);
-            ball.style.left = correspondingFeature.style.left;
-            ball.style.top = correspondingFeature.style.top;
-            props.setBall1FeatureId(correspondingFeature.id);
-            //#endregion
+
+            // move ball
+            props.onBall1Move();
 
             // add points from this box to the total score
             if (props.points) {
@@ -86,6 +80,7 @@ export default function Box(props) {
                 Die2: ${props.die2}
                 canRecieveOn: ${props.canReceiveOn}
                 canRecieveFrom: ${props.canReceiveFrom}
+                ball1FeatureId: ${props.ball1FeatureId}
             `);
         }
 
