@@ -99,6 +99,7 @@ export default function Home() {
         setRound={setRound}
         setNudgesUsed={setNudgesUsed}
         rollDice={rollDice}
+        setBall1FeatureId={setBall1FeatureId}
       />
     </div>
   );
