@@ -143,7 +143,7 @@ export default function Home() {
         incNudgesUsed={incNudgesUsed}
         incRound={incRound}
       />
-      <DiceTray
+      <DiceTray dicetrayId="dice-tray"
         die1={die1}
         die2={die2}
         die1AmountNudgedBy={die1AmountNudgedBy}
