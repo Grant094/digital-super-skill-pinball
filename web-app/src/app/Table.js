@@ -257,8 +257,8 @@ export default function Table(props) {
                     />
                 </Fragment>
             </Fragment>
-            <Fragment key="featofstrength">
-                <Fragment key="featofstrength-1">
+            <Fragment key="hammerspaces">
+                <Fragment key="hammerspace-1">
                     <Feature featureId={constants.hammerSpace1FeatureId}
                         left="376px"
                         top="535px"
@@ -276,7 +276,7 @@ export default function Table(props) {
                         {...props}
                     />
                 </Fragment>
-                <Fragment key="featofstrength-2">
+                <Fragment key="hammerspace-2">
                     <Feature featureId={constants.hammerSpace2FeatureId}
                         left="388px"
                         top="505px"
@@ -295,7 +295,7 @@ export default function Table(props) {
                         {...props}
                     />
                 </Fragment>
-                <Fragment key="featofstrength-3">
+                <Fragment key="hammerspace-3">
                     <Feature featureId={constants.hammerSpace3FeatureId}
                         left="398px"
                         top="477px"
@@ -314,7 +314,7 @@ export default function Table(props) {
                         {...props}
                     />
                 </Fragment>
-                <Fragment key="featofstrength-4">
+                <Fragment key="hammerspace-4">
                     <Feature featureId={constants.hammerSpace4FeatureId}
                         left="409px"
                         top="448px"
@@ -333,7 +333,7 @@ export default function Table(props) {
                         {...props}
                     />
                 </Fragment>
-                <Fragment key="featofstrength-5">
+                <Fragment key="hammerspace-5">
                     <Feature featureId={constants.hammerSpace5FeatureId}
                         left="420px"
                         top="420px"
@@ -352,7 +352,7 @@ export default function Table(props) {
                         {...props}
                     />
                 </Fragment>
-                <Fragment key="featofstrength-6">
+                <Fragment key="hammerspace-6">
                     <Feature featureId={constants.hammerSpace6FeatureId}
                         left="430px"
                         top="390px"
