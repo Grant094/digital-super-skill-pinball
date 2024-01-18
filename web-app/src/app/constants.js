@@ -305,5 +305,12 @@ export const allFeatureIds = [
     ...dropTargetFeatureIds
 ];
 //#endregion
-
+//#region balls
+export const ball1Id = "ball1"
+export const ball2Id = "ball2"
+export const ballIds = [
+    ball1Id,
+    ball2Id,
+];
+//#endregion
 export const MAX_ROUNDS = 3;
