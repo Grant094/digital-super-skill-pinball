@@ -10,7 +10,7 @@ export default function DiceTray(props) {
     let netNudgeAmount = utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy);
 
     return (
-        <div id="dice-tray" className={styles.DiceTray}>
+        <div id={props.dicetrayId} className={styles.DiceTray}>
             <Fragment key="dice">
                 <p className={styles.Die1}>{props.die1}</p>
                 <p className={styles.Die2}>{props.die2}</p>

@@ -11,7 +11,7 @@ export default function Ball(props) {
     }, [props.round]);
 
     return (
-        <img id="ball"
+        <img id={props.ballId}
             style={{
                 position: "absolute",
                 top: props.top,

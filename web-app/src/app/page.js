@@ -127,7 +127,7 @@ export default function Home() {
 
   return (
     <div>
-      <Table
+      <Table tableId="table"
         die1={die1}
         die2={die2}
         rollDice={rollDice}
@@ -143,7 +143,7 @@ export default function Home() {
         incNudgesUsed={incNudgesUsed}
         incRound={incRound}
       />
-      <DiceTray
+      <DiceTray dicetrayId="dice-tray"
         die1={die1}
         die2={die2}
         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -152,8 +152,13 @@ export default function Home() {
         onNudge={handleNudge}
         rollDice={rollDice}
       />
-      <ScoreIndicator score={score} />
-      <RestartTray onClick={handleRestart} />
+      <ScoreIndicator scoreIndicatorId="score-indicator"
+        scorePId="score"
+        score={score} />
+      <RestartTray restartrayId="restart-tray"
+        restartButtonId="restart-button"
+        onClick={handleRestart}
+      />
     </div>
   );
 }
