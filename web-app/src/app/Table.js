@@ -651,7 +651,7 @@ export default function Table(props) {
                 width="98px"
                 {...props}
             />
-            <Ball ballId="ball"
+            <Ball ballId={constants.ball1Id}
                 left={constants.startLeft}
                 top={constants.startTop}
                 round={props.round}
