@@ -8,10 +8,6 @@ import NudgeDnButton from "./NudgeDnButton";
 
 export default function DiceTray(props) {
     let netNudgeAmount = utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy);
-    
-    useEffect(() => {
-        props.rollDice();
-    },[]);
 
     return (
         <div id="dice-tray" className={styles.DiceTray}>

@@ -27,6 +27,8 @@ export default function Home() {
     }
   }, [round]);
 
+  //useEffect(() => {rollDice()},[]); defined below since rollDice() must be defined before it
+
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
   const incRound = (() => setRound(round + 1));
@@ -64,6 +66,11 @@ export default function Home() {
       setDie2AmountNudgedBy(0);
     }
   }
+
+  // defined here since rollDice() must be defined first
+  useEffect(() => {
+    rollDice();
+  },[]);
 
   function handleNudge(dieId, symbol) {
     if (dieId === "1") {
