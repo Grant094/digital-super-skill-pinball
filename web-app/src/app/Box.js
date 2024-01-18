@@ -20,7 +20,7 @@ export default function Box(props) {
                 props.boxId === constants.redOutlaneBoxId ||
                 props.boxId === constants.yelOutlaneBoxId
             ) &&
-            utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy) != 0
+            utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
