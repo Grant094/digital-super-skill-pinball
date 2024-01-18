@@ -41,6 +41,14 @@ export default function Home() {
     setBall1FeatureId(correspondingFeatureId);
   }
 
+  function endRound() {
+    // increment round
+    incRound();
+
+    // move ball1 to start
+    moveBall1(constants.startFeatureId);
+  }
+
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
     const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
@@ -49,14 +57,10 @@ export default function Home() {
     if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
       // check whether player tilted and if so end the round
       if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
+        // player tilted so they should be notified and then the round should be ended
         alert(`Tilted!`);
 
-        // end the round and start another one
-        // // increment round
-        incRound();
-
-        // move ball1 to start
-        moveBall1(constants.startFeatureId);
+        endRound();
       }
 
       // after checking tilt status, remove any nudging from both dice
@@ -131,7 +135,7 @@ export default function Home() {
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
-        incRound={incRound}
+        endRound={endRound}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
