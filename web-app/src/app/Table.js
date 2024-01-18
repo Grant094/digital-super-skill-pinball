@@ -19,7 +19,7 @@ export default function Table(props) {
     }, [props.round]);
 
     return (
-        <div id="table">
+        <div id={props.tableId}>
             <img src="/images/carniball.jpg" alt="Carniball board" />
             <Feature featureId={constants.startFeatureId}
                 left={constants.startLeft}

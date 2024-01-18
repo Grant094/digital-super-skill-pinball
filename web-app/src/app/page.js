@@ -127,7 +127,7 @@ export default function Home() {
 
   return (
     <div>
-      <Table
+      <Table tableId="table"
         die1={die1}
         die2={die2}
         rollDice={rollDice}
