@@ -49,7 +49,7 @@ export default function Home() {
         }
 
         // // increment round
-        setRound(() => Number(round) + 1);
+        incRound();
 
         //#region move-ball-to-start
         const ball = document.getElementById("ball");
