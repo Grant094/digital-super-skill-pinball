@@ -22,7 +22,7 @@ export default function Home() {
   //#endregion
 
   useEffect(() => {
-    if (utilities.isGameOver()) {
+    if (utilities.isGameOver(round)) {
       alert(`Game over!`);
     }
   }, [round]);
