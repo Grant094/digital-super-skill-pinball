@@ -153,7 +153,10 @@ export default function Home() {
         rollDice={rollDice}
       />
       <ScoreIndicator score={score} />
-      <RestartTray onClick={handleRestart} />
+      <RestartTray restartrayId="restart-tray"
+        restartButtonId="restart-button"
+        onClick={handleRestart}
+      />
     </div>
   );
 }

@@ -5,8 +5,8 @@ import styles from "./restarttray.module.css";
 
 export default function RestartTray(props) {
     return (
-        <div id="restart-tray" className={styles.RestartTray}>
-            <button id="restart-button"
+        <div id={props.restartrayId} className={styles.RestartTray}>
+            <button id={props.restartButtonId}
                 className={styles.RestartButton}
                 type="button"
                 onClick={props.onClick}
