@@ -126,15 +126,11 @@ export default function Home() {
         die2={die2}
         rollDice={rollDice}
         score={score}
-        setScore={setScore}
         round={round}
-        setRound={setRound}
         moveBall1={moveBall1}
         addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
-        setBall1FeatureId={setBall1FeatureId}
         ball2FeatureId={ball2FeatureId}
-        setBall2FeatureId={setBall2FeatureId}
         die1AmountNudgedBy={die1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
