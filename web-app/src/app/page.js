@@ -154,7 +154,8 @@ export default function Home() {
       />
       <ScoreIndicator scoreIndicatorId="score-indicator"
         scorePId="score"
-        score={score} />
+        score={score}
+      />
       <RestartTray restartrayId="restart-tray"
         restartButtonId="restart-button"
         onClick={handleRestart}
