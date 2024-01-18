@@ -52,8 +52,8 @@ export default function Home() {
         // // increment round
         incRound();
 
-        //#region move-ball-to-start
-        const ball = document.getElementById("ball");
+        //#region move-ball1-to-start
+        const ball = document.getElementById(constants.ball1Id);
         const start = document.getElementById(constants.startFeatureId);
         ball.style.left = start.style.left;
         ball.style.top = start.style.top;
@@ -93,7 +93,7 @@ export default function Home() {
   }
   
   function moveBall1(correspondingFeatureId) {
-    const ball1 = document.getElementById("ball");
+    const ball1 = document.getElementById(constants.ball1Id);
     const correspondingFeature = document.getElementById(correspondingFeatureId);
     ball1.style.left = correspondingFeature.style.left;
     ball1.style.top = correspondingFeature.style.top;
