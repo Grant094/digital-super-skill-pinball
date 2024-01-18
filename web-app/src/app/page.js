@@ -52,11 +52,6 @@ export default function Home() {
         alert(`Tilted!`);
 
         // end the round and start another one
-        // // clear flipper boxes
-        for (const flipperBoxId of constants.flipperGroupBoxIds) {
-          document.getElementById(flipperBoxId).style.backgroundColor = "transparent";
-        }
-
         // // increment round
         incRound();
 
