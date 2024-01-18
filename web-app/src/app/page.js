@@ -86,7 +86,7 @@ export default function Home() {
     }
   }
   
-  function handleBall1Move(correspondingFeatureId) {
+  function moveBall1(correspondingFeatureId) {
     const ball1 = document.getElementById("ball");
     const correspondingFeature = document.getElementById(correspondingFeatureId);
     ball1.style.left = correspondingFeature.style.left;
@@ -110,7 +110,7 @@ export default function Home() {
     }
     //#endregion
 
-    handleBall1Move(constants.startFeatureId);
+    moveBall1(constants.startFeatureId);
 
     rollDice();
   }
@@ -129,7 +129,7 @@ export default function Home() {
         setScore={setScore}
         round={round}
         setRound={setRound}
-        ball1MoveHandler={handleBall1Move}
+        moveBall1={moveBall1}
         addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
         setBall1FeatureId={setBall1FeatureId}
