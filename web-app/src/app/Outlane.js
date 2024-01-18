@@ -18,10 +18,6 @@ export default function Outlane(props) {
         props.addPoints((relevantFlipperBoxesUsed * POINTS_PER_USED_FLIPPER_BOX))
 
         // end the round
-        for (const dashedBoxId of constants.dashedBoxIds) {
-            document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
-        }
-
         props.incRound();
     }
     
