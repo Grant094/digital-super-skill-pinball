@@ -33,6 +33,14 @@ export default function Home() {
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
   const incRound = (() => setRound(round + 1));
 
+  function moveBall1(correspondingFeatureId) {
+    const ball1 = document.getElementById(constants.ball1Id);
+    const correspondingFeature = document.getElementById(correspondingFeatureId);
+    ball1.style.left = correspondingFeature.style.left;
+    ball1.style.top = correspondingFeature.style.top;
+    setBall1FeatureId(correspondingFeatureId);
+  }
+
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
     const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
@@ -52,13 +60,8 @@ export default function Home() {
         // // increment round
         incRound();
 
-        //#region move-ball1-to-start
-        const ball = document.getElementById(constants.ball1Id);
-        const start = document.getElementById(constants.startFeatureId);
-        ball.style.left = start.style.left;
-        ball.style.top = start.style.top;
-        setBall1FeatureId(constants.startFeatureId);
-        //#endregion
+        // move ball1 to start
+        moveBall1(constants.startFeatureId);
       }
 
       // after checking tilt status, remove any nudging from both dice
@@ -92,14 +95,6 @@ export default function Home() {
     }
   }
   
-  function moveBall1(correspondingFeatureId) {
-    const ball1 = document.getElementById(constants.ball1Id);
-    const correspondingFeature = document.getElementById(correspondingFeatureId);
-    ball1.style.left = correspondingFeature.style.left;
-    ball1.style.top = correspondingFeature.style.top;
-    setBall1FeatureId(correspondingFeatureId);
-  }
-
   function handleRestart() {
     //#region reset-state
     setScore(0);
