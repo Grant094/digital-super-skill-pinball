@@ -152,7 +152,9 @@ export default function Home() {
         onNudge={handleNudge}
         rollDice={rollDice}
       />
-      <ScoreIndicator score={score} />
+      <ScoreIndicator scoreIndicatorId="score-indicator"
+        scorePId="score"
+        score={score} />
       <RestartTray restartrayId="restart-tray"
         restartButtonId="restart-button"
         onClick={handleRestart}
