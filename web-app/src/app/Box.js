@@ -48,7 +48,7 @@ export default function Box(props) {
                 props.addPoints(props.points);
             }
             
-            // check if the set this is in is completed
+            // check if the group of BoxIds this is in is completed
             if (props.groupBoxIds) {
                 var filledInBoxes = 0;
                 for (const boxId of props.groupBoxIds) {
@@ -59,7 +59,7 @@ export default function Box(props) {
                     }
                 }
                 if (filledInBoxes === props.groupBoxIds.length) {
-                    // set has been completed, so the boxes should be cleared
+                    // group has been completed, so the boxes should be cleared
                     for (const boxId of props.groupBoxIds) {
                         document.getElementById(boxId).style.backgroundColor = "transparent";
                     }
