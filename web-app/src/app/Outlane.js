@@ -22,7 +22,7 @@ export default function Outlane(props) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
 
-        props.setRound(() => Number(props.round) + 1);
+        props.incRound();
     }
     
     return (
