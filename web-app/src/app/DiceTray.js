@@ -21,35 +21,27 @@ export default function DiceTray(props) {
             </Fragment>
             <Fragment key="nudge-buttons">
                 <NudgeUpButton buttonId="nudge-up-button-die1"
+                    dieId="1"
                     die={props.die1}
-                    dieSetter={props.setDie1}
                     otherDieAmountNudgedBy={props.die2AmountNudgedBy}
-                    thisDieAmountNudgedBy={props.die1AmountNudgedBy}
-                    setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
                     {...props}
                 />
                 <NudgeDnButton buttonId="nudge-dn-button-die1"
+                    dieId="1"
                     die={props.die1}
-                    dieSetter={props.setDie1}
                     otherDieAmountNudgedBy={props.die2AmountNudgedBy}
-                    thisDieAmountNudgedBy={props.die1AmountNudgedBy}
-                    setThisDieAmountNudgedBy={props.setDie1AmountNudgedBy}
                     {...props}
                 />
                 <NudgeUpButton buttonId="nudge-up-button-die2"
+                    dieId="2"
                     die={props.die2}
-                    dieSetter={props.setDie2}
                     otherDieAmountNudgedBy={props.die1AmountNudgedBy}
-                    thisDieAmountNudgedBy={props.die2AmountNudgedBy}
-                    setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
                     {...props}
                 />
                 <NudgeDnButton buttonId="nudge-dn-button-die2"
+                    dieId="2"
                     die={props.die2}
-                    dieSetter={props.setDie2}
                     otherDieAmountNudgedBy={props.die1AmountNudgedBy}
-                    thisDieAmountNudgedBy={props.die2AmountNudgedBy}
-                    setThisDieAmountNudgedBy={props.setDie2AmountNudgedBy}
                     {...props}
                 />
             </Fragment>

@@ -28,6 +28,10 @@ export default function Home() {
     }
   }, [round]);
 
+  const resetNudgesUsed = (() => setNudgesUsed(0));
+  const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
+  const incRound = (() => setRound(round + 1));
+
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
     const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
@@ -45,7 +49,7 @@ export default function Home() {
         }
 
         // // increment round
-        setRound(() => Number(round) + 1);
+        incRound();
 
         //#region move-ball-to-start
         const ball = document.getElementById("ball");
@@ -62,6 +66,59 @@ export default function Home() {
     }
   }
 
+  function handleNudge(dieId, symbol) {
+    if (dieId === "1") {
+      if (symbol === "+") {
+        setDie1(Number(die1) + 1);
+        setDie1AmountNudgedBy(Number(die1AmountNudgedBy) + 1);
+      } else {
+        setDie1(Number(die1) - 1);
+        setDie1AmountNudgedBy(Number(die1AmountNudgedBy) - 1);
+      }
+    } else {
+      if (symbol === "+") {
+        setDie2(Number(die2) + 1);
+        setDie2AmountNudgedBy(Number(die2AmountNudgedBy) + 1);
+      } else {
+        setDie2(Number(die2) - 1);
+        setDie2AmountNudgedBy(Number(die2AmountNudgedBy) - 1);
+      }
+    }
+  }
+  
+  function moveBall1(correspondingFeatureId) {
+    const ball1 = document.getElementById("ball");
+    const correspondingFeature = document.getElementById(correspondingFeatureId);
+    ball1.style.left = correspondingFeature.style.left;
+    ball1.style.top = correspondingFeature.style.top;
+    setBall1FeatureId(correspondingFeatureId);
+  }
+
+  function handleRestart() {
+    //#region reset-state
+    setScore(0);
+    setRound(1);
+    resetNudgesUsed();
+    //#endregion
+
+    //#region clear-all-boxes
+    const allDivs = document.querySelectorAll("div");
+    for (const div of allDivs) {
+      if (div.className.includes("box")) {
+        div.style.backgroundColor = "transparent";
+      }
+    }
+    //#endregion
+
+    moveBall1(constants.startFeatureId);
+
+    rollDice();
+  }
+
+  function addPoints(pointsToAdd) {
+    setScore(Number(score) + Number(pointsToAdd));
+  }
+
   return (
     <div>
       <Table
@@ -69,38 +126,28 @@ export default function Home() {
         die2={die2}
         rollDice={rollDice}
         score={score}
-        setScore={setScore}
         round={round}
-        setRound={setRound}
+        moveBall1={moveBall1}
+        addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
-        setBall1FeatureId={setBall1FeatureId}
         ball2FeatureId={ball2FeatureId}
-        setBall2FeatureId={setBall2FeatureId}
         die1AmountNudgedBy={die1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
-        setNudgesUsed={setNudgesUsed}
+        incNudgesUsed={incNudgesUsed}
+        incRound={incRound}
       />
       <DiceTray
         die1={die1}
         die2={die2}
-        setDie1={setDie1}
-        setDie2={setDie2}
-        rollDice={rollDice}
         die1AmountNudgedBy={die1AmountNudgedBy}
-        setDie1AmountNudgedBy={setDie1AmountNudgedBy}
         die2AmountNudgedBy={die2AmountNudgedBy}
-        setDie2AmountNudgedBy={setDie2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
+        onNudge={handleNudge}
+        rollDice={rollDice}
       />
       <ScoreIndicator score={score} />
-      <RestartTray 
-        setScore={setScore}
-        setRound={setRound}
-        setNudgesUsed={setNudgesUsed}
-        rollDice={rollDice}
-        setBall1FeatureId={setBall1FeatureId}
-      />
+      <RestartTray onClick={handleRestart} />
     </div>
   );
 }

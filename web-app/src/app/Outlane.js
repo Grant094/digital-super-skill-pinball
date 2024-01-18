@@ -15,15 +15,14 @@ export default function Outlane(props) {
             }
         }
 
-        props.setScore(props.score + (relevantFlipperBoxesUsed * POINTS_PER_USED_FLIPPER_BOX));
-
+        props.addPoints((relevantFlipperBoxesUsed * POINTS_PER_USED_FLIPPER_BOX))
 
         // end the round
         for (const dashedBoxId of constants.dashedBoxIds) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
 
-        props.setRound(() => Number(props.round) + 1);
+        props.incRound();
     }
     
     return (

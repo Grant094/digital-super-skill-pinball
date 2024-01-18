@@ -35,26 +35,19 @@ export default function Box(props) {
         ) {
             // if nudged, increment nudges used
             if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
-                props.setNudgesUsed((nudgesUsed) => nudgesUsed + 1);
+                props.incNudgesUsed();
             }
 
             // black-out box
             box.style.backgroundColor = "black";
+
+            // move ball
+            props.onBall1Move();
             
-            //#region move-ball
-            // move the ball to the corresponding feature
-            const ball = document.getElementById("ball");
-            const correspondingFeature = document.getElementById(props.correspondingFeatureId);
-            ball.style.left = correspondingFeature.style.left;
-            ball.style.top = correspondingFeature.style.top;
-            props.setBall1FeatureId(correspondingFeature.id);
-            //#endregion
-
-            // add points from this box to the total score
             if (props.points) {
-                props.setScore(Number(props.score) + Number(props.points));
+                props.addPoints(props.points);
             }
-
+            
             // check if the set this is in is completed
             if (props.groupBoxIds) {
                 var filledInBoxes = 0;
@@ -86,6 +79,7 @@ export default function Box(props) {
                 Die2: ${props.die2}
                 canRecieveOn: ${props.canReceiveOn}
                 canRecieveFrom: ${props.canReceiveFrom}
+                ball1FeatureId: ${props.ball1FeatureId}
             `);
         }
 

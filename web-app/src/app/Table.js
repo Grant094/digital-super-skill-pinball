@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, Fragment } from "react";
 import * as constants from "./constants";
+import * as utilities from "./utilities";
 import Feature from "./Feature";
 import Ball from "./Ball";
 import Box from "./Box";
@@ -11,7 +12,6 @@ import DashedBox from "./DashedBox";
 import DrainBox from "./DrainBox";
 
 export default function Table(props) {
-
     useEffect(() => {
         for (const dashedBoxId of constants.dashedBoxIds) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
@@ -36,6 +36,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.ferriswheelcar12FeatureId}
                         groupBoxIds={constants.ferriswheelGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.ferriswheelcar12FeatureId)}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -53,6 +54,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.ferriswheelcar34FeatureId}
                         groupBoxIds={constants.ferriswheelGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.ferriswheelcar34FeatureId)}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -70,6 +72,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.ferriswheelcar56FeatureId}
                         groupBoxIds={constants.ferriswheelGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.ferriswheelcar56FeatureId)}
                         left="350px"
                         top="246px"
                         height="48px"
@@ -89,6 +92,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper12FeatureId)}
                         left="155px"
                         top="373px"
                         height="25px"
@@ -101,6 +105,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper12FeatureId)}
                         left="155px"
                         top="402px"
                         height="25px"
@@ -113,6 +118,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper12FeatureId)}
                         left="185px"
                         top="373px"
                         height="25px"
@@ -125,6 +131,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper12FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper12FeatureId)}
                         left="185px"
                         top="402px"
                         height="25px"
@@ -143,6 +150,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper34FeatureId)}
                         left="288px"
                         top="373px"
                         height="25px"
@@ -155,6 +163,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper34FeatureId)}
                         left="288px"
                         top="402px"
                         height="25px"
@@ -167,6 +176,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper34FeatureId)}
                         left="317px"
                         top="373px"
                         height="25px"
@@ -179,6 +189,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper34FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper34FeatureId)}
                         left="317px"
                         top="402px"
                         height="25px"
@@ -197,6 +208,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper56FeatureId)}
                         left="221px"
                         top="475px"
                         height="25px"
@@ -209,6 +221,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper56FeatureId)}
                         left="221px"
                         top="505px"
                         height="25px"
@@ -221,6 +234,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper56FeatureId)}
                         left="251px"
                         top="475px"
                         height="25px"
@@ -233,6 +247,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.bumper56FeatureId}
                         groupBoxIds={constants.bumperGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.bumper56FeatureId)}
                         left="251px"
                         top="505px"
                         height="25px"
@@ -253,6 +268,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace1FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.hammerSpace1FeatureId)}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -270,6 +286,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace2FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.hammerSpace2FeatureId)}
                         left="388px"
                         top="505px"
                         height="25px"
@@ -288,6 +305,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace3FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.hammerSpace3FeatureId)}
                         left="398px"
                         top="477px"
                         height="25px"
@@ -306,6 +324,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace4FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.hammerSpace4FeatureId)}
                         left="409px"
                         top="448px"
                         height="25px"
@@ -324,6 +343,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace5FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.hammerSpace5FeatureId)}
                         left="420px"
                         top="420px"
                         height="25px"
@@ -342,6 +362,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
                         correspondingFeatureId={constants.hammerSpace6FeatureId}
                         groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        onBall1Move={() => props.moveBall1(constants.hammerSpace6FeatureId)}
                         left="430px"
                         top="390px"
                         height="25px"
@@ -363,6 +384,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.yelDropTarget12FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.yelDropTarget12FeatureId)}
                             left="30px"
                             top="675px"
                             height="60px"
@@ -381,6 +403,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.yelDropTarget34FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.yelDropTarget34FeatureId)}
                             left="60px"
                             top="615px"
                             height="60px"
@@ -399,6 +422,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.yelDropTarget56FeatureId}
                             groupBoxIds={constants.yelDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.yelDropTarget56FeatureId)}
                             left="95px"
                             top="560px"
                             height="60px"
@@ -419,6 +443,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget12FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.redDropTarget12FeatureId)}
                             left="415px"
                             top="570px"
                             height="50px"
@@ -437,6 +462,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget3FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.redDropTarget3FeatureId)}
                             left="435px"
                             top="621px"
                             height="40px"
@@ -455,6 +481,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget4FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.redDropTarget4FeatureId)}
                             left="455px"
                             top="665px"
                             height="42px"
@@ -473,6 +500,7 @@ export default function Table(props) {
                             canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
                             correspondingFeatureId={constants.redDropTarget56FeatureId}
                             groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            onBall1Move={() => props.moveBall1(constants.redDropTarget56FeatureId)}
                             left="480px"
                             top="710px"
                             height="55px"
@@ -489,6 +517,7 @@ export default function Table(props) {
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.startFeatureId}
                     relevantFlipperBoxIds={constants.redFlipperGroupBoxIds}
+                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
                     left="18px"
                     top="815px"
                     {...props}
@@ -498,6 +527,7 @@ export default function Table(props) {
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.startFeatureId}
                     relevantFlipperBoxIds={constants.yelFlipperGroupBoxIds}
+                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
                     left="458px"
                     top="815px"
                     {...props}
@@ -508,6 +538,7 @@ export default function Table(props) {
                     canReceiveOn={[2]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.redFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.redFlipperFeatureId)}
                     left="94px"
                     top="821px"
                     height="25px"
@@ -519,6 +550,7 @@ export default function Table(props) {
                     canReceiveOn={[5]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.yelFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.yelFlipperFeatureId)}
                     left="419px"
                     top="821px"
                     height="25px"
@@ -542,6 +574,7 @@ export default function Table(props) {
                     canReceiveOn={[3]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.redFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.redFlipperFeatureId)}
                     left="215px"
                     top="840px"
                     height="35px"
@@ -552,6 +585,7 @@ export default function Table(props) {
                     canReceiveOn={[4, 5]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.redFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.redFlipperFeatureId)}
                     left="195px"
                     top="875px"
                     height="45px"
@@ -562,6 +596,7 @@ export default function Table(props) {
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.redFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.redFlipperFeatureId)}
                     left="178px"
                     top="915px"
                     height="45px"
@@ -574,6 +609,7 @@ export default function Table(props) {
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.yelFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.yelFlipperFeatureId)}
                     left="285px"
                     top="840px"
                     height="40px"
@@ -584,6 +620,7 @@ export default function Table(props) {
                     canReceiveOn={[2, 3]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.yelFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.yelFlipperFeatureId)}
                     left="300px"
                     top="875px"
                     height="45px"
@@ -594,6 +631,7 @@ export default function Table(props) {
                     canReceiveOn={[4]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.yelFlipperFeatureId}
+                    onBall1Move={() => props.moveBall1(constants.yelFlipperFeatureId)}
                     left="315px"
                     top="915px"
                     height="45px"
@@ -606,6 +644,7 @@ export default function Table(props) {
                 canReceiveFrom={constants.allFeatureIds}
                 correspondingFeatureId={constants.startFeatureId}
                 groupBoxIds={constants.drainGroupBoxIds}
+                onBall1Move={() => props.moveBall1(constants.startFeatureId)}
                 left="220px"
                 top="920px"
                 height="85px"
