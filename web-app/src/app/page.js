@@ -30,6 +30,7 @@ export default function Home() {
 
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
+  const incRound = (() => setRound(round + 1));
 
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
@@ -138,6 +139,7 @@ export default function Home() {
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
+        incRound={incRound}
       />
       <DiceTray
         die1={die1}
