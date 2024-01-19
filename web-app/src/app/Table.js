@@ -641,8 +641,8 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="drain">
                 <Feature featureId={constants.drainFeatureId}
-                    left="0px"
-                    top="0px"
+                    left="257px"
+                    top="1000px"
                 />
                 <DrainBox boxId={constants.drainBoxId}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
