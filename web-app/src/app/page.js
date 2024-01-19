@@ -19,7 +19,7 @@ export default function Home() {
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
-  const [selectedBall, setSelectedBall] = useState(constants.ball1Id);
+  const [selectedBallId, setSelectedBallId] = useState(constants.ball1Id);
   //#endregion
 
   //#region functions
@@ -124,9 +124,9 @@ export default function Home() {
 
     // if there is only one ball not in the drain, make that ball the selected ball
     if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId != constants.drainFeatureId) {
-      setSelectedBall(constants.ball2Id);
+      setSelectedBallId(constants.ball2Id);
     } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId != constants.drainFeatureId) {
-      setSelectedBall(constants.ball1Id);
+      setSelectedBallId(constants.ball1Id);
     }
   }, [ball1FeatureId, ball2FeatureId]);
 
@@ -153,7 +153,7 @@ export default function Home() {
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
-        selectedBall={selectedBall}
+        selectedBallId={selectedBallId}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
