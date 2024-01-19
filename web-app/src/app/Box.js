@@ -8,10 +8,6 @@ import * as utilities from "./utilities";
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
 
-    useEffect(() => {
-        setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
-    }, [props.round]);
-
     function handleClick() {
         const box = document.getElementById(props.boxId);
 
@@ -84,6 +80,10 @@ export default function Box(props) {
 
         
     }
+
+    useEffect(() => {
+        setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
+    }, [props.round]);
 
     return (
         <div id={props.boxId}
