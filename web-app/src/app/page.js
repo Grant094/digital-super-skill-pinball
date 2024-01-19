@@ -20,7 +20,13 @@ export default function Home() {
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
   const [selectedBallId, setSelectedBallId] = useState(constants.ball1Id);
-  const [selectedBallFeatureId, setSelectedBallFeatureId] = useState(ball1FeatureId);
+  const [selectedBallFeatureId, setSelectedBallFeatureId = function(correspondingFeatureId) {
+    if (selectedBallId === constants.ball1Id) {
+      setBall1FeatureId(correspondingFeatureId);
+    } else if (selectedBallId === constants.ball2Id) {
+      setBall2FeatureId(correspondingFeatureId);
+    }
+  }] = useState(ball1FeatureId);
   //#endregion
 
   //#region functions
@@ -33,11 +39,7 @@ export default function Home() {
     const correspondingFeatureElement = document.getElementById(correspondingFeatureId);
     ballElement.style.left = correspondingFeatureElement.style.left;
     ballElement.style.top = correspondingFeatureElement.style.top;
-    if (selectedBallId === constants.ball1Id) {
-      setBall1FeatureId(correspondingFeatureId);
-    } else if (selectedBallId === constants.ball2Id) {
-      setBall2FeatureId(correspondingFeatureId);
-    }
+    setSelectedBallFeatureId(correspondingFeatureId);
   }
 
   function moveBall1(correspondingFeatureId) {
