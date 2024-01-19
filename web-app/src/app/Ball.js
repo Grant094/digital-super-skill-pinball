@@ -9,11 +9,7 @@ export default function Ball(props) {
 
     // make the ball invisible if it is at `constants.drainedFeatureId`
     useEffect(() => {
-        // TODO remove `utilities.isGameOver(props.round)` from conditional statement since it is redundant
-        setBallVisibility((
-            props.ballFeatureId === constants.drainFeatureId ||
-            utilities.isGameOver(props.round)
-        )? "hidden": "visible");
+        setBallVisibility((props.ballFeatureId === constants.drainFeatureId)? "hidden": "visible");
     }, [props.round, props.ballFeatureId]);
 
     return (
