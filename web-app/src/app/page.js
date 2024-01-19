@@ -49,6 +49,13 @@ export default function Home() {
     moveBall1(constants.startFeatureId);
   }
 
+  // end the round whenever neither ball is assigned to a feature
+  useEffect(() => {
+    if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
+      endRound();
+    }
+  }, [ball1FeatureId, ball2FeatureId]);
+
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
     const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);

@@ -13,3 +13,8 @@ export function getRndIntegerInclusive(min, max) {
 export function isGameOver(round) {
     return (Number(round) > constants.MAX_ROUNDS);
 }
+
+// if neither ball is on a feature, the round is over
+export function isRoundOver(ball1FeatureId, ball2FeatureId) {
+    return (ball1FeatureId === "" && ball2FeatureId === "");
+}
