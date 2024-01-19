@@ -19,6 +19,7 @@ export default function Home() {
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
+  const [selectedBall, setSelectedBall] = useState(constants.ball1Id);
   //#endregion
 
   //#region functions
@@ -114,10 +115,18 @@ export default function Home() {
     rollDice();
   },[]);
 
-  // end the round whenever neither ball is assigned to a feature
+  
   useEffect(() => {
+    // end the round whenever neither ball is assigned to a feature
     if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
       endRound();
+    }
+
+    // if there is only one ball not in the drain, make that ball the selected ball
+    if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId != constants.drainFeatureId) {
+      setSelectedBall(constants.ball2Id);
+    } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId != constants.drainFeatureId) {
+      setSelectedBall(constants.ball1Id);
     }
   }, [ball1FeatureId, ball2FeatureId]);
 
