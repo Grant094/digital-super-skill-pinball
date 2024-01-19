@@ -37,7 +37,7 @@ export default function Box(props) {
             box.style.backgroundColor = "black";
 
             // move ball
-            props.moveBall1(props.correspondingFeatureId);
+            props.moveSelectedBall(props.correspondingFeatureId);
             
             if (props.points) {
                 props.addPoints(props.points);
@@ -75,6 +75,8 @@ export default function Box(props) {
                 canRecieveOn: ${props.canReceiveOn}
                 canRecieveFrom: ${props.canReceiveFrom}
                 selectedBallFeatureId: ${props.selectedBallFeatureId}
+                ball1FeatureId: ${props.ball1FeatureId}
+                ball2FeatureId: ${props.ball2FeatureId}
             `);
         }
 

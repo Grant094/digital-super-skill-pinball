@@ -20,13 +20,7 @@ export default function Home() {
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
   const [selectedBallId, setSelectedBallId] = useState(constants.ball1Id);
-  const [selectedBallFeatureId, setSelectedBallFeatureId = function(correspondingFeatureId) {
-    if (selectedBallId === constants.ball1Id) {
-      setBall1FeatureId(correspondingFeatureId);
-    } else if (selectedBallId === constants.ball2Id) {
-      setBall2FeatureId(correspondingFeatureId);
-    }
-  }] = useState(ball1FeatureId);
+  const [selectedBallFeatureId, setSelectedBallFeatureId] = useState(ball1FeatureId);
   //#endregion
 
   //#region functions
@@ -34,28 +28,36 @@ export default function Home() {
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incRound = (() => setRound(round + 1));
 
+  function setRelevantBallFeatureId(correspondingFeatureId) {
+    if (selectedBallId === constants.ball1Id) {
+      setBall1FeatureId(correspondingFeatureId);
+    } else if (selectedBallId === constants.ball2Id) {
+      setBall2FeatureId(correspondingFeatureId);
+    }
+  }
+
   function moveSelectedBall(correspondingFeatureId) {
     const ballElement = document.getElementById(selectedBallId);
     const correspondingFeatureElement = document.getElementById(correspondingFeatureId);
     ballElement.style.left = correspondingFeatureElement.style.left;
     ballElement.style.top = correspondingFeatureElement.style.top;
-    setSelectedBallFeatureId(correspondingFeatureId);
+    setRelevantBallFeatureId(correspondingFeatureId);
   }
 
-  function moveBall1(correspondingFeatureId) {
-    const ball1 = document.getElementById(constants.ball1Id);
-    const correspondingFeature = document.getElementById(correspondingFeatureId);
-    ball1.style.left = correspondingFeature.style.left;
-    ball1.style.top = correspondingFeature.style.top;
-    setBall1FeatureId(correspondingFeatureId);
-  }
+  // function moveBall1(correspondingFeatureId) {
+  //   const ball1 = document.getElementById(constants.ball1Id);
+  //   const correspondingFeature = document.getElementById(correspondingFeatureId);
+  //   ball1.style.left = correspondingFeature.style.left;
+  //   ball1.style.top = correspondingFeature.style.top;
+  //   setBall1FeatureId(correspondingFeatureId);
+  // }
 
   function endRound() {
     // increment round
     incRound();
 
     // move ball1 to start
-    moveBall1(constants.startFeatureId);
+    moveSelectedBall(constants.startFeatureId);
   }
 
   function rollDice() {
@@ -114,7 +116,7 @@ export default function Home() {
     }
     //#endregion
 
-    moveBall1(constants.startFeatureId);
+    moveSelectedBall(constants.startFeatureId);
 
     rollDice();
   }
@@ -168,7 +170,7 @@ export default function Home() {
         rollDice={rollDice}
         score={score}
         round={round}
-        moveBall1={moveBall1}
+        // moveBall1={moveBall1}
         addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
         ball2FeatureId={ball2FeatureId}
@@ -178,6 +180,7 @@ export default function Home() {
         incNudgesUsed={incNudgesUsed}
         selectedBallId={selectedBallId}
         selectedBallFeatureId={selectedBallFeatureId}
+        moveSelectedBall={moveSelectedBall}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
