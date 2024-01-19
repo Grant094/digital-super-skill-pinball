@@ -21,16 +21,9 @@ export default function Home() {
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
   //#endregion
 
-  useEffect(() => {
-    if (utilities.isGameOver(round)) {
-      alert(`Game over!`);
-    }
-  }, [round]);
-
-  //useEffect(() => {rollDice()},[]); defined below since rollDice() must be defined before it
-
-  const resetNudgesUsed = (() => setNudgesUsed(0));
+  //#region functions
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
+  const resetNudgesUsed = (() => setNudgesUsed(0));
   const incRound = (() => setRound(round + 1));
 
   function moveBall1(correspondingFeatureId) {
@@ -48,13 +41,6 @@ export default function Home() {
     // move ball1 to start
     moveBall1(constants.startFeatureId);
   }
-
-  // end the round whenever neither ball is assigned to a feature
-  useEffect(() => {
-    if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
-      endRound();
-    }
-  }, [ball1FeatureId, ball2FeatureId]);
 
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
@@ -75,11 +61,6 @@ export default function Home() {
       setDie2AmountNudgedBy(0);
     }
   }
-
-  // defined here since rollDice() must be defined first
-  useEffect(() => {
-    rollDice();
-  },[]);
 
   function handleNudge(dieId, symbol) {
     if (dieId === "1") {
@@ -125,7 +106,27 @@ export default function Home() {
   function addPoints(pointsToAdd) {
     setScore(Number(score) + Number(pointsToAdd));
   }
+  //#endregion
 
+  //#region useEffect-hooks
+  useEffect(() => {
+    rollDice();
+  },[]);
+
+  // end the round whenever neither ball is assigned to a feature
+  useEffect(() => {
+    if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
+      endRound();
+    }
+  }, [ball1FeatureId, ball2FeatureId]);
+
+  useEffect(() => {
+    if (utilities.isGameOver(round)) {
+      alert(`Game over!`);
+    }
+  }, [round]);
+  //#endregion
+  
   return (
     <div>
       <Table tableId="table"
