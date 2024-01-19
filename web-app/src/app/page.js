@@ -28,6 +28,18 @@ export default function Home() {
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incRound = (() => setRound(round + 1));
 
+  function moveSelectedBall(correspondingFeatureId) {
+    const ballElement = document.getElementById(selectedBallId);
+    const correspondingFeatureElement = document.getElementById(correspondingFeatureId);
+    ballElement.style.left = correspondingFeatureElement.style.left;
+    ballElement.style.top = correspondingFeatureElement.style.top;
+    if (selectedBallId === constants.ball1Id) {
+      setBall1FeatureId(correspondingFeatureId);
+    } else if (selectedBallId === constants.ball2Id) {
+      setBall2FeatureId(correspondingFeatureId);
+    }
+  }
+
   function moveBall1(correspondingFeatureId) {
     const ball1 = document.getElementById(constants.ball1Id);
     const correspondingFeature = document.getElementById(correspondingFeatureId);
