@@ -41,7 +41,7 @@ export default function Box(props) {
             box.style.backgroundColor = "black";
 
             // move ball
-            props.onBall1Move();
+            props.moveBall1(props.correspondingFeatureId);
             
             if (props.points) {
                 props.addPoints(props.points);
