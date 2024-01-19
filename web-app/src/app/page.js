@@ -153,6 +153,7 @@ export default function Home() {
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
+        selectedBall={selectedBall}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
