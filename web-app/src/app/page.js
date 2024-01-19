@@ -163,6 +163,7 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
         selectedBallId={selectedBallId}
+        selectedBallFeatureId={selectedBallFeatureId}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}

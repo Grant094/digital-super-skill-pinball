@@ -21,7 +21,7 @@ export default function Box(props) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
         } else if (
-            props.canReceiveFrom.includes(props.ball1FeatureId) &&
+            props.canReceiveFrom.includes(props.selectedBallFeatureId) &&
             box.style.backgroundColor != "black" &&
             (
                 props.canReceiveOn.includes(props.die1) ||
@@ -74,7 +74,7 @@ export default function Box(props) {
                 Die2: ${props.die2}
                 canRecieveOn: ${props.canReceiveOn}
                 canRecieveFrom: ${props.canReceiveFrom}
-                ball1FeatureId: ${props.ball1FeatureId}
+                selectedBallFeatureId: ${props.selectedBallFeatureId}
             `);
         }
 
