@@ -109,6 +109,7 @@ export default function Home() {
   //#endregion
 
   //#region useEffect-hooks
+  // roll dice upon mounting
   useEffect(() => {
     rollDice();
   },[]);
