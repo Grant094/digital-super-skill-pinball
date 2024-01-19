@@ -639,18 +639,24 @@ export default function Table(props) {
                     {...props}
                 />
             </Fragment>
-            <DrainBox boxId={constants.drainBoxId}
-                canReceiveOn={[1, 2, 3, 4, 5, 6]}
-                canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId={constants.startFeatureId}
-                groupBoxIds={constants.drainGroupBoxIds}
-                onBall1Move={() => props.moveBall1(constants.startFeatureId)}
-                left="220px"
-                top="920px"
-                height="85px"
-                width="98px"
-                {...props}
-            />
+            <Fragment key="drain">
+                <Feature featureId={constants.drainedBallFeatureId}
+                    left="0px"
+                    top="0px"
+                />
+                <DrainBox boxId={constants.drainBoxId}
+                    canReceiveOn={[1, 2, 3, 4, 5, 6]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.startFeatureId}
+                    groupBoxIds={constants.drainGroupBoxIds}
+                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
+                    left="220px"
+                    top="920px"
+                    height="85px"
+                    width="98px"
+                    {...props}
+                />
+            </Fragment>
             <Ball ballId={constants.ball1Id}
                 left={constants.startLeft}
                 top={constants.startTop}
