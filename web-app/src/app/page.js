@@ -19,6 +19,8 @@ export default function Home() {
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
+  const [selectedBallId, setSelectedBallId] = useState(constants.ball1Id);
+  const [selectedBallFeatureId, setSelectedBallFeatureId] = useState(ball1FeatureId);
   //#endregion
 
   //#region functions
@@ -26,12 +28,20 @@ export default function Home() {
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incRound = (() => setRound(round + 1));
 
-  function moveBall1(correspondingFeatureId) {
-    const ball1 = document.getElementById(constants.ball1Id);
-    const correspondingFeature = document.getElementById(correspondingFeatureId);
-    ball1.style.left = correspondingFeature.style.left;
-    ball1.style.top = correspondingFeature.style.top;
-    setBall1FeatureId(correspondingFeatureId);
+  function setRelevantBallFeatureId(correspondingFeatureId) {
+    if (selectedBallId === constants.ball1Id) {
+      setBall1FeatureId(correspondingFeatureId);
+    } else if (selectedBallId === constants.ball2Id) {
+      setBall2FeatureId(correspondingFeatureId);
+    }
+  }
+
+  function moveSelectedBall(correspondingFeatureId) {
+    const ballElement = document.getElementById(selectedBallId);
+    const correspondingFeatureElement = document.getElementById(correspondingFeatureId);
+    ballElement.style.left = correspondingFeatureElement.style.left;
+    ballElement.style.top = correspondingFeatureElement.style.top;
+    setRelevantBallFeatureId(correspondingFeatureId);
   }
 
   function endRound() {
@@ -39,7 +49,8 @@ export default function Home() {
     incRound();
 
     // move ball1 to start
-    moveBall1(constants.startFeatureId);
+    setSelectedBallId(constants.ball1Id);
+    moveSelectedBall(constants.startFeatureId);
   }
 
   function rollDice() {
@@ -98,7 +109,7 @@ export default function Home() {
     }
     //#endregion
 
-    moveBall1(constants.startFeatureId);
+    moveSelectedBall(constants.startFeatureId);
 
     rollDice();
   }
@@ -109,16 +120,33 @@ export default function Home() {
   //#endregion
 
   //#region useEffect-hooks
+  // roll dice upon mounting
   useEffect(() => {
     rollDice();
   },[]);
-
-  // end the round whenever neither ball is assigned to a feature
+  
   useEffect(() => {
+    // end the round whenever neither ball is assigned to a feature
     if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
       endRound();
     }
+
+    // if there is only one ball not in the drain, make that ball the selected ball
+    if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId != constants.drainFeatureId) {
+      setSelectedBallId(constants.ball2Id);
+    } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId != constants.drainFeatureId) {
+      setSelectedBallId(constants.ball1Id);
+    }
   }, [ball1FeatureId, ball2FeatureId]);
+
+  // change or verify selectedBallFeatureId whenever a different ball is selected or a ball moves
+  useEffect(() => {
+    if (selectedBallId === constants.ball1Id) {
+      setSelectedBallFeatureId(ball1FeatureId);
+    } else if (selectedBallId === constants.ball2Id) {
+      setSelectedBallFeatureId(ball2FeatureId);
+    }
+  }, [selectedBallId, ball1FeatureId, ball2FeatureId]);
 
   useEffect(() => {
     if (utilities.isGameOver(round)) {
@@ -135,7 +163,6 @@ export default function Home() {
         rollDice={rollDice}
         score={score}
         round={round}
-        moveBall1={moveBall1}
         addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
         ball2FeatureId={ball2FeatureId}
@@ -143,6 +170,9 @@ export default function Home() {
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
+        selectedBallId={selectedBallId}
+        selectedBallFeatureId={selectedBallFeatureId}
+        moveSelectedBall={moveSelectedBall}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
