@@ -7,11 +7,11 @@ import * as utilities from "./utilities";
 export default function Ball(props) {
     const [ballVisibility, setBallVisibility] = useState("visible");
 
-    // make the ball invisible if it is at `constants.drainedBallFeatureId`
+    // make the ball invisible if it is at `constants.drainedFeatureId`
     useEffect(() => {
         // TODO remove `utilities.isGameOver(props.round)` from conditional statement since it is redundant
         setBallVisibility((
-            props.ballFeatureId === constants.drainedBallFeatureId ||
+            props.ballFeatureId === constants.drainFeatureId ||
             utilities.isGameOver(props.round)
         )? "hidden": "visible");
     }, [props.round, props.ballFeatureId]);

@@ -5,7 +5,7 @@ import Box from "./Box";
 
 export default function DrainBox(props) {
     function drainAction() {
-        props.endRound();
+        // props.endRound();
     }
 
     return (

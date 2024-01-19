@@ -515,9 +515,9 @@ export default function Table(props) {
                 <Outlane boxId={constants.redOutlaneBoxId}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.startFeatureId}
+                    correspondingFeatureId={constants.drainFeatureId}
                     relevantFlipperBoxIds={constants.redFlipperGroupBoxIds}
-                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
+                    onBall1Move={() => props.moveBall1(constants.drainFeatureId)}
                     left="18px"
                     top="815px"
                     {...props}
@@ -525,9 +525,9 @@ export default function Table(props) {
                 <Outlane boxId={constants.yelOutlaneBoxId}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.startFeatureId}
+                    correspondingFeatureId={constants.drainFeatureId}
                     relevantFlipperBoxIds={constants.yelFlipperGroupBoxIds}
-                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
+                    onBall1Move={() => props.moveBall1(constants.drainFeatureId)}
                     left="458px"
                     top="815px"
                     {...props}
@@ -640,16 +640,16 @@ export default function Table(props) {
                 />
             </Fragment>
             <Fragment key="drain">
-                <Feature featureId={constants.drainedBallFeatureId}
+                <Feature featureId={constants.drainFeatureId}
                     left="0px"
                     top="0px"
                 />
                 <DrainBox boxId={constants.drainBoxId}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.startFeatureId}
+                    correspondingFeatureId={constants.drainFeatureId}
                     groupBoxIds={constants.drainGroupBoxIds}
-                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
+                    onBall1Move={() => props.moveBall1(constants.drainFeatureId)}
                     left="220px"
                     top="920px"
                     height="85px"

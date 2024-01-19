@@ -17,7 +17,7 @@ export default function Outlane(props) {
 
         props.addPoints((relevantFlipperBoxesUsed * POINTS_PER_USED_FLIPPER_BOX))
         
-        props.endRound();
+        // props.endRound();
     }
     
     return (

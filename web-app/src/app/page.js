@@ -18,7 +18,7 @@ export default function Home() {
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
-  const [ball2FeatureId, setBall2FeatureId] = useState("");
+  const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
   //#endregion
 
   useEffect(() => {
