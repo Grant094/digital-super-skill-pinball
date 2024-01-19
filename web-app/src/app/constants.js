@@ -305,6 +305,9 @@ export const allFeatureIds = [
     ...dropTargetFeatureIds
 ];
 //#endregion
+//#region drainedBall
+export const drainedBallFeatureId = "";
+//#endregion
 //#region balls
 export const ball1Id = "ball1"
 export const ball2Id = "ball2"

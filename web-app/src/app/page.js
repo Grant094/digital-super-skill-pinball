@@ -41,6 +41,12 @@ export default function Home() {
     setBall1FeatureId(correspondingFeatureId);
   }
 
+  function drainBall1() {
+    moveBall1(constants.drainedBallFeatureId);
+
+    // TODO change the ball's visibility
+  }
+
   function endRound() {
     // increment round
     incRound();
