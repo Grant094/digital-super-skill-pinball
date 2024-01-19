@@ -18,7 +18,7 @@ export default function Home() {
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
-  const [ball2FeatureId, setBall2FeatureId] = useState("");
+  const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
   //#endregion
 
   useEffect(() => {
@@ -48,6 +48,13 @@ export default function Home() {
     // move ball1 to start
     moveBall1(constants.startFeatureId);
   }
+
+  // end the round whenever neither ball is assigned to a feature
+  useEffect(() => {
+    if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
+      endRound();
+    }
+  }, [ball1FeatureId, ball2FeatureId]);
 
   function rollDice() {
     const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
@@ -135,7 +142,6 @@ export default function Home() {
         die2AmountNudgedBy={die2AmountNudgedBy}
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
-        endRound={endRound}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}

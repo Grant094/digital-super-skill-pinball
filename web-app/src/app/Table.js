@@ -515,9 +515,9 @@ export default function Table(props) {
                 <Outlane boxId={constants.redOutlaneBoxId}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.startFeatureId}
+                    correspondingFeatureId={constants.drainFeatureId}
                     relevantFlipperBoxIds={constants.redFlipperGroupBoxIds}
-                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
+                    onBall1Move={() => props.moveBall1(constants.drainFeatureId)}
                     left="18px"
                     top="815px"
                     {...props}
@@ -525,9 +525,9 @@ export default function Table(props) {
                 <Outlane boxId={constants.yelOutlaneBoxId}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.startFeatureId}
+                    correspondingFeatureId={constants.drainFeatureId}
                     relevantFlipperBoxIds={constants.yelFlipperGroupBoxIds}
-                    onBall1Move={() => props.moveBall1(constants.startFeatureId)}
+                    onBall1Move={() => props.moveBall1(constants.drainFeatureId)}
                     left="458px"
                     top="815px"
                     {...props}
@@ -639,22 +639,29 @@ export default function Table(props) {
                     {...props}
                 />
             </Fragment>
-            <DrainBox boxId={constants.drainBoxId}
-                canReceiveOn={[1, 2, 3, 4, 5, 6]}
-                canReceiveFrom={constants.allFeatureIds}
-                correspondingFeatureId={constants.startFeatureId}
-                groupBoxIds={constants.drainGroupBoxIds}
-                onBall1Move={() => props.moveBall1(constants.startFeatureId)}
-                left="220px"
-                top="920px"
-                height="85px"
-                width="98px"
-                {...props}
-            />
+            <Fragment key="drain">
+                <Feature featureId={constants.drainFeatureId}
+                    left="257px"
+                    top="1000px"
+                />
+                <DrainBox boxId={constants.drainBoxId}
+                    canReceiveOn={[1, 2, 3, 4, 5, 6]}
+                    canReceiveFrom={constants.allFeatureIds}
+                    correspondingFeatureId={constants.drainFeatureId}
+                    groupBoxIds={constants.drainGroupBoxIds}
+                    onBall1Move={() => props.moveBall1(constants.drainFeatureId)}
+                    left="220px"
+                    top="920px"
+                    height="85px"
+                    width="98px"
+                    {...props}
+                />
+            </Fragment>
             <Ball ballId={constants.ball1Id}
                 left={constants.startLeft}
                 top={constants.startTop}
                 round={props.round}
+                ballFeatureId={props.ball1FeatureId}
             />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />

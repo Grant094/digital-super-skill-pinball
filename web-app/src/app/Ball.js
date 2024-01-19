@@ -1,14 +1,16 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
+import * as constants from "./constants";
 import * as utilities from "./utilities";
 
 export default function Ball(props) {
     const [ballVisibility, setBallVisibility] = useState("visible");
 
+    // make the ball invisible if it is at `constants.drainedFeatureId`
     useEffect(() => {
-        setBallVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
-    }, [props.round]);
+        setBallVisibility((props.ballFeatureId === constants.drainFeatureId)? "hidden": "visible");
+    }, [props.round, props.ballFeatureId]);
 
     return (
         <img id={props.ballId}

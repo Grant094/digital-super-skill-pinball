@@ -292,6 +292,7 @@ export const dashedBoxIds = [
 ];
 //#endregion
 //#region drain
+export const drainFeatureId = "drain";
 export const drainBoxId = "box-drain-123456";
 export const drainGroupBoxIds = [drainBoxId];
 //#endregion

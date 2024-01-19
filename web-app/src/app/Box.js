@@ -27,7 +27,6 @@ export default function Box(props) {
         } else if (
             props.canReceiveFrom.includes(props.ball1FeatureId) &&
             box.style.backgroundColor != "black" &&
-            props.correspondingFeatureId &&
             (
                 props.canReceiveOn.includes(props.die1) ||
                 props.canReceiveOn.includes(props.die2)
