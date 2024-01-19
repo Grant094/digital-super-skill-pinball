@@ -133,9 +133,9 @@ export default function Home() {
   // change or verify selectedBallFeatureId whenever a different ball is selected or a ball moves
   useEffect(() => {
     if (selectedBallId === constants.ball1Id) {
-      selectedBallFeatureId === ball1FeatureId;
+      setSelectedBallFeatureId(ball1FeatureId);
     } else if (selectedBallId === constants.ball2Id) {
-      selectedBallFeatureId === ball2FeatureId;
+      setSelectedBallFeatureId(ball2FeatureId);
     }
   }, [selectedBallId, ball1FeatureId, ball2FeatureId]);
 
