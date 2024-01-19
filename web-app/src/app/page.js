@@ -44,14 +44,6 @@ export default function Home() {
     setRelevantBallFeatureId(correspondingFeatureId);
   }
 
-  // function moveBall1(correspondingFeatureId) {
-  //   const ball1 = document.getElementById(constants.ball1Id);
-  //   const correspondingFeature = document.getElementById(correspondingFeatureId);
-  //   ball1.style.left = correspondingFeature.style.left;
-  //   ball1.style.top = correspondingFeature.style.top;
-  //   setBall1FeatureId(correspondingFeatureId);
-  // }
-
   function endRound() {
     // increment round
     incRound();
@@ -170,7 +162,6 @@ export default function Home() {
         rollDice={rollDice}
         score={score}
         round={round}
-        // moveBall1={moveBall1}
         addPoints={addPoints}
         ball1FeatureId={ball1FeatureId}
         ball2FeatureId={ball2FeatureId}
