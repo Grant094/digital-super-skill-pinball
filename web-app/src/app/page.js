@@ -49,6 +49,7 @@ export default function Home() {
     incRound();
 
     // move ball1 to start
+    setSelectedBallId(constants.ball1Id);
     moveSelectedBall(constants.startFeatureId);
   }
 
