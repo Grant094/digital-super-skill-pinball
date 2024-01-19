@@ -655,6 +655,7 @@ export default function Table(props) {
                 left={constants.startLeft}
                 top={constants.startTop}
                 round={props.round}
+                ballFeatureId={props.ball1FeatureId}
             />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />
