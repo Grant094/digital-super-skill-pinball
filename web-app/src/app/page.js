@@ -132,9 +132,9 @@ export default function Home() {
     }
 
     // if there is only one ball not in the drain, make that ball the selected ball
-    if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId != constants.drainFeatureId) {
+    if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId !== constants.drainFeatureId) {
       setSelectedBallId(constants.ball2Id);
-    } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId != constants.drainFeatureId) {
+    } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId !== constants.drainFeatureId) {
       setSelectedBallId(constants.ball1Id);
     }
   }, [ball1FeatureId, ball2FeatureId]);

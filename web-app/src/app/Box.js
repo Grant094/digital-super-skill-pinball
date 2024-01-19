@@ -22,7 +22,7 @@ export default function Box(props) {
             alert("You cannot nudge into an outlane");
         } else if (
             props.canReceiveFrom.includes(props.selectedBallFeatureId) &&
-            box.style.backgroundColor != "black" &&
+            box.style.backgroundColor !== "black" &&
             (
                 props.canReceiveOn.includes(props.die1) ||
                 props.canReceiveOn.includes(props.die2)
