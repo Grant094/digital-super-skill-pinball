@@ -133,14 +133,14 @@ export default function Home() {
   useEffect(function rollDiceOnPageLoad() {
     rollDice();
   },[]);
-  
-  useEffect(function endRoundOrSelectOnlyRemainingBall() {
-    // end the round whenever neither ball is assigned to a feature
+
+  useEffect(function endRoundWhenBothBallsAreInDrain() {
     if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
       endRound();
     }
+  }, [ball1FeatureId, ball2FeatureId]);
 
-    // if there is only one ball not in the drain, make that ball the selected ball
+  useEffect(function alwaysSelectOnlyRemainingBall() {
     if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId !== constants.drainFeatureId) {
       setSelectedBallId(constants.ball2Id);
     } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId !== constants.drainFeatureId) {
