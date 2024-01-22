@@ -7,6 +7,7 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
+    const box = document.getElementById(props.boxId);
 
     //#region functions
     function canReceiveFromEitherDie() {
@@ -16,13 +17,12 @@ export default function Box(props) {
     function couldReceiveSelectedBall() {
         return (
             canReceiveFromEitherDie() &&
-            props.canReceiveFrom.includes(props.getSelectedBallFeatureId())
+            props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
+            box.style.backgroundColor !== "black"
         );
     }
 
     function handleClick() {
-        const box = document.getElementById(props.boxId);
-
         if (
             (
                 props.boxId === constants.redOutlaneBoxId ||
