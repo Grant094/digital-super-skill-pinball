@@ -13,17 +13,11 @@ export default function Box(props) {
         return (props.canReceiveOn.includes(props.die1) || props.canReceiveOn.includes(props.die2));
     }
 
-    function invalidChoiceAlert() {
-        alert(`
-            invalid choice!
-            Die1: ${props.die1}
-            Die2: ${props.die2}
-            canRecieveOn: ${props.canReceiveOn}
-            canRecieveFrom: ${props.canReceiveFrom}
-            selectedBallFeatureId: ${props.getSelectedBallFeatureId()}
-            ball1FeatureId: ${props.ball1FeatureId}
-            ball2FeatureId: ${props.ball2FeatureId}
-        `)
+    function couldReceiveSelectedBall() {
+        return (
+            canReceiveFromEitherDie() &&
+            props.canReceiveFrom.includes(props.getSelectedBallFeatureId())
+        );
     }
 
     function handleClick() {
@@ -38,63 +32,64 @@ export default function Box(props) {
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
-        } else if ( // can this receive the ball, is this a hammerspace, and is this not hammerspace1, and is the preceding hammerspace not blacked-out?
-            (props.canReceiveFrom.includes(props.getSelectedBallFeatureId())) &&
-            (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) &&
-            (props.boxId !== constants.hammerSpace1BoxId) &&
-            (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
-        ) {
-            if (canReceiveFromEitherDie())  {
+        } else if (couldReceiveSelectedBall()) {
+            if (
+                (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) &&
+                (props.boxId !== constants.hammerSpace1BoxId) &&
+                (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
+            ) {
                 alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
-            } else {
-                invalidChoiceAlert();
-            }
-        } else if (
-            props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
-            box.style.backgroundColor !== "black" &&
-            canReceiveFromEitherDie()
-        ) {
-            // if nudged, increment nudges used
-            if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
-                props.incNudgesUsed();
-            }
-
-            // black-out box
-            box.style.backgroundColor = "black";
-
-            // move ball
-            props.moveSelectedBall(props.correspondingFeatureId);
-            
-            if (props.points) {
-                props.addPoints(props.points);
-            }
-            
-            // check if the group of BoxIds this is in is completed
-            if (props.groupBoxIds) {
-                var filledInBoxes = 0;
-                for (const boxId of props.groupBoxIds) {
-                    if (document.getElementById(boxId).style.backgroundColor === "black") {
-                        filledInBoxes++;
-                    } else {
-                        break;
-                    }
+            } else { // moveBallAndPerformConsequences
+                // if nudged, increment nudges used
+                if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
+                    props.incNudgesUsed();
                 }
-                if (filledInBoxes === props.groupBoxIds.length) {
-                    // group has been completed, so the boxes should be cleared
+
+                // black-out box
+                box.style.backgroundColor = "black";
+
+                // move ball
+                props.moveSelectedBall(props.correspondingFeatureId);
+                
+                if (props.points) {
+                    props.addPoints(props.points);
+                }
+                
+                // check if the group of BoxIds this is in is completed
+                if (props.groupBoxIds) {
+                    var filledInBoxes = 0;
                     for (const boxId of props.groupBoxIds) {
-                        document.getElementById(boxId).style.backgroundColor = "transparent";
+                        if (document.getElementById(boxId).style.backgroundColor === "black") {
+                            filledInBoxes++;
+                        } else {
+                            break;
+                        }
+                    }
+                    if (filledInBoxes === props.groupBoxIds.length) {
+                        // group has been completed, so the boxes should be cleared
+                        for (const boxId of props.groupBoxIds) {
+                            document.getElementById(boxId).style.backgroundColor = "transparent";
+                        }
                     }
                 }
-            }
 
-            if (props.action) {
-                props.action();
-            }
+                if (props.action) {
+                    props.action();
+                }
 
-            props.rollDice();
-            
-        } else {
-            invalidChoiceAlert();
+                props.rollDice();
+            }
+        } else { // invalidChoiceAlert
+            alert(`
+                invalid choice!
+                Die1: ${props.die1}
+                Die2: ${props.die2}
+                canRecieveOn: ${props.canReceiveOn}
+                canRecieveFrom: ${props.canReceiveFrom}
+                selectedBallFeatureId: ${props.getSelectedBallFeatureId()}
+                ball1FeatureId: ${props.ball1FeatureId}
+                ball2FeatureId: ${props.ball2FeatureId}
+            `);
         }
     }
     //#endregion
