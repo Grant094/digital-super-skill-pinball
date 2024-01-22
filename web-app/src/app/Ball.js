@@ -8,7 +8,7 @@ export default function Ball(props) {
     const [ballVisibility, setBallVisibility] = useState("visible");
 
     // make the ball invisible if it is at `constants.drainedFeatureId`
-    useEffect(() => {
+    useEffect(function hideDrainedBall() {
         setBallVisibility((props.ballFeatureId === constants.drainFeatureId)? "hidden": "visible");
     }, [props.round, props.ballFeatureId]);
 

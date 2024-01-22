@@ -130,11 +130,11 @@ export default function Home() {
 
   //#region useEffect-hooks
   // roll dice upon mounting
-  useEffect(() => {
+  useEffect(function rollDiceOnPageLoad() {
     rollDice();
   },[]);
   
-  useEffect(() => {
+  useEffect(function endRoundOrSelectOnlyRemainingBall() {
     // end the round whenever neither ball is assigned to a feature
     if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
       endRound();
@@ -148,7 +148,7 @@ export default function Home() {
     }
   }, [ball1FeatureId, ball2FeatureId]);
 
-  useEffect(() => {
+  useEffect(function alertOnGameOver() {
     if (utilities.isGameOver(round)) {
       alert(`Game over!`);
     }

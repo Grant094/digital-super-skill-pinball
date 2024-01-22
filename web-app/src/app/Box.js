@@ -99,7 +99,7 @@ export default function Box(props) {
         }
     }
 
-    useEffect(() => {
+    useEffect(function hideBoxOnGameOver() {
         setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
 
