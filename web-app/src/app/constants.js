@@ -1,327 +1,327 @@
 //#region start
-export const startFeatureId = "start";
-export const startTop = "240px";
-export const startLeft = "450px";
+export const START_FEATURE_ID = "start";
+export const START_TOP = "240px";
+export const START_LEFT = "450px";
 //#endregion
 //#region flippers
-export const redFlipperFeatureId = "feature-red-flipper";
-export const yelFlipperFeatureId = "feature-yel-flipper";
-export const flipperFeatureIds = [
-    redFlipperFeatureId,
-    yelFlipperFeatureId,
+export const RED_FLIPPER_FEATURE_ID = "feature-red-flipper";
+export const YEL_FLIPPER_FEATURE_ID = "feature-yel-flipper";
+export const FLIPPER_FEATURE_IDS = [
+    RED_FLIPPER_FEATURE_ID,
+    YEL_FLIPPER_FEATURE_ID,
 ];
 //#endregion
 //#region ferriswheel
 //#region ferriswheelFeatureIds
-export const ferriswheelcar12FeatureId = "feature-ferriswheel-car-12";
-export const ferriswheelcar34FeatureId = "feature-ferriswheel-car-34";
-export const ferriswheelcar56FeatureId = "feature-ferriswheel-car-56";
-export const ferriswheelFeatureIds = [
-    ferriswheelcar12FeatureId,
-    ferriswheelcar34FeatureId,
-    ferriswheelcar56FeatureId,
+export const FERRISWHEEL_CAR_12_FEATURE_ID = "feature-ferriswheel-car-12";
+export const FERRISWHEEL_CAR_34_FEATURE_ID = "feature-ferriswheel-car-34";
+export const FERRISWHEEL_CAR_56_FEATURE_ID = "feature-ferriswheel-car-56";
+export const FERRISWHEEL_FEATURE_IDS = [
+    FERRISWHEEL_CAR_12_FEATURE_ID,
+    FERRISWHEEL_CAR_34_FEATURE_ID,
+    FERRISWHEEL_CAR_56_FEATURE_ID,
 ];
 //#endregion
 //#region ferriswheelBoxIds
-export const ferriswheelcar12BoxId = "box-ferriswheel-car-12";
-export const ferriswheelcar34BoxId = "box-ferriswheel-car-34";
-export const ferriswheelcar56BoxId = "box-ferriswheel-car-56";
-export const ferriswheelGroupBoxIds = [
-    ferriswheelcar12BoxId,
-    ferriswheelcar34BoxId,
-    ferriswheelcar56BoxId,
+export const FERRISWHEEL_CAR_12_BOX_ID = "box-ferriswheel-car-12";
+export const FERRISWHEEL_CAR_34_BOX_ID = "box-ferriswheel-car-34";
+export const FERRISWHEEL_CAR_56_BOX_ID = "box-ferriswheel-car-56";
+export const FERRISWHEEL_GROUP_BOX_IDS = [
+    FERRISWHEEL_CAR_12_BOX_ID,
+    FERRISWHEEL_CAR_34_BOX_ID,
+    FERRISWHEEL_CAR_56_BOX_ID,
 ];
 //#endregion
-export const ferriswheelcarsCanReceiveFromFeatureIds = [
-    startFeatureId,
-    yelFlipperFeatureId,
+export const FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    START_FEATURE_ID,
+    YEL_FLIPPER_FEATURE_ID,
 ];
 //#endregion
 //#region bumpers
 //#region bumperFeatureIds
-export const bumper12FeatureId = "feature-bumper-12";
-export const bumper34FeatureId = "feature-bumper-34";
-export const bumper56FeatureId = "feature-bumper-56";
-export const bumperFeatureIds = [
-    bumper12FeatureId,
-    bumper34FeatureId,
-    bumper56FeatureId,
+export const BUMPER_12_FEATURE_ID = "feature-bumper-12";
+export const BUMPER_34_FEATURE_ID = "feature-bumper-34";
+export const BUMPER_56_FEATURE_ID = "feature-bumper-56";
+export const BUMPER_FEATURE_IDS = [
+    BUMPER_12_FEATURE_ID,
+    BUMPER_34_FEATURE_ID,
+    BUMPER_56_FEATURE_ID,
 ];
 //#endregion
 //#region bumperBoxIds
 //#region bumper12
 //#region bumper121BoxIds
-export const bumper121st1BoxId = "box-bumper-12-1st-1";
-export const bumper122nd1BoxId = "box-bumper-12-2nd-1";
-export const bumper121BoxIds = [
-    bumper121st1BoxId,
-    bumper122nd1BoxId,
+export const BUMPER_12_1ST_1_BOX_ID = "box-bumper-12-1st-1";
+export const BUMPER_12_2ND_1_BOX_ID = "box-bumper-12-2nd-1";
+export const BUMPER_12_1_BOX_IDS = [
+    BUMPER_12_1ST_1_BOX_ID,
+    BUMPER_12_2ND_1_BOX_ID,
 ];
 //#endregion
 //#region bumper122BoxIds
-export const bumper121st2BoxId = "box-bumper-12-1st-2";
-export const bumper122nd2BoxId = "box-bumper-12-2nd-2";
-export const bumper122BoxIds = [
-    bumper121st2BoxId,
-    bumper122nd2BoxId,
+export const BUMPER_12_1ST_2_BOX_ID = "box-bumper-12-1st-2";
+export const BUMPER_12_2ND_2_BOX_ID = "box-bumper-12-2nd-2";
+export const BUMPER_12_2_BOX_IDS = [
+    BUMPER_12_1ST_2_BOX_ID,
+    BUMPER_12_2ND_2_BOX_ID,
 ];
 //#endregion
-export const bumper12BoxIds = [
-    ...bumper121BoxIds,
-    ...bumper122BoxIds
+export const BUMPER_12_BOX_IDS = [
+    ...BUMPER_12_1_BOX_IDS,
+    ...BUMPER_12_2_BOX_IDS
 ];
 //#endregion
 //#region bumper34
 //#region bumper343BoxIds
-export const bumper341st3BoxId = "box-bumper-34-1st-3";
-export const bumper342nd3BoxId = "box-bumper-34-2nd-3";
-export const bumper343BoxIds = [
-    bumper341st3BoxId,
-    bumper342nd3BoxId,
+export const BUMPER_34_1ST_3_BOX_ID = "box-bumper-34-1st-3";
+export const BUMPER_34_2ND_3_BOX_ID = "box-bumper-34-2nd-3";
+export const BUMPER_34_3_BOX_ID = [
+    BUMPER_34_1ST_3_BOX_ID,
+    BUMPER_34_2ND_3_BOX_ID,
 ];
 //#endregion
 //#region bumper344BoxIds
-export const bumper341st4BoxId = "box-bumper-34-1st-4";
-export const bumper342nd4BoxId = "box-bumper-34-2nd-4";
-export const bumper344BoxIds = [
-    bumper341st4BoxId,
-    bumper342nd4BoxId,
+export const BUMPER_34_1ST_4_BOX_ID = "box-bumper-34-1st-4";
+export const BUMPER_34_2ND_4_BOX_ID = "box-bumper-34-2nd-4";
+export const BUMPER_34_4_BOX_IDS = [
+    BUMPER_34_1ST_4_BOX_ID,
+    BUMPER_34_2ND_4_BOX_ID,
 ];
 //#endregion
-export const bumper34BoxIds = [
-    ...bumper343BoxIds,
-    ...bumper344BoxIds
+export const BUMPER_34_BOX_IDS = [
+    ...BUMPER_34_3_BOX_ID,
+    ...BUMPER_34_4_BOX_IDS
 ];
 //#endregion
 //#region bumper56
 //#region bumper565BoxIds
-export const bumper561st5BoxId = "box-bumper-56-1st-5";
-export const bumper562nd5BoxId = "box-bumper-56-2nd-5";
-export const bumper565BoxIds = [
-    bumper561st5BoxId,
-    bumper562nd5BoxId,
+export const BUMPER_56_1ST_5_BOX_ID = "box-bumper-56-1st-5";
+export const BUMPER_56_2ND_5_BOX_ID = "box-bumper-56-2nd-5";
+export const BUMPER_56_5_BOX_IDS = [
+    BUMPER_56_1ST_5_BOX_ID,
+    BUMPER_56_2ND_5_BOX_ID,
 ];
 //#endregion
 //#region bumper566BoxIds
-export const bumper561st6BoxId = "box-bumper-56-1st-6";
-export const bumper562nd6BoxId = "box-bumper-56-2nd-6";
-export const bumper566BoxIds = [
-    bumper561st6BoxId,
-    bumper562nd6BoxId
+export const BUMPER_56_1ST_6_BOX_ID = "box-bumper-56-1st-6";
+export const BUMPER_56_2ND_6_BOX_ID = "box-bumper-56-2nd-6";
+export const BUMPER_56_6_BOX_IDS = [
+    BUMPER_56_1ST_6_BOX_ID,
+    BUMPER_56_2ND_6_BOX_ID
 ];
 //#endregion
-export const bumper56BoxIds = [
-    ...bumper565BoxIds,
-    ...bumper566BoxIds
+export const BUMPER_56_BOX_IDS = [
+    ...BUMPER_56_5_BOX_IDS,
+    ...BUMPER_56_6_BOX_IDS
 ];
 //#endregion
-export const bumperGroupBoxIds = [
-    ...bumper12BoxIds,
-    ...bumper34BoxIds,
-    ...bumper56BoxIds,
+export const BUMPER_GROUP_BOX_IDS = [
+    ...BUMPER_12_BOX_IDS,
+    ...BUMPER_34_BOX_IDS,
+    ...BUMPER_56_BOX_IDS,
 ];
 //#endregion
 //#region bumpersCanReceiveFrom
-export const bumpersCanReceiveFromFeatureIds = [
-    startFeatureId,
-    ...ferriswheelFeatureIds,
-    redFlipperFeatureId,
-    yelFlipperFeatureId,
+export const BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    START_FEATURE_ID,
+    ...FERRISWHEEL_FEATURE_IDS,
+    RED_FLIPPER_FEATURE_ID,
+    YEL_FLIPPER_FEATURE_ID,
 ];
-export const bumper12CanReceiveFromFeatureIds = [
-    ...bumpersCanReceiveFromFeatureIds,
-    bumper56FeatureId,
+export const BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    BUMPER_56_FEATURE_ID,
 ];
-export const bumper34CanReceiveFromFeatureIds = [
-    ...bumpersCanReceiveFromFeatureIds,
-    bumper12FeatureId,
+export const BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    BUMPER_12_FEATURE_ID,
 ];
-export const bumper56CanReceiveFromFeatureIds = [
-    ...bumpersCanReceiveFromFeatureIds,
-    bumper34FeatureId,
+export const BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    BUMPER_34_FEATURE_ID,
 ]
 //#endregion
 //#endregion
 //#region hammerSpaces
 //#region hammerSpaceFeatureIds
-export const hammerSpace1FeatureId = "feature-hammer-space-1";
-export const hammerSpace2FeatureId = "feature-hammer-space-2";
-export const hammerSpace3FeatureId = "feature-hammer-space-3";
-export const hammerSpace4FeatureId = "feature-hammer-space-4";
-export const hammerSpace5FeatureId = "feature-hammer-space-5";
-export const hammerSpace6FeatureId = "feature-hammer-space-6";
-export const hammerSpaceFeatureIds = [
-    hammerSpace1FeatureId,
-    hammerSpace2FeatureId,
-    hammerSpace3FeatureId,
-    hammerSpace4FeatureId,
-    hammerSpace5FeatureId,
-    hammerSpace6FeatureId,
+export const HAMMER_SPACE_1_FEATURE_ID = "feature-hammer-space-1";
+export const HAMMER_SPACE_2_FEATURE_ID = "feature-hammer-space-2";
+export const HAMMER_SPACE_3_FEATURE_ID = "feature-hammer-space-3";
+export const HAMMER_SPACE_4_FEATURE_ID = "feature-hammer-space-4";
+export const HAMMER_SPACE_5_FEATURE_ID = "feature-hammer-space-5";
+export const HAMMER_SPACE_6_FEATURE_ID = "feature-hammer-space-6";
+export const HAMMER_SPACE_FEATURE_IDS = [
+    HAMMER_SPACE_1_FEATURE_ID,
+    HAMMER_SPACE_2_FEATURE_ID,
+    HAMMER_SPACE_3_FEATURE_ID,
+    HAMMER_SPACE_4_FEATURE_ID,
+    HAMMER_SPACE_5_FEATURE_ID,
+    HAMMER_SPACE_6_FEATURE_ID,
 ];
 //#endregion
 //#region hammerSpaceGroupBoxIds
-export const hammerSpace1BoxId = "box-hammer-space-1";
-export const hammerSpace2BoxId = "box-hammer-space-2";
-export const hammerSpace3BoxId = "box-hammer-space-3";
-export const hammerSpace4BoxId = "box-hammer-space-4";
-export const hammerSpace5BoxId = "box-hammer-space-5";
-export const hammerSpace6BoxId = "box-hammer-space-6";
-export const hammerSpaceGroupBoxIds = [
-    hammerSpace1BoxId,
-    hammerSpace2BoxId,
-    hammerSpace3BoxId,
-    hammerSpace4BoxId,
-    hammerSpace5BoxId,
-    hammerSpace6BoxId,
+export const HAMMER_SPACE_1_BOX_ID = "box-hammer-space-1";
+export const HAMMER_SPACE_2_BOX_ID = "box-hammer-space-2";
+export const HAMMER_SPACE_3_BOX_ID = "box-hammer-space-3";
+export const HAMMER_SPACE_4_BOX_ID = "box-hammer-space-4";
+export const HAMMER_SPACE_5_BOX_ID = "box-hammer-space-5";
+export const HAMMER_SPACE_6_BOX_ID = "box-hammer-space-6";
+export const HAMMER_SPACE_GROUP_BOX_IDS = [
+    HAMMER_SPACE_1_BOX_ID,
+    HAMMER_SPACE_2_BOX_ID,
+    HAMMER_SPACE_3_BOX_ID,
+    HAMMER_SPACE_4_BOX_ID,
+    HAMMER_SPACE_5_BOX_ID,
+    HAMMER_SPACE_6_BOX_ID,
 ];
 //#endregion
-export const hammerSpacesCanReceiveFromFeatureIds = [redFlipperFeatureId];
+export const HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS = [RED_FLIPPER_FEATURE_ID];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
 //#region yelDropTargetFeatureIds
-export const yelDropTarget12FeatureId = "feature-droptarget-yel-12";
-export const yelDropTarget34FeatureId = "feature-droptarget-yel-34";
-export const yelDropTarget56FeatureId = "feature-droptarget-yel-56";
-export const yelDropTargetFeatureIds = [
-    yelDropTarget12FeatureId,
-    yelDropTarget34FeatureId,
-    yelDropTarget56FeatureId,
+export const YEL_DROPTARGET_12_FEATURE_ID = "feature-droptarget-yel-12";
+export const YEL_DROPTARGET_34_FEATURE_ID = "feature-droptarget-yel-34";
+export const YEL_DROPTARGET_56_FEATURE_ID = "feature-droptarget-yel-56";
+export const YEL_DROPTARGET_FEATURE_IDS = [
+    YEL_DROPTARGET_12_FEATURE_ID,
+    YEL_DROPTARGET_34_FEATURE_ID,
+    YEL_DROPTARGET_56_FEATURE_ID,
 ];
 //#endregion
 //#region yelDropTargetBoxIds
-export const yelDropTarget12BoxId = "box-droptarget-yel-12";
-export const yelDropTarget34BoxId = "box-droptarget-yel-34";
-export const yelDropTarget56BoxId = "box-droptarget-yel-56";
-export const yelDropTargetGroupBoxIds = [
-    yelDropTarget12BoxId,
-    yelDropTarget34BoxId,
-    yelDropTarget56BoxId,
+export const YEL_DROPTARGET_12_BOX_ID = "box-droptarget-yel-12";
+export const YEL_DROPTARGET_34_BOX_ID = "box-droptarget-yel-34";
+export const YEL_DROPTARGET_56_BOX_ID = "box-droptarget-yel-56";
+export const YEL_DROPTARGET_GROUP_BOX_IDS = [
+    YEL_DROPTARGET_12_BOX_ID,
+    YEL_DROPTARGET_34_BOX_ID,
+    YEL_DROPTARGET_56_BOX_ID,
 ];
 //#endregion
 //#endregion
 //#region redDropTargets
 //#region redDropTargetFeatureIds
-export const redDropTarget12FeatureId = "feature-droptarget-red-12";
-export const redDropTarget3FeatureId = "feature-droptarget-red-3";
-export const redDropTarget4FeatureId = "feature-droptarget-red-4";
-export const redDropTarget56FeatureId = "feature-droptarget-red-56";
-export const redDropTargetFeatureIds = [
-    redDropTarget12FeatureId,
-    redDropTarget3FeatureId,
-    redDropTarget4FeatureId,
-    redDropTarget56FeatureId,
+export const RED_DROPTARGET_12_FEATURE_ID = "feature-droptarget-red-12";
+export const RED_DROPTARGET_3_FEATURE_ID = "feature-droptarget-red-3";
+export const RED_DROPTARGET_4_FEATURE_ID = "feature-droptarget-red-4";
+export const RED_DROPTARGET_56_FEATURE_ID = "feature-droptarget-red-56";
+export const RED_DROPTARGET_FEATURE_IDS = [
+    RED_DROPTARGET_12_FEATURE_ID,
+    RED_DROPTARGET_3_FEATURE_ID,
+    RED_DROPTARGET_4_FEATURE_ID,
+    RED_DROPTARGET_56_FEATURE_ID,
 ];
 //#endregion
 //#region redDropTargetBoxIds
-export const redDropTarget12BoxId = "box-droptarget-red-12";
-export const redDropTarget3BoxId = "box-droptarget-red-3";
-export const redDropTarget4BoxId = "box-droptarget-red-4";
-export const redDropTarget56BoxId = "box-droptarget-red-56";
-export const redDropTargetGroupBoxIds = [
-    redDropTarget12BoxId,
-    redDropTarget3BoxId,
-    redDropTarget4BoxId,
-    redDropTarget56BoxId,
+export const RED_DROPTARGET_12_BOX_ID = "box-droptarget-red-12";
+export const RED_DROPTARGET_3_BOX_ID = "box-droptarget-red-3";
+export const RED_DROPTARGET_4_BOX_ID = "box-droptarget-red-4";
+export const RED_DROPTARGET_56_BOX_ID = "box-droptarget-red-56";
+export const RED_DROPTARGET_GROUP_BOX_IDS = [
+    RED_DROPTARGET_12_BOX_ID,
+    RED_DROPTARGET_3_BOX_ID,
+    RED_DROPTARGET_4_BOX_ID,
+    RED_DROPTARGET_56_BOX_ID,
 ];
 //#endregion
 //#endregion
-export const dropTargetFeatureIds = [
-    ...redDropTargetFeatureIds,
-    ...yelDropTargetFeatureIds,
+export const DROPTARGET_FEATURE_IDS = [
+    ...RED_DROPTARGET_FEATURE_IDS,
+    ...YEL_DROPTARGET_FEATURE_IDS,
 ];
-export const dropTargetsCanReceiveFromFeatureIds = [
-    startFeatureId,
-    ...ferriswheelFeatureIds,
-    ...bumperFeatureIds,
-    ...hammerSpaceFeatureIds,
+export const DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    START_FEATURE_ID,
+    ...FERRISWHEEL_FEATURE_IDS,
+    ...BUMPER_FEATURE_IDS,
+    ...HAMMER_SPACE_FEATURE_IDS,
 ];
-export const yelDropTargetsCanReceiveFromFeatureIds = [
-    ...dropTargetsCanReceiveFromFeatureIds,
-    yelFlipperFeatureId,
+export const YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    YEL_FLIPPER_FEATURE_ID,
 ];
-export const redDropTargetsCanReceiveFromFeatureIds = [
-    ...dropTargetsCanReceiveFromFeatureIds,
-    redFlipperFeatureId,
+export const RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    RED_FLIPPER_FEATURE_ID,
 ]
 //#endregion
 //#region dashedBoxIds
 //#region flipperBoxIds
 //#region redFlipperBoxIds
-export const redFlipperBox3BoxId = "box-redflipperbox-3";
-export const redFlipperBox45BoxId = "box-redflipperbox-45";
-export const redFlipperBox6BoxId = "box-redflipperbox-6";
-export const redFlipperGroupBoxIds = [
-    redFlipperBox3BoxId,
-    redFlipperBox45BoxId,
-    redFlipperBox6BoxId,
+export const RED_FLIPPER_BOX_3_BOX_ID = "box-redflipperbox-3";
+export const RED_FLIPPER_BOX_45_BOX_ID = "box-redflipperbox-45";
+export const RED_FLIPPER_BOX_6_BOX_ID = "box-redflipperbox-6";
+export const RED_FLIPPER_GROUP_BOX_IDS = [
+    RED_FLIPPER_BOX_3_BOX_ID,
+    RED_FLIPPER_BOX_45_BOX_ID,
+    RED_FLIPPER_BOX_6_BOX_ID,
 ];
 //#endregion
 //#region yelFlipperBoxIds
-export const yelFlipperBox1BoxId = "box-yelflipperbox-1";
-export const yelFlipperBox23BoxId = "box-yelflipperbox-23";
-export const yelFlipperBox4BoxId = "box-yelflipperbox-4";
-export const yelFlipperGroupBoxIds = [
-    yelFlipperBox1BoxId,
-    yelFlipperBox23BoxId,
-    yelFlipperBox4BoxId,
+export const YEL_FLIPPER_BOX_1_BOX_ID = "box-yelflipperbox-1";
+export const YEL_FLIPPER_BOX_23_BOX_ID = "box-yelflipperbox-23";
+export const YEL_FLIPPER_BOX_4_BOX_ID = "box-yelflipperbox-4";
+export const YEL_FLIPPER_GROUP_BOX_IDS = [
+    YEL_FLIPPER_BOX_1_BOX_ID,
+    YEL_FLIPPER_BOX_23_BOX_ID,
+    YEL_FLIPPER_BOX_4_BOX_ID,
 ];
 //#endregion
-export const flipperGroupBoxIds = [...redFlipperGroupBoxIds, ...yelFlipperGroupBoxIds];
+export const FLIPPER_GROUP_BOX_IDS = [...RED_FLIPPER_GROUP_BOX_IDS, ...YEL_FLIPPER_GROUP_BOX_IDS];
 //#endregion
 //#region inlanes
-export const redInlaneBoxId = "box-redinlane-2";
-export const yelInlaneBoxId = "box-yelinlane-5";
-export const inlaneBoxIds = [
-    redInlaneBoxId,
-    yelInlaneBoxId,
+export const RED_INLANE_BOX_ID = "box-redinlane-2";
+export const YEL_INLANE_BOX_ID = "box-yelinlane-5";
+export const INLANE_BOX_IDS = [
+    RED_INLANE_BOX_ID,
+    YEL_INLANE_BOX_ID,
 ];
 //#endregion
 //#region outlanes
-export const redOutlaneBoxId = "box-redoutlane-1";
-export const yelOutlaneBoxId = "box-yeloutlane-6";
-export const outlaneBoxIds = [
-    redOutlaneBoxId,
-    yelOutlaneBoxId,
+export const RED_OUTLANE_BOX_ID = "box-redoutlane-1";
+export const YEL_OUTLANE_BOX_ID = "box-yeloutlane-6";
+export const OUTLANE_BOX_IDS = [
+    RED_OUTLANE_BOX_ID,
+    YEL_OUTLANE_BOX_ID,
 ];
 //#endregion
-export const dashedBoxIds = [
-    ...flipperGroupBoxIds,
-    ...inlaneBoxIds,
-    ...outlaneBoxIds,
+export const DASHED_BOX_IDS = [
+    ...FLIPPER_GROUP_BOX_IDS,
+    ...INLANE_BOX_IDS,
+    ...OUTLANE_BOX_IDS,
 ];
 //#endregion
 //#region drain
-export const drainFeatureId = "drain";
-export const drainFeatureLeft = "257px";
-export const drainFeatureTop = "1000px";
-export const drainBoxId = "box-drain-123456";
-export const drainGroupBoxIds = [drainBoxId];
+export const DRAIN_FEATURE_ID = "drain";
+export const DRAIN_FEATURE_LEFT = "257px";
+export const DRAIN_FEATURE_TOP = "1000px";
+export const DRAIN_BOX_ID = "box-drain-123456";
+export const DRAIN_GROUP_BOX_ID = [DRAIN_BOX_ID];
 //#endregion
 //#region allFeatureIds
-export const allFeatureIds = [
-    startFeatureId,
-    ...ferriswheelFeatureIds,
-    ...hammerSpaceFeatureIds,
-    ...bumperFeatureIds,
-    ...flipperFeatureIds,
-    ...dropTargetFeatureIds
+export const ALL_FEATURE_IDS = [
+    START_FEATURE_ID,
+    ...FERRISWHEEL_FEATURE_IDS,
+    ...HAMMER_SPACE_FEATURE_IDS,
+    ...BUMPER_FEATURE_IDS,
+    ...FLIPPER_FEATURE_IDS,
+    ...DROPTARGET_FEATURE_IDS
 ];
 //#endregion
 //#region balls
-export const ball1Id = "ball1"
-export const ball2Id = "ball2"
-export const ballIds = [
-    ball1Id,
-    ball2Id,
+export const BALL1_ID = "ball1"
+export const BALL2_ID = "ball2"
+export const BALL_IDS = [
+    BALL1_ID,
+    BALL2_ID,
 ];
 //#endregion
 //#region dice
-export const die1Id = "die1";
-export const die2Id = "die2";
-export const diceIds = [
-    die1Id,
-    die2Id,
+export const DIE1_ID = "die1";
+export const DIE2_ID = "die2";
+export const DICE_IDS = [
+    DIE1_ID,
+    DIE2_ID,
 ];
 //#endregion
 export const MAX_ROUNDS = 3;

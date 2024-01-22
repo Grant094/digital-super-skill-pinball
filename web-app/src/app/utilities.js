@@ -16,5 +16,5 @@ export function isGameOver(round) {
 
 // if neither ball is on a feature, the round is over
 export function isRoundOver(ball1FeatureId, ball2FeatureId) {
-    return (ball1FeatureId === constants.drainFeatureId && ball2FeatureId === constants.drainFeatureId);
+    return (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId === constants.DRAIN_FEATURE_ID);
 }

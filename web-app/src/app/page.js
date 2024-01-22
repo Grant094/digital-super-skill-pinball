@@ -17,9 +17,9 @@ export default function Home() {
   const [nudgesUsed, setNudgesUsed] = useState(0);
   const [score, setScore] = useState(0);
   const [round, setRound] = useState(1);
-  const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
-  const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
-  const [selectedBallId, setSelectedBallId] = useState(constants.ball1Id);
+  const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
+  const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
+  const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
   //#endregion
 
   //#region functions
@@ -28,9 +28,9 @@ export default function Home() {
   const incRound = (() => setRound(round + 1));
 
   function getSelectedBallFeatureId(selectedBallId) {
-    if (selectedBallId === constants.ball1Id) {
+    if (selectedBallId === constants.BALL1_ID) {
       return ball1FeatureId;
-    } else if (selectedBallId === constants.ball2Id) {
+    } else if (selectedBallId === constants.BALL2_ID) {
       return ball2FeatureId;
     } else {
       return null;
@@ -38,9 +38,9 @@ export default function Home() {
   }
 
   function setRelevantBallFeatureId(correspondingFeatureId) {
-    if (selectedBallId === constants.ball1Id) {
+    if (selectedBallId === constants.BALL1_ID) {
       setBall1FeatureId(correspondingFeatureId);
-    } else if (selectedBallId === constants.ball2Id) {
+    } else if (selectedBallId === constants.BALL2_ID) {
       setBall2FeatureId(correspondingFeatureId);
     }
   }
@@ -58,8 +58,8 @@ export default function Home() {
     incRound();
 
     // move ball1 to start
-    setSelectedBallId(constants.ball1Id);
-    moveSelectedBall(constants.startFeatureId);
+    setSelectedBallId(constants.BALL1_ID);
+    moveSelectedBall(constants.START_FEATURE_ID);
   }
 
   function rollDice() {
@@ -118,7 +118,7 @@ export default function Home() {
     }
     //#endregion
 
-    moveSelectedBall(constants.startFeatureId);
+    moveSelectedBall(constants.START_FEATURE_ID);
 
     rollDice();
   }
@@ -141,10 +141,10 @@ export default function Home() {
   }, [ball1FeatureId, ball2FeatureId]);
 
   useEffect(function alwaysSelectOnlyRemainingBall() {
-    if (ball1FeatureId === constants.drainFeatureId && ball2FeatureId !== constants.drainFeatureId) {
-      setSelectedBallId(constants.ball2Id);
-    } else if (ball2FeatureId === constants.drainFeatureId && ball1FeatureId !== constants.drainFeatureId) {
-      setSelectedBallId(constants.ball1Id);
+    if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
+      setSelectedBallId(constants.BALL2_ID);
+    } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
+      setSelectedBallId(constants.BALL1_ID);
     }
   }, [ball1FeatureId, ball2FeatureId]);
 
