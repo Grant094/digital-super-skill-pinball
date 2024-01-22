@@ -7,6 +7,11 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
+
+    function canReceiveFromEitherDie() {
+        return (props.canReceiveOn.includes(props.die1) || props.canReceiveOn.includes(props.die2));
+    }
+
     function invalidChoiceAlert() {
         alert(`
             invalid choice!
@@ -37,12 +42,7 @@ export default function Box(props) {
             (props.boxId !== constants.hammerSpace1BoxId) &&
             (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
         ) {
-            if (
-                (
-                    props.canReceiveOn.includes(props.die1) ||
-                    props.canReceiveOn.includes(props.die2)
-                )
-            )  {
+            if (canReceiveFromEitherDie())  {
                 alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else {
                 invalidChoiceAlert();
@@ -50,10 +50,7 @@ export default function Box(props) {
         } else if (
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
             box.style.backgroundColor !== "black" &&
-            (
-                props.canReceiveOn.includes(props.die1) ||
-                props.canReceiveOn.includes(props.die2)
-            )
+            canReceiveFromEitherDie()
         ) {
             // if nudged, increment nudges used
             if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
