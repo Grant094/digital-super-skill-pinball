@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
-    const boxElement = (typeof window !== 'undefined'? document.getElementById(props.boxId): null);
+    const BOX_ELEMENT = (typeof window !== 'undefined'? document.getElementById(props.boxId): null);
 
     //#region functions
     function canReceiveFromEitherDie() {
@@ -18,15 +18,15 @@ export default function Box(props) {
         return (
             canReceiveFromEitherDie() &&
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
-            boxElement.style.backgroundColor !== "black"
+            BOX_ELEMENT.style.backgroundColor !== "black"
         );
     }
 
     function handleClick() {
         if (
             (
-                props.boxId === constants.redOutlaneBoxId ||
-                props.boxId === constants.yelOutlaneBoxId
+                props.boxId === constants.RED_OUTLANE_BOX_ID ||
+                props.boxId === constants.YEL_OUTLANE_BOX_ID
             ) &&
             utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)
         ) {
@@ -34,9 +34,9 @@ export default function Box(props) {
             alert("You cannot nudge into an outlane");
         } else if (couldReceiveSelectedBall()) {
             if (
-                (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) &&
-                (props.boxId !== constants.hammerSpace1BoxId) &&
-                (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
+                (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
+                (props.boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
+                (document.getElementById(constants.HAMMER_SPACE_GROUP_BOX_IDS[constants.HAMMER_SPACE_GROUP_BOX_IDS.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
             ) {
                 alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else { // moveBallAndPerformConsequences
@@ -46,7 +46,7 @@ export default function Box(props) {
                 }
 
                 // black-out box
-                boxElement.style.backgroundColor = "black";
+                BOX_ELEMENT.style.backgroundColor = "black";
 
                 // move ball
                 props.moveSelectedBall(props.correspondingFeatureId);

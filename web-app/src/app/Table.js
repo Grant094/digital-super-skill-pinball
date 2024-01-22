@@ -12,7 +12,7 @@ import DashedBox from "./DashedBox";
 
 export default function Table(props) {
     useEffect(function clearDashedBoxes() {
-        for (const dashedBoxId of constants.dashedBoxIds) {
+        for (const dashedBoxId of constants.DASHED_BOX_IDS) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
     }, [props.round]);
@@ -20,21 +20,21 @@ export default function Table(props) {
     return (
         <div id={props.tableId}>
             <img src="/images/carniball.jpg" alt="Carniball board" />
-            <Feature featureId={constants.startFeatureId}
-                left={constants.startLeft}
-                top={constants.startTop}
+            <Feature featureId={constants.START_FEATURE_ID}
+                left={constants.START_LEFT}
+                top={constants.START_TOP}
             />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
-                    <Feature featureId={constants.ferriswheelcar12FeatureId}
+                    <Feature featureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
                         left="182px"
                         top="304px"
                     />
-                    <Box boxId={constants.ferriswheelcar12BoxId}
+                    <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
                         canReceiveOn={[1, 2]}
-                        canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.ferriswheelcar12FeatureId}
-                        groupBoxIds={constants.ferriswheelGroupBoxIds}
+                        canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
+                        groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -43,15 +43,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="ferriswheelcar34">
-                    <Feature featureId={constants.ferriswheelcar34FeatureId}
+                    <Feature featureId={constants.FERRISWHEEL_CAR_34_FEATURE_ID}
                         left="274px"
                         top="280px"
                     />
-                    <Box boxId={constants.ferriswheelcar34BoxId}
+                    <Box boxId={constants.FERRISWHEEL_CAR_34_BOX_ID}
                         canReceiveOn={[3, 4]}
-                        canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.ferriswheelcar34FeatureId}
-                        groupBoxIds={constants.ferriswheelGroupBoxIds}
+                        canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.FERRISWHEEL_CAR_34_FEATURE_ID}
+                        groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -60,15 +60,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="ferriswheelcar56">
-                    <Feature featureId={constants.ferriswheelcar56FeatureId}
+                    <Feature featureId={constants.FERRISWHEEL_CAR_56_FEATURE_ID}
                         left="365px"
                         top="304px"
                     />
-                    <Box boxId={constants.ferriswheelcar56BoxId}
+                    <Box boxId={constants.FERRISWHEEL_CAR_56_BOX_ID}
                         canReceiveOn={[5, 6]}
-                        canReceiveFrom={constants.ferriswheelcarsCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.ferriswheelcar56FeatureId}
-                        groupBoxIds={constants.ferriswheelGroupBoxIds}
+                        canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.FERRISWHEEL_CAR_56_FEATURE_ID}
+                        groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
                         left="350px"
                         top="246px"
                         height="48px"
@@ -79,15 +79,15 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="bumpers">
                 <Fragment key="bumper12">
-                    <Feature featureId={constants.bumper12FeatureId}
+                    <Feature featureId={constants.BUMPER_12_FEATURE_ID}
                         left="170px"
                         top="388px"
                     />
-                    <Box boxId={constants.bumper121st1BoxId}
+                    <Box boxId={constants.BUMPER_12_1ST_1_BOX_ID}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper12FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="155px"
                         top="373px"
                         height="25px"
@@ -95,11 +95,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper122nd1BoxId}
+                    <Box boxId={constants.BUMPER_12_2ND_1_BOX_ID}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper12FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="155px"
                         top="402px"
                         height="25px"
@@ -107,11 +107,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper121st2BoxId}
+                    <Box boxId={constants.BUMPER_12_1ST_2_BOX_ID}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper12FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="185px"
                         top="373px"
                         height="25px"
@@ -119,11 +119,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper122nd2BoxId}
+                    <Box boxId={constants.BUMPER_12_2ND_2_BOX_ID}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.bumper12CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper12FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="185px"
                         top="402px"
                         height="25px"
@@ -133,15 +133,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="bumper34">
-                    <Feature featureId={constants.bumper34FeatureId}
+                    <Feature featureId={constants.BUMPER_34_FEATURE_ID}
                         left="303px"
                         top="388px"
                     />
-                    <Box boxId={constants.bumper341st3BoxId}
+                    <Box boxId={constants.BUMPER_34_1ST_3_BOX_ID}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper34FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="288px"
                         top="373px"
                         height="25px"
@@ -149,11 +149,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper342nd3BoxId}
+                    <Box boxId={constants.BUMPER_34_2ND_3_BOX_ID}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper34FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="288px"
                         top="402px"
                         height="25px"
@@ -161,11 +161,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper341st4BoxId}
+                    <Box boxId={constants.BUMPER_34_1ST_4_BOX_ID}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper34FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="317px"
                         top="373px"
                         height="25px"
@@ -173,11 +173,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper342nd4BoxId}
+                    <Box boxId={constants.BUMPER_34_2ND_4_BOX_ID}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.bumper34CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper34FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="317px"
                         top="402px"
                         height="25px"
@@ -187,15 +187,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="bumper56">
-                    <Feature featureId={constants.bumper56FeatureId}
+                    <Feature featureId={constants.BUMPER_56_FEATURE_ID}
                         left="236px"
                         top="490px"
                     />
-                    <Box boxId={constants.bumper561st5BoxId}
+                    <Box boxId={constants.BUMPER_56_1ST_5_BOX_ID}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper56FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="221px"
                         top="475px"
                         height="25px"
@@ -203,11 +203,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper562nd5BoxId}
+                    <Box boxId={constants.BUMPER_56_2ND_5_BOX_ID}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper56FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="221px"
                         top="505px"
                         height="25px"
@@ -215,11 +215,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper561st6BoxId}
+                    <Box boxId={constants.BUMPER_56_1ST_6_BOX_ID}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper56FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="251px"
                         top="475px"
                         height="25px"
@@ -227,11 +227,11 @@ export default function Table(props) {
                         points="1"
                         {...props}
                     />
-                    <Box boxId={constants.bumper562nd6BoxId}
+                    <Box boxId={constants.BUMPER_56_2ND_6_BOX_ID}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.bumper56CanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.bumper56FeatureId}
-                        groupBoxIds={constants.bumperGroupBoxIds}
+                        canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="251px"
                         top="505px"
                         height="25px"
@@ -243,15 +243,15 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="hammerspaces">
                 <Fragment key="hammerspace-1">
-                    <Feature featureId={constants.hammerSpace1FeatureId}
+                    <Feature featureId={constants.HAMMER_SPACE_1_FEATURE_ID}
                         left="376px"
                         top="535px"
                     />
-                    <Box boxId={constants.hammerSpace1BoxId}
+                    <Box boxId={constants.HAMMER_SPACE_1_BOX_ID}
                         canReceiveOn={[1]}
-                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.hammerSpace1FeatureId}
-                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.HAMMER_SPACE_1_FEATURE_ID}
+                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -260,15 +260,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="hammerspace-2">
-                    <Feature featureId={constants.hammerSpace2FeatureId}
+                    <Feature featureId={constants.HAMMER_SPACE_2_FEATURE_ID}
                         left="388px"
                         top="505px"
                     />
-                    <Box boxId={constants.hammerSpace2BoxId}
+                    <Box boxId={constants.HAMMER_SPACE_2_BOX_ID}
                         canReceiveOn={[2]}
-                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.hammerSpace2FeatureId}
-                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.HAMMER_SPACE_2_FEATURE_ID}
+                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="388px"
                         top="505px"
                         height="25px"
@@ -278,15 +278,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="hammerspace-3">
-                    <Feature featureId={constants.hammerSpace3FeatureId}
+                    <Feature featureId={constants.HAMMER_SPACE_3_FEATURE_ID}
                         left="398px"
                         top="477px"
                     />
-                    <Box boxId={constants.hammerSpace3BoxId}
+                    <Box boxId={constants.HAMMER_SPACE_3_BOX_ID}
                         canReceiveOn={[3]}
-                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.hammerSpace3FeatureId}
-                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.HAMMER_SPACE_3_FEATURE_ID}
+                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="398px"
                         top="477px"
                         height="25px"
@@ -296,15 +296,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="hammerspace-4">
-                    <Feature featureId={constants.hammerSpace4FeatureId}
+                    <Feature featureId={constants.HAMMER_SPACE_4_FEATURE_ID}
                         left="409px"
                         top="448px"
                     />
-                    <Box boxId={constants.hammerSpace4BoxId}
+                    <Box boxId={constants.HAMMER_SPACE_4_BOX_ID}
                         canReceiveOn={[4]}
-                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.hammerSpace4FeatureId}
-                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.HAMMER_SPACE_4_FEATURE_ID}
+                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="409px"
                         top="448px"
                         height="25px"
@@ -314,15 +314,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="hammerspace-5">
-                    <Feature featureId={constants.hammerSpace5FeatureId}
+                    <Feature featureId={constants.HAMMER_SPACE_5_FEATURE_ID}
                         left="420px"
                         top="420px"
                     />
-                    <Box boxId={constants.hammerSpace5BoxId}
+                    <Box boxId={constants.HAMMER_SPACE_5_BOX_ID}
                         canReceiveOn={[5]}
-                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.hammerSpace5FeatureId}
-                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.HAMMER_SPACE_5_FEATURE_ID}
+                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="420px"
                         top="420px"
                         height="25px"
@@ -332,15 +332,15 @@ export default function Table(props) {
                     />
                 </Fragment>
                 <Fragment key="hammerspace-6">
-                    <Feature featureId={constants.hammerSpace6FeatureId}
+                    <Feature featureId={constants.HAMMER_SPACE_6_FEATURE_ID}
                         left="430px"
                         top="390px"
                     />
-                    <Box boxId={constants.hammerSpace6BoxId}
+                    <Box boxId={constants.HAMMER_SPACE_6_BOX_ID}
                         canReceiveOn={[6]}
-                        canReceiveFrom={constants.hammerSpacesCanReceiveFromFeatureIds}
-                        correspondingFeatureId={constants.hammerSpace6FeatureId}
-                        groupBoxIds={constants.hammerSpaceGroupBoxIds}
+                        canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                        correspondingFeatureId={constants.HAMMER_SPACE_6_FEATURE_ID}
+                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="430px"
                         top="390px"
                         height="25px"
@@ -353,15 +353,15 @@ export default function Table(props) {
             <Fragment key="droptargets">
                 <Fragment key="yelDropTargets">
                     <Fragment key="yelDropTarget12">
-                        <Feature featureId={constants.yelDropTarget12FeatureId}
+                        <Feature featureId={constants.YEL_DROPTARGET_12_FEATURE_ID}
                             left="35px"
                             top="700px"
                         />
-                        <Box boxId={constants.yelDropTarget12BoxId}
+                        <Box boxId={constants.YEL_DROPTARGET_12_BOX_ID}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.yelDropTarget12FeatureId}
-                            groupBoxIds={constants.yelDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.YEL_DROPTARGET_12_FEATURE_ID}
+                            groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
                             left="30px"
                             top="675px"
                             height="60px"
@@ -371,15 +371,15 @@ export default function Table(props) {
                         />
                     </Fragment>
                     <Fragment key="yelDropTarget34">
-                        <Feature featureId={constants.yelDropTarget34FeatureId}
+                        <Feature featureId={constants.YEL_DROPTARGET_34_FEATURE_ID}
                             left="65px"
                             top="630px"
                         />
-                        <Box boxId={constants.yelDropTarget34BoxId}
+                        <Box boxId={constants.YEL_DROPTARGET_34_BOX_ID}
                             canReceiveOn={[3, 4]}
-                            canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.yelDropTarget34FeatureId}
-                            groupBoxIds={constants.yelDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.YEL_DROPTARGET_34_FEATURE_ID}
+                            groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
                             left="60px"
                             top="615px"
                             height="60px"
@@ -389,15 +389,15 @@ export default function Table(props) {
                         />
                     </Fragment>
                     <Fragment key="yelDropTarget56">
-                        <Feature featureId={constants.yelDropTarget56FeatureId}
+                        <Feature featureId={constants.YEL_DROPTARGET_56_FEATURE_ID}
                             left="100px"
                             top="575px"
                         />
-                        <Box boxId={constants.yelDropTarget56BoxId}
+                        <Box boxId={constants.YEL_DROPTARGET_56_BOX_ID}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.yelDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.yelDropTarget56FeatureId}
-                            groupBoxIds={constants.yelDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.YEL_DROPTARGET_56_FEATURE_ID}
+                            groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
                             left="95px"
                             top="560px"
                             height="60px"
@@ -409,15 +409,15 @@ export default function Table(props) {
                 </Fragment>
                 <Fragment key="redDropTargets">
                     <Fragment key="redDropTarget12">
-                        <Feature featureId={constants.redDropTarget12FeatureId}
+                        <Feature featureId={constants.RED_DROPTARGET_12_FEATURE_ID}
                             left="418px"
                             top="585px"
                         />
-                        <Box boxId={constants.redDropTarget12BoxId}
+                        <Box boxId={constants.RED_DROPTARGET_12_BOX_ID}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.redDropTarget12FeatureId}
-                            groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.RED_DROPTARGET_12_FEATURE_ID}
+                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="415px"
                             top="570px"
                             height="50px"
@@ -427,15 +427,15 @@ export default function Table(props) {
                         />
                     </Fragment>
                     <Fragment key="redDropTarget3">
-                        <Feature featureId={constants.redDropTarget3FeatureId}
+                        <Feature featureId={constants.RED_DROPTARGET_3_FEATURE_ID}
                             left="440px"
                             top="628px"
                         />
-                        <Box boxId={constants.redDropTarget3BoxId}
+                        <Box boxId={constants.RED_DROPTARGET_3_BOX_ID}
                             canReceiveOn={[3]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.redDropTarget3FeatureId}
-                            groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.RED_DROPTARGET_3_FEATURE_ID}
+                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="435px"
                             top="621px"
                             height="40px"
@@ -445,15 +445,15 @@ export default function Table(props) {
                         />
                     </Fragment>
                     <Fragment key="redDropTarget4">
-                        <Feature featureId={constants.redDropTarget4FeatureId}
+                        <Feature featureId={constants.RED_DROPTARGET_4_FEATURE_ID}
                             left="460px"
                             top="674px"
                         />
-                        <Box boxId={constants.redDropTarget4BoxId}
+                        <Box boxId={constants.RED_DROPTARGET_4_BOX_ID}
                             canReceiveOn={[4]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.redDropTarget4FeatureId}
-                            groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.RED_DROPTARGET_4_FEATURE_ID}
+                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="455px"
                             top="665px"
                             height="42px"
@@ -463,15 +463,15 @@ export default function Table(props) {
                         />
                     </Fragment>
                     <Fragment key="redDropTarget56">
-                        <Feature featureId={constants.redDropTarget56FeatureId}
+                        <Feature featureId={constants.RED_DROPTARGET_56_FEATURE_ID}
                             left="485px"
                             top="725px"
                         />
-                        <Box boxId={constants.redDropTarget56BoxId}
+                        <Box boxId={constants.RED_DROPTARGET_56_BOX_ID}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.redDropTargetsCanReceiveFromFeatureIds}
-                            correspondingFeatureId={constants.redDropTarget56FeatureId}
-                            groupBoxIds={constants.redDropTargetGroupBoxIds}
+                            canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            correspondingFeatureId={constants.RED_DROPTARGET_56_FEATURE_ID}
+                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="480px"
                             top="710px"
                             height="55px"
@@ -483,30 +483,30 @@ export default function Table(props) {
                 </Fragment>
             </Fragment>
             <Fragment key="outlanes">
-                <Outlane boxId={constants.redOutlaneBoxId}
+                <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
                     canReceiveOn={[1]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.drainFeatureId}
-                    relevantFlipperBoxIds={constants.redFlipperGroupBoxIds}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.DRAIN_FEATURE_ID}
+                    relevantFlipperBoxIds={constants.RED_FLIPPER_GROUP_BOX_IDS}
                     left="18px"
                     top="815px"
                     {...props}
                 />
-                <Outlane boxId={constants.yelOutlaneBoxId}
+                <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
                     canReceiveOn={[6]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.drainFeatureId}
-                    relevantFlipperBoxIds={constants.yelFlipperGroupBoxIds}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.DRAIN_FEATURE_ID}
+                    relevantFlipperBoxIds={constants.YEL_FLIPPER_GROUP_BOX_IDS}
                     left="458px"
                     top="815px"
                     {...props}
                 />
             </Fragment>
             <Fragment key="inlanes">
-                <DashedBox boxId={constants.redInlaneBoxId}
+                <DashedBox boxId={constants.RED_INLANE_BOX_ID}
                     canReceiveOn={[2]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
                     left="94px"
                     top="821px"
                     height="25px"
@@ -514,10 +514,10 @@ export default function Table(props) {
                     points="2"
                     {...props}
                 />
-                <DashedBox boxId={constants.yelInlaneBoxId}
+                <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
                     canReceiveOn={[5]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
                     left="419px"
                     top="821px"
                     height="25px"
@@ -527,40 +527,40 @@ export default function Table(props) {
                 />
             </Fragment>
             <Fragment key="flippers">
-                <Feature featureId={constants.redFlipperFeatureId}
+                <Feature featureId={constants.RED_FLIPPER_FEATURE_ID}
                     left="195px"
                     top="970px"
                 />
-                <Feature featureId={constants.yelFlipperFeatureId}
+                <Feature featureId={constants.YEL_FLIPPER_FEATURE_ID}
                     left="320px"
                     top="970px"
                 />
             </Fragment>
             <Fragment key="redflipperboxes">
-                <DashedBox boxId={constants.redFlipperBox3BoxId}
+                <DashedBox boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
                     canReceiveOn={[3]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
                     left="215px"
                     top="840px"
                     height="35px"
                     width="40px"
                     {...props}
                 />
-                <DashedBox boxId={constants.redFlipperBox45BoxId}
+                <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
                     canReceiveOn={[4, 5]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
                     left="195px"
                     top="875px"
                     height="45px"
                     width="45px"
                     {...props}
                 />
-                <DashedBox boxId={constants.redFlipperBox6BoxId}
+                <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
                     canReceiveOn={[6]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.redFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
                     left="178px"
                     top="915px"
                     height="45px"
@@ -569,30 +569,30 @@ export default function Table(props) {
                 />
             </Fragment>
             <Fragment key="yelflipperboxes">
-                <DashedBox boxId={constants.yelFlipperBox1BoxId}
+                <DashedBox boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
                     canReceiveOn={[1]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
                     left="285px"
                     top="840px"
                     height="40px"
                     width="40px"
                     {...props}
                 />
-                <DashedBox boxId={constants.yelFlipperBox23BoxId}
+                <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
                     canReceiveOn={[2, 3]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
                     left="300px"
                     top="875px"
                     height="45px"
                     width="45px"
                     {...props}
                 />
-                <DashedBox boxId={constants.yelFlipperBox4BoxId}
+                <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
                     canReceiveOn={[4]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.yelFlipperFeatureId}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
                     left="315px"
                     top="915px"
                     height="45px"
@@ -601,15 +601,15 @@ export default function Table(props) {
                 />
             </Fragment>
             <Fragment key="drain">
-                <Feature featureId={constants.drainFeatureId}
-                    left={constants.drainFeatureLeft}
-                    top={constants.drainFeatureTop}
+                <Feature featureId={constants.DRAIN_FEATURE_ID}
+                    left={constants.DRAIN_FEATURE_LEFT}
+                    top={constants.DRAIN_FEATURE_TOP}
                 />
-                <Box boxId={constants.drainBoxId}
+                <Box boxId={constants.DRAIN_BOX_ID}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
-                    canReceiveFrom={constants.allFeatureIds}
-                    correspondingFeatureId={constants.drainFeatureId}
-                    groupBoxIds={constants.drainGroupBoxIds}
+                    canReceiveFrom={constants.ALL_FEATURE_IDS}
+                    correspondingFeatureId={constants.DRAIN_FEATURE_ID}
+                    groupBoxIds={constants.DRAIN_GROUP_BOX_ID}
                     left="220px"
                     top="920px"
                     height="85px"
@@ -617,15 +617,15 @@ export default function Table(props) {
                     {...props}
                 />
             </Fragment>
-            <Ball ballId={constants.ball1Id}
-                left={constants.startLeft}
-                top={constants.startTop}
+            <Ball ballId={constants.BALL1_ID}
+                left={constants.START_LEFT}
+                top={constants.START_TOP}
                 round={props.round}
                 ballFeatureId={props.ball1FeatureId}
             />
-            <Ball ballId={constants.ball2Id}
-                left={constants.drainFeatureLeft}
-                top={constants.drainFeatureTop}
+            <Ball ballId={constants.BALL2_ID}
+                left={constants.DRAIN_FEATURE_LEFT}
+                top={constants.DRAIN_FEATURE_TOP}
                 round={props.round}
                 ballFeatureId={props.ball2FeatureId}
             />
