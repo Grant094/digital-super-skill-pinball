@@ -9,7 +9,6 @@ import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
 import DashedBox from "./DashedBox";
-import DrainBox from "./DrainBox";
 
 export default function Table(props) {
     useEffect(function clearDashedBoxes() {
@@ -606,7 +605,7 @@ export default function Table(props) {
                     left={constants.drainFeatureLeft}
                     top={constants.drainFeatureTop}
                 />
-                <DrainBox boxId={constants.drainBoxId}
+                <Box boxId={constants.drainBoxId}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.allFeatureIds}
                     correspondingFeatureId={constants.drainFeatureId}
