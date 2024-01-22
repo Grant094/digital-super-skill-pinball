@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
-    const boxElement = document.getElementById(props.boxId);
+    const boxElement = (typeof window !== 'undefined'? document.getElementById(props.boxId): null);
 
     //#region functions
     function canReceiveFromEitherDie() {
