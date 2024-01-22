@@ -8,6 +8,7 @@ import * as utilities from "./utilities";
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
 
+    //#region functions
     function canReceiveFromEitherDie() {
         return (props.canReceiveOn.includes(props.die1) || props.canReceiveOn.includes(props.die2));
     }
@@ -95,7 +96,8 @@ export default function Box(props) {
             invalidChoiceAlert();
         }
     }
-
+    //#endregion
+    
     useEffect(function hideBoxOnGameOver() {
         setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
