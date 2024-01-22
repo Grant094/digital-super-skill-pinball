@@ -7,6 +7,18 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
+    function invalidChoiceAlert() {
+        alert(`
+            invalid choice!
+            Die1: ${props.die1}
+            Die2: ${props.die2}
+            canRecieveOn: ${props.canReceiveOn}
+            canRecieveFrom: ${props.canReceiveFrom}
+            selectedBallFeatureId: ${props.selectedBallFeatureId}
+            ball1FeatureId: ${props.ball1FeatureId}
+            ball2FeatureId: ${props.ball2FeatureId}
+        `)
+    }
 
     function handleClick() {
         const box = document.getElementById(props.boxId);
@@ -25,8 +37,16 @@ export default function Box(props) {
             (props.boxId !== constants.hammerSpace1BoxId) && // is this not hammerspace1?, and
             (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black") // is the preceding hammerspace not black?
         ) {
-            // alert player saying this hammerspace cannot be selected
-            alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+            if (
+                (
+                    props.canReceiveOn.includes(props.die1) ||
+                    props.canReceiveOn.includes(props.die2)
+                )
+            )  {
+                alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+            } else {
+                invalidChoiceAlert();
+            }
         } else if (
             props.canReceiveFrom.includes(props.selectedBallFeatureId) &&
             box.style.backgroundColor !== "black" &&
@@ -75,19 +95,8 @@ export default function Box(props) {
             props.rollDice();
             
         } else {
-            alert(`
-                invalid choice!
-                Die1: ${props.die1}
-                Die2: ${props.die2}
-                canRecieveOn: ${props.canReceiveOn}
-                canRecieveFrom: ${props.canReceiveFrom}
-                selectedBallFeatureId: ${props.selectedBallFeatureId}
-                ball1FeatureId: ${props.ball1FeatureId}
-                ball2FeatureId: ${props.ball2FeatureId}
-            `);
+            invalidChoiceAlert();
         }
-
-        
     }
 
     useEffect(() => {
