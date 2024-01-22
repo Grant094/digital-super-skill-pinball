@@ -603,8 +603,8 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="drain">
                 <Feature featureId={constants.drainFeatureId}
-                    left="257px"
-                    top="1000px"
+                    left={constants.drainFeatureLeft}
+                    top={constants.drainFeatureTop}
                 />
                 <DrainBox boxId={constants.drainBoxId}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
@@ -623,6 +623,12 @@ export default function Table(props) {
                 top={constants.startTop}
                 round={props.round}
                 ballFeatureId={props.ball1FeatureId}
+            />
+            <Ball ballId={constants.ball2Id}
+                left={constants.drainFeatureLeft}
+                top={constants.drainFeatureTop}
+                round={props.round}
+                ballFeatureId={props.ball2FeatureId}
             />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />

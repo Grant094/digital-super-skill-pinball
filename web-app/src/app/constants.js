@@ -293,6 +293,8 @@ export const dashedBoxIds = [
 //#endregion
 //#region drain
 export const drainFeatureId = "drain";
+export const drainFeatureLeft = "257px";
+export const drainFeatureTop = "1000px";
 export const drainBoxId = "box-drain-123456";
 export const drainGroupBoxIds = [drainBoxId];
 //#endregion
