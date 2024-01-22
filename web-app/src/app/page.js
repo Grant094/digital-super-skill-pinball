@@ -20,13 +20,22 @@ export default function Home() {
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.startFeatureId);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.drainFeatureId);
   const [selectedBallId, setSelectedBallId] = useState(constants.ball1Id);
-  const [selectedBallFeatureId, setSelectedBallFeatureId] = useState(ball1FeatureId);
   //#endregion
 
   //#region functions
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
   const resetNudgesUsed = (() => setNudgesUsed(0));
   const incRound = (() => setRound(round + 1));
+
+  function getSelectedBallFeatureId(selectedBallId) {
+    if (selectedBallId === constants.ball1Id) {
+      return ball1FeatureId;
+    } else if (selectedBallId === constants.ball2Id) {
+      return ball2FeatureId;
+    } else {
+      return null;
+    }
+  }
 
   function setRelevantBallFeatureId(correspondingFeatureId) {
     if (selectedBallId === constants.ball1Id) {
@@ -139,15 +148,6 @@ export default function Home() {
     }
   }, [ball1FeatureId, ball2FeatureId]);
 
-  // change or verify selectedBallFeatureId whenever a different ball is selected or a ball moves
-  useEffect(() => {
-    if (selectedBallId === constants.ball1Id) {
-      setSelectedBallFeatureId(ball1FeatureId);
-    } else if (selectedBallId === constants.ball2Id) {
-      setSelectedBallFeatureId(ball2FeatureId);
-    }
-  }, [selectedBallId, ball1FeatureId, ball2FeatureId]);
-
   useEffect(() => {
     if (utilities.isGameOver(round)) {
       alert(`Game over!`);
@@ -171,7 +171,7 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
         selectedBallId={selectedBallId}
-        selectedBallFeatureId={selectedBallFeatureId}
+        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
         moveSelectedBall={moveSelectedBall}
       />
       <DiceTray dicetrayId="dice-tray"
