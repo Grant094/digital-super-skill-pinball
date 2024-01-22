@@ -32,10 +32,10 @@ export default function Box(props) {
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
-        } else if (
-            (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) && // is this a hammerspace?, and
-            (props.boxId !== constants.hammerSpace1BoxId) && // is this not hammerspace1?, and
-            (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black") // is the preceding hammerspace not black?
+        } else if ( // is this a hammerspace, and is this not hammerspace1, and is the preceding hammerspace not blacked-out?
+            (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) &&
+            (props.boxId !== constants.hammerSpace1BoxId) &&
+            (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
         ) {
             if (
                 (
