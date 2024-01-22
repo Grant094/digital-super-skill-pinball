@@ -316,4 +316,12 @@ export const ballIds = [
     ball2Id,
 ];
 //#endregion
+//#region dice
+export const die1Id = "die1";
+export const die2Id = "die2";
+export const diceIds = [
+    die1Id,
+    die2Id,
+];
+//#endregion
 export const MAX_ROUNDS = 3;
