@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
-    const box = document.getElementById(props.boxId);
+    const boxElement = document.getElementById(props.boxId);
 
     //#region functions
     function canReceiveFromEitherDie() {
@@ -18,7 +18,7 @@ export default function Box(props) {
         return (
             canReceiveFromEitherDie() &&
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
-            box.style.backgroundColor !== "black"
+            boxElement.style.backgroundColor !== "black"
         );
     }
 
@@ -46,7 +46,7 @@ export default function Box(props) {
                 }
 
                 // black-out box
-                box.style.backgroundColor = "black";
+                boxElement.style.backgroundColor = "black";
 
                 // move ball
                 props.moveSelectedBall(props.correspondingFeatureId);
