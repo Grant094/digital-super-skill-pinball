@@ -38,7 +38,8 @@ export default function Box(props) {
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
-        } else if ( // is this a hammerspace, and is this not hammerspace1, and is the preceding hammerspace not blacked-out?
+        } else if ( // can this receive the ball, is this a hammerspace, and is this not hammerspace1, and is the preceding hammerspace not blacked-out?
+            (props.canReceiveFrom.includes(props.getSelectedBallFeatureId())) &&
             (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) &&
             (props.boxId !== constants.hammerSpace1BoxId) &&
             (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
@@ -97,7 +98,7 @@ export default function Box(props) {
         }
     }
     //#endregion
-    
+
     useEffect(function hideBoxOnGameOver() {
         setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
