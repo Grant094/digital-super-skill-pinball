@@ -14,7 +14,7 @@ export default function Box(props) {
             Die2: ${props.die2}
             canRecieveOn: ${props.canReceiveOn}
             canRecieveFrom: ${props.canReceiveFrom}
-            selectedBallFeatureId: ${props.selectedBallFeatureId}
+            selectedBallFeatureId: ${props.selectedBallFeatureId()}
             ball1FeatureId: ${props.ball1FeatureId}
             ball2FeatureId: ${props.ball2FeatureId}
         `)
@@ -48,7 +48,7 @@ export default function Box(props) {
                 invalidChoiceAlert();
             }
         } else if (
-            props.canReceiveFrom.includes(props.selectedBallFeatureId) &&
+            props.canReceiveFrom.includes(props.selectedBallFeatureId()) &&
             box.style.backgroundColor !== "black" &&
             (
                 props.canReceiveOn.includes(props.die1) ||
