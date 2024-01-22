@@ -21,6 +21,13 @@ export default function Box(props) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             alert("You cannot nudge into an outlane");
         } else if (
+            (constants.hammerSpaceGroupBoxIds.includes(props.boxId)) && // is this a hammerspace?, and
+            (props.boxId !== constants.hammerSpace1BoxId) && // is this not hammerspace1?, and
+            (document.getElementById(constants.hammerSpaceGroupBoxIds[constants.hammerSpaceGroupBoxIds.indexOf(props.boxId) - 1]).style.backgroundColor !== "black") // is the preceding hammerspace not black?
+        ) {
+            // alert player saying this hammerspace cannot be selected
+            alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+        } else if (
             props.canReceiveFrom.includes(props.selectedBallFeatureId) &&
             box.style.backgroundColor !== "black" &&
             (
