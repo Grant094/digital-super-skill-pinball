@@ -171,7 +171,7 @@ export default function Home() {
         nudgesUsed={nudgesUsed}
         incNudgesUsed={incNudgesUsed}
         selectedBallId={selectedBallId}
-        selectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
+        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
         moveSelectedBall={moveSelectedBall}
       />
       <DiceTray dicetrayId="dice-tray"
