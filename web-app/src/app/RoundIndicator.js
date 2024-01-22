@@ -6,7 +6,7 @@ import styles from "./roundindicator.module.css";
 export default function RoundIndicator(props) {
     const [roundIndicatorVisibility, setRoundIndicatorVisibility] = useState("hidden");
 
-    useEffect(() => {
+    useEffect(function checkWhetherThisShouldBeVisible() {
         setRoundIndicatorVisibility(Number(props.forRound) <= Number(props.round) ? "visible": "hidden");
     }, [props.round]);
 

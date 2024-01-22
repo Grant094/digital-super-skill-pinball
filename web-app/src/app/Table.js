@@ -12,7 +12,7 @@ import DashedBox from "./DashedBox";
 import DrainBox from "./DrainBox";
 
 export default function Table(props) {
-    useEffect(() => {
+    useEffect(function clearDashedBoxes() {
         for (const dashedBoxId of constants.dashedBoxIds) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
