@@ -21,7 +21,7 @@ export default function Table(props) {
     const [bumper121st2BoxBackgroundColor, setBumper121st2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper122nd2BoxBackgroundColor, setBumper122nd2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper341st3BoxBackgroundColor, setBumper341st3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [bumper342nd3BoxBackgroundcolor, setBumper342nd3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper342nd3BoxBackgroundColor, setBumper342nd3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper341st4BoxBackgroundColor, setBumper341st4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper342nd4BoxBackgroundColor, setBumper342nd4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper561st5BoxBackgroundColor, setBumper561st5BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
@@ -54,12 +54,129 @@ export default function Table(props) {
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
     //#endregion
+    //#region boxBackgroundColorArrays
+    //#region ferriswheelBoxBackgroundColorArrays
+    const ferriswheelBoxBackgroundColors = [
+        ferriswheelcar12BoxBackgroundColor,
+        ferriswheelcar34BoxBackgroundColor,
+        ferriswheelcar56BoxBackgroundColor,
+    ];
+    const ferriswheelBoxBackgroundColorSetters = [
+        setFerriswheelcar12BoxBackgroundColor,
+        setFerriswheelcar34BoxBackgroundColor,
+        setFerriswheelcar56BoxBackgroundColor,
+    ];
+    //#endregion
+    //#region bumperBoxBackgroundColorArrays
+    const bumperBoxBackgroundColors = [
+        bumper121st1BoxBackgroundColor,
+        bumper122nd1BoxBackgroundColor,
+        bumper121st2BoxBackgroundColor,
+        bumper122nd2BoxBackgroundColor,
+        bumper341st3BoxBackgroundColor,
+        bumper342nd3BoxBackgroundColor,
+        bumper341st4BoxBackgroundColor,
+        bumper342nd4BoxBackgroundColor,
+        bumper561st5BoxBackgroundColor,
+        bumper562nd5BoxBackgroundColor,
+        bumper561st6BoxBackgroundColor,
+        bumper562nd6BoxBackgroundColor,
+    ];
+    const bumperBoxBackgroundColorSetters = [
+        setBumper121st1BoxBackgroundColor,
+        setBumper122nd1BoxBackgroundColor,
+        setBumper121st2BoxBackgroundColor,
+        setBumper122nd2BoxBackgroundColor,
+        setBumper341st3BoxBackgroundColor,
+        setBumper342nd3BoxBackgroundColor,
+        setBumper341st4BoxBackgroundColor,
+        setBumper342nd4BoxBackgroundColor,
+        setBumper561st5BoxBackgroundColor,
+        setBumper562nd5BoxBackgroundColor,
+        setBumper561st6BoxBackgroundColor,
+        setBumper562nd6BoxBackgroundColor,
+    ];
+    //#endregion
+    //#region hammerspaceBoxBackgroundColorArrays
+    const hammerspaceBoxBackgroundColors = [
+        hammerspace1BoxBackgroundColor,
+        hammerspace2BoxBackgroundColor,
+        hammerspace3BoxBackgroundColor,
+        hammerspace4BoxBackgroundColor,
+        hammerspace5BoxBackgroundColor,
+        hammerspace6BoxBackgroundColor,
+    ];
+    const hammerspaceBoxBackgroundColorSetters = [
+        setHammerspace1BoxBackgroundColor,
+        setHammerspace2BoxBackgroundColor,
+        setHammerspace3BoxBackgroundColor,
+        setHammerspace4BoxBackgroundColor,
+        setHammerspace5BoxBackgroundColor,
+        setHammerspace6BoxBackgroundColor,
+    ];
+    //#endregion
+    //#region yelDroptargetBoxBackgroundColorArrays
+    const yelDroptargetBoxBackgroundColors = [
+        yelDroptarget12BoxBackgroundColor,
+        yelDroptarget34BoxBackgroundColor,
+        yelDroptarget56BoxBackgroundColor,
+    ];
+    const yelDroptargetBoxBackgroundColorSetters = [
+        setYelDroptarget12BoxBackgroundColor,
+        setYelDroptarget34BoxBackgroundColor,
+        setYelDroptarget56BoxBackgroundColor,
+    ];
+    //#endregion
+    //#region redDroptargetBoxBackgroundColorArrays
+    const redDroptargetBoxBackgroundColors = [
+        redDroptarget12BoxBackgroundColor,
+        redDroptarget3BoxBackgroundColor,
+        redDroptarget4BoxBackgroundColor,
+        redDroptarget56BoxBackgroundColor,
+    ];
+    const redDroptargetBoxBackgroundColorSetters = [
+        setRedDroptarget12BoxBackgroundColor,
+        setRedDroptarget3BoxBackgroundColor,
+        setRedDroptarget4BoxBackgroundColor,
+        setRedDroptarget56BoxBackgroundColor,
+    ];
+    //#endregion
+    //#region miscBoxBackgroundColorArrays
+    const dashedBoxesBackgroundColorSetters = [
+        setRedOutlaneBoxBackgroundColor,
+        setYelOutlaneBoxBackgroundColor,
+        setRedInlaneBoxBackgroundColor,
+        setYelInlaneBoxBackgroundColor,
+        setRedFlipperBox3BoxBackgroundColor,
+        setRedFlipperBox45BoxBackgroundColor,
+        setRedFlipperBox6BoxBackgroundColor,
+        setYelFlipperBox1BoxBackgroundColor,
+        setYelFlipperBox23BoxBackgroundColor,
+        setYelFlipperBox4BoxBackgroundColor,
+    ];
+    const redFlipperBoxesBackgroundColors = [
+        redFlipperBox3BoxBackgroundColor,
+        redFlipperBox45BoxBackgroundColor,
+        redFlipperBox6BoxBackgroundColor,
+    ];
+    const yelFlipperBoxesBackgroundColors = [
+        yelFlipperBox1BoxBackgroundColor,
+        yelFlipperBox23BoxBackgroundColor,
+        yelFlipperBox4BoxBackgroundColor,
+    ];
+    //#endregion
+    //#endregion
 
     //#region functions
-    function clearBoxesInGroup(...boxBackgroundColorSetters) {
+    function clearBoxGroup(...boxBackgroundColorSetters) {
         for (const setter of boxBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
+    }
+
+    // if all boxes in a group are filled in, they should be cleared
+    function shouldClearBoxGroup(...boxBackgroundColors) {
+        return (boxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR).length === boxBackgroundColors.length);
     }
     //#endregion
 
@@ -218,7 +335,7 @@ export default function Table(props) {
                         {...props}
                     />
                     <Box boxId={constants.BUMPER_34_2ND_3_BOX_ID}
-                        boxBackgroundColor={bumper342nd3BoxBackgroundcolor}
+                        boxBackgroundColor={bumper342nd3BoxBackgroundColor}
                         fillBox={() => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
