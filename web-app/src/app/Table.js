@@ -181,13 +181,17 @@ export default function Table(props) {
         const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
         return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
     }
+
+    function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters) {
+        if (shouldClearBoxGroup(boxGroupBoxBackgroundColors)) {
+            clearBoxGroup(boxBackgroundColorSetters);
+        }
+    }
     //#endregion
 
     //#region useEffect
     useEffect(function possiblyClearFerriswheelcars() {
-        if (shouldClearBoxGroup(ferriswheelBoxBackgroundColors)) {
-            clearBoxGroup(ferriswheelBoxBackgroundColorSetters);
-        }
+        possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)
     }, [...ferriswheelBoxBackgroundColors]);
 
     useEffect(function clearDashedBoxes() {
