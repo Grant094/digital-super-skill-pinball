@@ -214,7 +214,6 @@ export default function Table(props) {
                         canReceiveOn={[1, 2]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
-                        groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -233,7 +232,6 @@ export default function Table(props) {
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_34_FEATURE_ID}
-                        groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -252,7 +250,6 @@ export default function Table(props) {
                         canReceiveOn={[5, 6]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_56_FEATURE_ID}
-                        groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
                         left="350px"
                         top="246px"
                         height="48px"
@@ -273,7 +270,6 @@ export default function Table(props) {
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="155px"
                         top="373px"
                         height="25px"
@@ -287,7 +283,6 @@ export default function Table(props) {
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="155px"
                         top="402px"
                         height="25px"
@@ -301,7 +296,6 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="185px"
                         top="373px"
                         height="25px"
@@ -315,7 +309,6 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="185px"
                         top="402px"
                         height="25px"
@@ -335,7 +328,6 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="288px"
                         top="373px"
                         height="25px"
@@ -349,7 +341,6 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="288px"
                         top="402px"
                         height="25px"
@@ -363,7 +354,6 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="317px"
                         top="373px"
                         height="25px"
@@ -377,7 +367,6 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="317px"
                         top="402px"
                         height="25px"
@@ -397,7 +386,6 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="221px"
                         top="475px"
                         height="25px"
@@ -411,7 +399,6 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="221px"
                         top="505px"
                         height="25px"
@@ -425,7 +412,6 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="251px"
                         top="475px"
                         height="25px"
@@ -439,7 +425,6 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
-                        groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
                         left="251px"
                         top="505px"
                         height="25px"
@@ -461,7 +446,6 @@ export default function Table(props) {
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_1_FEATURE_ID}
-                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -480,7 +464,6 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_2_FEATURE_ID}
-                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="388px"
                         top="505px"
                         height="25px"
@@ -500,7 +483,6 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_3_FEATURE_ID}
-                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="398px"
                         top="477px"
                         height="25px"
@@ -520,7 +502,6 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_4_FEATURE_ID}
-                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="409px"
                         top="448px"
                         height="25px"
@@ -540,7 +521,6 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_5_FEATURE_ID}
-                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="420px"
                         top="420px"
                         height="25px"
@@ -560,7 +540,6 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_6_FEATURE_ID}
-                        groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
                         left="430px"
                         top="390px"
                         height="25px"
@@ -583,7 +562,6 @@ export default function Table(props) {
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_12_FEATURE_ID}
-                            groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
                             left="30px"
                             top="675px"
                             height="60px"
@@ -603,7 +581,6 @@ export default function Table(props) {
                             canReceiveOn={[3, 4]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_34_FEATURE_ID}
-                            groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
                             left="60px"
                             top="615px"
                             height="60px"
@@ -623,7 +600,6 @@ export default function Table(props) {
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_56_FEATURE_ID}
-                            groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
                             left="95px"
                             top="560px"
                             height="60px"
@@ -645,7 +621,6 @@ export default function Table(props) {
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_12_FEATURE_ID}
-                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="415px"
                             top="570px"
                             height="50px"
@@ -665,7 +640,6 @@ export default function Table(props) {
                             canReceiveOn={[3]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_3_FEATURE_ID}
-                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="435px"
                             top="621px"
                             height="40px"
@@ -685,7 +659,6 @@ export default function Table(props) {
                             canReceiveOn={[4]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_4_FEATURE_ID}
-                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="455px"
                             top="665px"
                             height="42px"
@@ -705,7 +678,6 @@ export default function Table(props) {
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_56_FEATURE_ID}
-                            groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
                             left="480px"
                             top="710px"
                             height="55px"
@@ -865,7 +837,6 @@ export default function Table(props) {
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}
-                    groupBoxIds={constants.DRAIN_GROUP_BOX_ID}
                     left="220px"
                     top="920px"
                     height="85px"
