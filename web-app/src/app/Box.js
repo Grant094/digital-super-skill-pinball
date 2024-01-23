@@ -54,32 +54,6 @@ export default function Box(props) {
                     props.addPoints(props.points);
                 }
                 
-                //#region commentedOutCode
-                // check if the group of BoxIds this is in is completed
-                // if (props.groupBoxIds) {
-                //     var filledInBoxes = 0;
-                //     for (const boxId of props.groupBoxIds) {
-                //         if (document.getElementById(boxId).style.backgroundColor === "black") {
-                //             filledInBoxes++;
-                //         } else {
-                //             break;
-                //         }
-                //     }
-                //     if (filledInBoxes === props.groupBoxIds.length) {
-                //         // group has been completed, so the boxes should be cleared
-                //         for (const boxId of props.groupBoxIds) {
-                //             document.getElementById(boxId).style.backgroundColor = "transparent";
-                //         }
-                //     }
-                // }
-                //#endregion
-
-                if (props.shouldClearBoxGroup && props.clearBoxGroup) {
-                    if (props.shouldClearBoxGroup()) {
-                        props.clearBoxGroup();
-                    }
-                }
-
                 if (props.action) {
                     props.action();
                 }
@@ -100,7 +74,7 @@ export default function Box(props) {
         }
     }
     //#endregion
-
+    
     useEffect(function hideBoxOnGameOver() {
         setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
