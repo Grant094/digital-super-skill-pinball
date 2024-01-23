@@ -194,6 +194,22 @@ export default function Table(props) {
         possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)
     }, [...ferriswheelBoxBackgroundColors]);
 
+    useEffect(function possiblyClearBumpers() {
+        possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters);
+    }, [...bumperBoxBackgroundColors]);
+
+    useEffect(function possiblyClearHammerSpaces() {
+        possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters);
+    }, [...hammerspaceBoxBackgroundColors]);
+
+    useEffect(function possiblyClearYelDroptargets() {
+        possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters);
+    }, [...yelDroptargetBoxBackgroundColors])
+
+    useEffect(function possiblyClearRedDroptargets() {
+        possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters);
+    }, [...redDroptargetBoxBackgroundColors]);
+
     useEffect(function clearDashedBoxes() {
         for (const dashedBoxId of constants.DASHED_BOX_IDS) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
