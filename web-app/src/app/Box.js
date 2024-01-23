@@ -103,6 +103,7 @@ export default function Box(props) {
             className={styles.box}
             onClick={handleClick}
             style={{
+                backgroundColor: props.boxBackgroundColor,
                 top: props.top,
                 left: props.left,
                 height: props.height,
