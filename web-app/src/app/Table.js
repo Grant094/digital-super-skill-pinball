@@ -215,8 +215,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
                         groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(ferriswheelBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(ferriswheelBoxBackgroundColorSetters)}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -236,8 +234,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_34_FEATURE_ID}
                         groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(ferriswheelBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(ferriswheelBoxBackgroundColorSetters)}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -257,8 +253,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_56_FEATURE_ID}
                         groupBoxIds={constants.FERRISWHEEL_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(ferriswheelBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(ferriswheelBoxBackgroundColorSetters)}
                         left="350px"
                         top="246px"
                         height="48px"
@@ -280,8 +274,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="155px"
                         top="373px"
                         height="25px"
@@ -296,8 +288,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="155px"
                         top="402px"
                         height="25px"
@@ -312,8 +302,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="185px"
                         top="373px"
                         height="25px"
@@ -328,8 +316,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="185px"
                         top="402px"
                         height="25px"
@@ -350,8 +336,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="288px"
                         top="373px"
                         height="25px"
@@ -366,8 +350,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="288px"
                         top="402px"
                         height="25px"
@@ -382,8 +364,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="317px"
                         top="373px"
                         height="25px"
@@ -398,8 +378,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="317px"
                         top="402px"
                         height="25px"
@@ -420,8 +398,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="221px"
                         top="475px"
                         height="25px"
@@ -436,8 +412,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="221px"
                         top="505px"
                         height="25px"
@@ -452,8 +426,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="251px"
                         top="475px"
                         height="25px"
@@ -468,8 +440,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
                         groupBoxIds={constants.BUMPER_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(bumperBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(bumperBoxBackgroundColorSetters)}
                         left="251px"
                         top="505px"
                         height="25px"
@@ -492,8 +462,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_1_FEATURE_ID}
                         groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(hammerspaceBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(hammerspaceBoxBackgroundColorSetters)}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -513,8 +481,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_2_FEATURE_ID}
                         groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(hammerspaceBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(hammerspaceBoxBackgroundColorSetters)}
                         left="388px"
                         top="505px"
                         height="25px"
@@ -535,8 +501,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_3_FEATURE_ID}
                         groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(hammerspaceBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(hammerspaceBoxBackgroundColorSetters)}
                         left="398px"
                         top="477px"
                         height="25px"
@@ -557,8 +521,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_4_FEATURE_ID}
                         groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(hammerspaceBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(hammerspaceBoxBackgroundColorSetters)}
                         left="409px"
                         top="448px"
                         height="25px"
@@ -579,8 +541,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_5_FEATURE_ID}
                         groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(hammerspaceBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(hammerspaceBoxBackgroundColorSetters)}
                         left="420px"
                         top="420px"
                         height="25px"
@@ -601,8 +561,6 @@ export default function Table(props) {
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_6_FEATURE_ID}
                         groupBoxIds={constants.HAMMER_SPACE_GROUP_BOX_IDS}
-                        shouldClearBoxGroup={() => shouldClearBoxGroup(hammerspaceBoxBackgroundColors)}
-                        clearBoxGroup={() => clearBoxGroup(hammerspaceBoxBackgroundColorSetters)}
                         left="430px"
                         top="390px"
                         height="25px"
@@ -626,8 +584,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_12_FEATURE_ID}
                             groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(yelDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(yelDroptargetBoxBackgroundColorSetters)}
                             left="30px"
                             top="675px"
                             height="60px"
@@ -648,8 +604,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_34_FEATURE_ID}
                             groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(yelDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(yelDroptargetBoxBackgroundColorSetters)}
                             left="60px"
                             top="615px"
                             height="60px"
@@ -670,8 +624,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_56_FEATURE_ID}
                             groupBoxIds={constants.YEL_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(yelDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(yelDroptargetBoxBackgroundColorSetters)}
                             left="95px"
                             top="560px"
                             height="60px"
@@ -694,8 +646,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_12_FEATURE_ID}
                             groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(redDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(redDroptargetBoxBackgroundColorSetters)}
                             left="415px"
                             top="570px"
                             height="50px"
@@ -716,8 +666,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_3_FEATURE_ID}
                             groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(redDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(redDroptargetBoxBackgroundColorSetters)}
                             left="435px"
                             top="621px"
                             height="40px"
@@ -738,8 +686,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_4_FEATURE_ID}
                             groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(redDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(redDroptargetBoxBackgroundColorSetters)}
                             left="455px"
                             top="665px"
                             height="42px"
@@ -760,8 +706,6 @@ export default function Table(props) {
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_56_FEATURE_ID}
                             groupBoxIds={constants.RED_DROPTARGET_GROUP_BOX_IDS}
-                            shouldClearBoxGroup={() => shouldClearBoxGroup(redDroptargetBoxBackgroundColors)}
-                            clearBoxGroup={() => clearBoxGroup(redDroptargetBoxBackgroundColorSetters)}
                             left="480px"
                             top="710px"
                             height="55px"
