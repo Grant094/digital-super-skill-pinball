@@ -176,15 +176,24 @@ export default function Table(props) {
 
     // if all boxes in a group are filled in, they should be cleared
     function shouldClearBoxGroup(...boxBackgroundColors) {
-        return (boxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR).length === boxBackgroundColors.length);
+        let filledBoxes = boxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
+        let ret = (filledBoxes.length === boxBackgroundColors.length);
+        console.log(`
+            boxBackgroundColors: ${boxBackgroundColors}
+            filledBoxes: ${filledBoxes}
+            shouldClearBoxGroup(): ${ret}
+        `);
+        return ret;
     }
     //#endregion
 
+    //#region useEffect
     useEffect(function clearDashedBoxes() {
         for (const dashedBoxId of constants.DASHED_BOX_IDS) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
         }
     }, [props.round]);
+    //#endregion
 
     return (
         <div id={props.tableId}>
