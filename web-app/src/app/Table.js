@@ -76,6 +76,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
                         boxBackgroundColor={ferriswheelcar12BoxBackgroundColor}
+                        fillBox={() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1, 2]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
@@ -94,6 +95,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.FERRISWHEEL_CAR_34_BOX_ID}
                         boxBackgroundColor={ferriswheelcar34BoxBackgroundColor}
+                        fillBox={() => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_34_FEATURE_ID}
@@ -112,6 +114,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.FERRISWHEEL_CAR_56_BOX_ID}
                         boxBackgroundColor={ferriswheelcar56BoxBackgroundColor}
+                        fillBox={() => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5, 6]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.FERRISWHEEL_CAR_56_FEATURE_ID}
@@ -132,6 +135,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_12_1ST_1_BOX_ID}
                         boxBackgroundColor={bumper121st1BoxBackgroundColor}
+                        fillBox={() => setBumper121st1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
@@ -145,6 +149,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_12_2ND_1_BOX_ID}
                         boxBackgroundColor={bumper122nd1BoxBackgroundColor}
+                        fillBox={() => setBumper122nd1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
@@ -158,6 +163,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_12_1ST_2_BOX_ID}
                         boxBackgroundColor={bumper121st2BoxBackgroundColor}
+                        fillBox={() => setBumper121st2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
@@ -171,6 +177,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_12_2ND_2_BOX_ID}
                         boxBackgroundColor={bumper122nd2BoxBackgroundColor}
+                        fillBox={() => setBumper122nd2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
@@ -190,6 +197,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_34_1ST_3_BOX_ID}
                         boxBackgroundColor={bumper341st3BoxBackgroundColor}
+                        fillBox={() => setBumper341st3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
@@ -203,6 +211,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_34_2ND_3_BOX_ID}
                         boxBackgroundColor={bumper342nd3BoxBackgroundcolor}
+                        fillBox={() => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
@@ -216,6 +225,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_34_1ST_4_BOX_ID}
                         boxBackgroundColor={bumper341st4BoxBackgroundColor}
+                        fillBox={() => setBumper341st4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
@@ -229,6 +239,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_34_2ND_4_BOX_ID}
                         boxBackgroundColor={bumper342nd4BoxBackgroundColor}
+                        fillBox={() => setBumper342nd4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
@@ -248,6 +259,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_56_1ST_5_BOX_ID}
                         boxBackgroundColor={bumper561st5BoxBackgroundColor}
+                        fillBox={() => setBumper561st5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
@@ -261,6 +273,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_56_2ND_5_BOX_ID}
                         boxBackgroundColor={bumper562nd5BoxBackgroundColor}
+                        fillBox={() => setBumper562nd5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
@@ -274,6 +287,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_56_1ST_6_BOX_ID}
                         boxBackgroundColor={bumper561st6BoxBackgroundColor}
+                        fillBox={() => setBumper561st6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
@@ -287,6 +301,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.BUMPER_56_2ND_6_BOX_ID}
                         boxBackgroundColor={bumper562nd6BoxBackgroundColor}
+                        fillBox={() => setBumper562nd6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
@@ -308,6 +323,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.HAMMER_SPACE_1_BOX_ID}
                         boxBackgroundColor={hammerspace1BoxBackgroundColor}
+                        fillBox={() => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_1_FEATURE_ID}
@@ -326,6 +342,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.HAMMER_SPACE_2_BOX_ID}
                         boxBackgroundColor={hammerspace2BoxBackgroundColor}
+                        fillBox={() => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_2_FEATURE_ID}
@@ -345,6 +362,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.HAMMER_SPACE_3_BOX_ID}
                         boxBackgroundColor={hammerspace3BoxBackgroundColor}
+                        fillBox={() => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_3_FEATURE_ID}
@@ -364,6 +382,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.HAMMER_SPACE_4_BOX_ID}
                         boxBackgroundColor={hammerspace4BoxBackgroundColor}
+                        fillBox={() => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_4_FEATURE_ID}
@@ -383,6 +402,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.HAMMER_SPACE_5_BOX_ID}
                         boxBackgroundColor={hammerspace5BoxBackgroundColor}
+                        fillBox={() => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_5_FEATURE_ID}
@@ -402,6 +422,7 @@ export default function Table(props) {
                     />
                     <Box boxId={constants.HAMMER_SPACE_6_BOX_ID}
                         boxBackgroundColor={hammerspace6BoxBackgroundColor}
+                        fillBox={() => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_6_FEATURE_ID}
@@ -424,6 +445,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.YEL_DROPTARGET_12_BOX_ID}
                             boxBackgroundColor={yelDroptarget12BoxBackgroundColor}
+                            fillBox={() => setYelDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_12_FEATURE_ID}
@@ -443,6 +465,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.YEL_DROPTARGET_34_BOX_ID}
                             boxBackgroundColor={yelDroptarget34BoxBackgroundColor}
+                            fillBox={() => setYelDroptarget34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3, 4]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_34_FEATURE_ID}
@@ -462,6 +485,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.YEL_DROPTARGET_56_BOX_ID}
                             boxBackgroundColor={yelDroptarget56BoxBackgroundColor}
+                            fillBox={() => setYelDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.YEL_DROPTARGET_56_FEATURE_ID}
@@ -483,6 +507,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.RED_DROPTARGET_12_BOX_ID}
                             boxBackgroundColor={redDroptarget12BoxBackgroundColor}
+                            fillBox={() => setRedDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_12_FEATURE_ID}
@@ -502,6 +527,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.RED_DROPTARGET_3_BOX_ID}
                             boxBackgroundColor={redDroptarget3BoxBackgroundColor}
+                            fillBox={() => setRedDroptarget3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_3_FEATURE_ID}
@@ -521,6 +547,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.RED_DROPTARGET_4_BOX_ID}
                             boxBackgroundColor={redDroptarget4BoxBackgroundColor}
+                            fillBox={() => setRedDroptarget4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[4]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_4_FEATURE_ID}
@@ -540,6 +567,7 @@ export default function Table(props) {
                         />
                         <Box boxId={constants.RED_DROPTARGET_56_BOX_ID}
                             boxBackgroundColor={redDroptarget56BoxBackgroundColor}
+                            fillBox={() => setRedDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             correspondingFeatureId={constants.RED_DROPTARGET_56_FEATURE_ID}
@@ -557,6 +585,7 @@ export default function Table(props) {
             <Fragment key="outlanes">
                 <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
                     boxBackgroundColor={redOutlaneBoxBackgroundColor}
+                    fillBox={() => setRedOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}
@@ -567,6 +596,7 @@ export default function Table(props) {
                 />
                 <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
                     boxBackgroundColor={yelOutlaneBoxBackgroundColor}
+                    fillBox={() => setYelOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}
@@ -579,6 +609,7 @@ export default function Table(props) {
             <Fragment key="inlanes">
                 <DashedBox boxId={constants.RED_INLANE_BOX_ID}
                     boxBackgroundColor={redInlaneBoxBackgroundColor}
+                    fillBox={() => setRedInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[2]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
@@ -591,6 +622,7 @@ export default function Table(props) {
                 />
                 <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
                     boxBackgroundColor={yelInlaneBoxBackgroundColor}
+                    fillBox={() => setYelInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[5]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
@@ -615,6 +647,7 @@ export default function Table(props) {
             <Fragment key="redflipperboxes">
                 <DashedBox boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
                     boxBackgroundColor={redFlipperBox3BoxBackgroundColor}
+                    fillBox={() => setRedFlipperBox3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[3]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
@@ -626,6 +659,7 @@ export default function Table(props) {
                 />
                 <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
                     boxBackgroundColor={redFlipperBox45BoxBackgroundColor}
+                    fillBox={() => setRedFlipperBox45BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[4, 5]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
@@ -637,6 +671,7 @@ export default function Table(props) {
                 />
                 <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
                     boxBackgroundColor={redFlipperBox6BoxBackgroundColor}
+                    fillBox={() => setRedFlipperBox6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
@@ -650,6 +685,7 @@ export default function Table(props) {
             <Fragment key="yelflipperboxes">
                 <DashedBox boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
                     boxBackgroundColor={yelFlipperBox1BoxBackgroundColor}
+                    fillBox={() => setYelFlipperBox1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
@@ -661,6 +697,7 @@ export default function Table(props) {
                 />
                 <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
                     boxBackgroundColor={yelFlipperBox23BoxBackgroundColor}
+                    fillBox={() => setYelFlipperBox23BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[2, 3]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
@@ -672,6 +709,7 @@ export default function Table(props) {
                 />
                 <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
                     boxBackgroundColor={yelFlipperBox4BoxBackgroundColor}
+                    fillBox={() => setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[4]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
@@ -689,6 +727,7 @@ export default function Table(props) {
                 />
                 <Box boxId={constants.DRAIN_BOX_ID}
                     boxBackgroundColor={drainBoxBackgroundColor}
+                    fillBox={() => setDrainBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}
