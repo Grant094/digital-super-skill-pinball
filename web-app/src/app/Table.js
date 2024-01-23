@@ -168,26 +168,29 @@ export default function Table(props) {
     //#endregion
 
     //#region functions
-    function clearBoxGroup(...boxBackgroundColorSetters) {
+    function clearBoxGroup(boxBackgroundColorSetters) {
         for (const setter of boxBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
     }
 
     // if all boxes in a group are filled in, they should be cleared
-    function shouldClearBoxGroup(...boxBackgroundColors) {
-        let filledBoxes = boxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
-        let ret = (filledBoxes.length === boxBackgroundColors.length);
-        console.log(`
-            boxBackgroundColors: ${boxBackgroundColors}
-            filledBoxes: ${filledBoxes}
-            shouldClearBoxGroup(): ${ret}
-        `);
+    function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
+        const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
+        const countOfFilledBoxesInThisGroup = filledBoxes.length;
+        const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
+        let ret = (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
         return ret;
     }
     //#endregion
 
     //#region useEffect
+    useEffect(function possiblyClearFerriswheelcars() {
+        if (shouldClearBoxGroup(ferriswheelBoxBackgroundColors)) {
+            clearBoxGroup(ferriswheelBoxBackgroundColorSetters);
+        }
+    }, [...ferriswheelBoxBackgroundColors]);
+
     useEffect(function clearDashedBoxes() {
         for (const dashedBoxId of constants.DASHED_BOX_IDS) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
