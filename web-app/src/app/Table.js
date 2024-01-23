@@ -179,8 +179,7 @@ export default function Table(props) {
         const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfFilledBoxesInThisGroup = filledBoxes.length;
         const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
-        let ret = (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
-        return ret;
+        return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
     }
     //#endregion
 
