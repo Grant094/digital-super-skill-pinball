@@ -211,8 +211,8 @@ export default function Table(props) {
     }, [...redDroptargetBoxBackgroundColors]);
 
     useEffect(function clearDashedBoxes() {
-        for (const dashedBoxId of constants.DASHED_BOX_IDS) {
-            document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
+        for (const setter of dashedBoxesBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
     }, [props.round]);
     //#endregion
