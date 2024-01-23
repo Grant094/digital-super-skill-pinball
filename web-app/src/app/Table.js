@@ -11,6 +11,50 @@ import Outlane from "./Outlane";
 import DashedBox from "./DashedBox";
 
 export default function Table(props) {
+    //#region state
+    //#region box-background-colors
+    const [ferriswheelcar12BoxBackgroundColor, setFerriswheelcar12BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [ferriswheelcar34BoxBackgroundColor, setFerriswheelcar34BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [ferriswheelcar56BoxBackgroundColor, setFerriswheelcar56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper121st1BoxBackgroundColor, setBumper121st1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper122nd1BoxBackgroundColor, setbumper122nd1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper121st2BoxBackgroundColor, setbumper121st2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper122nd2BoxBackgroundColor, setbumper122nd2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper341st3BoxBackgroundColor, setbumper341st3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper342nd3BoxBackgroundcolor, setbumper342nd3BoxBackgroundcolor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper341st4BoxBackgroundColor, setbumper341st4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper342nd4BoxBackgroundColor, setbumper342nd4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper561st5BoxBackgroundColor, setbumper561st5BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper562nd5BoxBackgroundColor, setbumper562nd5BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper561st6BoxBackgroundColor, setbumper561st6BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper562nd6BoxBackgroundColor, setbumper562nd6BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [hammerspace1BoxBackgroundColor, sethammerspace1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [hammerspace2BoxBackgroundColor, sethammerspace2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [hammerspace3BoxBackgroundColor, sethammerspace3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [hammerspace4BoxBackgroundColor, sethammerspace4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [hammerspace5BoxBackgroundColor, sethammerspace5BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [hammerspace6BoxBackgroundColor, sethammerspace6BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelDroptarget12BoxBackgroundColor, setyelDroptarget12BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelDroptarget34BoxBackgroundColor, setyelDroptarget34BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelDroptarget56BoxBackgroundColor, setyelDroptarget56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redDroptarget12BoxBackgroundColor, setredDroptarget12BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redDroptarget3BoxBackgroundColor, setredDroptarget3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redDroptarget4BoxBackgroundColor, setredDroptarget4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redDroptarget56BoxBackgroundColor, setredDroptarget56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redOutlaneBoxBackgroundColor, setredOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelOutlaneBoxBackgroundColor, setyelOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redInlaneBoxBackgroundColor, setredInlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelInlaneBoxBackgroundColor, setyelInlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redFlipperBox3BoxBackgroundColor, setredFlipperBox3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redFlipperBox45BoxBackgroundColor, setredFlipperBox45BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redFlipperBox6BoxBackgroundColor, setredFlipperBox6BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelFlipperBox1BoxBackgroundColor, setyelFlipperBox1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelFlipperBox23BoxBackgroundColor, setyelFlipperBox23BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelFlipperBox4BoxBackgroundColor, setyelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [drainBoxBackgroundColor, setdrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    //#endregion
+    //#endregion
+
     useEffect(function clearDashedBoxes() {
         for (const dashedBoxId of constants.DASHED_BOX_IDS) {
             document.getElementById(dashedBoxId).style.backgroundColor = "transparent";
