@@ -324,4 +324,6 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
+//#region misc
 export const MAX_ROUNDS = 3;
+//#endregion
