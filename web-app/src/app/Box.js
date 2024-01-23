@@ -44,9 +44,8 @@ export default function Box(props) {
                 if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
                     props.incNudgesUsed();
                 }
-
-                // black-out box
-                BOX_ELEMENT.style.backgroundColor = "black";
+                
+                props.fillBox();
 
                 // move ball
                 props.moveSelectedBall(props.correspondingFeatureId);

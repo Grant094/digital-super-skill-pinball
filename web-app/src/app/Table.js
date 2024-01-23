@@ -21,7 +21,7 @@ export default function Table(props) {
     const [bumper121st2BoxBackgroundColor, setBumper121st2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper122nd2BoxBackgroundColor, setBumper122nd2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper341st3BoxBackgroundColor, setBumper341st3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [bumper342nd3BoxBackgroundcolor, setBumper342nd3BoxBackgroundcolor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumper342nd3BoxBackgroundcolor, setBumper342nd3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper341st4BoxBackgroundColor, setBumper341st4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper342nd4BoxBackgroundColor, setBumper342nd4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper561st5BoxBackgroundColor, setBumper561st5BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
@@ -53,6 +53,14 @@ export default function Table(props) {
     const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
+    //#endregion
+
+    //#region functions
+    function clearBoxesInGroup(...boxBackgroundColorSetters) {
+        for (const setter of boxBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
+        }
+    }
     //#endregion
 
     useEffect(function clearDashedBoxes() {
