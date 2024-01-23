@@ -855,7 +855,6 @@ export default function Table(props) {
                 />
                 <Box boxId={constants.DRAIN_BOX_ID}
                     boxBackgroundColor={drainBoxBackgroundColor}
-                    fillBox={() => setDrainBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}

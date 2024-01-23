@@ -45,7 +45,9 @@ export default function Box(props) {
                     props.incNudgesUsed();
                 }
                 
-                props.fillBox();
+                if (props.fillBox) {
+                    props.fillBox();
+                }
 
                 // move ball
                 props.moveSelectedBall(props.correspondingFeatureId);
