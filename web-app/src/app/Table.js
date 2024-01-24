@@ -187,6 +187,12 @@ export default function Table(props) {
             clearBoxGroup(boxBackgroundColorSetters);
         }
     }
+
+    function outlaneAction(relevantFlipperBoxesBackgroundColors) {
+        const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
+        const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
+        props.addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX);
+    }
     //#endregion
 
     //#region useEffect
