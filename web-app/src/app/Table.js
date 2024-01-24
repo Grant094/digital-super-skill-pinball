@@ -723,7 +723,7 @@ export default function Table(props) {
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}
-                    relevantFlipperBoxIds={constants.RED_FLIPPER_GROUP_BOX_IDS}
+                    action={() => outlaneAction(redFlipperBoxesBackgroundColors)}
                     left="18px"
                     top="815px"
                     {...props}
@@ -734,7 +734,7 @@ export default function Table(props) {
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     correspondingFeatureId={constants.DRAIN_FEATURE_ID}
-                    relevantFlipperBoxIds={constants.YEL_FLIPPER_GROUP_BOX_IDS}
+                    action={() => outlaneAction(yelFlipperBoxesBackgroundColors)}
                     left="458px"
                     top="815px"
                     {...props}
