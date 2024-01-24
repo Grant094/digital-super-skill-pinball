@@ -492,6 +492,7 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_2_FEATURE_ID}
+                        precedingHammerspaceBoxBackgroundColor={hammerspace1BoxBackgroundColor}
                         left="388px"
                         top="505px"
                         height="25px"
@@ -511,6 +512,7 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_3_FEATURE_ID}
+                        precedingHammerspaceBoxBackgroundColor={hammerspace2BoxBackgroundColor}
                         left="398px"
                         top="477px"
                         height="25px"
@@ -530,6 +532,7 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_4_FEATURE_ID}
+                        precedingHammerspaceBoxBackgroundColor={hammerspace3BoxBackgroundColor}
                         left="409px"
                         top="448px"
                         height="25px"
@@ -549,6 +552,7 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_5_FEATURE_ID}
+                        precedingHammerspaceBoxBackgroundColor={hammerspace4BoxBackgroundColor}
                         left="420px"
                         top="420px"
                         height="25px"
@@ -568,6 +572,7 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         correspondingFeatureId={constants.HAMMER_SPACE_6_FEATURE_ID}
+                        precedingHammerspaceBoxBackgroundColor={hammerspace5BoxBackgroundColor}
                         left="430px"
                         top="390px"
                         height="25px"

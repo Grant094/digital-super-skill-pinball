@@ -35,7 +35,7 @@ export default function Box(props) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
                 (props.boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
-                (document.getElementById(constants.HAMMER_SPACE_GROUP_BOX_IDS[constants.HAMMER_SPACE_GROUP_BOX_IDS.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
+                (props.precedingHammerspaceBoxBackgroundColor !== "black")
             ) {
                 alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else { // moveBallAndPerformConsequences
