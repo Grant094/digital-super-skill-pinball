@@ -46,10 +46,6 @@ export default function Home() {
   }
 
   function moveSelectedBall(correspondingFeatureId) {
-    const ballElement = document.getElementById(selectedBallId);
-    const correspondingFeatureElement = document.getElementById(correspondingFeatureId);
-    ballElement.style.left = correspondingFeatureElement.style.left;
-    ballElement.style.top = correspondingFeatureElement.style.top;
     setRelevantBallFeatureId(correspondingFeatureId);
   }
 

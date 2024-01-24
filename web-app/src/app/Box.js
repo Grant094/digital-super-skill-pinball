@@ -7,7 +7,6 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     const [boxVisibility, setBoxVisibility] = useState("visible");
-    const BOX_ELEMENT = (typeof window !== 'undefined'? document.getElementById(props.boxId): null);
 
     //#region functions
     function canReceiveFromEitherDie() {
@@ -18,7 +17,7 @@ export default function Box(props) {
         return (
             canReceiveFromEitherDie() &&
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
-            BOX_ELEMENT.style.backgroundColor !== "black"
+            props.boxBackgroundColor !== "black"
         );
     }
 
@@ -36,7 +35,7 @@ export default function Box(props) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
                 (props.boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
-                (document.getElementById(constants.HAMMER_SPACE_GROUP_BOX_IDS[constants.HAMMER_SPACE_GROUP_BOX_IDS.indexOf(props.boxId) - 1]).style.backgroundColor !== "black")
+                (props.precedingHammerspaceBoxBackgroundColor !== "black")
             ) {
                 alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else { // moveBallAndPerformConsequences
@@ -44,9 +43,10 @@ export default function Box(props) {
                 if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
                     props.incNudgesUsed();
                 }
-
-                // black-out box
-                BOX_ELEMENT.style.backgroundColor = "black";
+                
+                if (props.fillBox) {
+                    props.fillBox();
+                }
 
                 // move ball
                 props.moveSelectedBall(props.correspondingFeatureId);
@@ -55,24 +55,6 @@ export default function Box(props) {
                     props.addPoints(props.points);
                 }
                 
-                // check if the group of BoxIds this is in is completed
-                if (props.groupBoxIds) {
-                    var filledInBoxes = 0;
-                    for (const boxId of props.groupBoxIds) {
-                        if (document.getElementById(boxId).style.backgroundColor === "black") {
-                            filledInBoxes++;
-                        } else {
-                            break;
-                        }
-                    }
-                    if (filledInBoxes === props.groupBoxIds.length) {
-                        // group has been completed, so the boxes should be cleared
-                        for (const boxId of props.groupBoxIds) {
-                            document.getElementById(boxId).style.backgroundColor = "transparent";
-                        }
-                    }
-                }
-
                 if (props.action) {
                     props.action();
                 }
@@ -93,7 +75,7 @@ export default function Box(props) {
         }
     }
     //#endregion
-
+    
     useEffect(function hideBoxOnGameOver() {
         setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
     }, [props.round]);
@@ -103,6 +85,7 @@ export default function Box(props) {
             className={styles.box}
             onClick={handleClick}
             style={{
+                backgroundColor: props.boxBackgroundColor,
                 top: props.top,
                 left: props.left,
                 height: props.height,

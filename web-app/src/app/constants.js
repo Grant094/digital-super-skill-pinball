@@ -324,4 +324,9 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
+//#region misc
 export const MAX_ROUNDS = 3;
+export const UNFILLED_BACKGROUND_COLOR = "transparent";
+export const FILLED_BACKGROUND_COLOR = "black";
+export const POINTS_PER_USED_FLIPPER_BOX = 2;
+//#endregion
