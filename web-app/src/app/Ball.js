@@ -16,8 +16,8 @@ export default function Ball(props) {
         <img id={props.ballId}
             style={{
                 position: "absolute",
-                top: props.top,
-                left: props.left,
+                top: (document.getElementById(props.ballFeatureId)? document.getElementById(props.ballFeatureId).style.top: "0"),
+                left: (document.getElementById(props.ballFeatureId)? document.getElementById(props.ballFeatureId).style.left: "0"),
                 visibility: ballVisibility,
             }}
             src="/images/ball.jpg"
