@@ -877,14 +877,10 @@ export default function Table(props) {
                 />
             </Fragment>
             <Ball ballId={constants.BALL1_ID}
-                left={constants.START_LEFT}
-                top={constants.START_TOP}
                 round={props.round}
                 ballFeatureId={props.ball1FeatureId}
             />
             <Ball ballId={constants.BALL2_ID}
-                left={constants.DRAIN_FEATURE_LEFT}
-                top={constants.DRAIN_FEATURE_TOP}
                 round={props.round}
                 ballFeatureId={props.ball2FeatureId}
             />
