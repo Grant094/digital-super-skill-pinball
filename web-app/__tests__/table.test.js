@@ -19,5 +19,5 @@ describe("Table", () => {
         const element = screen.queryByAltText(/ball3/i);
         // assert
         expect(element).toBeNull();
-    })
+    });
 });
