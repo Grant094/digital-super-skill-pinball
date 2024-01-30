@@ -29,6 +29,7 @@ export default function Ball(props) {
 
     return (
         <img id={props.ballId}
+            alt="pinball1"
             style={{
                 position: "absolute",
                 top: ballTop,
