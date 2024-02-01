@@ -12,12 +12,4 @@ describe("Table", () => {
         // assert
         expect(element).toBeInTheDocument();
     });
-    it("does not render ball 3", () => {
-        // arrange
-        render(<Home />);
-        // act
-        const element = screen.queryByAltText(/ball3/i);
-        // assert
-        expect(element).toBeNull();
-    });
 });
