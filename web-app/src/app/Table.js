@@ -246,7 +246,7 @@ export default function Table(props) {
                         fillBox={() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1, 2]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_12_FEATURE_ID)}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -264,7 +264,7 @@ export default function Table(props) {
                         fillBox={() => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.FERRISWHEEL_CAR_34_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_34_FEATURE_ID)}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -282,7 +282,7 @@ export default function Table(props) {
                         fillBox={() => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5, 6]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.FERRISWHEEL_CAR_56_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_56_FEATURE_ID)}
                         left="350px"
                         top="246px"
                         height="48px"
@@ -302,7 +302,7 @@ export default function Table(props) {
                         fillBox={() => setBumper121st1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                         left="155px"
                         top="373px"
                         height="25px"
@@ -315,7 +315,7 @@ export default function Table(props) {
                         fillBox={() => setBumper122nd1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                         left="155px"
                         top="402px"
                         height="25px"
@@ -328,7 +328,7 @@ export default function Table(props) {
                         fillBox={() => setBumper121st2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                         left="185px"
                         top="373px"
                         height="25px"
@@ -341,7 +341,7 @@ export default function Table(props) {
                         fillBox={() => setBumper122nd2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_12_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                         left="185px"
                         top="402px"
                         height="25px"
@@ -360,7 +360,7 @@ export default function Table(props) {
                         fillBox={() => setBumper341st3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                         left="288px"
                         top="373px"
                         height="25px"
@@ -373,7 +373,7 @@ export default function Table(props) {
                         fillBox={() => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                         left="288px"
                         top="402px"
                         height="25px"
@@ -386,7 +386,7 @@ export default function Table(props) {
                         fillBox={() => setBumper341st4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                         left="317px"
                         top="373px"
                         height="25px"
@@ -399,7 +399,7 @@ export default function Table(props) {
                         fillBox={() => setBumper342nd4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_34_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                         left="317px"
                         top="402px"
                         height="25px"
@@ -418,7 +418,7 @@ export default function Table(props) {
                         fillBox={() => setBumper561st5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                         left="221px"
                         top="475px"
                         height="25px"
@@ -431,7 +431,7 @@ export default function Table(props) {
                         fillBox={() => setBumper562nd5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                         left="221px"
                         top="505px"
                         height="25px"
@@ -444,7 +444,7 @@ export default function Table(props) {
                         fillBox={() => setBumper561st6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                         left="251px"
                         top="475px"
                         height="25px"
@@ -457,7 +457,7 @@ export default function Table(props) {
                         fillBox={() => setBumper562nd6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.BUMPER_56_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                         left="251px"
                         top="505px"
                         height="25px"
@@ -478,7 +478,7 @@ export default function Table(props) {
                         fillBox={() => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.HAMMER_SPACE_1_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_1_FEATURE_ID)}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -496,7 +496,7 @@ export default function Table(props) {
                         fillBox={() => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.HAMMER_SPACE_2_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_2_FEATURE_ID)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
                         left="388px"
                         top="505px"
@@ -516,7 +516,7 @@ export default function Table(props) {
                         fillBox={() => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.HAMMER_SPACE_3_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_3_FEATURE_ID)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
                         left="398px"
                         top="477px"
@@ -536,7 +536,7 @@ export default function Table(props) {
                         fillBox={() => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.HAMMER_SPACE_4_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_4_FEATURE_ID)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
                         left="409px"
                         top="448px"
@@ -556,7 +556,7 @@ export default function Table(props) {
                         fillBox={() => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.HAMMER_SPACE_5_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_5_FEATURE_ID)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
                         left="420px"
                         top="420px"
@@ -576,7 +576,7 @@ export default function Table(props) {
                         fillBox={() => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
-                        correspondingFeatureId={constants.HAMMER_SPACE_6_FEATURE_ID}
+                        moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_6_FEATURE_ID)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
                         left="430px"
                         top="390px"
@@ -599,7 +599,7 @@ export default function Table(props) {
                             fillBox={() => setYelDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.YEL_DROPTARGET_12_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_DROPTARGET_12_FEATURE_ID)}
                             left="30px"
                             top="675px"
                             height="60px"
@@ -618,7 +618,7 @@ export default function Table(props) {
                             fillBox={() => setYelDroptarget34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3, 4]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.YEL_DROPTARGET_34_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_DROPTARGET_34_FEATURE_ID)}
                             left="60px"
                             top="615px"
                             height="60px"
@@ -637,7 +637,7 @@ export default function Table(props) {
                             fillBox={() => setYelDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.YEL_DROPTARGET_56_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_DROPTARGET_56_FEATURE_ID)}
                             left="95px"
                             top="560px"
                             height="60px"
@@ -658,7 +658,7 @@ export default function Table(props) {
                             fillBox={() => setRedDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.RED_DROPTARGET_12_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_12_FEATURE_ID)}
                             left="415px"
                             top="570px"
                             height="50px"
@@ -677,7 +677,7 @@ export default function Table(props) {
                             fillBox={() => setRedDroptarget3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.RED_DROPTARGET_3_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_3_FEATURE_ID)}
                             left="435px"
                             top="621px"
                             height="40px"
@@ -696,7 +696,7 @@ export default function Table(props) {
                             fillBox={() => setRedDroptarget4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[4]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.RED_DROPTARGET_4_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_4_FEATURE_ID)}
                             left="455px"
                             top="665px"
                             height="42px"
@@ -715,7 +715,7 @@ export default function Table(props) {
                             fillBox={() => setRedDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
-                            correspondingFeatureId={constants.RED_DROPTARGET_56_FEATURE_ID}
+                            moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_56_FEATURE_ID)}
                             left="480px"
                             top="710px"
                             height="55px"
@@ -732,7 +732,7 @@ export default function Table(props) {
                     fillBox={() => setRedOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.DRAIN_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
                     action={() => outlaneAction(redFlipperBoxesBackgroundColors)}
                     left="18px"
                     top="815px"
@@ -743,7 +743,7 @@ export default function Table(props) {
                     fillBox={() => setYelOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.DRAIN_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
                     action={() => outlaneAction(yelFlipperBoxesBackgroundColors)}
                     left="458px"
                     top="815px"
@@ -756,7 +756,7 @@ export default function Table(props) {
                     fillBox={() => setRedInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[2]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                     left="94px"
                     top="821px"
                     height="25px"
@@ -769,7 +769,7 @@ export default function Table(props) {
                     fillBox={() => setYelInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[5]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                     left="419px"
                     top="821px"
                     height="25px"
@@ -794,7 +794,7 @@ export default function Table(props) {
                     fillBox={() => setRedFlipperBox3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[3]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                     left="215px"
                     top="840px"
                     height="35px"
@@ -806,7 +806,7 @@ export default function Table(props) {
                     fillBox={() => setRedFlipperBox45BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[4, 5]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                     left="195px"
                     top="875px"
                     height="45px"
@@ -818,7 +818,7 @@ export default function Table(props) {
                     fillBox={() => setRedFlipperBox6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.RED_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                     left="178px"
                     top="915px"
                     height="45px"
@@ -832,7 +832,7 @@ export default function Table(props) {
                     fillBox={() => setYelFlipperBox1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                     left="285px"
                     top="840px"
                     height="40px"
@@ -844,7 +844,7 @@ export default function Table(props) {
                     fillBox={() => setYelFlipperBox23BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[2, 3]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                     left="300px"
                     top="875px"
                     height="45px"
@@ -856,7 +856,7 @@ export default function Table(props) {
                     fillBox={() => setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[4]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.YEL_FLIPPER_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                     left="315px"
                     top="915px"
                     height="45px"
@@ -873,7 +873,7 @@ export default function Table(props) {
                     isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
-                    correspondingFeatureId={constants.DRAIN_FEATURE_ID}
+                    moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
                     left="220px"
                     top="920px"
                     height="85px"

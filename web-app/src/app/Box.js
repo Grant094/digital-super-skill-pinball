@@ -47,9 +47,8 @@ export default function Box(props) {
                 if (props.fillBox) {
                     props.fillBox();
                 }
-
-                // move ball
-                props.moveSelectedBall(props.correspondingFeatureId);
+                
+                props.moveSelectedBallToCorrespondingFeature();
                 
                 if (props.points) {
                     props.addPoints(props.points);
