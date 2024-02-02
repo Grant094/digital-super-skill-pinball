@@ -5,7 +5,6 @@ import * as constants from "./constants";
 import * as utilities from "./utilities";
 
 export default function Ball(props) {
-    const [ballVisibility, setBallVisibility] = useState("visible");
     let ballTop, ballLeft;
     
     // since the first render is before the document becomes available, the balls' initial values need to be set this way
@@ -22,18 +21,13 @@ export default function Ball(props) {
         ballLeft = document.getElementById(props.ballFeatureId).style.left;
     }
 
-    // make the ball invisible if it is at `constants.DRAIN_FEATURE_ID`
-    useEffect(function hideDrainedBall() {
-        setBallVisibility((props.ballFeatureId === constants.DRAIN_FEATURE_ID)? "hidden": "visible");
-    }, [props.round, props.ballFeatureId]);
-
     return (
         <img id={props.ballId}
             style={{
                 position: "absolute",
                 top: ballTop,
                 left: ballLeft,
-                visibility: ballVisibility,
+                visibility: ((props.ballFeatureId === constants.DRAIN_FEATURE_ID)? "hidden": "visible"),
             }}
             src="/images/ball.jpg"
             height="25px"
