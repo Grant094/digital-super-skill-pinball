@@ -231,8 +231,8 @@ export default function Table(props) {
         <div id={props.tableId}>
             <img src="/images/carniball.jpg" alt="Carniball board" />
             <Feature featureId={constants.START_FEATURE_ID}
-                left={constants.START_LEFT}
-                top={constants.START_TOP}
+                left={constants.START_FEATURE_LEFT}
+                top={constants.START_FEATURE_TOP}
             />
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
