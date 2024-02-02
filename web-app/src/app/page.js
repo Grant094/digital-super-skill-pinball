@@ -37,16 +37,12 @@ export default function Home() {
     }
   }
 
-  function setRelevantBallFeatureId(correspondingFeatureId) {
+  function moveSelectedBall(correspondingFeatureId) {
     if (selectedBallId === constants.BALL1_ID) {
       setBall1FeatureId(correspondingFeatureId);
     } else if (selectedBallId === constants.BALL2_ID) {
       setBall2FeatureId(correspondingFeatureId);
     }
-  }
-
-  function moveSelectedBall(correspondingFeatureId) {
-    setRelevantBallFeatureId(correspondingFeatureId);
   }
 
   function endRound() {
