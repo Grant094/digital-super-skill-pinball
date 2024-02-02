@@ -105,7 +105,7 @@ export default function Home() {
     const allDivs = document.querySelectorAll("div");
     for (const div of allDivs) {
       if (div.className.includes("box")) {
-        div.style.backgroundColor = "transparent";
+        div.style.backgroundColor = constants.UNFILLED_BACKGROUND_COLOR;
       }
     }
     //#endregion
