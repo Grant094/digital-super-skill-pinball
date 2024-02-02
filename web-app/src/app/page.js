@@ -122,7 +122,7 @@ export default function Home() {
   //#endregion
 
   //#region useEffect-hooks
-  // roll dice upon mounting
+  // roll dice upon initialization
   useEffect(function rollDiceOnInit() {
     if (!didInit) {
       didInit = true;
