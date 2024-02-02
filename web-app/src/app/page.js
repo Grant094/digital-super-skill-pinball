@@ -9,6 +9,7 @@ import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
 
 export default function Home() {
+  let didInit = false;
   //#region state
   const [die1, setDie1] = useState(0);
   const [die2, setDie2] = useState(0);
@@ -122,8 +123,11 @@ export default function Home() {
 
   //#region useEffect-hooks
   // roll dice upon mounting
-  useEffect(function rollDiceOnPageLoad() {
-    rollDice();
+  useEffect(function rollDiceOnInit() {
+    if (!didInit) {
+      didInit = true;
+      rollDice();
+    }
   },[]);
 
   useEffect(function endRoundWhenBothBallsAreInDrain() {
