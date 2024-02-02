@@ -11,8 +11,8 @@ export default function Ball(props) {
     // since the first render is before the document becomes available, the balls' initial values need to be set this way
     if (typeof window === "undefined") {
         if (props.ballId === constants.BALL1_ID) {
-            ballTop = constants.START_TOP;
-            ballLeft = constants.START_LEFT;
+            ballTop = constants.START_FEATURE_TOP;
+            ballLeft = constants.START_FEATURE_LEFT;
         } else if (props.ballId === constants.BALL2_ID) {
             ballTop = constants.DRAIN_FEATURE_TOP;
             ballLeft = constants.DRAIN_FEATURE_LEFT;
