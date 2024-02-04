@@ -9,8 +9,9 @@ describe("Home", () => {
         (featureId) => {
             // arrange
             render(<Home />);
-            // assert
+            // act
             const element = screen.getByTitle(featureId);
+            // assert
             expect(element).toBeInTheDocument()
             expect(element).toHaveStyle("visibility: visible");
         }
