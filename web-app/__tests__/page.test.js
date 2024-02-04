@@ -5,7 +5,7 @@ import * as constants from "../src/app/constants";
 
 describe("Home", () => {
     it.each(constants.ALL_FEATURE_IDS)(
-        '%s should exist and be visible on page load',
+        'should render %s as visible on page load',
         (featureId) => {
             // arrange
             render(<Home />);
@@ -17,7 +17,7 @@ describe("Home", () => {
         }
     );
     it.each(constants.ALL_BOX_IDS)(
-        '%s should exist, be visible, and be unfilled',
+        'should render %s as visible and unfilled on page load',
         (boxId) => {
             // arrange
             render(<Home />);
