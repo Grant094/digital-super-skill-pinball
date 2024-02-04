@@ -4,11 +4,15 @@ import Home from "../src/app/page";
 import * as constants from "../src/app/constants";
 
 describe("Home", () => {
+    beforeEach(() => {
+        // arrange
+        render(<Home />);
+    });
+
     it.each(constants.ALL_FEATURE_IDS)(
         'should render %s as visible on page load',
         (featureId) => {
             // arrange
-            render(<Home />);
             // act
             const element = screen.getByTitle(featureId);
             // assert
@@ -20,7 +24,6 @@ describe("Home", () => {
         'should render %s as visible and unfilled on page load',
         (boxId) => {
             // arrange
-            render(<Home />);
             const element = screen.getByTitle(boxId);
             // assert
             expect(element).toBeInTheDocument();
@@ -32,7 +35,6 @@ describe("Home", () => {
     );
     it('should render BALL1_ID as visible at the Start feature', () => {
         // arrange
-        render(<Home />);
         // act
         const element = screen.getByTitle(constants.BALL1_ID);
         // assert
@@ -45,7 +47,6 @@ describe("Home", () => {
     });
     it('should render BALL2_ID as hidden at the Drain feature', () => {
         // arrange
-        render(<Home />);
         // act
         const element = screen.getByTitle(constants.BALL2_ID);
         // assert
