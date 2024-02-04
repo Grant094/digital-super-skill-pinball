@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Home from "../src/app/page";
 import * as constants from "../src/app/constants";
 
-describe("Table", () => {
+describe("Home", () => {
     it("renders everything correctly on page load", () => {
         // arrange
         render(<Home />);
