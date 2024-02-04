@@ -33,28 +33,30 @@ describe("Home", () => {
             `);
         }
     );
-    it('should render BALL1_ID as visible at the Start feature', () => {
+    it('should render ball1 as visible at the Start feature', () => {
         // arrange
         // act
-        const element = screen.getByTitle(constants.BALL1_ID);
+        const ball1Element = screen.getByTitle(constants.BALL1_ID);
+        const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
         // assert
-        expect(element).toBeInTheDocument();
-        expect(element).toHaveStyle(`
+        expect(ball1Element).toBeInTheDocument();
+        expect(ball1Element).toHaveStyle(`
             visibility: visible;
-            top: ${constants.START_FEATURE_TOP};
-            left: ${constants.START_FEATURE_LEFT};
+            top: ${startFeatureElement.style.top};
+            left: ${startFeatureElement.style.left};
         `);
     });
-    it('should render BALL2_ID as hidden at the Drain feature', () => {
+    it('should render ball2 as hidden at the Drain feature', () => {
         // arrange
         // act
-        const element = screen.getByTitle(constants.BALL2_ID);
+        const ball2Element = screen.getByTitle(constants.BALL2_ID);
+        const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
         // assert
-        expect(element).toBeInTheDocument();
-        expect(element).toHaveStyle(`
+        expect(ball2Element).toBeInTheDocument();
+        expect(ball2Element).toHaveStyle(`
             visibility: hidden;
-            top: ${constants.DRAIN_FEATURE_TOP};
-            left: ${constants.DRAIN_FEATURE_LEFT};
+            top: ${drainFeatureElement.style.top};
+            left: ${drainFeatureElement.style.left};
         `);
     });
 });
