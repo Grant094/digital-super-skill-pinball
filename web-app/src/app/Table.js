@@ -228,8 +228,8 @@ export default function Table(props) {
     //#endregion
 
     return (
-        <div id={props.tableId}>
-            <img src="/images/carniball.jpg" alt="Carniball board" />
+        <div id={props.tableId} title={props.tableId}>
+            <img src="/images/carniball.jpg" id="carniballTable" title="carniballTable" alt="Carniball board" />
             <Feature featureId={constants.START_FEATURE_ID}
                 left={constants.START_FEATURE_LEFT}
                 top={constants.START_FEATURE_TOP}

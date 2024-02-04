@@ -30,6 +30,7 @@ export default function Ball(props) {
     return (
         <img id={props.ballId}
             alt={props.ballId}
+            title={props.ballId}
             style={{
                 position: "absolute",
                 top: ballTop,
