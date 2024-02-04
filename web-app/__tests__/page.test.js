@@ -29,4 +29,30 @@ describe("Home", () => {
             `);
         }
     );
+    it('should render BALL1_ID as visible at the Start feature', () => {
+        // arrange
+        render(<Home />);
+        // act
+        const element = screen.getByTitle(constants.BALL1_ID);
+        // assert
+        expect(element).toBeInTheDocument();
+        expect(element).toHaveStyle(`
+            visibility: visible;
+            top: ${constants.START_FEATURE_TOP};
+            left: ${constants.START_FEATURE_LEFT};
+        `);
+    });
+    it('should render BALL2_ID as hidden at the Drain feature', () => {
+        // arrange
+        render(<Home />);
+        // act
+        const element = screen.getByTitle(constants.BALL2_ID);
+        // assert
+        expect(element).toBeInTheDocument();
+        expect(element).toHaveStyle(`
+            visibility: hidden;
+            top: ${constants.DRAIN_FEATURE_TOP};
+            left: ${constants.DRAIN_FEATURE_LEFT};
+        `);
+    });
 });
