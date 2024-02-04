@@ -12,4 +12,14 @@ describe("Table", () => {
         // assert
         expect(element).toBeInTheDocument();
     });
+    it("renders everything correctly on page load", () => {
+        // arrange
+        render(<Home />);
+        // act
+        const ball2Element = screen.getByTitle(constants.BALL2_ID);
+        // assert
+        expect(screen.getByTitle(constants.BALL1_ID)).toBeInTheDocument();
+        expect(ball2Element).toBeInTheDocument();
+        expect(ball2Element).toHaveStyle("visibility: hidden");
+    });
 });
