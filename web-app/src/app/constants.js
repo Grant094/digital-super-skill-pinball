@@ -308,6 +308,17 @@ export const ALL_FEATURE_IDS = [
     ...DROPTARGET_FEATURE_IDS
 ];
 //#endregion
+//#region allBoxIds
+export const ALL_BOX_IDS = [
+    ...FERRISWHEEL_GROUP_BOX_IDS,
+    ...BUMPER_GROUP_BOX_IDS,
+    ...HAMMER_SPACE_GROUP_BOX_IDS,
+    ...YEL_DROPTARGET_GROUP_BOX_IDS,
+    ...RED_DROPTARGET_GROUP_BOX_IDS,
+    ...DASHED_BOX_IDS,
+    ...DRAIN_GROUP_BOX_ID,
+];
+//#endregion
 //#region balls
 export const BALL1_ID = "ball1"
 export const BALL2_ID = "ball2"
