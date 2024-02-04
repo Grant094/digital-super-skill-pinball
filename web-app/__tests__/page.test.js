@@ -10,8 +10,7 @@ describe("Home", () => {
             render(<Home />);
         });
     
-        it.each(constants.ALL_FEATURE_IDS)(
-            'should render %s as visible on page load',
+        it.each(constants.ALL_FEATURE_IDS)('should render %s as visible on page load',
             (featureId) => {
                 // arrange
                 // act
@@ -21,8 +20,7 @@ describe("Home", () => {
                 expect(element).toHaveStyle("visibility: visible");
             }
         );
-        it.each(constants.ALL_BOX_IDS)(
-            'should render %s as visible and unfilled on page load',
+        it.each(constants.ALL_BOX_IDS)('should render %s as visible and unfilled on page load',
             (boxId) => {
                 // arrange
                 const element = screen.getByTitle(boxId);
