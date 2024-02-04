@@ -37,16 +37,12 @@ export default function Home() {
     }
   }
 
-  function setRelevantBallFeatureId(correspondingFeatureId) {
+  function moveSelectedBall(correspondingFeatureId) {
     if (selectedBallId === constants.BALL1_ID) {
       setBall1FeatureId(correspondingFeatureId);
     } else if (selectedBallId === constants.BALL2_ID) {
       setBall2FeatureId(correspondingFeatureId);
     }
-  }
-
-  function moveSelectedBall(correspondingFeatureId) {
-    setRelevantBallFeatureId(correspondingFeatureId);
   }
 
   function endRound() {
@@ -109,7 +105,7 @@ export default function Home() {
     const allDivs = document.querySelectorAll("div");
     for (const div of allDivs) {
       if (div.className.includes("box")) {
-        div.style.backgroundColor = "transparent";
+        div.style.backgroundColor = constants.UNFILLED_BACKGROUND_COLOR;
       }
     }
     //#endregion

@@ -17,7 +17,7 @@ export default function Box(props) {
         return (
             canReceiveFromEitherDie() &&
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
-            props.boxBackgroundColor !== "black"
+            !props.isThisBoxFilled
         );
     }
 
@@ -35,7 +35,7 @@ export default function Box(props) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
                 (props.boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
-                (props.precedingHammerspaceBoxBackgroundColor !== "black")
+                (!props.isPrecedingHammerspaceBoxFilled)
             ) {
                 alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else { // moveBallAndPerformConsequences
@@ -47,9 +47,8 @@ export default function Box(props) {
                 if (props.fillBox) {
                     props.fillBox();
                 }
-
-                // move ball
-                props.moveSelectedBall(props.correspondingFeatureId);
+                
+                props.moveSelectedBallToCorrespondingFeature();
                 
                 if (props.points) {
                     props.addPoints(props.points);
@@ -85,7 +84,7 @@ export default function Box(props) {
             className={styles.box}
             onClick={handleClick}
             style={{
-                backgroundColor: props.boxBackgroundColor,
+                backgroundColor: (props.isThisBoxFilled? constants.FILLED_BACKGROUND_COLOR: constants.UNFILLED_BACKGROUND_COLOR),
                 top: props.top,
                 left: props.left,
                 height: props.height,
