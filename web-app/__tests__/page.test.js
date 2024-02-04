@@ -15,4 +15,18 @@ describe("Home", () => {
             expect(element).toHaveStyle("visibility: visible");
         }
     );
+    it.each(constants.ALL_BOX_IDS)(
+        '%s should exist, be visible, and be unfilled',
+        (boxId) => {
+            // arrange
+            render(<Home />);
+            const element = screen.getByTitle(boxId);
+            // assert
+            expect(element).toBeInTheDocument();
+            expect(element).toHaveStyle(`
+                visibility: visible;
+                backgroundColor: ${constants.UNFILLED_BACKGROUND_COLOR};
+            `);
+        }
+    );
 });
