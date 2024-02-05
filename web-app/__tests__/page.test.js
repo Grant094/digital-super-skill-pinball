@@ -4,12 +4,11 @@ import Home from "../src/app/page";
 import * as constants from "../src/app/constants";
 
 describe("Home", () => {
-    describe('on page load', () => {
-        beforeEach(() => {
-            // arrange
-            render(<Home />);
-        });
-    
+    beforeEach(() => {
+        // arrange
+        render(<Home />);
+    });
+    describe('on page load', () => {    
         it.each(constants.ALL_FEATURE_IDS)('should render %s as visible on page load',
             (featureId) => {
                 // arrange
