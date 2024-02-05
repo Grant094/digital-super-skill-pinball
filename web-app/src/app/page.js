@@ -8,10 +8,10 @@ import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
 
-export default function Home() {
+export default function Home(props) {
   //#region state
-  const [die1, setDie1] = useState(0);
-  const [die2, setDie2] = useState(0);
+  const [die1, setDie1] = useState(props.die1? props.die1: 0);
+  const [die2, setDie2] = useState(props.die2? props.die2: 0);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
