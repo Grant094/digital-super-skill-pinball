@@ -56,10 +56,14 @@ export default function Home(props) {
   }
 
   function rollDice() {
-    const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
-    const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
+    if (props.dieValues) {
+      setDieValuesIndex(() => dieValuesIndex + 1);
+    }
+    const nextValueOfDie1 = props.dieValues? props.dieValues[dieValuesIndex][0]: utilities.getRndIntegerInclusive(1, 6);
+    const nextValueOfDie2 = props.dieValues? props.dieValues[dieValuesIndex][1]: utilities.getRndIntegerInclusive(1, 6);
     setDie1(nextValueOfDie1);
     setDie2(nextValueOfDie2);
+
     if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
       // check whether player tilted and if so end the round
       if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
