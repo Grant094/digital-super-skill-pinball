@@ -1,14 +1,17 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Home from "../src/app/page";
 import * as constants from "../src/app/constants";
 
 describe("Home", () => {
-    beforeEach(() => {
-        // arrange
-        render(<Home />);
-    });
-    describe('on page load', () => {    
+    
+    describe('on page load', () => {
+        beforeEach(() => {
+            // arrange
+            render(<Home />);
+        });
+
         it.each(constants.ALL_FEATURE_IDS)('should render %s as visible on page load',
             (featureId) => {
                 // arrange
@@ -57,5 +60,24 @@ describe("Home", () => {
                 left: ${drainFeatureElement.style.left};
             `);
         });
+    });
+
+    describe('at the end of the game', () => {
+        // arrange
+        const user = userEvent.setup();
+        render(<Home />);
+        const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+        // act
+        it.each(constants.ALL_BOX_IDS)('should hide %s',
+            (boxId) => {
+                // act
+                const element = screen.getByTitle(boxId);
+                // assert
+                expect(element).toBeInTheDocument();
+                expect(element).toHaveStyle(`
+                    visibility: hidden;
+                `);
+            }
+        );
     });
 });
