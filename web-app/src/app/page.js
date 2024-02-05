@@ -180,7 +180,7 @@ export default function Home() {
         score={score}
       />
       <RestartTray restartrayId="restart-tray"
-        restartButtonId="restart-button"
+        restartButtonId={constants.RESTART_BUTTON_ID}
         onClick={handleRestart}
       />
     </div>
