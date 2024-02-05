@@ -6,17 +6,17 @@ import * as constants from "../src/app/constants";
 
 describe("Home", () => {
     describe('on page load', () => {
-        it.each(constants.ALL_FEATURE_IDS)('should render %s as visible',
-            (featureId) => {
-                // arrange
-                render(<Home />);
+        it('should render all features as visible', () => {
+            // arrange
+            render(<Home />);
+            for (const featureId of constants.ALL_FEATURE_IDS) {
                 // act
                 const element = screen.getByTitle(featureId);
                 // assert
-                expect(element).toBeInTheDocument()
+                expect(element).toBeInTheDocument();
                 expect(element).toHaveStyle("visibility: visible");
             }
-        );
+        });
         it.each(constants.ALL_BOX_IDS)('should render %s as visible and unfilled',
             (boxId) => {
                 // arrange
