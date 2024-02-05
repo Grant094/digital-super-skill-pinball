@@ -17,10 +17,11 @@ describe("Home", () => {
                 expect(element).toHaveStyle("visibility: visible");
             }
         });
-        it.each(constants.ALL_BOX_IDS)('should render %s as visible and unfilled',
-            (boxId) => {
-                // arrange
-                render(<Home />);
+        it('should render all boxes as visible and unfilled', () => {
+            // arrange
+            render(<Home />);
+            for (const boxId of constants.ALL_BOX_IDS) {
+                // act
                 const element = screen.getByTitle(boxId);
                 // assert
                 expect(element).toBeInTheDocument();
@@ -29,7 +30,7 @@ describe("Home", () => {
                     backgroundColor: ${constants.UNFILLED_BACKGROUND_COLOR};
                 `);
             }
-        );
+        });
         it('should render ball1 as visible at the Start feature', () => {
             // arrange
             render(<Home />);
