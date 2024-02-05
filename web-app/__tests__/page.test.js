@@ -122,4 +122,36 @@ describe("Home", () => {
             `);
         });
     })
+    describe('inputting specific dice rolls', () => {
+        it('should display the 1st dice values passed via props', async () => {
+            // arrange
+            const DIE1_1ST_VALUE = 1;
+            const DIE2_1ST_VALUE = 2;
+            const dieValues = [[DIE1_1ST_VALUE, DIE2_1ST_VALUE]];
+            render(<Home dieValues={dieValues} />);
+            // act
+            const die1Element = screen.getByTitle(constants.DIE1_ID);
+            const die2Element = screen.getByTitle(constants.DIE2_ID);
+            // assert
+            expect(Number(die1Element.innerHTML)).toEqual(DIE1_1ST_VALUE);
+            expect(Number(die2Element.innerHTML)).toEqual(DIE2_1ST_VALUE);
+        });
+        it('should display the 2nd dice values passed via props after the ball is moved', async () => {
+            // arrange
+            const DIE1_1ST_VALUE = 1;
+            const DIE2_1ST_VALUE = 2;
+            const DIE1_2ND_VALUE = 5;
+            const DIE2_2ND_VALUE = 6;
+            const dieValues = [[DIE1_1ST_VALUE, DIE2_1ST_VALUE], [DIE1_2ND_VALUE, DIE2_2ND_VALUE]];
+            const user = userEvent.setup();
+            render(<Home dieValues={dieValues} />);
+            // act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            const die1Element = screen.getByTitle(constants.DIE1_ID);
+            const die2Element = screen.getByTitle(constants.DIE2_ID);
+            // assert
+            expect(Number(die1Element.innerHTML)).toEqual(DIE1_2ND_VALUE);
+            expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
+        });
+    });
 });

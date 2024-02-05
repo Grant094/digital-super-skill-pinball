@@ -11,8 +11,8 @@ import RestartTray from "./RestartTray";
 export default function Home(props) {
   //#region state
   const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues? 0: null);
-  const [die1, setDie1] = useState(props.dieValues? props.dieValues[dieValuesIndex][0]: 0);
-  const [die2, setDie2] = useState(props.dieValues? props.dieValues[dieValuesIndex][1]: 0);
+  const [die1, setDie1] = useState(props.dieValues? props.dieValues[dieValuesIndex]: 0);
+  const [die2, setDie2] = useState(props.dieValues? props.dieValues[dieValuesIndex]: 0);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
