@@ -1011,5 +1011,191 @@ describe("Home", () => {
             expect(round3IndicatorElement.style.visibility).toEqual("visible");
             //#endregion
         });
+        it('should add 2 points when using the red outlane and one red flipper box has been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // move from start to red flipper box 3
+                [1, 1], // move to red outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(redOutlaneElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            //#endregion
+        });
+        it('should add 4 points when using the red outlane and two red flipper boxes have been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // move from start to red flipper box 3
+                [4, 5], // move to red flipper box 45
+                [1, 1], // move to red outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(redFlipperBox45BoxElement);
+            await user.click(redOutlaneElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("4");
+            //#endregion
+        });
+        it('should add 6 points when using the red outlane and three red flipper boxes have been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // move from start to red flipper box 3
+                [4, 5], // move to red flipper box 45
+                [6, 6], // move to red flipper box 6
+                [1, 1], // move to red outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
+            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(redFlipperBox45BoxElement);
+            await user.click(redFlipperBox6BoxElement);
+            await user.click(redOutlaneElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("6");
+            //#endregion
+        });
+        it('should add 0 points when using the red outlane after the inlane but no red flipper boxes have been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // move from start to red flipper via red inlane (worth 2 points)
+                [1, 1], // move to red outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(redInlaneBoxElement);
+            await user.click(redOutlaneElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("2"); // inlane was worth 2 points
+            //#endregion
+        });
+        it('should add 2 points when using the yel outlane and one yel flipper box has been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // move from start to yel flipper via yel flipper box 1
+                [6, 6], // move to drain via yel outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(yelFlipperBox1BoxElement);
+            await user.click(yelOutlaneBoxElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            //#endregion
+        });
+        it('should add 4 points when using the yel outlane and two yel flipper boxes have been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // move from start to yel flipper via yel flipper box 1
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [6, 6], // move to drain via yel outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
+            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(yelFlipperBox1BoxElement);
+            await user.click(yelFlipperBox23BoxElement);
+            await user.click(yelOutlaneBoxElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("4");
+            //#endregion
+        });
+        it('should add 6 points when using the yel outlane and three yel flipper boxes have been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // move from start to yel flipper via yel flipper box 1
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [4, 4], // move to yel flipper via yel flipper box 4
+                [6, 6], // move to drain via yel outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
+            const yelFlipperBox4BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
+            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(yelFlipperBox1BoxElement);
+            await user.click(yelFlipperBox23BoxElement);
+            await user.click(yelFlipperBox4BoxElement);
+            await user.click(yelOutlaneBoxElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("6");
+            //#endregion
+        });
+        it('should add 0 points when using the yel outlane after the inlane but no yel flipper boxes have been filled', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [5, 5], // move from start to yel flipper via yel inlane (worth 2 points)
+                [6, 6], // move to drain via yel outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const yelInlaneBoxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
+            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            //#endregion
+            //#region act
+            await user.click(yelInlaneBoxElement);
+            await user.click(yelOutlaneBoxElement);
+            //#endregion
+            //#region assert
+            expect(scoreParagraphElement.innerHTML).toEqual("2"); // 2 points from using yel inlane but no additional points from using outlane
+            //#endregion
+        });
     });
 });
