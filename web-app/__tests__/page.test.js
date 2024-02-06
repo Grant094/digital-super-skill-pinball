@@ -792,6 +792,30 @@ describe("Home", () => {
         //#endregion
     });
     describe('moving to hammer spaces in the correct order', () => {
+        it('should be able to move to and fill hammerspace1 from redflipper', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // from start to redflipper via redinlane
+                [1, 1], // to hammerspace1
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
+            const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
+            const hammerspace1FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID);
+            //#endregion
+            //#region act
+            await user.click(redInlaneBoxElement);
+            await user.click(hammerspace1BoxElement);
+            //#endregion
+            //#region assert
+            expect(ball1Element.style.top).toEqual(hammerspace1FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(hammerspace1FeatureElement.style.left);
+            expect(hammerspace1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            //#endregion
+        });
         it('should be able to move to each hammerspace in the correct order', async () => {
             //#region arrange
             const DIE_VALUES = [
