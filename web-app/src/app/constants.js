@@ -335,6 +335,11 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
+//#region roundIndicatorIds
+export const ROUND_1_INDICATOR_ID = "round-1-indicator";
+export const ROUND_2_INDICATOR_ID = "round-2-indicator";
+export const ROUND_3_INDICATOR_ID = "round-3-indicator";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
