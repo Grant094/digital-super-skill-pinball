@@ -65,8 +65,10 @@ describe("Home", () => {
             // arrange
             const DIE1_1ST_VALUE = 1;
             const DIE2_1ST_VALUE = 2;
-            const dieValues = [[DIE1_1ST_VALUE, DIE2_1ST_VALUE]];
-            render(<Home dieValues={dieValues} />);
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE]
+            ];
+            render(<Home dieValues={DIE_VALUES} />);
             // act
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
@@ -80,16 +82,43 @@ describe("Home", () => {
             const DIE2_1ST_VALUE = 2;
             const DIE1_2ND_VALUE = 5;
             const DIE2_2ND_VALUE = 6;
-            const dieValues = [[DIE1_1ST_VALUE, DIE2_1ST_VALUE], [DIE1_2ND_VALUE, DIE2_2ND_VALUE]];
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+            ];
             const user = userEvent.setup();
-            render(<Home dieValues={dieValues} />);
+            render(<Home dieValues={DIE_VALUES} />);
             // act
-            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             // assert
             expect(Number(die1Element.innerHTML)).toEqual(DIE1_2ND_VALUE);
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
+        });
+    });
+    describe('moving around the board', () => {
+        it('should be able to go to ferris wheel car 12 from start and fill it in when both dice show 1', async () => {
+            // arrange
+            const DIE1_1ST_VALUE = 1;
+            const DIE2_1ST_VALUE = 1;
+            const DIE1_2ND_VALUE = 1;
+            const DIE2_2ND_VALUE = 1;
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            await user.click(ferriswheelcar12BoxElement);
+            // assert
+            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
     });
 });
