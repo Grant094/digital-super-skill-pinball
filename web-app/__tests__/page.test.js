@@ -201,11 +201,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to ferriswheelcar56 and fill it in on a roll of {5, 6}', async () => {
             // arrange
@@ -219,11 +221,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         //#endregion
         //#region bumpers
@@ -259,11 +263,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper121st2 and fill it in on a roll of {2, 2}', async () => {
             // arrange
@@ -277,11 +283,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper122nd2 and fill it in on a roll of {2, 2}', async () => {
             // arrange
@@ -295,11 +303,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper341st3 and fill it in on a roll of {3, 3}', async () => {
             // arrange
@@ -313,11 +323,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper342nd3 and fill it in on a roll of {3, 3}', async () => {
             // arrange
@@ -331,11 +343,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper341st4 and fill it in on a roll of {4, 4}', async () => {
             // arrange
@@ -349,11 +363,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper342nd4 and fill it in on a roll of {4, 4}', async () => {
             // arrange
@@ -367,11 +383,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper561st5 and fill it in on a roll of {5, 5}', async () => {
             // arrange
@@ -385,11 +403,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper562nd5 and fill it in on a roll of {5, 5}', async () => {
             // arrange
@@ -403,11 +423,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper561st6 and fill it in on a roll of {6, 6}', async () => {
             // arrange
@@ -421,11 +443,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper562nd6 and fill it in on a roll of {6, 6}', async () => {
             // arrange
@@ -439,11 +463,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         //#endregion
         //#region droptargets
@@ -459,11 +485,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to droptarget-yel-34 and fill it in on a roll of {3, 3}', async () => {
             // arrange
@@ -477,11 +505,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to droptarget-yel-56 and fill it in on a roll of {5, 5}', async () => {
             // arrange
@@ -495,11 +525,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to droptarget-red-12 and fill it in on a roll of {1, 1}', async () => {
             // arrange
@@ -513,11 +545,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to droptarget-red-3 and fill it in on a roll of {3, 3}', async () => {
             // arrange
@@ -531,11 +565,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to droptarget-red-4 and fill it in on a roll of {4, 4}', async () => {
             // arrange
@@ -549,11 +585,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to droptarget-red-56 and fill it in on a roll of {5, 5}', async () => {
             // arrange
@@ -567,11 +605,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         //#endregion
         //#region flippers
@@ -587,11 +627,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("2");
         });
         it('should move from start to redflipper via redflipperbox3 and fill it in on a roll of {3, 3}', async () => {
             // arrange
@@ -605,11 +647,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to redflipper via redflipperbox45 and fill it in on a roll of {4, 4}', async () => {
             // arrange
@@ -623,11 +667,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to redflipper via redflipperbox6 and fill it in on a roll of {6, 6}', async () => {
             // arrange
@@ -641,11 +687,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to yelflipper via yelinlane and fill it in on a roll of {5, 5}', async () => {
             // arrange
@@ -659,11 +707,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("2");
         });
         it('should move from start to yelflipper via yelflipperbox1 and fill it in on a roll of {1, 1}', async () => {
             // arrange
@@ -677,11 +727,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to yelflipper via yelflipperbox23 and fill it in on a roll of {2, 3}', async () => {
             // arrange
@@ -695,11 +747,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to yelflipper via yelflipperbox4 and fill it in on a roll of {4, 4}', async () => {
             // arrange
@@ -713,11 +767,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         //#endregion
         //#region drain
@@ -733,6 +789,7 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
             const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
             const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
@@ -743,6 +800,7 @@ describe("Home", () => {
             expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
             expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
             expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to start via yeloutlane and fill it in on a roll of {6, 6}', async () => {
             // arrange
@@ -756,6 +814,7 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
             const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
             const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
@@ -766,6 +825,7 @@ describe("Home", () => {
             expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
             expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
             expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to start via drain and fill it in on a roll of {3, 4}', async () => {
             // arrange
@@ -779,6 +839,7 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
             const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
             const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
@@ -789,6 +850,7 @@ describe("Home", () => {
             expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
             expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
             expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         //#endregion
     });
@@ -806,6 +868,7 @@ describe("Home", () => {
             const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
             const hammerspace1FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
             await user.click(redInlaneBoxElement);
@@ -816,6 +879,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(hammerspace1FeatureElement.style.left);
             expect(hammerspace1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(redInlaneBoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(scoreParagraphElement.innerHTML).toEqual("2");
             //#endregion
         });
         it('should be able to move to each hammerspace in the correct order', async () => {
@@ -851,6 +915,7 @@ describe("Home", () => {
             const hammerspace6BoxElement = screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID);
             const hammerspace6FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID);
             const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
             await user.click(redInlaneBoxElement);
@@ -870,6 +935,7 @@ describe("Home", () => {
             // assert
             expect(ball1Element.style.top).toEqual(hammerspace6FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace6FeatureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
         });
     });
 });
