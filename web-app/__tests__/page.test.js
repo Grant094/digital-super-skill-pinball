@@ -791,4 +791,59 @@ describe("Home", () => {
         });
         //#endregion
     });
+    describe('moving to hammer spaces in the correct order', () => {
+        it('should be able to move to each hammerspace in the correct order', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // from start to redflipper via redinlane
+                [1, 1], // to hammerspace1
+                [3, 3], // to redflipper via redflipperbox3
+                [2, 2], // to hammerspace2
+                [4, 4], // to redflipper via redflipperbox45
+                [3, 3], // to hammerspace3
+                [6, 6], // to redflipper via redflipperbox6
+                [4, 4], // to hammerspace4
+                [1, 1], // to drain via drainbox since all boxes for the redflipper are filled
+                [2, 2], // from start to redflipper via redinlane
+                [5, 5], // to hammerspace5
+                [3, 3], // to redflipper via redflipperbox3
+                [6, 6], // to hammerspace6
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
+            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
+            const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
+            const hammerspace2BoxElement = screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID);
+            const hammerspace3BoxElement = screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID);
+            const hammerspace4BoxElement = screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID);
+            const hammerspace5BoxElement = screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID);
+            const hammerspace6BoxElement = screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID);
+            const hammerspace6FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID);
+            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(redInlaneBoxElement);
+            await user.click(hammerspace1BoxElement);
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(hammerspace2BoxElement);
+            await user.click(redFlipperBox45BoxElement);
+            await user.click(hammerspace3BoxElement);
+            await user.click(redFlipperBox6BoxElement);
+            await user.click(hammerspace4BoxElement);
+            await user.click(drainBoxElement);
+            await user.click(redInlaneBoxElement);
+            await user.click(hammerspace5BoxElement);
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(hammerspace6BoxElement);
+            //#endregion
+            // assert
+            expect(ball1Element.style.top).toEqual(hammerspace6FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(hammerspace6FeatureElement.style.left);
+        });
+    });
 });
