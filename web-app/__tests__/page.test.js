@@ -814,6 +814,7 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(hammerspace1FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace1FeatureElement.style.left);
             expect(hammerspace1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(redInlaneBoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             //#endregion
         });
         it('should be able to move to each hammerspace in the correct order', async () => {
