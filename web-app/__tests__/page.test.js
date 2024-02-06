@@ -188,4 +188,24 @@ describe("Home", () => {
         });
         it.todo('should not be able to go from start to ferris wheel car 12 and fill it in on roll {3, 3}');
     });
+    describe('moving from start to other features on the table', () => {
+        it('should move from start to bumper121st1 and fill it in on a roll of {1, 1}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 1],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const bumper12FeatureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            await user.click(bumper121st1BoxElement);
+            // assert
+            expect(bumper121st1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(bumper12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(bumper12FeatureElement.style.left);
+        });
+    });
 });
