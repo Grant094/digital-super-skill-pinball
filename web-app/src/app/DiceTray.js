@@ -17,25 +17,25 @@ export default function DiceTray(props) {
                 <p title={constants.DIE2_ID} className={styles.Die2}>{props.die2}</p>
             </Fragment>
             <Fragment key="nudge-buttons">
-                <NudgeUpButton buttonId="nudge-up-button-die1"
+                <NudgeUpButton buttonId={constants.DIE1_NUDGE_UP_BUTTON_ID}
                     dieId="1"
                     die={props.die1}
                     otherDieAmountNudgedBy={props.die2AmountNudgedBy}
                     {...props}
                 />
-                <NudgeDnButton buttonId="nudge-dn-button-die1"
+                <NudgeDnButton buttonId={constants.DIE1_NUDGE_DN_BUTTON_ID}
                     dieId="1"
                     die={props.die1}
                     otherDieAmountNudgedBy={props.die2AmountNudgedBy}
                     {...props}
                 />
-                <NudgeUpButton buttonId="nudge-up-button-die2"
+                <NudgeUpButton buttonId={constants.DIE2_NUDGE_UP_BUTTON_ID}
                     dieId="2"
                     die={props.die2}
                     otherDieAmountNudgedBy={props.die1AmountNudgedBy}
                     {...props}
                 />
-                <NudgeDnButton buttonId="nudge-dn-button-die2"
+                <NudgeDnButton buttonId={constants.DIE2_NUDGE_DN_BUTTON_ID}
                     dieId="2"
                     die={props.die2}
                     otherDieAmountNudgedBy={props.die1AmountNudgedBy}

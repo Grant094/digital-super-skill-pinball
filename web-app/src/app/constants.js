@@ -344,6 +344,12 @@ export const ROUND_3_INDICATOR_ID = "round-3-indicator";
 export const SCORE_INDICATOR_ID = "score-indicator";
 export const SCORE_PARAGRAPH_ID = "score";
 //#endregion
+//#region nudgebuttons
+export const DIE1_NUDGE_UP_BUTTON_ID = "nudge-up-button-die1";
+export const DIE1_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die1";
+export const DIE2_NUDGE_UP_BUTTON_ID = "nudge-up-button-die2";
+export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
