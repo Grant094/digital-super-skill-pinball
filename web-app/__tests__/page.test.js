@@ -189,7 +189,7 @@ describe("Home", () => {
     });
     describe('moving from start to features that can receive from start on the table', () => {
         //#region ferriswheelcars
-        it('should move from start to ferriswheelcar12 and fill it in on a roll of {1, 2}', async () => {
+        it('should be able to move from start to ferriswheelcar12, fill the box, and maintain score, all on a roll of {1, 2}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 2],
@@ -209,7 +209,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to ferriswheelcar34 and fill it in on a roll of {3, 4}', async () => {
+        it('should be able to move from start to ferriswheelcar34, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 4],
@@ -229,7 +229,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to ferriswheelcar56 and fill it in on a roll of {5, 6}', async () => {
+        it('should be able to move from start to ferriswheelcar56, fill the box, and maintain score, on a roll of {5, 6}', async () => {
             // arrange
             const DIE_VALUES = [
                 [5, 6],
@@ -251,7 +251,7 @@ describe("Home", () => {
         });
         //#endregion
         //#region bumpers
-        it('should move from start to bumper121st1 and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to bumper12 via the 1st1 box, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -271,7 +271,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper122nd1 and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to bumper12 via the 2nd1 box, fill the box, and add 1 to the score, on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -291,7 +291,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper121st2 and fill it in on a roll of {2, 2}', async () => {
+        it('should be able to move from start to bumper12 via the 1st2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
             // arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -311,7 +311,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper122nd2 and fill it in on a roll of {2, 2}', async () => {
+        it('should be able to move from start to bumper12 via the 2nd2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
             // arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -331,7 +331,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper341st3 and fill it in on a roll of {3, 3}', async () => {
+        it('should be able to move from start to bumper34 via the 1st3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -351,7 +351,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper342nd3 and fill it in on a roll of {3, 3}', async () => {
+        it('should be able to move from start to bumper34 via the 2nd3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -371,7 +371,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper341st4 and fill it in on a roll of {4, 4}', async () => {
+        it('should be able to move from start to bumper34 via the 1st4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -391,7 +391,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper342nd4 and fill it in on a roll of {4, 4}', async () => {
+        it('should be able to move from start to bumper34 via the 2nd4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -411,7 +411,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper561st5 and fill it in on a roll of {5, 5}', async () => {
+        it('should be able to move from start to bumper56 via the 1st5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
             // arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -431,7 +431,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper562nd5 and fill it in on a roll of {5, 5}', async () => {
+        it('should be able to move from start to bumper56 via the 2nd5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
             // arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -451,7 +451,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper561st6 and fill it in on a roll of {6, 6}', async () => {
+        it('should be able to move from start to bumper56 via the 1st6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
             // arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -471,7 +471,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to bumper562nd6 and fill it in on a roll of {6, 6}', async () => {
+        it('should be able to move from start to bumper56 via the 2nd6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
             // arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -493,7 +493,7 @@ describe("Home", () => {
         });
         //#endregion
         //#region droptargets
-        it('should move from start to droptarget-yel-12 and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to droptarget-yel-12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -513,7 +513,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to droptarget-yel-34 and fill it in on a roll of {3, 3}', async () => {
+        it('should be able to move from start to droptarget-yel-34, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -533,7 +533,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to droptarget-yel-56 and fill it in on a roll of {5, 5}', async () => {
+        it('should be able to move from start to droptarget-yel-56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
             // arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -553,7 +553,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to droptarget-red-12 and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to droptarget-red-12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -573,7 +573,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to droptarget-red-3 and fill it in on a roll of {3, 3}', async () => {
+        it('should be able to move from start to droptarget-red-3, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -593,7 +593,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to droptarget-red-4 and fill it in on a roll of {4, 4}', async () => {
+        it('should be able to move from start to droptarget-red-4, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -613,7 +613,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
-        it('should move from start to droptarget-red-56 and fill it in on a roll of {5, 5}', async () => {
+        it('should be able to move from start to droptarget-red-56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
             // arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -635,7 +635,7 @@ describe("Home", () => {
         });
         //#endregion
         //#region flippers
-        it('should move from start to redflipper via redinlane and fill the inlane in on a roll of {2, 2}', async () => {
+        it('should be able to move from start to redflipper via redinlane, fill the box, and add 2 to the score, all on a roll of {2, 2}', async () => {
             // arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -655,7 +655,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("2");
         });
-        it('should move from start to redflipper via redflipperbox3 and fill it in on a roll of {3, 3}', async () => {
+        it('should be able to move from start to redflipper via redflipperbox3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -675,7 +675,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to redflipper via redflipperbox45 and fill it in on a roll of {4, 4}', async () => {
+        it('should be able to move from start to redflipper via redflipperbox45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -695,7 +695,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to redflipper via redflipperbox6 and fill it in on a roll of {6, 6}', async () => {
+        it('should be able to move from start to redflipper via redflipperbox6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
             // arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -715,7 +715,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to yelflipper via yelinlane and fill it in on a roll of {5, 5}', async () => {
+        it('should be able to move from start to yelflipper via yelinlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
             // arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -735,7 +735,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("2");
         });
-        it('should move from start to yelflipper via yelflipperbox1 and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to yelflipper via yelflipperbox1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -755,7 +755,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to yelflipper via yelflipperbox23 and fill it in on a roll of {2, 3}', async () => {
+        it('should be able to move from start to yelflipper via yelflipperbox23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
             // arrange
             const DIE_VALUES = [
                 [2, 3],
@@ -775,7 +775,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to yelflipper via yelflipperbox4 and fill it in on a roll of {4, 4}', async () => {
+        it('should be able to move from start to yelflipper via yelflipperbox4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -797,7 +797,7 @@ describe("Home", () => {
         });
         //#endregion
         //#region drain
-        it('should move from start to start via redoutlane and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to start via redoutlane, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -816,7 +816,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to start via yeloutlane and fill it in on a roll of {6, 6}', async () => {
+        it('should be able to move from start to start via yeloutlane, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
             // arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -835,7 +835,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
-        it('should move from start to start via drain and fill it in on a roll of {3, 4}', async () => {
+        it('should be able to move from start to start via drain, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
             // arrange
             const DIE_VALUES = [
                 [3, 4],
@@ -857,34 +857,34 @@ describe("Home", () => {
         //#endregion
     });
     describe('moving to hammer spaces in the correct order', () => {
-        it('should be able to move to and fill hammerspace1 from redflipper', async () => {
+        it('should be able to move from redflipper to hammerspace1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // from start to redflipper via redinlane
+                [3, 3], // from start to redflipper via redinlane
                 [1, 1], // to hammerspace1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
             render(<Home dieValues={DIE_VALUES} />);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
             const hammerspace1FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redInlaneBoxElement);
+            await user.click(redFlipperBox3BoxElement);
             await user.click(hammerspace1BoxElement);
             //#endregion
             //#region assert
             expect(ball1Element.style.top).toEqual(hammerspace1FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace1FeatureElement.style.left);
             expect(hammerspace1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
-            expect(redInlaneBoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
-            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            expect(redFlipperBox3BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
             //#endregion
         });
-        it('should be able to move to each hammerspace in the correct order', async () => {
+        it('should be able to move to each hammerspace in the correct order and have the correct score afterwards', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // from start to redflipper via redinlane
@@ -987,7 +987,6 @@ describe("Home", () => {
             expect(round3IndicatorElement.style.visibility).toEqual("hidden");
             //#endregion
         });
-        
         it('should make all round indicators visible at the start of round 3', async () => {
             //#region arrange
             const DIE_VALUES = [
