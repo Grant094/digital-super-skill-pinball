@@ -891,8 +891,8 @@ export default function Table(props) {
             />
             <Fragment key="roundindicators">
                 <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID} forRound="1" top="950px" left="414px" {...props} />
-                <RoundIndicator RoundIndicatorId={constants.ROUND_2_INDICATOR_ID} top="950px" left="451px" {...props} />
-                <RoundIndicator RoundIndicatorId={constants.ROUND_3_INDICATOR_ID} top="950px" left="487px" {...props} />
+                <RoundIndicator RoundIndicatorId={constants.ROUND_2_INDICATOR_ID} forRound="2" top="950px" left="451px" {...props} />
+                <RoundIndicator RoundIndicatorId={constants.ROUND_3_INDICATOR_ID} forRound="3" top="950px" left="487px" {...props} />
             </Fragment>
         </div>
     );
