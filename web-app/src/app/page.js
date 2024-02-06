@@ -180,7 +180,7 @@ export default function Home(props) {
         onNudge={handleNudge}
         rollDice={rollDice}
       />
-      <ScoreIndicator scoreIndicatorId="score-indicator"
+      <ScoreIndicator scoreIndicatorId={constants.SCORE_INDICATOR_ID}
         scorePId="score"
         score={score}
       />

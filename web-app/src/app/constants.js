@@ -346,4 +346,5 @@ export const UNFILLED_BACKGROUND_COLOR = "transparent";
 export const FILLED_BACKGROUND_COLOR = "black";
 export const POINTS_PER_USED_FLIPPER_BOX = 2;
 export const RESTART_BUTTON_ID = "restart-button";
+export const SCORE_INDICATOR_ID = "score-indicator";
 //#endregion
