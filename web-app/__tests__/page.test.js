@@ -189,6 +189,26 @@ describe("Home", () => {
     });
     describe('moving from start to features that can receive from start on the table', () => {
         //#region ferriswheelcars
+        it('should move from start to ferriswheelcar12 and fill it in on a roll of {1, 2}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 2],
+                [1, 6],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("0");
+        });
         it('should move from start to ferriswheelcar34 and fill it in on a roll of {3, 4}', async () => {
             // arrange
             const DIE_VALUES = [
