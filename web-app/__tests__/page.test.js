@@ -186,7 +186,6 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
-        it.todo('should not be able to go from start to ferris wheel car 12 and fill it in on roll {3, 3}');
     });
     describe('moving from start to features that can receive from start on the table', () => {
         //#region ferriswheelcars
