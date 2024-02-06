@@ -189,6 +189,7 @@ describe("Home", () => {
         it.todo('should not be able to go from start to ferris wheel car 12 and fill it in on roll {3, 3}');
     });
     describe('moving from start to features that can receive from start on the table', () => {
+        //#region ferriswheelcars
         it('should move from start to ferriswheelcar34 and fill it in on a roll of {3, 4}', async () => {
             // arrange
             const DIE_VALUES = [
@@ -225,6 +226,8 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
         });
+        //#endregion
+        //#region bumpers
         it('should move from start to bumper121st1 and fill it in on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
@@ -441,6 +444,8 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
         });
+        //#endregion
+        //#region droptargets
         it('should move from start to droptarget-yel-12 and fill it in on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
@@ -567,6 +572,8 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
         });
+        //#endregion
+        //#region flippers
         it('should move from start to redflipper via redinlane and fill the inlane in on a roll of {2, 2}', async () => {
             // arrange
             const DIE_VALUES = [
@@ -711,5 +718,6 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
         });
+        //#endregion
     });
 });
