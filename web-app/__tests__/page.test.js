@@ -97,13 +97,79 @@ describe("Home", () => {
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
         });
     });
-    describe('moving around the board', () => {
-        it('should be able to go to ferris wheel car 12 from start and fill it in when both dice show 1', async () => {
+    describe('moving if either die matches the selected box', () => {
+        it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 1}', async () => {
             // arrange
             const DIE1_1ST_VALUE = 1;
             const DIE2_1ST_VALUE = 1;
             const DIE1_2ND_VALUE = 1;
             const DIE2_2ND_VALUE = 1;
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            await user.click(ferriswheelcar12BoxElement);
+            // assert
+            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+        });
+        it('should be able to go from start to ferris wheel car 12 and fill it in on roll {2, 2}', async () => {
+            // arrange
+            const DIE1_1ST_VALUE = 2;
+            const DIE2_1ST_VALUE = 2;
+            const DIE1_2ND_VALUE = 2;
+            const DIE2_2ND_VALUE = 2;
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            await user.click(ferriswheelcar12BoxElement);
+            // assert
+            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+        });
+        it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 4}', async () => {
+            // arrange
+            const DIE1_1ST_VALUE = 1;
+            const DIE2_1ST_VALUE = 4;
+            const DIE1_2ND_VALUE = 2;
+            const DIE2_2ND_VALUE = 2;
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            await user.click(ferriswheelcar12BoxElement);
+            // assert
+            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+        });
+        it('should be able to go from start to ferris wheel car 12 and fill it in on roll {4, 1}', async () => {
+            // arrange
+            const DIE1_1ST_VALUE = 4;
+            const DIE2_1ST_VALUE = 1;
+            const DIE1_2ND_VALUE = 2;
+            const DIE2_2ND_VALUE = 2;
             const DIE_VALUES = [
                 [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
