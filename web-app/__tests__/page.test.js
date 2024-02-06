@@ -958,4 +958,30 @@ describe("Home", () => {
             expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
         });
     });
+    describe('ending a round (but not the game)', () => {
+        it('should clear a dashed box but not clear a solid box at the end of the round', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // from start to bumper121st1box
+                [1, 1], // to yelflipperbox1
+                [1, 1], // to drain box
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
+            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(bumper121st1BoxElement);
+            await user.click(yelFlipperBox1BoxElement);
+            await user.click(drainBoxElement);
+            //#endregion
+            //#region assert
+            expect(bumper121st1BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(yelFlipperBox1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+    });
 });
