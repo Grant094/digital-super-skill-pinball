@@ -239,11 +239,13 @@ describe("Home", () => {
             const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
             expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(scoreParagraphElement.innerHTML).toEqual("1");
         });
         it('should move from start to bumper122nd1 and fill it in on a roll of {1, 1}', async () => {
             // arrange
