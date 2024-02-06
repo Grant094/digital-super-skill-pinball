@@ -188,7 +188,43 @@ describe("Home", () => {
         });
         it.todo('should not be able to go from start to ferris wheel car 12 and fill it in on roll {3, 3}');
     });
-    describe('moving from start to other features on the table', () => {
+    describe('moving from start to features that can receive from start on the table', () => {
+        it('should move from start to ferriswheelcar34 and fill it in on a roll of {3, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 4],
+                [1, 6],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to ferriswheelcar56 and fill it in on a roll of {5, 6}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [5, 6],
+                [1, 6],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
         it('should move from start to bumper121st1 and fill it in on a roll of {1, 1}', async () => {
             // arrange
             const DIE_VALUES = [
@@ -198,14 +234,482 @@ describe("Home", () => {
             const user = userEvent.setup();
             render(<Home dieValues={DIE_VALUES} />);
             // act
-            const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
+            const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const bumper12FeatureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
-            await user.click(bumper121st1BoxElement);
+            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            await user.click(boxElement);
             // assert
-            expect(bumper121st1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
-            expect(ball1Element.style.top).toEqual(bumper12FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(bumper12FeatureElement.style.left);
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper122nd1 and fill it in on a roll of {1, 1}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 1],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper121st2 and fill it in on a roll of {2, 2}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [2, 2],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper122nd2 and fill it in on a roll of {2, 2}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [2, 2],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper341st3 and fill it in on a roll of {3, 3}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 3],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper342nd3 and fill it in on a roll of {3, 3}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 3],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper341st4 and fill it in on a roll of {4, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [4, 4],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper342nd4 and fill it in on a roll of {4, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [4, 4],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper561st5 and fill it in on a roll of {5, 5}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [5, 5],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper562nd5 and fill it in on a roll of {5, 5}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [5, 5],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper561st6 and fill it in on a roll of {6, 6}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [6, 6],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to bumper562nd6 and fill it in on a roll of {6, 6}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [6, 6],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-yel-12 and fill it in on a roll of {1, 1}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 1],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-yel-34 and fill it in on a roll of {3, 3}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 3],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-yel-56 and fill it in on a roll of {5, 5}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [5, 5],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-red-12 and fill it in on a roll of {1, 1}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 1],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-red-3 and fill it in on a roll of {3, 3}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 3],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-red-4 and fill it in on a roll of {4, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [4, 4],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to droptarget-red-56 and fill it in on a roll of {5, 5}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [5, 5],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to redflipper via redinlane and fill the inlane in on a roll of {2, 2}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [2, 2],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to redflipper via redflipperbox3 and fill it in on a roll of {3, 3}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 3],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to redflipper via redflipperbox45 and fill it in on a roll of {4, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [4, 4],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to redflipper via redflipperbox6 and fill it in on a roll of {6, 6}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [6, 6],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to yelflipper via yelinlane and fill it in on a roll of {5, 5}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [5, 5],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to yelflipper via yelflipperbox1 and fill it in on a roll of {1, 1}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 1],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to yelflipper via yelflipperbox23 and fill it in on a roll of {2, 3}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [2, 3],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+        });
+        it('should move from start to yelflipper via yelflipperbox4 and fill it in on a roll of {4, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [4, 4],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
+            await user.click(boxElement);
+            // assert
+            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
         });
     });
 });
