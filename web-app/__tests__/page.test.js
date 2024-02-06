@@ -97,7 +97,7 @@ describe("Home", () => {
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
         });
     });
-    describe('moving if either die matches the selected box', () => {
+    describe('moving if either die matches what the selected box can take', () => {
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 1}', async () => {
             // arrange
             const DIE1_1ST_VALUE = 1;
@@ -186,5 +186,6 @@ describe("Home", () => {
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
+        it.todo('should not be able to go from start to ferris wheel car 12 and fill it in on roll {3, 3}');
     });
 });
