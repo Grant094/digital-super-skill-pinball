@@ -810,16 +810,10 @@ describe("Home", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
-            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
-            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
             await user.click(boxElement);
             // assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
-            expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
-            expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to start via yeloutlane and fill it in on a roll of {6, 6}', async () => {
@@ -835,16 +829,10 @@ describe("Home", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
-            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
-            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
             await user.click(boxElement);
             // assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
-            expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
-            expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         it('should move from start to start via drain and fill it in on a roll of {3, 4}', async () => {
@@ -860,16 +848,10 @@ describe("Home", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
-            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
-            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
             await user.click(boxElement);
             // assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
-            expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
-            expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
         });
         //#endregion
@@ -981,6 +963,53 @@ describe("Home", () => {
             //#region assert
             expect(bumper121st1BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(yelFlipperBox1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+        it('should make the relevant round indicators visible in round 2 while keeping the round 3 indicator hidden', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // from start to drain box to start round 2
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
+            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
+            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
+            //#endregion
+            //#region act
+            await user.click(drainBoxElement); // to start round 2
+            //#endregion
+            //#region assert
+            expect(round1IndicatorElement.style.visibility).toEqual("visible");
+            expect(round2IndicatorElement.style.visibility).toEqual("visible");
+            expect(round3IndicatorElement.style.visibility).toEqual("hidden");
+            //#endregion
+        });
+        
+        it('should make all round indicators visible at the start of round 3', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // from start to drain box to start round 2
+                [1, 1], // from start to drain box to start round 3
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
+            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
+            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
+            //#endregion
+            //#region act
+            await user.click(drainBoxElement); // to start round 2
+            await user.click(drainBoxElement); // to start round 3
+            //#endregion
+            //#region assert
+            expect(round1IndicatorElement.style.visibility).toEqual("visible");
+            expect(round2IndicatorElement.style.visibility).toEqual("visible");
+            expect(round3IndicatorElement.style.visibility).toEqual("visible");
             //#endregion
         });
     });
