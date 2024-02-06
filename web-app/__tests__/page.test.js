@@ -5,7 +5,7 @@ import Home from "../src/app/page";
 import * as constants from "../src/app/constants";
 
 describe("Home", () => {
-    describe('on page load', () => {
+    describe('when the page loads', () => {
         it('should render all features as visible', () => {
             // arrange
             render(<Home />);
@@ -60,7 +60,7 @@ describe("Home", () => {
             `);
         });
     });
-    describe('inputting specific dice rolls', () => {
+    describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {
             // arrange
             const DIE1_1ST_VALUE = 1;
@@ -97,7 +97,7 @@ describe("Home", () => {
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
         });
     });
-    describe('moving if either die matches what the selected box can take', () => {
+    describe('when attempting to move the only ball via boxes that can receive on either die value', () => {
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 1}', async () => {
             // arrange
             const DIE1_1ST_VALUE = 1;
@@ -187,7 +187,7 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
     });
-    describe('moving from start to features that can receive from start on the table', () => {
+    describe('when attempting to move the only ball from start via boxes that can receive from start', () => {
         //#region ferriswheelcars
         it('should be able to move from start to ferriswheelcar12, fill the box, and maintain score, all on a roll of {1, 2}', async () => {
             // arrange
@@ -856,7 +856,7 @@ describe("Home", () => {
         });
         //#endregion
     });
-    describe('moving to hammer spaces in the correct order', () => {
+    describe('when attempting to move the only ball to a hammer space', () => {
         it('should be able to move from redflipper to hammerspace1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -940,7 +940,7 @@ describe("Home", () => {
             expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
         });
     });
-    describe('ending a round (but not the game)', () => {
+    describe('when ending a round but not the game', () => {
         it('should clear a dashed box but not clear a solid box at the end of the round', async () => {
             //#region arrange
             const DIE_VALUES = [
