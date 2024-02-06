@@ -181,7 +181,7 @@ export default function Home(props) {
         rollDice={rollDice}
       />
       <ScoreIndicator scoreIndicatorId={constants.SCORE_INDICATOR_ID}
-        scorePId="score"
+        scorePId={constants.SCORE_PARAGRAPH_ID}
         score={score}
       />
       <RestartTray restartrayId="restart-tray"

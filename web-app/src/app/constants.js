@@ -340,11 +340,14 @@ export const ROUND_1_INDICATOR_ID = "round-1-indicator";
 export const ROUND_2_INDICATOR_ID = "round-2-indicator";
 export const ROUND_3_INDICATOR_ID = "round-3-indicator";
 //#endregion
+//#region scoreIndicator
+export const SCORE_INDICATOR_ID = "score-indicator";
+export const SCORE_PARAGRAPH_ID = "score";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
 export const FILLED_BACKGROUND_COLOR = "black";
 export const POINTS_PER_USED_FLIPPER_BOX = 2;
 export const RESTART_BUTTON_ID = "restart-button";
-export const SCORE_INDICATOR_ID = "score-indicator";
 //#endregion
