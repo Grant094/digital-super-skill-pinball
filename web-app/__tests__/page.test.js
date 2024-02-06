@@ -719,5 +719,76 @@ describe("Home", () => {
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
         });
         //#endregion
+        //#region drain
+        it('should move from start to start via redoutlane and fill it in on a roll of {1, 1}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [1, 1],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
+            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
+            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
+            await user.click(boxElement);
+            // assert
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
+            expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
+            expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
+        });
+        it('should move from start to start via yeloutlane and fill it in on a roll of {6, 6}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [6, 6],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
+            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
+            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
+            await user.click(boxElement);
+            // assert
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
+            expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
+            expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
+        });
+        it('should move from start to start via drain and fill it in on a roll of {3, 4}', async () => {
+            // arrange
+            const DIE_VALUES = [
+                [3, 4],
+                [1, 1],
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            // act
+            const boxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
+            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
+            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
+            await user.click(boxElement);
+            // assert
+            expect(ball1Element.style.top).toEqual(featureElement.style.top);
+            expect(ball1Element.style.left).toEqual(featureElement.style.left);
+            expect(round1IndicatorElement).toHaveStyle(`visibility: visible`);
+            expect(round2IndicatorElement).toHaveStyle(`visibility: visible`);
+            expect(round3IndicatorElement).toHaveStyle(`visibility: hidden`);
+        });
+        //#endregion
     });
 });
