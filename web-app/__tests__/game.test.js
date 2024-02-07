@@ -1331,6 +1331,14 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             const die1NudgeUpButtonElement = screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID);
             const nudgesUsedParagraphElement = screen.getByTitle("nudgesUsed");
+            //#endregion
+            //#region act
+            await user.click(ferriswheelcar12BoxElement);
+            await user.click(die1NudgeUpButtonElement);
+            await user.click(redInlaneBoxElement);
+            await user.click(drainBoxElement);
+            await user.click(restartButtonElement);
+            // cannot put below in "arrange" since elements get erased upon restart
             const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
             const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
             const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
@@ -1339,16 +1347,9 @@ describe("Game", () => {
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
             //#endregion
-            //#region act
-            await user.click(ferriswheelcar12BoxElement);
-            await user.click(die1NudgeUpButtonElement);
-            await user.click(redInlaneBoxElement);
-            await user.click(drainBoxElement);
-            await user.click(restartButtonElement);
-            //#endregion
             //#region assert
-            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(redInlaneBoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
             expect(round1IndicatorElement).toBeVisible();
             expect(round2IndicatorElement).not.toBeVisible();
