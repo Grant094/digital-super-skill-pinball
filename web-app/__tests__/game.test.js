@@ -37,11 +37,9 @@ describe("Game", () => {
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
             // assert
             expect(ball1Element).toBeInTheDocument();
-            expect(ball1Element).toHaveStyle(`
-                visibility: visible;
-                top: ${startFeatureElement.style.top};
-                left: ${startFeatureElement.style.left};
-            `);
+            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
+            expect(ball1Element).toHaveStyle(`visibility: visible;`);
         });
         it('should render ball 2 as hidden at the Drain feature', () => {
             // arrange
