@@ -1249,4 +1249,99 @@ describe("Home", () => {
             //#endregion
         });
     });
+    describe('when filling all boxes in a group', () => {
+        it('should clear all boxes in the ferris wheel group', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const ferriswheelcar34BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
+            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
+            const ferriswheelcar56BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(ferriswheelcar12BoxElement);
+            await user.click(yelFlipperBox1BoxElement);
+            await user.click(ferriswheelcar34BoxElement);
+            await user.click(yelFlipperBox23BoxElement);
+            await user.click(ferriswheelcar56BoxElement);
+            //#endregion
+            //#region assert
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(ferriswheelcar34BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(ferriswheelcar56BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+        it('should clear all boxes in the bumper group', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // move from start to 1st 1
+                [3, 3],
+                [5, 5],
+                [1, 1], // 2nd round of odd boxes
+                [3, 3],
+                [5, 5],
+                [2, 2], // 1st round of even boxes
+                [4, 4],
+                [6, 6],
+                [2, 2], // 2nd round of even boxes
+                [4, 4],
+                [6, 6],
+                [1, 1], // go to drain
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
+            const bumper122nd1BoxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
+            const bumper121st2BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
+            const bumper122nd2BoxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
+            const bumper341st3BoxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
+            const bumper342nd3BoxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
+            const bumper341st4BoxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
+            const bumper342nd4BoxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
+            const bumper561st5BoxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
+            const bumper562nd5BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
+            const bumper561st6BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
+            const bumper562nd6BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(bumper121st1BoxElement);
+            await user.click(bumper341st3BoxElement);
+            await user.click(bumper561st5BoxElement);
+            await user.click(bumper122nd1BoxElement);
+            await user.click(bumper342nd3BoxElement);
+            await user.click(bumper562nd5BoxElement);
+            await user.click(bumper121st2BoxElement);
+            await user.click(bumper341st4BoxElement);
+            await user.click(bumper561st6BoxElement);
+            await user.click(bumper122nd2BoxElement);
+            await user.click(bumper342nd4BoxElement);
+            await user.click(bumper562nd6BoxElement);
+            //#endregion
+            //#region assert
+            expect(bumper121st1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper122nd1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper121st2BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper122nd2BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper341st3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper342nd3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper341st4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper342nd4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper561st5BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper562nd5BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper561st6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(bumper562nd6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+    })
 });
