@@ -14,7 +14,7 @@ describe("Game", () => {
                 const element = screen.getByTitle(featureId);
                 // assert
                 expect(element).toBeInTheDocument();
-                expect(element).toHaveStyle("visibility: visible");
+                expect(element).toBeVisible();
             }
         });
         it('should render all boxes as visible and unfilled', () => {
@@ -26,7 +26,7 @@ describe("Game", () => {
                 // assert
                 expect(element).toBeInTheDocument();
                 expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-                expect(element).toHaveStyle(`visibility: visible;`);
+                expect(element).toBeVisible();
             }
         });
         it('should render ball 1 as visible at the Start feature', () => {
@@ -39,7 +39,7 @@ describe("Game", () => {
             expect(ball1Element).toBeInTheDocument();
             expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
-            expect(ball1Element).toHaveStyle(`visibility: visible;`);
+            expect(ball1Element).toBeVisible();
         });
         it('should render ball 2 as hidden at the Drain feature', () => {
             // arrange
@@ -51,7 +51,7 @@ describe("Game", () => {
             expect(ball2Element).toBeInTheDocument();
             expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
             expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
-            expect(ball2Element).toHaveStyle(`visibility: hidden;`);
+            expect(ball2Element).not.toBeVisible();
         });
     });
     describe('when receiving specific dice rolls as a prop', () => {
@@ -976,9 +976,9 @@ describe("Game", () => {
             await user.click(drainBoxElement); // to start round 2
             //#endregion
             //#region assert
-            expect(round1IndicatorElement.style.visibility).toEqual("visible");
-            expect(round2IndicatorElement.style.visibility).toEqual("visible");
-            expect(round3IndicatorElement.style.visibility).toEqual("hidden");
+            expect(round1IndicatorElement).toBeVisible();
+            expect(round2IndicatorElement).toBeVisible();
+            expect(round3IndicatorElement).not.toBeVisible();
             //#endregion
         });
         it('should make all round indicators visible at the start of round 3', async () => {
@@ -1000,9 +1000,9 @@ describe("Game", () => {
             await user.click(drainBoxElement); // to start round 3
             //#endregion
             //#region assert
-            expect(round1IndicatorElement.style.visibility).toEqual("visible");
-            expect(round2IndicatorElement.style.visibility).toEqual("visible");
-            expect(round3IndicatorElement.style.visibility).toEqual("visible");
+            expect(round1IndicatorElement).toBeVisible();
+            expect(round2IndicatorElement).toBeVisible();
+            expect(round3IndicatorElement).toBeVisible();
             //#endregion
         });
         it('should add 2 points when using the red outlane and one red flipper box has been filled', async () => {
@@ -1230,16 +1230,16 @@ describe("Game", () => {
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(redInlaneBoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
-            expect(round1IndicatorElement.style.visibility).toEqual("visible");
-            expect(round2IndicatorElement.style.visibility).toEqual("hidden");
-            expect(round3IndicatorElement.style.visibility).toEqual("hidden");
+            expect(round1IndicatorElement).toBeVisible();
+            expect(round2IndicatorElement).not.toBeVisible();
+            expect(round3IndicatorElement).not.toBeVisible();
             expect(nudgesUsedParagraphElement.innerHTML).toEqual("Nudges Used: 0");
             expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
-            expect(ball1Element.style.visibility).toEqual("visible");
+            expect(ball1Element).toBeVisible();
             expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
             expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
-            expect(ball2Element.style.visibility).toEqual("hidden");
+            expect(ball2Element).not.toBeVisible();
             //#endregion
         });
     });
