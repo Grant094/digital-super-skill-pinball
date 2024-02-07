@@ -14,7 +14,7 @@ describe("Game", () => {
                 const element = screen.getByTitle(featureId);
                 // assert
                 expect(element).toBeInTheDocument();
-                expect(element).toHaveStyle("visibility: visible");
+                expect(element).toBeVisible();
             }
         });
         it('should render all boxes as visible and unfilled', () => {
@@ -26,7 +26,7 @@ describe("Game", () => {
                 // assert
                 expect(element).toBeInTheDocument();
                 expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-                expect(element).toHaveStyle(`visibility: visible;`);
+                expect(element).toBeVisible();
             }
         });
         it('should render ball 1 as visible at the Start feature', () => {
@@ -39,7 +39,7 @@ describe("Game", () => {
             expect(ball1Element).toBeInTheDocument();
             expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
-            expect(ball1Element).toHaveStyle(`visibility: visible;`);
+            expect(ball1Element).toBeVisible();
         });
         it('should render ball 2 as hidden at the Drain feature', () => {
             // arrange
@@ -51,7 +51,7 @@ describe("Game", () => {
             expect(ball2Element).toBeInTheDocument();
             expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
             expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
-            expect(ball2Element).toHaveStyle(`visibility: hidden;`);
+            expect(ball2Element).not.toBeVisible();
         });
     });
     describe('when receiving specific dice rolls as a prop', () => {
