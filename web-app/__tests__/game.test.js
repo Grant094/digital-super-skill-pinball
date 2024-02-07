@@ -7,58 +7,76 @@ import * as constants from "../src/app/constants";
 describe("Game", () => {
     describe('when the game loads', () => {
         it('should render all features as visible', () => {
-            // arrange part 1
+            //#region arrange part 1
             render(<Game />);
+            //#endregion
             for (const featureId of constants.ALL_FEATURE_IDS) {
-                // arrange part 2
+                //#region arrange part 2
                 const element = screen.getByTitle(featureId);
-                // act // not applicable
-                // assert
+                //#endregion
+                //#region act
+                // not applicable
+                //#endregion
+                //#region assert
                 expect(element).toBeInTheDocument();
                 expect(element).toBeVisible();
+                //#endregion
             }
         });
         it('should render all boxes as visible and unfilled', () => {
-            // arrange part 1
+            //#region arrange part 1
             render(<Game />);
+            //#endregion
             for (const boxId of constants.ALL_BOX_IDS) {
-                // arrange part 2
+                //#region arrange part 2
                 const element = screen.getByTitle(boxId);
-                // act // not applicable
-                // assert
+                //#endregion
+                //#region act
+                // not applicable
+                //#endregion
+                //#region assert
                 expect(element).toBeInTheDocument();
                 expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
                 expect(element).toBeVisible();
+                //#endregion
             }
         });
         it('should render ball 1 as visible at the Start feature', () => {
-            // arrange
+            //#region arrange
             render(<Game />);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
-            // act // not applicable
-            // assert
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
             expect(ball1Element).toBeInTheDocument();
             expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
             expect(ball1Element).toBeVisible();
+            //#endregion
         });
         it('should render ball 2 as hidden at the Drain feature', () => {
-            // arrange
+            //#region arrange
             render(<Game />);
             const ball2Element = screen.getByTitle(constants.BALL2_ID);
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
-            // act // not applicable
-            // assert
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
             expect(ball2Element).toBeInTheDocument();
             expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
             expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
             expect(ball2Element).not.toBeVisible();
+            //#endregion
         });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {
-            // arrange
+            //#region arrange
             const DIE1_1ST_VALUE = 1;
             const DIE2_1ST_VALUE = 2;
             const DIE_VALUES = [
@@ -67,13 +85,17 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
-            // act // not applicable
-            // assert
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
             expect(Number(die1Element.innerHTML)).toEqual(DIE1_1ST_VALUE);
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_1ST_VALUE);
+            //#endregion
         });
         it('should display the 2nd dice values passed via props after the only ball is moved', async () => {
-            // arrange
+            //#region arrange
             const DIE1_1ST_VALUE = 1;
             const DIE2_1ST_VALUE = 2;
             const DIE1_2ND_VALUE = 5;
@@ -86,16 +108,19 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
-            // assert
+            //#endregion
+            //#region assert
             expect(Number(die1Element.innerHTML)).toEqual(DIE1_2ND_VALUE);
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
+            //#endregion
         });
     });
     describe('when attempting to move the only ball via boxes that can receive on either die value', () => {
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE1_1ST_VALUE = 1;
             const DIE2_1ST_VALUE = 1;
             const DIE1_2ND_VALUE = 1;
@@ -109,15 +134,18 @@ describe("Game", () => {
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(ferriswheelcar12BoxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {2, 2}', async () => {
-            // arrange
+            //#region arrange
             const DIE1_1ST_VALUE = 2;
             const DIE2_1ST_VALUE = 2;
             const DIE1_2ND_VALUE = 2;
@@ -131,15 +159,18 @@ describe("Game", () => {
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(ferriswheelcar12BoxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE1_1ST_VALUE = 1;
             const DIE2_1ST_VALUE = 4;
             const DIE1_2ND_VALUE = 2;
@@ -153,15 +184,18 @@ describe("Game", () => {
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(ferriswheelcar12BoxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {4, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE1_1ST_VALUE = 4;
             const DIE2_1ST_VALUE = 1;
             const DIE1_2ND_VALUE = 2;
@@ -175,18 +209,21 @@ describe("Game", () => {
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(ferriswheelcar12BoxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            //#endregion
         });
     });
     describe('when attempting to move the only ball from start via boxes that can receive from start', () => {
         //#region ferriswheelcars
         it('should be able to move from start to ferris wheel car 12, fill the box, and maintain score, all on a roll of {1, 2}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 2],
                 [1, 6],
@@ -197,16 +234,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to ferris wheel car 34, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 4],
                 [1, 6],
@@ -217,16 +257,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to ferris wheel car 56, fill the box, and maintain score, on a roll of {5, 6}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [5, 6],
                 [1, 6],
@@ -237,18 +280,21 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         //#endregion
         //#region bumpers
         it('should be able to move from start to bumper 12 via the 1st 1 box, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 1],
                 [1, 1],
@@ -259,16 +305,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 12 via the 2nd 1 box, fill the box, and add 1 to the score, on a roll of {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 1],
                 [1, 1],
@@ -279,16 +328,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 12 via the 1st 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [2, 2],
                 [1, 1],
@@ -299,16 +351,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 12 via the 2nd 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [2, 2],
                 [1, 1],
@@ -319,16 +374,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 34 via the 1st 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 3],
                 [1, 1],
@@ -339,16 +397,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 34 via the 2nd 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 3],
                 [1, 1],
@@ -359,16 +420,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 34 via the 1st 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [4, 4],
                 [1, 1],
@@ -379,16 +443,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 34 via the 2nd 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [4, 4],
                 [1, 1],
@@ -399,16 +466,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 56 via the 1st 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [5, 5],
                 [1, 1],
@@ -419,16 +489,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 56 via the 2nd 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [5, 5],
                 [1, 1],
@@ -439,16 +512,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 56 via the 1st 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [6, 6],
                 [1, 1],
@@ -459,16 +535,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to bumper 56 via the 2nd 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [6, 6],
                 [1, 1],
@@ -479,18 +558,21 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         //#endregion
         //#region droptargets
         it('should be able to move from start to yel droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 1],
                 [1, 1],
@@ -501,16 +583,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to yel droptarget 34, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 3],
                 [1, 1],
@@ -521,16 +606,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to yel droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [5, 5],
                 [1, 1],
@@ -541,16 +629,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to red droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 1],
                 [1, 1],
@@ -561,16 +652,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to red droptarget 3, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 3],
                 [1, 1],
@@ -581,16 +675,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to red droptarget 4, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [4, 4],
                 [1, 1],
@@ -601,16 +698,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         it('should be able to move from start to red droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [5, 5],
                 [1, 1],
@@ -621,18 +721,21 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
+            //#endregion
         });
         //#endregion
         //#region flippers
         it('should be able to move from start to red flipper via the red inlane, fill the box, and add 2 to the score, all on a roll of {2, 2}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [2, 2],
                 [1, 1],
@@ -643,16 +746,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("2");
+            //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 3],
                 [1, 1],
@@ -663,16 +769,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [4, 4],
                 [1, 1],
@@ -683,16 +792,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [6, 6],
                 [1, 1],
@@ -703,16 +815,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to yel flipper via the yel inlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [5, 5],
                 [1, 1],
@@ -723,16 +838,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("2");
+            //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 1],
                 [1, 1],
@@ -743,16 +861,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [2, 3],
                 [1, 1],
@@ -763,16 +884,19 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [4, 4],
                 [1, 1],
@@ -783,18 +907,21 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         //#endregion
         //#region drain
         it('should be able to move from start to start via the red outlane, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [1, 1],
                 [1, 1],
@@ -805,15 +932,18 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to start via the yel outlane, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [6, 6],
                 [1, 1],
@@ -824,15 +954,18 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         it('should be able to move from start to start via drain, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
-            // arrange
+            //#region arrange
             const DIE_VALUES = [
                 [3, 4],
                 [1, 1],
@@ -843,12 +976,15 @@ describe("Game", () => {
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            // act
+            //#endregion
+            //#region act
             await user.click(boxElement);
-            // assert
+            //#endregion
+            //#region assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
+            //#endregion
         });
         //#endregion
     });
@@ -928,12 +1064,12 @@ describe("Game", () => {
             await user.click(redInlaneBoxElement);
             await user.click(hammerspace5BoxElement);
             await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace6BoxElement);
-            //#endregion
-            // assert
+            await user.click(hammerspace6BoxElement);            //#endregion
+            //#region assert
             expect(ball1Element.style.top).toEqual(hammerspace6FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace6FeatureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
+            //#endregion
         });
     });
     describe('when ending a round but not the game', () => {
