@@ -17,7 +17,7 @@ export default function Ball(props) {
             ballTop = constants.DRAIN_FEATURE_TOP;
             ballLeft = constants.DRAIN_FEATURE_LEFT;
         }
-    } else {
+    } else if (document.getElementById(props.ballFeatureId)) {
         ballTop = document.getElementById(props.ballFeatureId).style.top;
         ballLeft = document.getElementById(props.ballFeatureId).style.left;
     }
@@ -29,6 +29,8 @@ export default function Ball(props) {
 
     return (
         <img id={props.ballId}
+            alt={props.ballId}
+            title={props.ballId}
             style={{
                 position: "absolute",
                 top: ballTop,

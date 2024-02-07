@@ -6,6 +6,7 @@ import styles from "./nudgebutton.module.css";
 export default function NudgeButton(props) {
     return (
         <button id={props.buttonId}
+            title={props.buttonId}
             className={styles.NudgeButton}
             type="button"
             onClick={() => props.onNudge(props.dieId, props.symbol)}

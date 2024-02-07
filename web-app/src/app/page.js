@@ -8,10 +8,11 @@ import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
 
-export default function Home() {
+export default function Home(props) {
   //#region state
-  const [die1, setDie1] = useState(0);
-  const [die2, setDie2] = useState(0);
+  const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues? 0: null);
+  const [die1, setDie1] = useState(props.dieValues? props.dieValues[dieValuesIndex]: 0);
+  const [die2, setDie2] = useState(props.dieValues? props.dieValues[dieValuesIndex]: 0);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
@@ -55,10 +56,14 @@ export default function Home() {
   }
 
   function rollDice() {
-    const nextValueOfDie1 = utilities.getRndIntegerInclusive(1, 6);
-    const nextValueOfDie2 = utilities.getRndIntegerInclusive(1, 6);
+    if (props.dieValues) {
+      setDieValuesIndex(() => dieValuesIndex + 1);
+    }
+    const nextValueOfDie1 = props.dieValues? props.dieValues[dieValuesIndex][0]: utilities.getRndIntegerInclusive(1, 6);
+    const nextValueOfDie2 = props.dieValues? props.dieValues[dieValuesIndex][1]: utilities.getRndIntegerInclusive(1, 6);
     setDie1(nextValueOfDie1);
     setDie2(nextValueOfDie2);
+
     if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
       // check whether player tilted and if so end the round
       if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
@@ -175,12 +180,12 @@ export default function Home() {
         onNudge={handleNudge}
         rollDice={rollDice}
       />
-      <ScoreIndicator scoreIndicatorId="score-indicator"
-        scorePId="score"
+      <ScoreIndicator scoreIndicatorId={constants.SCORE_INDICATOR_ID}
+        scorePId={constants.SCORE_PARAGRAPH_ID}
         score={score}
       />
       <RestartTray restartrayId="restart-tray"
-        restartButtonId="restart-button"
+        restartButtonId={constants.RESTART_BUTTON_ID}
         onClick={handleRestart}
       />
     </div>

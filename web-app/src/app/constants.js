@@ -308,6 +308,17 @@ export const ALL_FEATURE_IDS = [
     ...DROPTARGET_FEATURE_IDS
 ];
 //#endregion
+//#region allBoxIds
+export const ALL_BOX_IDS = [
+    ...FERRISWHEEL_GROUP_BOX_IDS,
+    ...BUMPER_GROUP_BOX_IDS,
+    ...HAMMER_SPACE_GROUP_BOX_IDS,
+    ...YEL_DROPTARGET_GROUP_BOX_IDS,
+    ...RED_DROPTARGET_GROUP_BOX_IDS,
+    ...DASHED_BOX_IDS,
+    ...DRAIN_GROUP_BOX_ID,
+];
+//#endregion
 //#region balls
 export const BALL1_ID = "ball1"
 export const BALL2_ID = "ball2"
@@ -324,9 +335,25 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
+//#region roundIndicatorIds
+export const ROUND_1_INDICATOR_ID = "round-1-indicator";
+export const ROUND_2_INDICATOR_ID = "round-2-indicator";
+export const ROUND_3_INDICATOR_ID = "round-3-indicator";
+//#endregion
+//#region scoreIndicator
+export const SCORE_INDICATOR_ID = "score-indicator";
+export const SCORE_PARAGRAPH_ID = "score";
+//#endregion
+//#region nudgebuttons
+export const DIE1_NUDGE_UP_BUTTON_ID = "nudge-up-button-die1";
+export const DIE1_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die1";
+export const DIE2_NUDGE_UP_BUTTON_ID = "nudge-up-button-die2";
+export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
 export const FILLED_BACKGROUND_COLOR = "black";
 export const POINTS_PER_USED_FLIPPER_BOX = 2;
+export const RESTART_BUTTON_ID = "restart-button";
 //#endregion
