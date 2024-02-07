@@ -1296,7 +1296,6 @@ describe("Home", () => {
                 [2, 2], // 2nd round of even boxes
                 [4, 4],
                 [6, 6],
-                [1, 1], // go to drain
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1311,7 +1310,7 @@ describe("Home", () => {
             const bumper342nd4BoxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
             const bumper561st5BoxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
             const bumper562nd5BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
-            const bumper561st6BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
+            const bumper561st6BoxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
             const bumper562nd6BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
             //#endregion
             //#region act
