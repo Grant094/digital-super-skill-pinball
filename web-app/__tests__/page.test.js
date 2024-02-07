@@ -1342,5 +1342,130 @@ describe("Home", () => {
             expect(bumper562nd6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
-    })
+        it('should clear all boxes in the yel droptargets group', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const yelDroptarget12BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
+            const yelDroptarget34BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
+            const yelDroptarget56BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
+            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
+            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(yelDroptarget12BoxElement);
+            await user.click(yelFlipperBox1BoxElement);
+            await user.click(yelDroptarget34BoxElement);
+            await user.click(yelFlipperBox23BoxElement);
+            await user.click(yelDroptarget56BoxElement);
+            //#endregion
+            //#region assert
+            expect(yelDroptarget12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(yelDroptarget34BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(yelDroptarget56BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+        it('should clear all boxes in the red droptargets group', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red droptarget 12
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red droptarget 3
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red droptarget 4
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red droptarget 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const redDroptarget12BoxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
+            const redDroptarget3BoxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
+            const redDroptarget4BoxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
+            const redDroptarget56BoxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
+            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(redDroptarget12BoxElement);
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(redDroptarget3BoxElement);
+            await user.click(redFlipperBox45BoxElement);
+            await user.click(redDroptarget4BoxElement);
+            await user.click(redFlipperBox6BoxElement);
+            await user.click(redDroptarget56BoxElement);
+            //#endregion
+            //#region assert
+            expect(redDroptarget12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(redDroptarget3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(redDroptarget4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(redDroptarget56BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+        it('should clear all hammer space boxes', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // from start to red flipper via red inlane
+                [1, 1], // to hammer space 1
+                [3, 3], // to red flipper via red flipper box 3
+                [2, 2], // to hammer space 2
+                [4, 4], // to red flipper via red flipper box 45
+                [3, 3], // to hammer space 3
+                [6, 6], // to red flipper via red flipper box 6
+                [4, 4], // to hammer space 4
+                [1, 1], // to drain via drain box since all boxes for the red flipper are filled
+                [2, 2], // from start to red flipper via red inlane
+                [5, 5], // to hammer space 5
+                [3, 3], // to red flipper via red flipper box 3
+                [6, 6], // to hammer space 6
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Home dieValues={DIE_VALUES} />);
+            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
+            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
+            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
+            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
+            const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
+            const hammerspace2BoxElement = screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID);
+            const hammerspace3BoxElement = screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID);
+            const hammerspace4BoxElement = screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID);
+            const hammerspace5BoxElement = screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID);
+            const hammerspace6BoxElement = screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID);
+            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
+            //#endregion
+            //#region act
+            await user.click(redInlaneBoxElement);
+            await user.click(hammerspace1BoxElement);
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(hammerspace2BoxElement);
+            await user.click(redFlipperBox45BoxElement);
+            await user.click(hammerspace3BoxElement);
+            await user.click(redFlipperBox6BoxElement);
+            await user.click(hammerspace4BoxElement);
+            await user.click(drainBoxElement);
+            await user.click(redInlaneBoxElement);
+            await user.click(hammerspace5BoxElement);
+            await user.click(redFlipperBox3BoxElement);
+            await user.click(hammerspace6BoxElement);
+            //#endregion
+            //#region assert
+            expect(hammerspace1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(hammerspace2BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(hammerspace3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(hammerspace4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(hammerspace5BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(hammerspace6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+    });
 });
