@@ -25,10 +25,8 @@ describe("Game", () => {
                 const element = screen.getByTitle(boxId);
                 // assert
                 expect(element).toBeInTheDocument();
-                expect(element).toHaveStyle(`
-                    visibility: visible;
-                    backgroundColor: ${constants.UNFILLED_BACKGROUND_COLOR};
-                `);
+                expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+                expect(element).toHaveStyle(`visibility: visible;`);
             }
         });
         it('should render ball 1 as visible at the Start feature', () => {
@@ -39,11 +37,9 @@ describe("Game", () => {
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
             // assert
             expect(ball1Element).toBeInTheDocument();
-            expect(ball1Element).toHaveStyle(`
-                visibility: visible;
-                top: ${startFeatureElement.style.top};
-                left: ${startFeatureElement.style.left};
-            `);
+            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
+            expect(ball1Element).toHaveStyle(`visibility: visible;`);
         });
         it('should render ball 2 as hidden at the Drain feature', () => {
             // arrange
@@ -53,11 +49,9 @@ describe("Game", () => {
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
             // assert
             expect(ball2Element).toBeInTheDocument();
-            expect(ball2Element).toHaveStyle(`
-                visibility: hidden;
-                top: ${drainFeatureElement.style.top};
-                left: ${drainFeatureElement.style.left};
-            `);
+            expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
+            expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
+            expect(ball2Element).toHaveStyle(`visibility: hidden;`);
         });
     });
     describe('when receiving specific dice rolls as a prop', () => {
@@ -116,7 +110,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -138,7 +132,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -160,7 +154,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -182,7 +176,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -204,7 +198,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -224,7 +218,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -244,7 +238,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -266,7 +260,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -286,7 +280,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -306,7 +300,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -326,7 +320,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -346,7 +340,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -366,7 +360,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -386,7 +380,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -406,7 +400,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -426,7 +420,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -446,7 +440,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -466,7 +460,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -486,7 +480,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -508,7 +502,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -528,7 +522,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -548,7 +542,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -568,7 +562,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -588,7 +582,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -608,7 +602,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -628,7 +622,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("1");
@@ -650,7 +644,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("2");
@@ -670,7 +664,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -690,7 +684,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -710,7 +704,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -730,7 +724,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("2");
@@ -750,7 +744,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -770,7 +764,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -790,7 +784,7 @@ describe("Game", () => {
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             await user.click(boxElement);
             // assert
-            expect(boxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
             expect(ball1Element.style.left).toEqual(featureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
@@ -879,8 +873,8 @@ describe("Game", () => {
             //#region assert
             expect(ball1Element.style.top).toEqual(hammerspace1FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace1FeatureElement.style.left);
-            expect(hammerspace1BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
-            expect(redFlipperBox3BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(hammerspace1BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(redFlipperBox3BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(scoreParagraphElement.innerHTML).toEqual("0");
             //#endregion
         });
