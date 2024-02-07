@@ -1,14 +1,14 @@
 import "@testing-library/jest-dom";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Home from "../src/app/page";
+import Game from "../src/app/Game";
 import * as constants from "../src/app/constants";
 
-describe("Home", () => {
+describe("Game", () => {
     describe('when the page loads', () => {
         it('should render all features as visible', () => {
             // arrange
-            render(<Home />);
+            render(<Game />);
             for (const featureId of constants.ALL_FEATURE_IDS) {
                 // act
                 const element = screen.getByTitle(featureId);
@@ -19,7 +19,7 @@ describe("Home", () => {
         });
         it('should render all boxes as visible and unfilled', () => {
             // arrange
-            render(<Home />);
+            render(<Game />);
             for (const boxId of constants.ALL_BOX_IDS) {
                 // act
                 const element = screen.getByTitle(boxId);
@@ -33,7 +33,7 @@ describe("Home", () => {
         });
         it('should render ball1 as visible at the Start feature', () => {
             // arrange
-            render(<Home />);
+            render(<Game />);
             // act
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
@@ -47,7 +47,7 @@ describe("Home", () => {
         });
         it('should render ball2 as hidden at the Drain feature', () => {
             // arrange
-            render(<Home />);
+            render(<Game />);
             // act
             const ball2Element = screen.getByTitle(constants.BALL2_ID);
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
@@ -68,7 +68,7 @@ describe("Home", () => {
             const DIE_VALUES = [
                 [DIE1_1ST_VALUE, DIE2_1ST_VALUE]
             ];
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
@@ -87,7 +87,7 @@ describe("Home", () => {
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
@@ -109,7 +109,7 @@ describe("Home", () => {
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -131,7 +131,7 @@ describe("Home", () => {
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -153,7 +153,7 @@ describe("Home", () => {
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -175,7 +175,7 @@ describe("Home", () => {
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -196,7 +196,7 @@ describe("Home", () => {
                 [1, 6],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -216,7 +216,7 @@ describe("Home", () => {
                 [1, 6],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -236,7 +236,7 @@ describe("Home", () => {
                 [1, 6],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -258,7 +258,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -278,7 +278,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -298,7 +298,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -318,7 +318,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -338,7 +338,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -358,7 +358,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -378,7 +378,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -398,7 +398,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -418,7 +418,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -438,7 +438,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -458,7 +458,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -478,7 +478,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -500,7 +500,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -520,7 +520,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -540,7 +540,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -560,7 +560,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -580,7 +580,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -600,7 +600,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -620,7 +620,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -642,7 +642,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -662,7 +662,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -682,7 +682,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -702,7 +702,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -722,7 +722,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -742,7 +742,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -762,7 +762,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -782,7 +782,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -804,7 +804,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -823,7 +823,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -842,7 +842,7 @@ describe("Home", () => {
                 [1, 1],
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             // act
             const boxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
@@ -865,7 +865,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
@@ -903,7 +903,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
@@ -950,7 +950,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
             const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
@@ -972,7 +972,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
             const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
@@ -995,7 +995,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
             const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
@@ -1019,7 +1019,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
@@ -1041,7 +1041,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
             const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
@@ -1066,7 +1066,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
             const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
@@ -1091,7 +1091,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
@@ -1112,7 +1112,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
@@ -1134,7 +1134,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
             const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
@@ -1159,7 +1159,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
             const yelFlipperBox4BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
@@ -1184,7 +1184,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const yelInlaneBoxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
             const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
@@ -1209,7 +1209,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
@@ -1261,7 +1261,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const ferriswheelcar34BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
@@ -1299,7 +1299,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
             const bumper122nd1BoxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
             const bumper121st2BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
@@ -1353,7 +1353,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const yelDroptarget12BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
             const yelDroptarget34BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
             const yelDroptarget56BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
@@ -1386,7 +1386,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const redDroptarget12BoxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
             const redDroptarget3BoxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
             const redDroptarget4BoxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
@@ -1430,7 +1430,7 @@ describe("Home", () => {
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
-            render(<Home dieValues={DIE_VALUES} />);
+            render(<Game dieValues={DIE_VALUES} />);
             const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
