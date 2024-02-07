@@ -49,11 +49,9 @@ describe("Game", () => {
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
             // assert
             expect(ball2Element).toBeInTheDocument();
-            expect(ball2Element).toHaveStyle(`
-                visibility: hidden;
-                top: ${drainFeatureElement.style.top};
-                left: ${drainFeatureElement.style.left};
-            `);
+            expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
+            expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
+            expect(ball2Element).toHaveStyle(`visibility: hidden;`);
         });
     });
     describe('when receiving specific dice rolls as a prop', () => {
