@@ -7,22 +7,24 @@ import * as constants from "../src/app/constants";
 describe("Game", () => {
     describe('when the game loads', () => {
         it('should render all features as visible', () => {
-            // arrange
+            // arrange part 1
             render(<Game />);
             for (const featureId of constants.ALL_FEATURE_IDS) {
-                // act
+                // arrange part 2
                 const element = screen.getByTitle(featureId);
+                // act // not applicable
                 // assert
                 expect(element).toBeInTheDocument();
                 expect(element).toBeVisible();
             }
         });
         it('should render all boxes as visible and unfilled', () => {
-            // arrange
+            // arrange part 1
             render(<Game />);
             for (const boxId of constants.ALL_BOX_IDS) {
-                // act
+                // arrange part 2
                 const element = screen.getByTitle(boxId);
+                // act // not applicable
                 // assert
                 expect(element).toBeInTheDocument();
                 expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -32,9 +34,9 @@ describe("Game", () => {
         it('should render ball 1 as visible at the Start feature', () => {
             // arrange
             render(<Game />);
-            // act
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            // act // not applicable
             // assert
             expect(ball1Element).toBeInTheDocument();
             expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
@@ -44,9 +46,9 @@ describe("Game", () => {
         it('should render ball 2 as hidden at the Drain feature', () => {
             // arrange
             render(<Game />);
-            // act
             const ball2Element = screen.getByTitle(constants.BALL2_ID);
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
+            // act // not applicable
             // assert
             expect(ball2Element).toBeInTheDocument();
             expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
@@ -63,9 +65,9 @@ describe("Game", () => {
                 [DIE1_1ST_VALUE, DIE2_1ST_VALUE]
             ];
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
+            // act // not applicable
             // assert
             expect(Number(die1Element.innerHTML)).toEqual(DIE1_1ST_VALUE);
             expect(Number(die2Element.innerHTML)).toEqual(DIE2_1ST_VALUE);
@@ -82,9 +84,9 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const die1Element = screen.getByTitle(constants.DIE1_ID);
             const die2Element = screen.getByTitle(constants.DIE2_ID);
+            // act
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             // assert
             expect(Number(die1Element.innerHTML)).toEqual(DIE1_2ND_VALUE);
@@ -104,10 +106,10 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            // act
             await user.click(ferriswheelcar12BoxElement);
             // assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -126,10 +128,10 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            // act
             await user.click(ferriswheelcar12BoxElement);
             // assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -148,10 +150,10 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            // act
             await user.click(ferriswheelcar12BoxElement);
             // assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -170,10 +172,10 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            // act
             await user.click(ferriswheelcar12BoxElement);
             // assert
             expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -191,11 +193,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -211,11 +213,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -231,11 +233,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -253,11 +255,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -273,11 +275,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -293,11 +295,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -313,11 +315,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -333,11 +335,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -353,11 +355,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -373,11 +375,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -393,11 +395,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -413,11 +415,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -433,11 +435,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -453,11 +455,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -473,11 +475,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -495,11 +497,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -515,11 +517,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -535,11 +537,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -555,11 +557,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -575,11 +577,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -595,11 +597,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -615,11 +617,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -637,11 +639,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -657,11 +659,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -677,11 +679,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -697,11 +699,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -717,11 +719,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -737,11 +739,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -757,11 +759,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -777,11 +779,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -799,11 +801,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
@@ -818,11 +820,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
@@ -837,11 +839,11 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            // act
             const boxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             const ball1Element = screen.getByTitle(constants.BALL1_ID);
             const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
+            // act
             await user.click(boxElement);
             // assert
             expect(ball1Element.style.top).toEqual(featureElement.style.top);
