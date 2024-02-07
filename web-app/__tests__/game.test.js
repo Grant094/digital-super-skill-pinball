@@ -25,10 +25,8 @@ describe("Game", () => {
                 const element = screen.getByTitle(boxId);
                 // assert
                 expect(element).toBeInTheDocument();
-                expect(element).toHaveStyle(`
-                    visibility: visible;
-                    backgroundColor: ${constants.UNFILLED_BACKGROUND_COLOR};
-                `);
+                expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+                expect(element).toHaveStyle(`visibility: visible;`);
             }
         });
         it('should render ball 1 as visible at the Start feature', () => {
