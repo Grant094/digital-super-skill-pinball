@@ -96,12 +96,10 @@ describe("Game", () => {
         });
         it('should display the 2nd dice values passed via props after the only ball is moved', async () => {
             //#region arrange
-            const DIE1_1ST_VALUE = 1;
-            const DIE2_1ST_VALUE = 2;
             const DIE1_2ND_VALUE = 5;
             const DIE2_2ND_VALUE = 6;
             const DIE_VALUES = [
-                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                [1, 2],
                 [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
             ];
             const user = userEvent.setup();
@@ -121,13 +119,9 @@ describe("Game", () => {
     describe('when attempting to move the only ball via boxes that can receive on either die value', () => {
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 1}', async () => {
             //#region arrange
-            const DIE1_1ST_VALUE = 1;
-            const DIE2_1ST_VALUE = 1;
-            const DIE1_2ND_VALUE = 1;
-            const DIE2_2ND_VALUE = 1;
             const DIE_VALUES = [
-                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
-                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+                [1, 1],
+                [1, 1],
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -146,13 +140,9 @@ describe("Game", () => {
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {2, 2}', async () => {
             //#region arrange
-            const DIE1_1ST_VALUE = 2;
-            const DIE2_1ST_VALUE = 2;
-            const DIE1_2ND_VALUE = 2;
-            const DIE2_2ND_VALUE = 2;
             const DIE_VALUES = [
-                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
-                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+                [2, 2],
+                [2, 2],
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -171,13 +161,9 @@ describe("Game", () => {
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 4}', async () => {
             //#region arrange
-            const DIE1_1ST_VALUE = 1;
-            const DIE2_1ST_VALUE = 4;
-            const DIE1_2ND_VALUE = 2;
-            const DIE2_2ND_VALUE = 2;
             const DIE_VALUES = [
-                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
-                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+                [1, 4],
+                [2, 2],
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -196,13 +182,9 @@ describe("Game", () => {
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {4, 1}', async () => {
             //#region arrange
-            const DIE1_1ST_VALUE = 4;
-            const DIE2_1ST_VALUE = 1;
-            const DIE1_2ND_VALUE = 2;
-            const DIE2_2ND_VALUE = 2;
             const DIE_VALUES = [
-                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
-                [DIE1_2ND_VALUE, DIE2_2ND_VALUE],
+                [4, 1],
+                [2, 2],
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
