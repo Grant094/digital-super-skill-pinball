@@ -110,7 +110,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -132,7 +132,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -154,7 +154,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
@@ -176,7 +176,7 @@ describe("Game", () => {
             const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             await user.click(ferriswheelcar12BoxElement);
             // assert
-            expect(ferriswheelcar12BoxElement).toHaveStyle(`backgroundColor: ${constants.FILLED_BACKGROUND_COLOR}`);
+            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
         });
