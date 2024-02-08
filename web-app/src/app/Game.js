@@ -121,7 +121,6 @@ export default function Game(props) {
   //#endregion
 
   //#region useEffect-hooks
-  // roll dice upon mounting
   // roll dice upon initialization
   useEffect(function rollDiceOnInit() {
     if (!didInit) {
