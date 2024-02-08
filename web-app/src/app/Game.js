@@ -9,10 +9,11 @@ import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
 
 export default function Game(props) {
+  let didInit = false;
   //#region state
-  const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues? 0: null);
-  const [die1, setDie1] = useState(props.dieValues? props.dieValues[dieValuesIndex]: 0);
-  const [die2, setDie2] = useState(props.dieValues? props.dieValues[dieValuesIndex]: 0);
+  const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : null);
+  const [die1, setDie1] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
+  const [die2, setDie2] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
   const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
   const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
   const [nudgesUsed, setNudgesUsed] = useState(0);
@@ -61,8 +62,8 @@ export default function Game(props) {
     if (props.dieValues) {
       setDieValuesIndex(() => dieValuesIndex + 1);
     }
-    const nextValueOfDie1 = props.dieValues? props.dieValues[dieValuesIndex][0]: utilities.getRndIntegerInclusive(1, 6);
-    const nextValueOfDie2 = props.dieValues? props.dieValues[dieValuesIndex][1]: utilities.getRndIntegerInclusive(1, 6);
+    const nextValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex][0] : utilities.getRndIntegerInclusive(1, 6);
+    const nextValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex][1] : utilities.getRndIntegerInclusive(1, 6);
     setDie1(nextValueOfDie1);
     setDie2(nextValueOfDie2);
 
@@ -100,7 +101,7 @@ export default function Game(props) {
       }
     }
   }
-  
+
   function handleRestart() {
     //#region reset-state
     setScore(0);
@@ -121,9 +122,13 @@ export default function Game(props) {
 
   //#region useEffect-hooks
   // roll dice upon mounting
-  useEffect(function rollDiceOnPageLoad() {
-    rollDice();
-  },[]);
+  // roll dice upon initialization
+  useEffect(function rollDiceOnInit() {
+    if (!didInit) {
+      didInit = true;
+      rollDice();
+    }
+  }, []);
 
   useEffect(function endRoundWhenBothBallsAreInDrain() {
     if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
@@ -145,7 +150,7 @@ export default function Game(props) {
     }
   }, [round]);
   //#endregion
-  
+
   return (
     <div>
       <Table tableId="table"
