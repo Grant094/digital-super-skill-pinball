@@ -6,8 +6,6 @@ import * as constants from "./constants";
 import * as utilities from "./utilities";
 
 export default function Box(props) {
-    const [boxVisibility, setBoxVisibility] = useState("visible");
-
     //#region functions
     function canReceiveFromEitherDie() {
         return (props.canReceiveOn.includes(props.die1) || props.canReceiveOn.includes(props.die2));
@@ -74,10 +72,6 @@ export default function Box(props) {
         }
     }
     //#endregion
-    
-    useEffect(function hideBoxOnGameOver() {
-        setBoxVisibility(utilities.isGameOver(props.round)? "hidden": "visible");
-    }, [props.round]);
 
     return (
         <div id={props.boxId}
@@ -90,7 +84,7 @@ export default function Box(props) {
                 left: props.left,
                 height: props.height,
                 width: props.width,
-                visibility: boxVisibility,
+                visibility: (utilities.isGameOver(props.round)? "hidden": "visible"),
             }}
         >
         </div>

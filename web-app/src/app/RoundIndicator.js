@@ -4,11 +4,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./roundindicator.module.css";
 
 export default function RoundIndicator(props) {
-    const [roundIndicatorVisibility, setRoundIndicatorVisibility] = useState("hidden");
-
-    useEffect(function checkWhetherThisShouldBeVisible() {
-        setRoundIndicatorVisibility(Number(props.forRound) <= Number(props.round) ? "visible": "hidden");
-    }, [props.round]);
+    function isOnThisRoundOrLater() {
+        return (Number(props.forRound) <= Number(props.round));
+    }
 
     return (
         <p id={props.RoundIndicatorId}
@@ -17,7 +15,7 @@ export default function RoundIndicator(props) {
             style={{
                 top: props.top,
                 left: props.left,
-                visibility: roundIndicatorVisibility,
+                visibility: (isOnThisRoundOrLater() ? "visible": "hidden"),
             }}
         >
             X
