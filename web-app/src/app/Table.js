@@ -228,8 +228,8 @@ export default function Table(props) {
     //#endregion
 
     return (
-        <div id={props.tableId}>
-            <img src="/images/carniball.jpg" alt="Carniball board" />
+        <div id={props.tableId} title={props.tableId}>
+            <img src="/images/carniball.jpg" id="carniballTable" title="carniballTable" alt="Carniball board" />
             <Feature featureId={constants.START_FEATURE_ID}
                 left={constants.START_FEATURE_LEFT}
                 top={constants.START_FEATURE_TOP}
@@ -890,9 +890,9 @@ export default function Table(props) {
                 ballFeatureId={props.ball2FeatureId}
             />
             <Fragment key="roundindicators">
-                <RoundIndicator RoundIndicatorId="round-1-indicator" forRound="1" top="950px" left="414px" {...props} />
-                <RoundIndicator RoundIndicatorId="round-2-indicator" forRound="2" top="950px" left="451px" {...props} />
-                <RoundIndicator RoundIndicatorId="round-3-indicator" forRound="3" top="950px" left="487px" {...props} />
+                <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID} forRound="1" top="950px" left="414px" {...props} />
+                <RoundIndicator RoundIndicatorId={constants.ROUND_2_INDICATOR_ID} forRound="2" top="950px" left="451px" {...props} />
+                <RoundIndicator RoundIndicatorId={constants.ROUND_3_INDICATOR_ID} forRound="3" top="950px" left="487px" {...props} />
             </Fragment>
         </div>
     );

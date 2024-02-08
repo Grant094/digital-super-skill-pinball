@@ -10,6 +10,7 @@ export default function RoundIndicator(props) {
 
     return (
         <p id={props.RoundIndicatorId}
+            title={props.RoundIndicatorId}
             className={styles.RoundIndicator}
             style={{
                 top: props.top,

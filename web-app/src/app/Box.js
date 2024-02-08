@@ -75,6 +75,7 @@ export default function Box(props) {
 
     return (
         <div id={props.boxId}
+            title={props.boxId}
             className={styles.box}
             onClick={handleClick}
             style={{
