@@ -65,6 +65,8 @@ export default function Box(props) {
                 ) {
                     props.endRound();
                 }
+
+                props.autoSelectOnlyRemainingBall();
                 
                 props.rollDice();
             }

@@ -118,6 +118,14 @@ export default function Game(props) {
   function addPoints(pointsToAdd) {
     setScore(Number(score) + Number(pointsToAdd));
   }
+
+  function autoSelectOnlyRemainingBall() {
+    if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
+      setSelectedBallId(constants.BALL2_ID);
+    } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
+      setSelectedBallId(constants.BALL1_ID);
+    }
+  }
   //#endregion
 
   //#region useEffect-hooks
@@ -128,14 +136,6 @@ export default function Game(props) {
       rollDice();
     }
   }, []);
-
-  useEffect(function alwaysSelectOnlyRemainingBall() {
-    if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
-      setSelectedBallId(constants.BALL2_ID);
-    } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
-      setSelectedBallId(constants.BALL1_ID);
-    }
-  }, [ball1FeatureId, ball2FeatureId]);
 
   useEffect(function alertOnGameOver() {
     if (utilities.isGameOver(round)) {
@@ -164,6 +164,7 @@ export default function Game(props) {
         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
         moveSelectedBall={moveSelectedBall}
         endRound={endRound}
+        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
