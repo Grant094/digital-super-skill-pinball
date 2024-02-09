@@ -56,6 +56,10 @@ export default function Box(props) {
                     props.action();
                 }
 
+                if (props.possiblyClearBoxGroup) {
+                    props.possiblyClearBoxGroup();
+                }
+
                 if (
                     (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
                         props.ball1FeatureId === constants.DRAIN_FEATURE_ID ||
