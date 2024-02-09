@@ -124,7 +124,7 @@ export default function Game(props) {
   }
   //#endregion
 
-  //#region useEffect-hooks
+  //#region useEffect
   useEffect(function init() {
     if (!didInit) {
       didInit = true;
