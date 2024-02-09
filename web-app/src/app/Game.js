@@ -126,6 +126,10 @@ export default function Game(props) {
       setSelectedBallId(constants.BALL1_ID);
     }
   }
+
+  function gameOverAlert() {
+    alert(`Game over!`);
+  }
   //#endregion
 
   //#region useEffect-hooks
@@ -136,12 +140,6 @@ export default function Game(props) {
       rollDice();
     }
   }, []);
-
-  useEffect(function alertOnGameOver() {
-    if (utilities.isGameOver(round)) {
-      alert(`Game over!`);
-    }
-  }, [round]);
   //#endregion
 
   return (
@@ -165,6 +163,7 @@ export default function Game(props) {
         moveSelectedBall={moveSelectedBall}
         endRound={endRound}
         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+        gameOverAlert={gameOverAlert}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}

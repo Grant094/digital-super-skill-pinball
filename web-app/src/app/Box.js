@@ -63,7 +63,11 @@ export default function Box(props) {
                     ) &&
                     (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(props.boxId)) // does this box send the ball to the drain?
                 ) {
-                    props.endRound();
+                    if (utilities.isLastRound(props.round)) {
+                        props.gameOverAlert();
+                    } else {
+                        props.endRound();
+                    }
                 }
 
                 props.autoSelectOnlyRemainingBall();
