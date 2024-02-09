@@ -297,6 +297,7 @@ export const DRAIN_FEATURE_LEFT = "257px";
 export const DRAIN_FEATURE_TOP = "1000px";
 export const DRAIN_BOX_ID = "box-drain-123456";
 export const DRAIN_GROUP_BOX_ID = [DRAIN_BOX_ID];
+export const DRAIN_CORRESPONDING_BOX_IDS = [YEL_OUTLANE_BOX_ID, RED_OUTLANE_BOX_ID, DRAIN_BOX_ID];
 //#endregion
 //#region allFeatureIds
 export const ALL_FEATURE_IDS = [

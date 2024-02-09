@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./box.module.css";
 import * as constants from "./constants";
 import * as utilities from "./utilities";
@@ -56,6 +56,26 @@ export default function Box(props) {
                     props.action();
                 }
 
+                if (props.possiblyClearBoxGroup) {
+                    props.possiblyClearBoxGroup();
+                }
+
+                if (
+                    (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
+                        props.ball1FeatureId === constants.DRAIN_FEATURE_ID ||
+                        props.ball2FeatureId === constants.DRAIN_FEATURE_ID
+                    ) &&
+                    (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(props.boxId)) // does this box send the ball to the drain?
+                ) {
+                    if (utilities.isLastRound(props.round)) {
+                        props.gameOverAlert();
+                    } else {
+                        props.endRound(props.clearDashedBoxes);
+                    }
+                }
+
+                props.autoSelectOnlyRemainingBall();
+                
                 props.rollDice();
             }
         } else { // invalidChoiceAlert

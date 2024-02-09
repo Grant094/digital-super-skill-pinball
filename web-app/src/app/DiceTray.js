@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import styles from "./dicetray.module.css";
 import * as constants from "./constants";
 import * as utilities from "./utilities";

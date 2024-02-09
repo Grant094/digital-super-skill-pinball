@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import * as constants from "./constants";
 import * as utilities from "./utilities";
 import Feature from "./Feature";
@@ -197,34 +197,13 @@ export default function Table(props) {
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
         props.addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX);
     }
-    //#endregion
 
-    //#region useEffect
-    useEffect(function possiblyClearFerriswheelcars() {
-        possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)
-    }, [...ferriswheelBoxBackgroundColors]);
-
-    useEffect(function possiblyClearBumpers() {
-        possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters);
-    }, [...bumperBoxBackgroundColors]);
-
-    useEffect(function possiblyClearHammerSpaces() {
-        possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters);
-    }, [...hammerspaceBoxBackgroundColors]);
-
-    useEffect(function possiblyClearYelDroptargets() {
-        possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters);
-    }, [...yelDroptargetBoxBackgroundColors])
-
-    useEffect(function possiblyClearRedDroptargets() {
-        possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters);
-    }, [...redDroptargetBoxBackgroundColors]);
-
-    useEffect(function clearDashedBoxes() {
+    function clearDashedBoxes() {
         for (const setter of dashedBoxesBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
-    }, [props.round]);
+    }
+
     //#endregion
 
     return (
@@ -247,6 +226,7 @@ export default function Table(props) {
                         canReceiveOn={[1, 2]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_12_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -265,6 +245,7 @@ export default function Table(props) {
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_34_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -283,6 +264,7 @@ export default function Table(props) {
                         canReceiveOn={[5, 6]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_56_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
                         left="350px"
                         top="246px"
                         height="48px"
@@ -303,6 +285,7 @@ export default function Table(props) {
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="155px"
                         top="373px"
                         height="25px"
@@ -316,6 +299,7 @@ export default function Table(props) {
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="155px"
                         top="402px"
                         height="25px"
@@ -329,6 +313,7 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="185px"
                         top="373px"
                         height="25px"
@@ -342,6 +327,7 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="185px"
                         top="402px"
                         height="25px"
@@ -361,6 +347,7 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="288px"
                         top="373px"
                         height="25px"
@@ -374,6 +361,7 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="288px"
                         top="402px"
                         height="25px"
@@ -387,6 +375,7 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="317px"
                         top="373px"
                         height="25px"
@@ -400,6 +389,7 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="317px"
                         top="402px"
                         height="25px"
@@ -419,6 +409,7 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="221px"
                         top="475px"
                         height="25px"
@@ -432,6 +423,7 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="221px"
                         top="505px"
                         height="25px"
@@ -445,6 +437,7 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="251px"
                         top="475px"
                         height="25px"
@@ -458,6 +451,7 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                         left="251px"
                         top="505px"
                         height="25px"
@@ -479,6 +473,7 @@ export default function Table(props) {
                         canReceiveOn={[1]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_1_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                         left="376px"
                         top="535px"
                         height="25px"
@@ -497,6 +492,7 @@ export default function Table(props) {
                         canReceiveOn={[2]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_2_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
                         left="388px"
                         top="505px"
@@ -517,6 +513,7 @@ export default function Table(props) {
                         canReceiveOn={[3]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_3_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
                         left="398px"
                         top="477px"
@@ -537,6 +534,7 @@ export default function Table(props) {
                         canReceiveOn={[4]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_4_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
                         left="409px"
                         top="448px"
@@ -557,6 +555,7 @@ export default function Table(props) {
                         canReceiveOn={[5]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_5_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
                         left="420px"
                         top="420px"
@@ -577,6 +576,7 @@ export default function Table(props) {
                         canReceiveOn={[6]}
                         canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.HAMMER_SPACE_6_FEATURE_ID)}
+                        possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                         isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
                         left="430px"
                         top="390px"
@@ -600,6 +600,7 @@ export default function Table(props) {
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_DROPTARGET_12_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters)}
                             left="30px"
                             top="675px"
                             height="60px"
@@ -619,6 +620,7 @@ export default function Table(props) {
                             canReceiveOn={[3, 4]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_DROPTARGET_34_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters)}
                             left="60px"
                             top="615px"
                             height="60px"
@@ -638,6 +640,7 @@ export default function Table(props) {
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_DROPTARGET_56_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters)}
                             left="95px"
                             top="560px"
                             height="60px"
@@ -659,6 +662,7 @@ export default function Table(props) {
                             canReceiveOn={[1, 2]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_12_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
                             left="415px"
                             top="570px"
                             height="50px"
@@ -678,6 +682,7 @@ export default function Table(props) {
                             canReceiveOn={[3]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_3_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
                             left="435px"
                             top="621px"
                             height="40px"
@@ -697,6 +702,7 @@ export default function Table(props) {
                             canReceiveOn={[4]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_4_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
                             left="455px"
                             top="665px"
                             height="42px"
@@ -716,6 +722,7 @@ export default function Table(props) {
                             canReceiveOn={[5, 6]}
                             canReceiveFrom={constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_DROPTARGET_56_FEATURE_ID)}
+                            possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
                             left="480px"
                             top="710px"
                             height="55px"
@@ -733,6 +740,7 @@ export default function Table(props) {
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
+                    clearDashedBoxes={clearDashedBoxes}
                     action={() => outlaneAction(redFlipperBoxesBackgroundColors)}
                     left="18px"
                     top="815px"
@@ -744,6 +752,7 @@ export default function Table(props) {
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
+                    clearDashedBoxes={clearDashedBoxes}
                     action={() => outlaneAction(yelFlipperBoxesBackgroundColors)}
                     left="458px"
                     top="815px"
@@ -874,6 +883,7 @@ export default function Table(props) {
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
+                    clearDashedBoxes={clearDashedBoxes}
                     left="220px"
                     top="920px"
                     height="85px"

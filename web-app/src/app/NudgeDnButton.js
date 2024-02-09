@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from "react";
+import React from "react";
 import NudgeButton from "./NudgeButton";
 
 export default function NudgeDnButton(props) {
