@@ -56,6 +56,16 @@ export default function Box(props) {
                     props.action();
                 }
 
+                if (
+                    (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
+                        props.ball1FeatureId === constants.DRAIN_FEATURE_ID ||
+                        props.ball2FeatureId === constants.DRAIN_FEATURE_ID
+                    ) &&
+                    (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(props.boxId)) // does this box send the ball to the drain?
+                ) {
+                    props.endRound();
+                }
+                
                 props.rollDice();
             }
         } else { // invalidChoiceAlert

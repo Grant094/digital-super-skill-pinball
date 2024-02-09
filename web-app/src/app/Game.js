@@ -129,12 +129,6 @@ export default function Game(props) {
     }
   }, []);
 
-  useEffect(function endRoundWhenBothBallsAreInDrain() {
-    if (utilities.isRoundOver(ball1FeatureId, ball2FeatureId)) {
-      endRound();
-    }
-  }, [ball1FeatureId, ball2FeatureId]);
-
   useEffect(function alwaysSelectOnlyRemainingBall() {
     if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
       setSelectedBallId(constants.BALL2_ID);
@@ -169,6 +163,7 @@ export default function Game(props) {
         selectedBallId={selectedBallId}
         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
         moveSelectedBall={moveSelectedBall}
+        endRound={endRound}
       />
       <DiceTray dicetrayId="dice-tray"
         die1={die1}
