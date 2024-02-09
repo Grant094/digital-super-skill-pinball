@@ -197,6 +197,13 @@ export default function Table(props) {
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
         props.addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX);
     }
+
+    function clearDashedBoxes() {
+        for (const setter of dashedBoxesBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
+        }
+    }
+
     //#endregion
 
     //#region useEffect
@@ -219,12 +226,6 @@ export default function Table(props) {
     useEffect(function possiblyClearRedDroptargets() {
         possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters);
     }, [...redDroptargetBoxBackgroundColors]);
-
-    useEffect(function clearDashedBoxes() {
-        for (const setter of dashedBoxesBackgroundColorSetters) {
-            setter(constants.UNFILLED_BACKGROUND_COLOR);
-        }
-    }, [props.round]);
     //#endregion
 
     return (
@@ -733,6 +734,7 @@ export default function Table(props) {
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
+                    clearDashedBoxes={clearDashedBoxes}
                     action={() => outlaneAction(redFlipperBoxesBackgroundColors)}
                     left="18px"
                     top="815px"
@@ -744,6 +746,7 @@ export default function Table(props) {
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
+                    clearDashedBoxes={clearDashedBoxes}
                     action={() => outlaneAction(yelFlipperBoxesBackgroundColors)}
                     left="458px"
                     top="815px"
@@ -874,6 +877,7 @@ export default function Table(props) {
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
+                    clearDashedBoxes={clearDashedBoxes}
                     left="220px"
                     top="920px"
                     height="85px"

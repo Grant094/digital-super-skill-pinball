@@ -46,9 +46,13 @@ export default function Game(props) {
     }
   }
 
-  function endRound() {
+  function endRound(clearDashedBoxes = null) {
     // increment round
     incRound();
+
+    if (clearDashedBoxes) {
+        clearDashedBoxes();
+    }
 
     // move ball1 to start
     setSelectedBallId(constants.BALL1_ID);

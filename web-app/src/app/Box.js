@@ -66,7 +66,7 @@ export default function Box(props) {
                     if (utilities.isLastRound(props.round)) {
                         props.gameOverAlert();
                     } else {
-                        props.endRound();
+                        props.endRound(props.clearDashedBoxes);
                     }
                 }
 
