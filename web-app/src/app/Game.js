@@ -22,14 +22,11 @@ export default function Game(props) {
   const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
   const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
   const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
-  const [gameId, setGameId] = useState(0);
   //#endregion
 
   //#region functions
   const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
-  const resetNudgesUsed = (() => setNudgesUsed(0));
   const incRound = (() => setRound(round + 1));
-  const incGameId = (() => setGameId(Number(gameId) + 1));
 
   function getSelectedBallFeatureId(selectedBallId) {
     if (selectedBallId === constants.BALL1_ID) {
@@ -103,16 +100,7 @@ export default function Game(props) {
   }
 
   function handleRestart() {
-    //#region reset-state
-    setScore(0);
-    setRound(1);
-    resetNudgesUsed();
-    incGameId();
-    //#endregion
-
-    moveSelectedBall(constants.START_FEATURE_ID);
-
-    rollDice();
+    props.incGameId();
   }
 
   function addPoints(pointsToAdd) {
@@ -144,7 +132,6 @@ export default function Game(props) {
   return (
     <div>
       <Table tableId="table"
-        key={gameId}
         die1={die1}
         die2={die2}
         rollDice={rollDice}
