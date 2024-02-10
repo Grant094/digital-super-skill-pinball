@@ -1098,6 +1098,36 @@ describe("Game", () => {
             expect(Number(die2Element.innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
             //#endregion
         });
+        it('should remove the alert after the player makes a valid move', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // nudge die1 by -1 to 1
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const die1NudgeDnButtonElement = screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID);
+            const die1NudgeUpButtonElement = screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID);
+            const alertTrayElement = screen.getByTitle(constants.ALERT_TRAY_ID);
+            const alertParagraphElement = screen.getByTitle(constants.ALERT_PARAGRAPH_ID);
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            //#endregion
+            //#region act
+            await user.click(die1NudgeDnButtonElement);
+            await user.click(redOutlaneElement);
+            await user.click(die1NudgeUpButtonElement);
+            await user.click(ferriswheelcar12BoxElement);
+            //#endregion
+            //#region assert
+            expect(alertParagraphElement.innerHTML).toEqual("");
+            expect(alertTrayElement).not.toBeVisible();
+            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            //#endregion
+        });
     });
     describe('when ending a round but not the game', () => {
         it('should clear a dashed box but not clear a solid box at the end of the round', async () => {
