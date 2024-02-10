@@ -1606,6 +1606,24 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when ending the game', () => {
+        it('should display the game over message in the alert tray', async () => {
+            //#region arrange
+            DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            //#endregion
+            //#region assert
+            //#endregion
+        });
+    });
 });
 
 describe('Home', () => {

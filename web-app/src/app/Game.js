@@ -122,7 +122,7 @@ export default function Game(props) {
     }
 
     function gameOverAlert() {
-        alert(`Game over!`);
+        setAlertParagraphText('Game over!');
     }
     //#endregion
 
