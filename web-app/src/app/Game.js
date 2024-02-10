@@ -23,6 +23,7 @@ export default function Game(props) {
     const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
+    const [alertParagraphText, setAlertParagraphText] = useState("");
     //#endregion
 
     //#region functions
@@ -175,7 +176,7 @@ export default function Game(props) {
             />
             <AlertTray alertTrayId="alert-tray"
                 paragraphId="alert-paragraph"
-                alertParagraphText="I am an alert!"
+                alertParagraphText={alertParagraphText}
             />
         </div>
     );
