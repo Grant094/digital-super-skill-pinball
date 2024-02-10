@@ -28,7 +28,7 @@ export default function Box(props) {
             utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
-            props.setAlertParagraphText("You cannot nudge into an outlane");
+            props.setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
         } else if (couldReceiveSelectedBall()) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&

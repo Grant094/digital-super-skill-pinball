@@ -1067,6 +1067,38 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when attempting to nudge the only ball into an outlane', () => {
+        it('should alert the player that they cannot nudge into the red outlane, not move the ball, and not roll the dice', async () => {
+            //#region arrange
+            const DIE1_1ST_VALUE = 2;
+            const DIE2_1ST_VALUE = 5;
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE], // nudge 2 to 1 and click on red outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const die1NudgeDnButtonElement = screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID);
+            const alertParagraphElement = screen.getByTitle(constants.ALERT_PARAGRAPH_ID);
+            const die1Element = screen.getByTitle(constants.DIE1_ID);
+            const die2Element = screen.getByTitle(constants.DIE2_ID);
+            //#endregion
+            //#region act
+            await user.click(die1NudgeDnButtonElement)
+            await user.click(redOutlaneElement);
+            //#endregion
+            //#region assert
+            expect(alertParagraphElement.innerHTML).toEqual(constants.OUTLANE_NUDGE_ALERT);
+            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
+            expect(Number(die1Element.innerHTML)).toEqual(Number(DIE1_1ST_VALUE) - 1); // was nudged
+            expect(Number(die2Element.innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
+            //#endregion
+        });
+    });
     describe('when ending a round but not the game', () => {
         it('should clear a dashed box but not clear a solid box at the end of the round', async () => {
             //#region arrange
