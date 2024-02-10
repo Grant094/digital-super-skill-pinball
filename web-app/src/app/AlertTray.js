@@ -11,7 +11,7 @@ export default function AlertTray(props) {
             <p id={props.paragraphId} title={props.paragraphId}
                 className={styles.AlertTrayParagraph}
             >
-                {props.paragraphText}
+                {props.alertParagraphText}
             </p>
         </div>
     );

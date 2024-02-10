@@ -175,7 +175,7 @@ export default function Game(props) {
             />
             <AlertTray alertTrayId="alert-tray"
                 paragraphId="alert-paragraph"
-                paragraphText="I am an alert!"
+                alertParagraphText="I am an alert!"
             />
         </div>
     );
