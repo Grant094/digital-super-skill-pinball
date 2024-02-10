@@ -7,6 +7,7 @@ import Table from "./Table";
 import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
+import AlertTray from "./AlertTray";
 
 export default function Game(props) {
     let didInit = false;
@@ -171,6 +172,10 @@ export default function Game(props) {
             <RestartTray restartrayId="restart-tray"
                 restartButtonId={constants.RESTART_BUTTON_ID}
                 onClick={handleRestart}
+            />
+            <AlertTray alertTrayId="alert-tray"
+                paragraphId="alert-paragraph"
+                paragraphText="I am an alert!"
             />
         </div>
     );
