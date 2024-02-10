@@ -156,6 +156,7 @@ export default function Game(props) {
                 endRound={endRound}
                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                 gameOverAlert={gameOverAlert}
+                setAlertParagraphText={setAlertParagraphText}
             />
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
