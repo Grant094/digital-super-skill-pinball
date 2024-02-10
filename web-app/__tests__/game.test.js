@@ -74,6 +74,18 @@ describe("Game", () => {
             expect(ball2Element).not.toBeVisible();
             //#endregion
         });
+        it('should render the alert tray as hidden', () => {
+            //#region arrange
+            render(<Game />);
+            const alertTrayElement = screen.getByTitle(constants.ALERT_TRAY_ID);
+            //#endregion
+            //#region act - not applicable
+            //#endregion
+            //#region assert
+            expect(alertTrayElement).toBeInTheDocument();
+            expect(alertTrayElement).not.toBeVisible();
+            //#endregion
+        });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {

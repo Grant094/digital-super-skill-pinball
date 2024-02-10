@@ -351,6 +351,10 @@ export const DIE1_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die1";
 export const DIE2_NUDGE_UP_BUTTON_ID = "nudge-up-button-die2";
 export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 //#endregion
+//#region AlertTray
+export const ALERT_TRAY_ID = "alert-tray";
+export const ALERT_PARAGRAPH_ID = "alert-paragraph"
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";

@@ -174,8 +174,8 @@ export default function Game(props) {
                 restartButtonId={constants.RESTART_BUTTON_ID}
                 onClick={handleRestart}
             />
-            <AlertTray alertTrayId="alert-tray"
-                paragraphId="alert-paragraph"
+            <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
+                paragraphId={constants.ALERT_PARAGRAPH_ID}
                 alertParagraphText={alertParagraphText}
             />
         </div>
