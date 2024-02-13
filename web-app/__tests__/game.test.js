@@ -1609,7 +1609,7 @@ describe("Game", () => {
     describe('when ending the game', () => {
         it('should display the game over message in the alert tray', async () => {
             //#region arrange
-            DIE_VALUES = [
+            const DIE_VALUES = [
                 [1, 1], // go to drain to go from round 1 to round 2
                 [1, 1], // go to drain to go from round 2 to round 3
                 [1, 1], // go to drain to end the game
