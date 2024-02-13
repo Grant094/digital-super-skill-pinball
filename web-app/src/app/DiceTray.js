@@ -43,7 +43,7 @@ export default function DiceTray(props) {
                 />
             </Fragment>
             <Fragment key="nudge-and-tilt-info">
-                <p title="nudgesUsed">Nudges Used: {props.nudgesUsed}</p>
+                <p title={constants.NUDGES_USED_PARAGRAPH_ID}>Nudges Used: {props.nudgesUsed}</p>
                 <p title="differenceToTiltOnOrGreaterThan">{netNudgeAmount? `Tilt if difference <= ${netNudgeAmount}`: `Cannot Tilt`}</p> {/* if one of the dice has been nudged, display by how much, otherwise do not show anything */}
             </Fragment>
         </div>

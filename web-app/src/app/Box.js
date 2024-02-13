@@ -28,15 +28,16 @@ export default function Box(props) {
             utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
-            alert("You cannot nudge into an outlane");
+            props.setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
         } else if (couldReceiveSelectedBall()) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
                 (props.boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
                 (!props.isPrecedingHammerspaceBoxFilled)
             ) {
-                alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+                props.setAlertParagraphText(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else { // moveBallAndPerformConsequences
+                props.setAlertParagraphText("");
                 // if nudged, increment nudges used
                 if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
                     props.incNudgesUsed();
@@ -70,7 +71,7 @@ export default function Box(props) {
                     if (utilities.isLastRound(props.round)) {
                         props.gameOverAlert();
                     } else {
-                        props.endRound(props.clearDashedBoxes);
+                        props.endRound();
                     }
                 }
 
@@ -79,15 +80,7 @@ export default function Box(props) {
                 props.rollDice();
             }
         } else { // invalidChoiceAlert
-            alert(`
-                invalid choice!
-                Die1: ${props.die1}
-                Die2: ${props.die2}
-                canRecieveOn: ${props.canReceiveOn}
-                selectedBallFeatureId: ${props.getSelectedBallFeatureId()}
-                ball1FeatureId: ${props.ball1FeatureId}
-                ball2FeatureId: ${props.ball2FeatureId}
-            `);
+            props.setAlertParagraphText(`Invalid choice!`);
         }
     }
     //#endregion

@@ -74,6 +74,18 @@ describe("Game", () => {
             expect(ball2Element).not.toBeVisible();
             //#endregion
         });
+        it('should render the alert tray as hidden', () => {
+            //#region arrange
+            render(<Game />);
+            const alertTrayElement = screen.getByTitle(constants.ALERT_TRAY_ID);
+            //#endregion
+            //#region act - not applicable
+            //#endregion
+            //#region assert
+            expect(alertTrayElement).toBeInTheDocument();
+            expect(alertTrayElement).not.toBeVisible();
+            //#endregion
+        });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {
@@ -1047,11 +1059,193 @@ describe("Game", () => {
             await user.click(redInlaneBoxElement);
             await user.click(hammerspace5BoxElement);
             await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace6BoxElement);            //#endregion
+            await user.click(hammerspace6BoxElement);
+            //#endregion
             //#region assert
             expect(ball1Element.style.top).toEqual(hammerspace6FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace6FeatureElement.style.left);
             expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
+            //#endregion
+        });
+        it('should have an alert and no other change when attempting to go out of sequence', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // from start to red flipper via red flipper box 3
+                [1, 1], // to hammer space 1
+                [4, 5], // to red flipper via red flipper box 45
+                [6, 6], // attempt to move to hammer space 6 out of sequence
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("You must fill in the hammer spaces in sequence from 1 to 6!");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("6");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            //#endregion
+        });
+    });
+    describe('when attempting to make an invalid move', () => {
+        it('should have an alert in the alert tray but change nothing else', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // attempt to move from start to bumper 56 1st 5
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Invalid choice!");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            //#endregion
+        });
+        it('should allow the user to make a valid move after the invalid one and hide the alert while making the valid move', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // eventually move to bumper 34 via 1st 3 box
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            //#endregion
+        });
+    });
+    describe('when attempting to nudge the only ball into an outlane', () => {
+        it('should alert the player that they cannot nudge into the red outlane, not move the ball, and not roll the dice', async () => {
+            //#region arrange
+            const DIE1_1ST_VALUE = 2;
+            const DIE2_1ST_VALUE = 5;
+            const DIE_VALUES = [
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE], // nudge 2 to 1 and click on red outlane
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const die1NudgeDnButtonElement = screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID);
+            const alertParagraphElement = screen.getByTitle(constants.ALERT_PARAGRAPH_ID);
+            const die1Element = screen.getByTitle(constants.DIE1_ID);
+            const die2Element = screen.getByTitle(constants.DIE2_ID);
+            //#endregion
+            //#region act
+            await user.click(die1NudgeDnButtonElement)
+            await user.click(redOutlaneElement);
+            //#endregion
+            //#region assert
+            expect(alertParagraphElement.innerHTML).toEqual(constants.OUTLANE_NUDGE_ALERT);
+            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
+            expect(Number(die1Element.innerHTML)).toEqual(Number(DIE1_1ST_VALUE) - 1); // was nudged
+            expect(Number(die2Element.innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
+            //#endregion
+        });
+        it('should remove the alert after the player makes a valid move', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // nudge die1 by -1 to 1
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
+            const ball1Element = screen.getByTitle(constants.BALL1_ID);
+            const die1NudgeDnButtonElement = screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID);
+            const die1NudgeUpButtonElement = screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID);
+            const alertTrayElement = screen.getByTitle(constants.ALERT_TRAY_ID);
+            const alertParagraphElement = screen.getByTitle(constants.ALERT_PARAGRAPH_ID);
+            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
+            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
+            //#endregion
+            //#region act
+            await user.click(die1NudgeDnButtonElement);
+            await user.click(redOutlaneElement);
+            await user.click(die1NudgeUpButtonElement);
+            await user.click(ferriswheelcar12BoxElement);
+            //#endregion
+            //#region assert
+            expect(alertParagraphElement.innerHTML).toEqual("");
+            expect(alertTrayElement).not.toBeVisible();
+            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
+            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            //#endregion
+        });
+    });
+    describe('when validly nudging the only ball to move the only ball', () => {
+        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge -1 to move to bumper 12 via 1st 1 box
+                [1, 6], // final roll that avoids tilting
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge -1 to move from start to red flipper via red inlane
+                [1, 1], // final roll that causes tilt
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted!");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
             //#endregion
         });
     });
@@ -1532,6 +1726,103 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when ending the game', () => {
+        it('should display the game over message in the alert tray', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeInTheDocument()
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).toBeInTheDocument()
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Game over!");
+            //#endregion
+        });
+        it('should hide both balls', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.BALL2_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should keep boxes filled in', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go from start to ferris wheel car 12
+                [2, 2], // go to red flipper via red inlane
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+        it('should maintain score and nudges used', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [2, 2], // nudge up 1 to 3 and move from start to bumper 34 via 1st 3 (worth 1 point)
+                [1, 6], // avoid tilt and then go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 3
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            //#endregion
+        });
+    });
 });
 
 describe('Home', () => {
@@ -1568,7 +1859,7 @@ describe('Home', () => {
             const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
             const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
             const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            const nudgesUsedParagraphElement = screen.getByTitle("nudgesUsed");
+            const nudgesUsedParagraphElement = screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);

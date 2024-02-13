@@ -7,6 +7,7 @@ import Table from "./Table";
 import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
+import AlertTray from "./AlertTray";
 
 export default function Game(props) {
     let didInit = false;
@@ -22,6 +23,44 @@ export default function Game(props) {
     const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
+    const [alertParagraphText, setAlertParagraphText] = useState("");
+    //#region dashed boxes
+    const [redOutlaneBoxBackgroundColor, setRedOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelOutlaneBoxBackgroundColor, setYelOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redInlaneBoxBackgroundColor, setRedInlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelInlaneBoxBackgroundColor, setYelInlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redFlipperBox3BoxBackgroundColor, setRedFlipperBox3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redFlipperBox45BoxBackgroundColor, setRedFlipperBox45BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redFlipperBox6BoxBackgroundColor, setRedFlipperBox6BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelFlipperBox1BoxBackgroundColor, setYelFlipperBox1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelFlipperBox23BoxBackgroundColor, setYelFlipperBox23BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    //#endregion
+    //#endregion
+
+    //#region dashed boxes background color arrays
+    const dashedBoxesBackgroundColorSetters = [
+        setRedOutlaneBoxBackgroundColor,
+        setYelOutlaneBoxBackgroundColor,
+        setRedInlaneBoxBackgroundColor,
+        setYelInlaneBoxBackgroundColor,
+        setRedFlipperBox3BoxBackgroundColor,
+        setRedFlipperBox45BoxBackgroundColor,
+        setRedFlipperBox6BoxBackgroundColor,
+        setYelFlipperBox1BoxBackgroundColor,
+        setYelFlipperBox23BoxBackgroundColor,
+        setYelFlipperBox4BoxBackgroundColor,
+    ];
+    const redFlipperBoxesBackgroundColors = [
+        redFlipperBox3BoxBackgroundColor,
+        redFlipperBox45BoxBackgroundColor,
+        redFlipperBox6BoxBackgroundColor,
+    ];
+    const yelFlipperBoxesBackgroundColors = [
+        yelFlipperBox1BoxBackgroundColor,
+        yelFlipperBox23BoxBackgroundColor,
+        yelFlipperBox4BoxBackgroundColor,
+    ];
     //#endregion
 
     //#region functions
@@ -46,13 +85,17 @@ export default function Game(props) {
         }
     }
 
-    function endRound(clearDashedBoxes = null) {
+    function clearDashedBoxes() {
+        for (const setter of dashedBoxesBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
+        }
+    }
+
+    function endRound() {
         // increment round
         incRound();
 
-        if (clearDashedBoxes) {
-            clearDashedBoxes();
-        }
+        clearDashedBoxes();
 
         // move ball1 to start
         setSelectedBallId(constants.BALL1_ID);
@@ -72,7 +115,7 @@ export default function Game(props) {
             // check whether player tilted and if so end the round
             if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
                 // player tilted so they should be notified and then the round should be ended
-                alert(`Tilted!`);
+                setAlertParagraphText(`Tilted!`);
 
                 endRound();
             }
@@ -120,7 +163,7 @@ export default function Game(props) {
     }
 
     function gameOverAlert() {
-        alert(`Game over!`);
+        setAlertParagraphText('Game over!');
     }
     //#endregion
 
@@ -146,6 +189,28 @@ export default function Game(props) {
                 ball2FeatureId={ball2FeatureId}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
+                redOutlaneBoxBackgroundColor={redOutlaneBoxBackgroundColor}
+                setRedOutlaneBoxBackgroundColor={setRedOutlaneBoxBackgroundColor}
+                yelOutlaneBoxBackgroundColor={yelOutlaneBoxBackgroundColor}
+                setYelOutlaneBoxBackgroundColor={setYelOutlaneBoxBackgroundColor}
+                redInlaneBoxBackgroundColor={redInlaneBoxBackgroundColor}
+                setRedInlaneBoxBackgroundColor={setRedInlaneBoxBackgroundColor}
+                yelInlaneBoxBackgroundColor={yelInlaneBoxBackgroundColor}
+                setYelInlaneBoxBackgroundColor={setYelInlaneBoxBackgroundColor}
+                redFlipperBox3BoxBackgroundColor={redFlipperBox3BoxBackgroundColor}
+                setRedFlipperBox3BoxBackgroundColor={setRedFlipperBox3BoxBackgroundColor}
+                redFlipperBox45BoxBackgroundColor={redFlipperBox45BoxBackgroundColor}
+                setRedFlipperBox45BoxBackgroundColor={setRedFlipperBox45BoxBackgroundColor}
+                redFlipperBox6BoxBackgroundColor={redFlipperBox6BoxBackgroundColor}
+                setRedFlipperBox6BoxBackgroundColor={setRedFlipperBox6BoxBackgroundColor}
+                yelFlipperBox1BoxBackgroundColor={yelFlipperBox1BoxBackgroundColor}
+                setYelFlipperBox1BoxBackgroundColor={setYelFlipperBox1BoxBackgroundColor}
+                yelFlipperBox23BoxBackgroundColor={yelFlipperBox23BoxBackgroundColor}
+                setYelFlipperBox23BoxBackgroundColor={setYelFlipperBox23BoxBackgroundColor}
+                yelFlipperBox4BoxBackgroundColor={yelFlipperBox4BoxBackgroundColor}
+                setYelFlipperBox4BoxBackgroundColor={setYelFlipperBox4BoxBackgroundColor}
+                redFlipperBoxesBackgroundColors={redFlipperBoxesBackgroundColors}
+                yelFlipperBoxesBackgroundColors={yelFlipperBoxesBackgroundColors}
                 nudgesUsed={nudgesUsed}
                 incNudgesUsed={incNudgesUsed}
                 selectedBallId={selectedBallId}
@@ -154,6 +219,7 @@ export default function Game(props) {
                 endRound={endRound}
                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                 gameOverAlert={gameOverAlert}
+                setAlertParagraphText={setAlertParagraphText}
             />
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
@@ -171,6 +237,10 @@ export default function Game(props) {
             <RestartTray restartrayId="restart-tray"
                 restartButtonId={constants.RESTART_BUTTON_ID}
                 onClick={handleRestart}
+            />
+            <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
+                paragraphId={constants.ALERT_PARAGRAPH_ID}
+                alertParagraphText={alertParagraphText}
             />
         </div>
     );

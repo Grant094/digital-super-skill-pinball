@@ -41,16 +41,6 @@ export default function Table(props) {
     const [redDroptarget3BoxBackgroundColor, setRedDroptarget3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [redDroptarget4BoxBackgroundColor, setRedDroptarget4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [redDroptarget56BoxBackgroundColor, setRedDroptarget56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [redOutlaneBoxBackgroundColor, setRedOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [yelOutlaneBoxBackgroundColor, setYelOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [redInlaneBoxBackgroundColor, setRedInlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [yelInlaneBoxBackgroundColor, setYelInlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [redFlipperBox3BoxBackgroundColor, setRedFlipperBox3BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [redFlipperBox45BoxBackgroundColor, setRedFlipperBox45BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [redFlipperBox6BoxBackgroundColor, setRedFlipperBox6BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [yelFlipperBox1BoxBackgroundColor, setYelFlipperBox1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [yelFlipperBox23BoxBackgroundColor, setYelFlipperBox23BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
     //#endregion
@@ -141,30 +131,6 @@ export default function Table(props) {
         setRedDroptarget56BoxBackgroundColor,
     ];
     //#endregion
-    //#region miscBoxBackgroundColorArrays
-    const dashedBoxesBackgroundColorSetters = [
-        setRedOutlaneBoxBackgroundColor,
-        setYelOutlaneBoxBackgroundColor,
-        setRedInlaneBoxBackgroundColor,
-        setYelInlaneBoxBackgroundColor,
-        setRedFlipperBox3BoxBackgroundColor,
-        setRedFlipperBox45BoxBackgroundColor,
-        setRedFlipperBox6BoxBackgroundColor,
-        setYelFlipperBox1BoxBackgroundColor,
-        setYelFlipperBox23BoxBackgroundColor,
-        setYelFlipperBox4BoxBackgroundColor,
-    ];
-    const redFlipperBoxesBackgroundColors = [
-        redFlipperBox3BoxBackgroundColor,
-        redFlipperBox45BoxBackgroundColor,
-        redFlipperBox6BoxBackgroundColor,
-    ];
-    const yelFlipperBoxesBackgroundColors = [
-        yelFlipperBox1BoxBackgroundColor,
-        yelFlipperBox23BoxBackgroundColor,
-        yelFlipperBox4BoxBackgroundColor,
-    ];
-    //#endregion
     //#endregion
 
     //#region functions
@@ -196,12 +162,6 @@ export default function Table(props) {
         const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
         props.addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX);
-    }
-
-    function clearDashedBoxes() {
-        for (const setter of dashedBoxesBackgroundColorSetters) {
-            setter(constants.UNFILLED_BACKGROUND_COLOR);
-        }
     }
 
     //#endregion
@@ -735,25 +695,23 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="outlanes">
                 <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(redOutlaneBoxBackgroundColor)}
-                    fillBox={() => setRedOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.redOutlaneBoxBackgroundColor)}
+                    fillBox={() => props.setRedOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
-                    clearDashedBoxes={clearDashedBoxes}
-                    action={() => outlaneAction(redFlipperBoxesBackgroundColors)}
+                    action={() => outlaneAction(props.redFlipperBoxesBackgroundColors)}
                     left="18px"
                     top="815px"
                     {...props}
                 />
                 <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(yelOutlaneBoxBackgroundColor)}
-                    fillBox={() => setYelOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.yelOutlaneBoxBackgroundColor)}
+                    fillBox={() => props.setYelOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
-                    clearDashedBoxes={clearDashedBoxes}
-                    action={() => outlaneAction(yelFlipperBoxesBackgroundColors)}
+                    action={() => outlaneAction(props.yelFlipperBoxesBackgroundColors)}
                     left="458px"
                     top="815px"
                     {...props}
@@ -761,8 +719,8 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="inlanes">
                 <DashedBox boxId={constants.RED_INLANE_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(redInlaneBoxBackgroundColor)}
-                    fillBox={() => setRedInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.redInlaneBoxBackgroundColor)}
+                    fillBox={() => props.setRedInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[2]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
@@ -774,8 +732,8 @@ export default function Table(props) {
                     {...props}
                 />
                 <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(yelInlaneBoxBackgroundColor)}
-                    fillBox={() => setYelInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.yelInlaneBoxBackgroundColor)}
+                    fillBox={() => props.setYelInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[5]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
@@ -799,8 +757,8 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="redflipperboxes">
                 <DashedBox boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(redFlipperBox3BoxBackgroundColor)}
-                    fillBox={() => setRedFlipperBox3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.redFlipperBox3BoxBackgroundColor)}
+                    fillBox={() => props.setRedFlipperBox3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[3]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
@@ -811,8 +769,8 @@ export default function Table(props) {
                     {...props}
                 />
                 <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(redFlipperBox45BoxBackgroundColor)}
-                    fillBox={() => setRedFlipperBox45BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.redFlipperBox45BoxBackgroundColor)}
+                    fillBox={() => props.setRedFlipperBox45BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[4, 5]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
@@ -823,8 +781,8 @@ export default function Table(props) {
                     {...props}
                 />
                 <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(redFlipperBox6BoxBackgroundColor)}
-                    fillBox={() => setRedFlipperBox6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.redFlipperBox6BoxBackgroundColor)}
+                    fillBox={() => props.setRedFlipperBox6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
@@ -837,8 +795,8 @@ export default function Table(props) {
             </Fragment>
             <Fragment key="yelflipperboxes">
                 <DashedBox boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(yelFlipperBox1BoxBackgroundColor)}
-                    fillBox={() => setYelFlipperBox1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.yelFlipperBox1BoxBackgroundColor)}
+                    fillBox={() => props.setYelFlipperBox1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[1]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
@@ -849,8 +807,8 @@ export default function Table(props) {
                     {...props}
                 />
                 <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(yelFlipperBox23BoxBackgroundColor)}
-                    fillBox={() => setYelFlipperBox23BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.yelFlipperBox23BoxBackgroundColor)}
+                    fillBox={() => props.setYelFlipperBox23BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[2, 3]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
@@ -861,8 +819,8 @@ export default function Table(props) {
                     {...props}
                 />
                 <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
-                    isThisBoxFilled={isBoxFilled(yelFlipperBox4BoxBackgroundColor)}
-                    fillBox={() => setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                    isThisBoxFilled={isBoxFilled(props.yelFlipperBox4BoxBackgroundColor)}
+                    fillBox={() => props.setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                     canReceiveOn={[4]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
@@ -883,7 +841,6 @@ export default function Table(props) {
                     canReceiveOn={[1, 2, 3, 4, 5, 6]}
                     canReceiveFrom={constants.ALL_FEATURE_IDS}
                     moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.DRAIN_FEATURE_ID)}
-                    clearDashedBoxes={clearDashedBoxes}
                     left="220px"
                     top="920px"
                     height="85px"

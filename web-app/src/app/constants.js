@@ -351,10 +351,16 @@ export const DIE1_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die1";
 export const DIE2_NUDGE_UP_BUTTON_ID = "nudge-up-button-die2";
 export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 //#endregion
+//#region AlertTray
+export const ALERT_TRAY_ID = "alert-tray";
+export const ALERT_PARAGRAPH_ID = "alert-paragraph"
+export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
 export const FILLED_BACKGROUND_COLOR = "black";
 export const POINTS_PER_USED_FLIPPER_BOX = 2;
 export const RESTART_BUTTON_ID = "restart-button";
+export const NUDGES_USED_PARAGRAPH_ID = "nudges-used";
 //#endregion
