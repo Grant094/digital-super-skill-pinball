@@ -1225,7 +1225,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should increment nudges used, award points, show message, and trigger round end when tilting', async () => {
+        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // will nudge -1 to move from start to red flipper via red inlane
