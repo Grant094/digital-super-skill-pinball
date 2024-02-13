@@ -1059,7 +1059,8 @@ describe("Game", () => {
             await user.click(redInlaneBoxElement);
             await user.click(hammerspace5BoxElement);
             await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace6BoxElement);            //#endregion
+            await user.click(hammerspace6BoxElement);
+            //#endregion
             //#region assert
             expect(ball1Element.style.top).toEqual(hammerspace6FeatureElement.style.top);
             expect(ball1Element.style.left).toEqual(hammerspace6FeatureElement.style.left);
