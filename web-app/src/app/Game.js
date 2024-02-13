@@ -234,7 +234,7 @@ export default function Game(props) {
                 scorePId={constants.SCORE_PARAGRAPH_ID}
                 score={score}
             />
-            <RestartTray restartrayId="restart-tray"
+            <RestartTray restartTrayId="restart-tray"
                 restartButtonId={constants.RESTART_BUTTON_ID}
                 onClick={handleRestart}
             />
