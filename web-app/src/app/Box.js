@@ -80,15 +80,7 @@ export default function Box(props) {
                 props.rollDice();
             }
         } else { // invalidChoiceAlert
-            alert(`
-                invalid choice!
-                Die1: ${props.die1}
-                Die2: ${props.die2}
-                canRecieveOn: ${props.canReceiveOn}
-                selectedBallFeatureId: ${props.getSelectedBallFeatureId()}
-                ball1FeatureId: ${props.ball1FeatureId}
-                ball2FeatureId: ${props.ball2FeatureId}
-            `);
+            props.setAlertParagraphText(`Invalid choice!`);
         }
     }
     //#endregion

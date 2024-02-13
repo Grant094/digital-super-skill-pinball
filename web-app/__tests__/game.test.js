@@ -1095,6 +1095,29 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when attempting to make an invalid move', () => {
+        it('should have an alert in the alert tray but change nothing else', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // attempt to move from start to bumper 56 1st 5
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Invalid choice!");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            //#endregion
+        });
+    });
     describe('when attempting to nudge the only ball into an outlane', () => {
         it('should alert the player that they cannot nudge into the red outlane, not move the ball, and not roll the dice', async () => {
             //#region arrange
