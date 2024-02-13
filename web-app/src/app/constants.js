@@ -362,4 +362,5 @@ export const UNFILLED_BACKGROUND_COLOR = "transparent";
 export const FILLED_BACKGROUND_COLOR = "black";
 export const POINTS_PER_USED_FLIPPER_BOX = 2;
 export const RESTART_BUTTON_ID = "restart-button";
+export const NUDGES_USED_PARAGRAPH_ID = "nudges-used";
 //#endregion
