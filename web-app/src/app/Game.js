@@ -74,7 +74,7 @@ export default function Game(props) {
             // check whether player tilted and if so end the round
             if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
                 // player tilted so they should be notified and then the round should be ended
-                alert(`Tilted!`);
+                setAlertParagraphText(`Tilted!`);
 
                 endRound();
             }

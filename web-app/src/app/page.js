@@ -10,7 +10,8 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
-        [1, 1], // final roll
+        [2, 2], // will nudge -1 to move from start to red flipper via red inlane
+        [1, 1], // final roll that causes tilt
     ];
     //#endregion
 

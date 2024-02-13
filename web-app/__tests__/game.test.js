@@ -1203,6 +1203,52 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when validly nudging the only ball to move the only ball', () => {
+        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge -1 to move to bumper 12 via 1st 1 box
+                [1, 6], // final roll that avoids tilting
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should increment nudges used, award points, show message, and trigger round end when tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge -1 to move from start to red flipper via red inlane
+                [1, 1], // final roll that causes tilt
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted!");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            //#endregion
+        });
+    });
     describe('when ending a round but not the game', () => {
         it('should clear a dashed box but not clear a solid box at the end of the round', async () => {
             //#region arrange
