@@ -35,7 +35,7 @@ export default function Box(props) {
                 (props.boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
                 (!props.isPrecedingHammerspaceBoxFilled)
             ) {
-                alert(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+                props.setAlertParagraphText(`You must fill in the hammer spaces in sequence from 1 to 6!`);
             } else { // moveBallAndPerformConsequences
                 props.setAlertParagraphText("");
                 // if nudged, increment nudges used

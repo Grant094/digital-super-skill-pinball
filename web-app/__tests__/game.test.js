@@ -1067,6 +1067,33 @@ describe("Game", () => {
             expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
             //#endregion
         });
+        it('should have an alert and no other change when attempting to go out of sequence', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // from start to red flipper via red flipper box 3
+                [1, 1], // to hammer space 1
+                [4, 5], // to red flipper via red flipper box 45
+                [6, 6], // attempt to move to hammer space 6 out of sequence
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("You must fill in the hammer spaces in sequence from 1 to 6!");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("6");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            //#endregion
+        });
     });
     describe('when attempting to nudge the only ball into an outlane', () => {
         it('should alert the player that they cannot nudge into the red outlane, not move the ball, and not roll the dice', async () => {
