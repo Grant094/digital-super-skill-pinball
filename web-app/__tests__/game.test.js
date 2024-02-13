@@ -987,7 +987,7 @@ describe("Game", () => {
         it('should be able to move from red flipper to hammer space 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // from start to red flipper via red inlane
+                [3, 3], // from start to red flipper via red flipper box 3
                 [1, 1], // to hammer space 1
                 [1, 1], // final roll
             ];
