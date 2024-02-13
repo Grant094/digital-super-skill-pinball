@@ -1619,8 +1619,15 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
             //#endregion
             //#region assert
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeInTheDocument()
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).toBeInTheDocument()
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Game over!");
             //#endregion
         });
     });
