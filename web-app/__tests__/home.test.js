@@ -17,43 +17,28 @@ describe('Home', () => {
             ];
             const user = userEvent.setup();
             render(<Home dieValues={DIE_VALUES} />);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
-            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
-            const restartButtonElement = screen.getByTitle(constants.RESTART_BUTTON_ID);
-            const die1NudgeUpButtonElement = screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID);
             //#endregion
             //#region act
-            await user.click(ferriswheelcar12BoxElement);
-            await user.click(die1NudgeUpButtonElement);
-            await user.click(redInlaneBoxElement);
-            await user.click(drainBoxElement);
-            await user.click(restartButtonElement);
-            // cannot put below in "arrange" since elements get erased upon restart
-            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
-            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
-            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const ball2Element = screen.getByTitle(constants.BALL2_ID);
-            const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
-            const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
-            const nudgesUsedParagraphElement = screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID));
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.RESTART_BUTTON_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
-            expect(round1IndicatorElement).toBeVisible();
-            expect(round2IndicatorElement).not.toBeVisible();
-            expect(round3IndicatorElement).not.toBeVisible();
-            expect(nudgesUsedParagraphElement.innerHTML).toEqual("Nudges Used: 0");
-            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
-            expect(ball1Element).toBeVisible();
-            expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
-            expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
-            expect(ball2Element).not.toBeVisible();
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.ROUND_1_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_3_INDICATOR_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 0");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
             //#endregion
         });
     });

@@ -7,82 +7,73 @@ import * as constants from "../src/app/constants";
 describe("Game", () => {
     describe('when the game loads', () => {
         it('should render all features as visible', () => {
-            //#region arrange part 1
-            render(<Game />);
-            //#endregion
-            for (const featureId of constants.ALL_FEATURE_IDS) {
-                //#region arrange part 2
-                const element = screen.getByTitle(featureId);
-                //#endregion
-                //#region act
-                // not applicable
-                //#endregion
-                //#region assert
-                expect(element).toBeInTheDocument();
-                expect(element).toBeVisible();
-                //#endregion
-            }
-        });
-        it('should render all boxes as visible and unfilled', () => {
-            //#region arrange part 1
-            render(<Game />);
-            //#endregion
-            for (const boxId of constants.ALL_BOX_IDS) {
-                //#region arrange part 2
-                const element = screen.getByTitle(boxId);
-                //#endregion
-                //#region act
-                // not applicable
-                //#endregion
-                //#region assert
-                expect(element).toBeInTheDocument();
-                expect(element.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-                expect(element).toBeVisible();
-                //#endregion
-            }
-        });
-        it('should render ball 1 as visible at the Start feature', () => {
             //#region arrange
             render(<Game />);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
             //#endregion
             //#region act
             // not applicable
             //#endregion
             //#region assert
-            expect(ball1Element).toBeInTheDocument();
-            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
-            expect(ball1Element).toBeVisible();
+            for (const featureId of constants.ALL_FEATURE_IDS) {
+                expect(screen.getByTitle(featureId)).toBeInTheDocument();
+                expect(screen.getByTitle(featureId)).toBeVisible();
+
+            }
+            //#endregion
+        });
+        it('should render all boxes as visible and unfilled', () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            for (const boxId of constants.ALL_BOX_IDS) {
+                expect(screen.getByTitle(boxId)).toBeInTheDocument();
+                expect(screen.getByTitle(boxId).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+                expect(screen.getByTitle(boxId)).toBeVisible();
+
+            }
+            //#endregion
+        });
+        it('should render ball 1 as visible at the Start feature', () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID)).toBeVisible();
             //#endregion
         });
         it('should render ball 2 as hidden at the Drain feature', () => {
             //#region arrange
             render(<Game />);
-            const ball2Element = screen.getByTitle(constants.BALL2_ID);
-            const drainFeatureElement = screen.getByTitle(constants.DRAIN_FEATURE_ID);
             //#endregion
             //#region act
             // not applicable
             //#endregion
             //#region assert
-            expect(ball2Element).toBeInTheDocument();
-            expect(ball2Element.style.top).toEqual(drainFeatureElement.style.top);
-            expect(ball2Element.style.left).toEqual(drainFeatureElement.style.left);
-            expect(ball2Element).not.toBeVisible();
+            expect(screen.getByTitle(constants.BALL2_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
             //#endregion
         });
         it('should render the alert tray as hidden', () => {
             //#region arrange
             render(<Game />);
-            const alertTrayElement = screen.getByTitle(constants.ALERT_TRAY_ID);
             //#endregion
             //#region act - not applicable
             //#endregion
             //#region assert
-            expect(alertTrayElement).toBeInTheDocument();
-            expect(alertTrayElement).not.toBeVisible();
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
     });
@@ -95,15 +86,13 @@ describe("Game", () => {
                 [DIE1_1ST_VALUE, DIE2_1ST_VALUE]
             ];
             render(<Game dieValues={DIE_VALUES} />);
-            const die1Element = screen.getByTitle(constants.DIE1_ID);
-            const die2Element = screen.getByTitle(constants.DIE2_ID);
             //#endregion
             //#region act
             // not applicable
             //#endregion
             //#region assert
-            expect(Number(die1Element.innerHTML)).toEqual(DIE1_1ST_VALUE);
-            expect(Number(die2Element.innerHTML)).toEqual(DIE2_1ST_VALUE);
+            expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(DIE1_1ST_VALUE);
+            expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(DIE2_1ST_VALUE);
             //#endregion
         });
         it('should display the 2nd dice values passed via props after the only ball is moved', async () => {
@@ -116,15 +105,13 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const die1Element = screen.getByTitle(constants.DIE1_ID);
-            const die2Element = screen.getByTitle(constants.DIE2_ID);
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(Number(die1Element.innerHTML)).toEqual(DIE1_2ND_VALUE);
-            expect(Number(die2Element.innerHTML)).toEqual(DIE2_2ND_VALUE);
+            expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(DIE1_2ND_VALUE);
+            expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(DIE2_2ND_VALUE);
             //#endregion
         });
     });
@@ -137,17 +124,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             //#endregion
             //#region act
-            await user.click(ferriswheelcar12BoxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
             //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {2, 2}', async () => {
@@ -158,17 +142,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             //#endregion
             //#region act
-            await user.click(ferriswheelcar12BoxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
             //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 4}', async () => {
@@ -179,17 +160,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             //#endregion
             //#region act
-            await user.click(ferriswheelcar12BoxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
             //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {4, 1}', async () => {
@@ -200,17 +178,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             //#endregion
             //#region act
-            await user.click(ferriswheelcar12BoxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
             //#endregion
         });
     });
@@ -224,19 +199,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to ferris wheel car 34, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
@@ -247,19 +218,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to ferris wheel car 56, fill the box, and maintain score, on a roll of {5, 6}', async () => {
@@ -270,19 +237,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         //#endregion
@@ -295,19 +258,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 12 via the 2nd 1 box, fill the box, and add 1 to the score, on a roll of {1, 1}', async () => {
@@ -318,19 +277,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 12 via the 1st 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
@@ -341,19 +296,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 12 via the 2nd 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
@@ -364,19 +315,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 1st 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -387,19 +334,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 2nd 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -410,19 +353,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 1st 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
@@ -433,19 +372,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 2nd 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
@@ -456,19 +391,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_34_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 1st 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -479,19 +410,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 2nd 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -502,19 +429,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 1st 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
@@ -525,19 +448,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 2nd 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
@@ -548,19 +467,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.BUMPER_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         //#endregion
@@ -573,19 +488,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to yel droptarget 34, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -596,19 +507,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to yel droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -619,19 +526,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to red droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
@@ -642,19 +545,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to red droptarget 3, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -665,19 +564,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to red droptarget 4, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
@@ -688,19 +583,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         it('should be able to move from start to red droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -711,19 +602,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
         //#endregion
@@ -736,19 +623,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
@@ -759,19 +642,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
@@ -782,19 +661,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
@@ -805,19 +680,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to yel flipper via the yel inlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
@@ -828,19 +699,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_INLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
@@ -851,19 +718,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
@@ -874,19 +737,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
@@ -897,19 +756,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
             //#endregion
             //#region assert
-            expect(boxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         //#endregion
@@ -922,18 +777,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to start via the yel outlane, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
@@ -944,18 +795,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move from start to start via drain, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
@@ -966,18 +813,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const boxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const featureElement = screen.getByTitle(constants.START_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(boxElement);
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
-            expect(ball1Element.style.top).toEqual(featureElement.style.top);
-            expect(ball1Element.style.left).toEqual(featureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         //#endregion
@@ -992,22 +835,17 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
-            const hammerspace1FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace1BoxElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(ball1Element.style.top).toEqual(hammerspace1FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(hammerspace1FeatureElement.style.left);
-            expect(hammerspace1BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(redFlipperBox3BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(scoreParagraphElement.innerHTML).toEqual("0");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
         it('should be able to move to each hammer space in the correct order and have the correct score afterwards', async () => {
@@ -1030,40 +868,26 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
-            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
-            const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
-            const hammerspace2BoxElement = screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID);
-            const hammerspace3BoxElement = screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID);
-            const hammerspace4BoxElement = screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID);
-            const hammerspace5BoxElement = screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID);
-            const hammerspace6BoxElement = screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID);
-            const hammerspace6FeatureElement = screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID);
-            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redInlaneBoxElement);
-            await user.click(hammerspace1BoxElement);
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace2BoxElement);
-            await user.click(redFlipperBox45BoxElement);
-            await user.click(hammerspace3BoxElement);
-            await user.click(redFlipperBox6BoxElement);
-            await user.click(hammerspace4BoxElement);
-            await user.click(drainBoxElement);
-            await user.click(redInlaneBoxElement);
-            await user.click(hammerspace5BoxElement);
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace6BoxElement);
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(ball1Element.style.top).toEqual(hammerspace6FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(hammerspace6FeatureElement.style.left);
-            expect(scoreParagraphElement.innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
             //#endregion
         });
         it('should have an alert and no other change when attempting to go out of sequence', async () => {
@@ -1151,24 +975,17 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const startFeatureElement = screen.getByTitle(constants.START_FEATURE_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const die1NudgeDnButtonElement = screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID);
-            const alertParagraphElement = screen.getByTitle(constants.ALERT_PARAGRAPH_ID);
-            const die1Element = screen.getByTitle(constants.DIE1_ID);
-            const die2Element = screen.getByTitle(constants.DIE2_ID);
             //#endregion
             //#region act
-            await user.click(die1NudgeDnButtonElement)
-            await user.click(redOutlaneElement);
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID))
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(alertParagraphElement.innerHTML).toEqual(constants.OUTLANE_NUDGE_ALERT);
-            expect(ball1Element.style.top).toEqual(startFeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(startFeatureElement.style.left);
-            expect(Number(die1Element.innerHTML)).toEqual(Number(DIE1_1ST_VALUE) - 1); // was nudged
-            expect(Number(die2Element.innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.OUTLANE_NUDGE_ALERT);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(Number(DIE1_1ST_VALUE) - 1); // was nudged
+            expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
             //#endregion
         });
         it('should remove the alert after the player makes a valid move', async () => {
@@ -1179,26 +996,18 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const ball1Element = screen.getByTitle(constants.BALL1_ID);
-            const die1NudgeDnButtonElement = screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID);
-            const die1NudgeUpButtonElement = screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID);
-            const alertTrayElement = screen.getByTitle(constants.ALERT_TRAY_ID);
-            const alertParagraphElement = screen.getByTitle(constants.ALERT_PARAGRAPH_ID);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const ferriswheelcar12FeatureElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID);
             //#endregion
             //#region act
-            await user.click(die1NudgeDnButtonElement);
-            await user.click(redOutlaneElement);
-            await user.click(die1NudgeUpButtonElement);
-            await user.click(ferriswheelcar12BoxElement);
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID));
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(alertParagraphElement.innerHTML).toEqual("");
-            expect(alertTrayElement).not.toBeVisible();
-            expect(ball1Element.style.top).toEqual(ferriswheelcar12FeatureElement.style.top);
-            expect(ball1Element.style.left).toEqual(ferriswheelcar12FeatureElement.style.left);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
             //#endregion
         });
     });
@@ -1259,18 +1068,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
-            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             //#endregion
             //#region act
-            await user.click(bumper121st1BoxElement);
-            await user.click(yelFlipperBox1BoxElement);
-            await user.click(drainBoxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
-            expect(bumper121st1BoxElement.style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(yelFlipperBox1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
         it('should make the relevant round indicators visible in round 2 while keeping the round 3 indicator hidden', async () => {
@@ -1281,18 +1087,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
-            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
-            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
-            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
             //#endregion
             //#region act
-            await user.click(drainBoxElement); // to start round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // to start round 2
             //#endregion
             //#region assert
-            expect(round1IndicatorElement).toBeVisible();
-            expect(round2IndicatorElement).toBeVisible();
-            expect(round3IndicatorElement).not.toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_1_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_3_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
         it('should make all round indicators visible at the start of round 3', async () => {
@@ -1304,19 +1106,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
-            const round1IndicatorElement = screen.getByTitle(constants.ROUND_1_INDICATOR_ID);
-            const round2IndicatorElement = screen.getByTitle(constants.ROUND_2_INDICATOR_ID);
-            const round3IndicatorElement = screen.getByTitle(constants.ROUND_3_INDICATOR_ID);
             //#endregion
             //#region act
-            await user.click(drainBoxElement); // to start round 2
-            await user.click(drainBoxElement); // to start round 3
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // to start round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // to start round 3
             //#endregion
             //#region assert
-            expect(round1IndicatorElement).toBeVisible();
-            expect(round2IndicatorElement).toBeVisible();
-            expect(round3IndicatorElement).toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_1_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ROUND_3_INDICATOR_ID)).toBeVisible();
             //#endregion
         });
         it('should add 2 points when using the red outlane and one red flipper box has been filled', async () => {
@@ -1328,16 +1126,13 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(redOutlaneElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             //#endregion
         });
         it('should add 4 points when using the red outlane and two red flipper boxes have been filled', async () => {
@@ -1350,18 +1145,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
-            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(redFlipperBox45BoxElement);
-            await user.click(redOutlaneElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("4");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("4");
             //#endregion
         });
         it('should add 6 points when using the red outlane and three red flipper boxes have been filled', async () => {
@@ -1375,20 +1166,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
-            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
-            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(redFlipperBox45BoxElement);
-            await user.click(redFlipperBox6BoxElement);
-            await user.click(redOutlaneElement);
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("6");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("6");
             //#endregion
         });
         it('should add 0 points when using the red outlane after the inlane but no red flipper boxes have been filled', async () => {
@@ -1400,16 +1186,13 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
-            const redOutlaneElement = screen.getByTitle(constants.RED_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(redInlaneBoxElement);
-            await user.click(redOutlaneElement);
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("2"); // inlane was worth 2 points
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2"); // inlane was worth 2 points
             //#endregion
         });
         it('should add 2 points when using the yel outlane and one yel flipper box has been filled', async () => {
@@ -1421,16 +1204,13 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(yelFlipperBox1BoxElement);
-            await user.click(yelOutlaneBoxElement);
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             //#endregion
         });
         it('should add 4 points when using the yel outlane and two yel flipper boxes have been filled', async () => {
@@ -1443,18 +1223,14 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
-            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(yelFlipperBox1BoxElement);
-            await user.click(yelFlipperBox23BoxElement);
-            await user.click(yelOutlaneBoxElement);
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("4");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("4");
             //#endregion
         });
         it('should add 6 points when using the yel outlane and three yel flipper boxes have been filled', async () => {
@@ -1468,20 +1244,15 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
-            const yelFlipperBox4BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID);
-            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(yelFlipperBox1BoxElement);
-            await user.click(yelFlipperBox23BoxElement);
-            await user.click(yelFlipperBox4BoxElement);
-            await user.click(yelOutlaneBoxElement);
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("6");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("6");
             //#endregion
         });
         it('should add 0 points when using the yel outlane after the inlane but no yel flipper boxes have been filled', async () => {
@@ -1493,16 +1264,13 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const yelInlaneBoxElement = screen.getByTitle(constants.YEL_INLANE_BOX_ID);
-            const yelOutlaneBoxElement = screen.getByTitle(constants.YEL_OUTLANE_BOX_ID);
-            const scoreParagraphElement = screen.getByTitle(constants.SCORE_PARAGRAPH_ID);
             //#endregion
             //#region act
-            await user.click(yelInlaneBoxElement);
-            await user.click(yelOutlaneBoxElement);
+            await user.click(screen.getByTitle(constants.YEL_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(scoreParagraphElement.innerHTML).toEqual("2"); // 2 points from using yel inlane but no additional points from using outlane
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2"); // 2 points from using yel inlane but no additional points from using outlane
             //#endregion
         });
     });
@@ -1519,23 +1287,18 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const ferriswheelcar12BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID);
-            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const ferriswheelcar34BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID);
-            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
-            const ferriswheelcar56BoxElement = screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID);
             //#endregion
             //#region act
-            await user.click(ferriswheelcar12BoxElement);
-            await user.click(yelFlipperBox1BoxElement);
-            await user.click(ferriswheelcar34BoxElement);
-            await user.click(yelFlipperBox23BoxElement);
-            await user.click(ferriswheelcar56BoxElement);
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
             //#endregion
             //#region assert
-            expect(ferriswheelcar12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(ferriswheelcar34BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(ferriswheelcar56BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
         it('should clear all boxes in the bumper group', async () => {
@@ -1557,46 +1320,34 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const bumper121st1BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID);
-            const bumper122nd1BoxElement = screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID);
-            const bumper121st2BoxElement = screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID);
-            const bumper122nd2BoxElement = screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID);
-            const bumper341st3BoxElement = screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID);
-            const bumper342nd3BoxElement = screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID);
-            const bumper341st4BoxElement = screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID);
-            const bumper342nd4BoxElement = screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID);
-            const bumper561st5BoxElement = screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID);
-            const bumper562nd5BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID);
-            const bumper561st6BoxElement = screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID);
-            const bumper562nd6BoxElement = screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID);
             //#endregion
             //#region act
-            await user.click(bumper121st1BoxElement);
-            await user.click(bumper341st3BoxElement);
-            await user.click(bumper561st5BoxElement);
-            await user.click(bumper122nd1BoxElement);
-            await user.click(bumper342nd3BoxElement);
-            await user.click(bumper562nd5BoxElement);
-            await user.click(bumper121st2BoxElement);
-            await user.click(bumper341st4BoxElement);
-            await user.click(bumper561st6BoxElement);
-            await user.click(bumper122nd2BoxElement);
-            await user.click(bumper342nd4BoxElement);
-            await user.click(bumper562nd6BoxElement);
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(bumper121st1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper122nd1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper121st2BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper122nd2BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper341st3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper342nd3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper341st4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper342nd4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper561st5BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper562nd5BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper561st6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(bumper562nd6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
         it('should clear all boxes in the yel droptargets group', async () => {
@@ -1611,23 +1362,18 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const yelDroptarget12BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID);
-            const yelDroptarget34BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID);
-            const yelDroptarget56BoxElement = screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID);
-            const yelFlipperBox1BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID);
-            const yelFlipperBox23BoxElement = screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID);
             //#endregion
             //#region act
-            await user.click(yelDroptarget12BoxElement);
-            await user.click(yelFlipperBox1BoxElement);
-            await user.click(yelDroptarget34BoxElement);
-            await user.click(yelFlipperBox23BoxElement);
-            await user.click(yelDroptarget56BoxElement);
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
             //#endregion
             //#region assert
-            expect(yelDroptarget12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(yelDroptarget34BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(yelDroptarget56BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
         it('should clear all boxes in the red droptargets group', async () => {
@@ -1644,28 +1390,21 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redDroptarget12BoxElement = screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID);
-            const redDroptarget3BoxElement = screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID);
-            const redDroptarget4BoxElement = screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID);
-            const redDroptarget56BoxElement = screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
-            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
             //#endregion
             //#region act
-            await user.click(redDroptarget12BoxElement);
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(redDroptarget3BoxElement);
-            await user.click(redFlipperBox45BoxElement);
-            await user.click(redDroptarget4BoxElement);
-            await user.click(redFlipperBox6BoxElement);
-            await user.click(redDroptarget56BoxElement);
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
             //#endregion
             //#region assert
-            expect(redDroptarget12BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(redDroptarget3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(redDroptarget4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(redDroptarget56BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
         it('should clear all hammer space boxes', async () => {
@@ -1688,40 +1427,29 @@ describe("Game", () => {
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
-            const redInlaneBoxElement = screen.getByTitle(constants.RED_INLANE_BOX_ID);
-            const redFlipperBox3BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID);
-            const redFlipperBox45BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID);
-            const redFlipperBox6BoxElement = screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID);
-            const hammerspace1BoxElement = screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID);
-            const hammerspace2BoxElement = screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID);
-            const hammerspace3BoxElement = screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID);
-            const hammerspace4BoxElement = screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID);
-            const hammerspace5BoxElement = screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID);
-            const hammerspace6BoxElement = screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID);
-            const drainBoxElement = screen.getByTitle(constants.DRAIN_BOX_ID);
             //#endregion
             //#region act
-            await user.click(redInlaneBoxElement);
-            await user.click(hammerspace1BoxElement);
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace2BoxElement);
-            await user.click(redFlipperBox45BoxElement);
-            await user.click(hammerspace3BoxElement);
-            await user.click(redFlipperBox6BoxElement);
-            await user.click(hammerspace4BoxElement);
-            await user.click(drainBoxElement);
-            await user.click(redInlaneBoxElement);
-            await user.click(hammerspace5BoxElement);
-            await user.click(redFlipperBox3BoxElement);
-            await user.click(hammerspace6BoxElement);
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(hammerspace1BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(hammerspace2BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(hammerspace3BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(hammerspace4BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(hammerspace5BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(hammerspace6BoxElement.style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
     });
