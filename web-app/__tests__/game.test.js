@@ -1117,6 +1117,29 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
+        it('should allow the user to make a valid move after the invalid one and hide the alert while making the valid move', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // eventually move to bumper 34 via 1st 3 box
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            //#endregion
+        });
     });
     describe('when attempting to nudge the only ball into an outlane', () => {
         it('should alert the player that they cannot nudge into the red outlane, not move the ball, and not roll the dice', async () => {
