@@ -1630,6 +1630,54 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Game over!");
             //#endregion
         });
+        it('should hide both balls', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.BALL2_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should keep boxes filled in', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go from start to ferris wheel car 12
+                [2, 2], // go to red flipper via red inlane
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
     });
 });
 
