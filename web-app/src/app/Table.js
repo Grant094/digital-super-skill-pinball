@@ -9,6 +9,7 @@ import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
 import DashedBox from "./DashedBox";
+import SkillShotIndicator from "./SkillShotIndicator";
 
 export default function Table(props) {
     //#region state
@@ -173,6 +174,32 @@ export default function Table(props) {
                 left={constants.START_FEATURE_LEFT}
                 top={constants.START_FEATURE_TOP}
             />
+            <Fragment key="skillshotindicators">
+                <SkillShotIndicator indicatorId="skillshotindicator-1"
+                    top="268px"
+                    left="100px"
+                />
+                <SkillShotIndicator indicatorId="skillshotindicator-2"
+                    top="290px"
+                    left="80px"
+                />
+                <SkillShotIndicator indicatorId="skillshotindicator-3"
+                    top="313px"
+                    left="62px"
+                />
+                <SkillShotIndicator indicatorId="skillshotindicator-4"
+                    top="340px"
+                    left="54px"
+                />
+                <SkillShotIndicator indicatorId="skillshotindicator-5"
+                    top="368px"
+                    left="66px"
+                />
+                <SkillShotIndicator indicatorId="skillshotindicator-6"
+                    top="394px"
+                    left="83px"
+                />
+            </Fragment>
             <Fragment key="ferriswheel">
                 <Fragment key="ferriswheelcar12">
                     <Feature featureId={constants.FERRISWHEEL_CAR_12_FEATURE_ID}
