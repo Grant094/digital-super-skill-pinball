@@ -337,12 +337,12 @@ export const DICE_IDS = [
 ];
 //#endregion
 //#region skill shot indicators
-export const SKILL_SHOT_INDICATOR_1_ID = "skillshotindicator-1";
-export const SKILL_SHOT_INDICATOR_2_ID = "skillshotindicator-2";
-export const SKILL_SHOT_INDICATOR_3_ID = "skillshotindicator-3";
-export const SKILL_SHOT_INDICATOR_4_ID = "skillshotindicator-4";
-export const SKILL_SHOT_INDICATOR_5_ID = "skillshotindicator-5";
-export const SKILL_SHOT_INDICATOR_6_ID = "skillshotindicator-6";
+export const SKILL_SHOT_INDICATOR_1_ID = "skill-shot-indicator-1";
+export const SKILL_SHOT_INDICATOR_2_ID = "skill-shot-indicator-2";
+export const SKILL_SHOT_INDICATOR_3_ID = "skill-shot-indicator-3";
+export const SKILL_SHOT_INDICATOR_4_ID = "skill-shot-indicator-4";
+export const SKILL_SHOT_INDICATOR_5_ID = "skill-shot-indicator-5";
+export const SKILL_SHOT_INDICATOR_6_ID = "skill-shot-indicator-6";
 //#endregion
 //#region roundIndicatorIds
 export const ROUND_1_INDICATOR_ID = "round-1-indicator";

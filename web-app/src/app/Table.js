@@ -45,12 +45,12 @@ export default function Table(props) {
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
     //#region skill shot indicator visibility
-    const [skillshotindicator1Visibility, setSkillshotindicator1Visibility] = useState("hidden");
-    const [skillshotindicator2Visibility, setSkillshotindicator2Visibility] = useState("hidden");
-    const [skillshotindicator3Visibility, setSkillshotindicator3Visibility] = useState("hidden");
-    const [skillshotindicator4Visibility, setSkillshotindicator4Visibility] = useState("hidden");
-    const [skillshotindicator5Visibility, setSkillshotindicator5Visibility] = useState("hidden");
-    const [skillshotindicator6Visibility, setSkillshotindicator6Visibility] = useState("hidden");
+    const [skillShotIndicator1Visibility, setSkillShotIndicator1Visibility] = useState("hidden");
+    const [skillShotIndicator2Visibility, setSkillShotIndicator2Visibility] = useState("hidden");
+    const [skillShotIndicator3Visibility, setSkillShotIndicator3Visibility] = useState("hidden");
+    const [skillShotIndicator4Visibility, setSkillShotIndicator4Visibility] = useState("hidden");
+    const [skillShotIndicator5Visibility, setSkillShotIndicator5Visibility] = useState("hidden");
+    const [skillShotIndicator6Visibility, setSkillShotIndicator6Visibility] = useState("hidden");
     //#endregion
     //#endregion
     //#region boxBackgroundColorArrays
@@ -182,36 +182,36 @@ export default function Table(props) {
                 left={constants.START_FEATURE_LEFT}
                 top={constants.START_FEATURE_TOP}
             />
-            <Fragment key="skillshotindicators">
+            <Fragment key="skill-shot-indicators">
                 <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_1_ID}
                     top="268px"
                     left="100px"
-                    visibility={skillshotindicator1Visibility}
+                    visibility={skillShotIndicator1Visibility}
                 />
                 <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_2_ID}
                     top="290px"
                     left="80px"
-                    visibility={skillshotindicator2Visibility}
+                    visibility={skillShotIndicator2Visibility}
                 />
                 <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_3_ID}
                     top="313px"
                     left="62px"
-                    visibility={skillshotindicator3Visibility}
+                    visibility={skillShotIndicator3Visibility}
                 />
                 <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_4_ID}
                     top="340px"
                     left="54px"
-                    visibility={skillshotindicator4Visibility}
+                    visibility={skillShotIndicator4Visibility}
                 />
                 <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_5_ID}
                     top="368px"
                     left="66px"
-                    visibility={skillshotindicator5Visibility}
+                    visibility={skillShotIndicator5Visibility}
                 />
                 <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_6_ID}
                     top="394px"
                     left="83px"
-                    visibility={skillshotindicator6Visibility}
+                    visibility={skillShotIndicator6Visibility}
                 />
             </Fragment>
             <Fragment key="ferriswheel">
