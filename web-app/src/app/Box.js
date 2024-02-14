@@ -40,6 +40,8 @@ export default function Box(props) {
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             props.setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
+        } else if (props.isThisBoxFilled) {
+            // do nothing
         } else if (couldReceiveSelectedBall()) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&

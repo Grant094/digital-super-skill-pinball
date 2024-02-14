@@ -918,7 +918,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when attempting to make an invalid move', () => {
+    describe('when attempting to make an invalid move to an unfilled space', () => {
         it('should have an alert in the alert tray but change nothing else', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -961,6 +961,34 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            //#endregion
+        });
+    });
+    describe('when clicking on an already filled-in box', () => {
+        it('should do nothing and maintain state', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // move from start to bumper 12 via 1st 2 box (worth 1 point)
+                [4, 4], // move to yel flipper via yel flipper box 4
+                [2, 2], // attempt to select bumper 12 1st 2 box
+                [1, 1], // final roll which should not be reached
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
     });
