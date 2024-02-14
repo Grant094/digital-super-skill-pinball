@@ -1549,5 +1549,26 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             //#endregion
         });
+        it('should not roll the dice after ending the game', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // move from start to drain to end round 1/3
+                [1, 1], // move from start to drain to end round 2/3
+                [3, 3], // move from start to drain to end round 3/3
+                [1, 1], // final roll which should not be reached
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("3");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("3");
+            //#endregion
+        });
     });
 });
