@@ -10,7 +10,8 @@
     justify-self: center;
 }
 
-.Die1, .Die2 {
+.Die1,
+.Die2 {
     font-size: 32px;
     width: 50%;
     position: relative;

@@ -6,7 +6,7 @@ import * as utilities from "./utilities";
 
 export default function Ball(props) {
     let ballTop, ballLeft;
-    
+
     //#region calc ballTop and ballLeft
     // since the first render is before the document becomes available, the balls' initial values need to be set this way
     if (typeof window === "undefined") {
@@ -35,7 +35,7 @@ export default function Ball(props) {
                 position: "absolute",
                 top: ballTop,
                 left: ballLeft,
-                visibility: (isBallInDrain()? "hidden": "visible"),
+                visibility: (isBallInDrain() ? "hidden" : "visible"),
             }}
             src="/images/ball.jpg"
             height="25px"
