@@ -104,12 +104,12 @@ export default function Box(props) {
             className={styles.box}
             onClick={handleClick}
             style={{
-                backgroundColor: (props.isThisBoxFilled? constants.FILLED_BACKGROUND_COLOR: constants.UNFILLED_BACKGROUND_COLOR),
+                backgroundColor: (props.isThisBoxFilled ? constants.FILLED_BACKGROUND_COLOR : constants.UNFILLED_BACKGROUND_COLOR),
                 top: props.top,
                 left: props.left,
                 height: props.height,
                 width: props.width,
-                visibility: (utilities.isGameOver(props.round)? "hidden": "visible"),
+                visibility: (utilities.isGameOver(props.round) ? "hidden" : "visible"),
             }}
         >
         </div>

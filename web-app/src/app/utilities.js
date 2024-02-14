@@ -7,7 +7,7 @@ export function calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) {
 
 // copied from https://www.w3schools.com/js/js_random.asp
 export function getRndIntegerInclusive(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export function isGameOver(round) {

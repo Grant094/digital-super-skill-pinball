@@ -8,7 +8,7 @@ export default function AlertTray(props) {
         <div id={props.alertTrayId} title={props.alertTrayId}
             className={styles.AlertTray}
             style={{
-                visibility: (props.alertParagraphText? "visible": "hidden"),
+                visibility: (props.alertParagraphText ? "visible" : "hidden"),
             }}
         >
             <p id={props.paragraphId} title={props.paragraphId}
