@@ -988,6 +988,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
     });
