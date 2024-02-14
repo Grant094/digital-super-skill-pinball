@@ -36,6 +36,14 @@ export default function Game(props) {
     const [yelFlipperBox23BoxBackgroundColor, setYelFlipperBox23BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
+    //#region skill shot indicator visibility
+    const [skillShotIndicator1Visibility, setSkillShotBox1Visibility] = useState("hidden");
+    const [skillShotIndicator2Visibility, setSkillShotBox2Visibility] = useState("hidden");
+    const [skillShotIndicator3Visibility, setSkillShotBox3Visibility] = useState("hidden");
+    const [skillShotIndicator4Visibility, setSkillShotBox4Visibility] = useState("hidden");
+    const [skillShotIndicator5Visibility, setSkillShotBox5Visibility] = useState("hidden");
+    const [skillShotIndicator6Visibility, setSkillShotBox6Visibility] = useState("hidden");
+    //#endregion
     //#endregion
 
     //#region dashed boxes background color arrays
@@ -233,6 +241,18 @@ export default function Game(props) {
                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                 gameOverAlert={gameOverAlert}
                 setAlertParagraphText={setAlertParagraphText}
+                skillShotIndicator1Visibility={skillShotIndicator1Visibility}
+                setSkillShotBox1Visibility={setSkillShotBox1Visibility}
+                skillShotIndicator2Visibility={skillShotIndicator2Visibility}
+                setSkillShotBox2Visibility={setSkillShotBox2Visibility}
+                skillShotIndicator3Visibility={skillShotIndicator3Visibility}
+                setSkillShotBox3Visibility={setSkillShotBox3Visibility}
+                skillShotIndicator4Visibility={skillShotIndicator4Visibility}
+                setSkillShotBox4Visibility={setSkillShotBox4Visibility}
+                skillShotIndicator5Visibility={skillShotIndicator5Visibility}
+                setSkillShotBox5Visibility={setSkillShotBox5Visibility}
+                skillShotIndicator6Visibility={skillShotIndicator6Visibility}
+                setSkillShotBox6Visibility={setSkillShotBox6Visibility}
             />
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}

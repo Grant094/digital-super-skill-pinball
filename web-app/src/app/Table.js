@@ -44,14 +44,7 @@ export default function Table(props) {
     const [redDroptarget56BoxBackgroundColor, setRedDroptarget56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
-    //#region skill shot indicator visibility
-    const [skillShotIndicator1Visibility, setSkillShotBox1Visibility] = useState("hidden");
-    const [skillShotIndicator2Visibility, setSkillShotBox2Visibility] = useState("hidden");
-    const [skillShotIndicator3Visibility, setSkillShotBox3Visibility] = useState("hidden");
-    const [skillShotIndicator4Visibility, setSkillShotBox4Visibility] = useState("hidden");
-    const [skillShotIndicator5Visibility, setSkillShotBox5Visibility] = useState("hidden");
-    const [skillShotIndicator6Visibility, setSkillShotBox6Visibility] = useState("hidden");
-    //#endregion
+    
     //#endregion
     //#region boxBackgroundColorArrays
     //#region ferriswheelBoxBackgroundColorArrays
@@ -191,32 +184,32 @@ export default function Table(props) {
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_BOX_ID}
                     top="268px"
                     left="100px"
-                    visibility={skillShotIndicator1Visibility}
+                    visibility={props.skillShotIndicator1Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_BOX_ID}
                     top="290px"
                     left="80px"
-                    visibility={skillShotIndicator2Visibility}
+                    visibility={props.skillShotIndicator2Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_BOX_ID}
                     top="313px"
                     left="62px"
-                    visibility={skillShotIndicator3Visibility}
+                    visibility={props.skillShotIndicator3Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_BOX_ID}
                     top="340px"
                     left="54px"
-                    visibility={skillShotIndicator4Visibility}
+                    visibility={props.skillShotIndicator4Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_BOX_ID}
                     top="368px"
                     left="66px"
-                    visibility={skillShotIndicator5Visibility}
+                    visibility={props.skillShotIndicator5Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_BOX_ID}
                     top="394px"
                     left="83px"
-                    visibility={skillShotIndicator6Visibility}
+                    visibility={props.skillShotIndicator6Visibility}
                 />
             </Fragment>
             <Fragment key="ferriswheel">
