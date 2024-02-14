@@ -1,8 +1,8 @@
-.SkillShotIndicator {
+.SkillShotBox {
     width: 30px;
     height: 30px;
     border-style: solid;
-    border-color: black;
+    border-color: blue;
     border-width: 5px;
     border-radius: 50%;
     background-color: transparent;

@@ -9,7 +9,7 @@ import Box from "./Box";
 import RoundIndicator from "./RoundIndicator";
 import Outlane from "./Outlane";
 import DashedBox from "./DashedBox";
-import SkillShotIndicator from "./SkillShotIndicator";
+import SkillShotBox from "./SkillShotBox";
 
 export default function Table(props) {
     //#region state
@@ -45,12 +45,12 @@ export default function Table(props) {
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
     //#region skill shot indicator visibility
-    const [skillShotIndicator1Visibility, setSkillShotIndicator1Visibility] = useState("hidden");
-    const [skillShotIndicator2Visibility, setSkillShotIndicator2Visibility] = useState("hidden");
-    const [skillShotIndicator3Visibility, setSkillShotIndicator3Visibility] = useState("hidden");
-    const [skillShotIndicator4Visibility, setSkillShotIndicator4Visibility] = useState("hidden");
-    const [skillShotIndicator5Visibility, setSkillShotIndicator5Visibility] = useState("hidden");
-    const [skillShotIndicator6Visibility, setSkillShotIndicator6Visibility] = useState("hidden");
+    const [skillShotIndicator1Visibility, setSkillShotBox1Visibility] = useState("hidden");
+    const [skillShotIndicator2Visibility, setSkillShotBox2Visibility] = useState("hidden");
+    const [skillShotIndicator3Visibility, setSkillShotBox3Visibility] = useState("hidden");
+    const [skillShotIndicator4Visibility, setSkillShotBox4Visibility] = useState("hidden");
+    const [skillShotIndicator5Visibility, setSkillShotBox5Visibility] = useState("hidden");
+    const [skillShotIndicator6Visibility, setSkillShotBox6Visibility] = useState("hidden");
     //#endregion
     //#endregion
     //#region boxBackgroundColorArrays
@@ -167,6 +167,11 @@ export default function Table(props) {
         }
     }
 
+    function ferriswheelcarAction() {
+        props.setAlertParagraphText('Select a Skill Shot!');
+
+    }
+
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
         const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
@@ -183,32 +188,32 @@ export default function Table(props) {
                 top={constants.START_FEATURE_TOP}
             />
             <Fragment key="skill-shot-indicators">
-                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_1_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_BOX_ID}
                     top="268px"
                     left="100px"
                     visibility={skillShotIndicator1Visibility}
                 />
-                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_2_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_BOX_ID}
                     top="290px"
                     left="80px"
                     visibility={skillShotIndicator2Visibility}
                 />
-                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_3_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_BOX_ID}
                     top="313px"
                     left="62px"
                     visibility={skillShotIndicator3Visibility}
                 />
-                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_4_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_BOX_ID}
                     top="340px"
                     left="54px"
                     visibility={skillShotIndicator4Visibility}
                 />
-                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_5_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_BOX_ID}
                     top="368px"
                     left="66px"
                     visibility={skillShotIndicator5Visibility}
                 />
-                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_6_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_BOX_ID}
                     top="394px"
                     left="83px"
                     visibility={skillShotIndicator6Visibility}

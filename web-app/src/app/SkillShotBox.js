@@ -1,12 +1,12 @@
 "use client"
 
 import React, { useState } from "react";
-import styles from "./skillshotindicator.module.css";
+import styles from "./skillshotbox.module.css";
 
-export default function SkillShotIndicator(props) {
+export default function SkillShotBox(props) {
     return (
         <div id={props.indicatorId} title={props.indicatorId}
-            className={styles.SkillShotIndicator}
+            className={styles.SkillShotBox}
             style={{
                 top: props.top,
                 left: props.left,
