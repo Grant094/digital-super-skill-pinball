@@ -91,6 +91,10 @@ export default function Game(props) {
         }
     }
 
+    function hasTilted(nextValueOfDie1, nextValueOfDie2) {
+        return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
+    }
+
     function tilt(nextValueOfDie1, nextValueOfDie2) {
         setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
         endRound();
@@ -126,7 +130,7 @@ export default function Game(props) {
 
         if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
             // check whether player tilted and if so end the round
-            if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
+            if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
                 tilt(nextValueOfDie1, nextValueOfDie2);
             }
 
