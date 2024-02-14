@@ -918,7 +918,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when attempting to make an invalid move', () => {
+    describe('when attempting to make an invalid move to an unfilled space', () => {
         it('should have an alert in the alert tray but change nothing else', async () => {
             //#region arrange
             const DIE_VALUES = [
