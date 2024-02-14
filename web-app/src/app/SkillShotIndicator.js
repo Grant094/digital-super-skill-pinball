@@ -10,6 +10,7 @@ export default function SkillShotIndicator(props) {
             style={{
                 top: props.top,
                 left: props.left,
+                visibility: props.visibility,
             }}
         >
 
