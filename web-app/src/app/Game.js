@@ -115,9 +115,18 @@ export default function Game(props) {
             // check whether player tilted and if so end the round
             if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
                 // player tilted so they should be notified and then the round should be ended
-                setAlertParagraphText(`Tilted!`);
+                setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
 
                 endRound();
+
+                const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
+                const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
+                setDie1(postTiltValueOfDie1);
+                setDie2(postTiltValueOfDie2);
+                // incrementing dieValuesIndex a 2nd time was not working, so I use index + 1 and then increment it after
+                if (props.dieValues) {
+                    setDieValuesIndex(() => dieValuesIndex + 1);
+                }
             }
 
             // after checking tilt status, remove any nudging from both dice
