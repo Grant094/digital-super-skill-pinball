@@ -336,6 +336,14 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
+//#region skill shot indicators
+export const SKILL_SHOT_INDICATOR_1_ID = "skillshotindicator-1";
+export const SKILL_SHOT_INDICATOR_2_ID = "skillshotindicator-2";
+export const SKILL_SHOT_INDICATOR_3_ID = "skillshotindicator-3";
+export const SKILL_SHOT_INDICATOR_4_ID = "skillshotindicator-4";
+export const SKILL_SHOT_INDICATOR_5_ID = "skillshotindicator-5";
+export const SKILL_SHOT_INDICATOR_6_ID = "skillshotindicator-6";
+//#endregion
 //#region roundIndicatorIds
 export const ROUND_1_INDICATOR_ID = "round-1-indicator";
 export const ROUND_2_INDICATOR_ID = "round-2-indicator";

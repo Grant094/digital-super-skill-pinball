@@ -183,32 +183,32 @@ export default function Table(props) {
                 top={constants.START_FEATURE_TOP}
             />
             <Fragment key="skillshotindicators">
-                <SkillShotIndicator indicatorId="skillshotindicator-1"
+                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_1_ID}
                     top="268px"
                     left="100px"
                     visibility={skillshotindicator1Visibility}
                 />
-                <SkillShotIndicator indicatorId="skillshotindicator-2"
+                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_2_ID}
                     top="290px"
                     left="80px"
                     visibility={skillshotindicator2Visibility}
                 />
-                <SkillShotIndicator indicatorId="skillshotindicator-3"
+                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_3_ID}
                     top="313px"
                     left="62px"
                     visibility={skillshotindicator3Visibility}
                 />
-                <SkillShotIndicator indicatorId="skillshotindicator-4"
+                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_4_ID}
                     top="340px"
                     left="54px"
                     visibility={skillshotindicator4Visibility}
                 />
-                <SkillShotIndicator indicatorId="skillshotindicator-5"
+                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_5_ID}
                     top="368px"
                     left="66px"
                     visibility={skillshotindicator5Visibility}
                 />
-                <SkillShotIndicator indicatorId="skillshotindicator-6"
+                <SkillShotIndicator indicatorId={constants.SKILL_SHOT_INDICATOR_6_ID}
                     top="394px"
                     left="83px"
                     visibility={skillshotindicator6Visibility}
