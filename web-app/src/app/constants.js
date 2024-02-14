@@ -336,13 +336,20 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
-//#region skill shot indicators
+//#region skill shot boxes
+//#region IDs
 export const SKILL_SHOT_BOX_1_BOX_ID = "skill-shot-box-1";
 export const SKILL_SHOT_BOX_2_BOX_ID = "skill-shot-box-2";
 export const SKILL_SHOT_BOX_3_BOX_ID = "skill-shot-box-3";
 export const SKILL_SHOT_BOX_4_BOX_ID = "skill-shot-box-4";
 export const SKILL_SHOT_BOX_5_BOX_ID = "skill-shot-box-5";
 export const SKILL_SHOT_BOX_6_BOX_ID = "skill-shot-box-6";
+//#endregion
+//#region border colors
+export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "blue";
+export const SKILL_SHOT_BOX_TAKEN_BORDER_COLOR = "black";
+export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = "gold";
+//#endregion
 //#endregion
 //#region roundIndicatorIds
 export const ROUND_1_INDICATOR_ID = "round-1-indicator";

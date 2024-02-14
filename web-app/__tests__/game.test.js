@@ -76,7 +76,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should render skill shot boxes with blue borders', () => {
+        it('should render skill shot boxes with SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR borders', () => {
             //#region arrange
             render(<Game />);
             //#endregion
@@ -90,12 +90,12 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual("blue");
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID).style.borderColor).toEqual("blue");
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_BOX_ID).style.borderColor).toEqual("blue");
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID).style.borderColor).toEqual("blue");
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID).style.borderColor).toEqual("blue");
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID).style.borderColor).toEqual("blue");
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
     });

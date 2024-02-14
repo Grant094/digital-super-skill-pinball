@@ -39,12 +39,12 @@ export default function Game(props) {
     const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
     //#region skill shot indicator border colors
-    const [skillShotBox1BorderColor, setSkillShotBox1BorderColor] = useState("blue");
-    const [skillShotBox2BorderColor, setSkillShotBox2BorderColor] = useState("blue");
-    const [skillShotBox3BorderColor, setSkillShotBox3BorderColor] = useState("blue");
-    const [skillShotBox4BorderColor, setSkillShotBox4BorderColor] = useState("blue");
-    const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState("blue");
-    const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState("blue");
+    const [skillShotBox1BorderColor, setSkillShotBox1BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+    const [skillShotBox2BorderColor, setSkillShotBox2BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+    const [skillShotBox3BorderColor, setSkillShotBox3BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+    const [skillShotBox4BorderColor, setSkillShotBox4BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+    const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+    const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     //#endregion
     //#endregion
 
