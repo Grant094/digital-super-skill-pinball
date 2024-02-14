@@ -19,6 +19,17 @@ export default function Box(props) {
         );
     }
 
+    function moveWillEndTheGame(round, boxId) {
+        return (
+            (round === 3) &&
+            (
+                boxId === constants.YEL_OUTLANE_BOX_ID ||
+                boxId === constants.RED_OUTLANE_BOX_ID ||
+                boxId === constants.DRAIN_BOX_ID
+            )
+        )
+    }
+
     function handleClick() {
         if (
             (
@@ -42,17 +53,17 @@ export default function Box(props) {
                 if (utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy)) {
                     props.incNudgesUsed();
                 }
-                
+
                 if (props.fillBox) {
                     props.fillBox();
                 }
-                
+
                 props.moveSelectedBallToCorrespondingFeature();
-                
+
                 if (props.points) {
                     props.addPoints(props.points);
                 }
-                
+
                 if (props.action) {
                     props.action();
                 }
@@ -76,8 +87,10 @@ export default function Box(props) {
                 }
 
                 props.autoSelectOnlyRemainingBall();
-                
-                props.rollDice();
+
+                if (!moveWillEndTheGame(props.round, props.boxId)) {
+                    props.rollDice();
+                }
             }
         } else { // invalidChoiceAlert
             props.setAlertParagraphText(`Invalid choice!`);
