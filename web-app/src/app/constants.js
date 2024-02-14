@@ -347,7 +347,7 @@ export const SKILL_SHOT_BOX_6_BOX_ID = "skill-shot-box-6";
 //#endregion
 //#region border colors
 export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "blue";
-export const SKILL_SHOT_BOX_TAKEN_BORDER_COLOR = "black";
+export const SKILL_SHOT_BOX_GAINED_BORDER_COLOR = "black";
 export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = "gold";
 //#endregion
 //#endregion
@@ -370,6 +370,7 @@ export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 export const ALERT_TRAY_ID = "alert-tray";
 export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
+export const SKILL_SHOT_SELECTION_ALERT = "Select a Skill Shot!";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;

@@ -44,7 +44,7 @@ export default function Table(props) {
     const [redDroptarget56BoxBackgroundColor, setRedDroptarget56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
-    
+
     //#endregion
     //#region boxBackgroundColorArrays
     //#region ferriswheelBoxBackgroundColorArrays
@@ -160,9 +160,23 @@ export default function Table(props) {
         }
     }
 
-    function ferriswheelcarAction() {
-        props.setAlertParagraphText('Select a Skill Shot!');
+    function handleClickOnSkillShotBox(skillShotBoxBorderColor, skillShotBoxBorderColorSetter) {
+        if (skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+        }
+    }
 
+    function ferriswheelcarAction(shouldClearBoxGroup) {
+        if (shouldClearBoxGroup) {
+            console.log(`ferris wheel car action!`);
+            props.setAlertParagraphText(constants.SKILL_SHOT_SELECTION_ALERT);
+            const initialNumberOfSelectedSkillShotBoxes = props.skillShotBoxBorderColors.filter((borderColor) => borderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            let currentNumberOfSelectedSkillShotBoxes = initialNumberOfSelectedSkillShotBoxes;
+            while (initialNumberOfSelectedSkillShotBoxes === currentNumberOfSelectedSkillShotBoxes) {
+                currentNumberOfSelectedSkillShotBoxes = props.skillShotBoxBorderColors.filter((borderColor) => borderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            }
+            props.setAlertParagraphText("");
+        }
     }
 
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
@@ -185,31 +199,37 @@ export default function Table(props) {
                     top="268px"
                     left="100px"
                     borderColor={props.skillShotBox1BorderColor}
+                    handleClick={() => handleClickOnSkillShotBox(props.skillShotBox1BorderColor, props.setSkillShotBox1BorderColor)}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_BOX_ID}
                     top="290px"
                     left="80px"
                     borderColor={props.skillShotBox2BorderColor}
+                    handleClick={() => handleClickOnSkillShotBox(props.skillShotBox2BorderColor, props.setSkillShotBox2BorderColor)}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_BOX_ID}
                     top="313px"
                     left="62px"
                     borderColor={props.skillShotBox3BorderColor}
+                    handleClick={() => handleClickOnSkillShotBox(props.skillShotBox3BorderColor, props.setSkillShotBox3BorderColor)}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_BOX_ID}
                     top="340px"
                     left="54px"
                     borderColor={props.skillShotBox4BorderColor}
+                    handleClick={() => handleClickOnSkillShotBox(props.skillShotBox4BorderColor, props.setSkillShotBox4BorderColor)}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_BOX_ID}
                     top="368px"
                     left="66px"
                     borderColor={props.skillShotBox5BorderColor}
+                    handleClick={() => handleClickOnSkillShotBox(props.skillShotBox5BorderColor, props.setSkillShotBox5BorderColor)}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_BOX_ID}
                     top="394px"
                     left="83px"
                     borderColor={props.skillShotBox6BorderColor}
+                    handleClick={() => handleClickOnSkillShotBox(props.skillShotBox6BorderColor, props.setSkillShotBox6BorderColor)}
                 />
             </Fragment>
             <Fragment key="ferriswheel">
@@ -226,6 +246,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_12_FEATURE_ID)}
                         possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
+                        action={() => ferriswheelcarAction(shouldClearBoxGroup(ferriswheelBoxBackgroundColors))}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -245,6 +266,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_34_FEATURE_ID)}
                         possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
+                        action={() => ferriswheelcarAction(shouldClearBoxGroup(ferriswheelBoxBackgroundColors))}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -264,6 +286,7 @@ export default function Table(props) {
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_56_FEATURE_ID)}
                         possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
+                        action={() => ferriswheelcarAction(shouldClearBoxGroup(ferriswheelBoxBackgroundColors))}
                         left="350px"
                         top="246px"
                         height="48px"
