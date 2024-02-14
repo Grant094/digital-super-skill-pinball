@@ -76,6 +76,28 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
+        it('should render skill shot boxes as hidden', () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_BOX_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID)).not.toBeVisible();
+            //#endregion
+        });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {
