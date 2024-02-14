@@ -129,7 +129,6 @@ export default function Game(props) {
         setDie2(nextValueOfDie2);
 
         if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
-            // check whether player tilted and if so end the round
             if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
                 tilt(nextValueOfDie1, nextValueOfDie2);
             }
