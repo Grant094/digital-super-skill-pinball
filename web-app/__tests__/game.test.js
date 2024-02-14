@@ -1064,8 +1064,9 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge -1 to move from start to red flipper via red inlane
-                [1, 1], // final roll that causes tilt
+                [3, 3], // will nudge -1 to move from start to red flipper via red inlane
+                [6, 6], // roll that causes tilt
+                [1, 1], // final roll post-tilt
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -1080,8 +1081,10 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted!");
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             //#endregion
         });
     });

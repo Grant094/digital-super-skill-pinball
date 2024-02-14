@@ -119,13 +119,14 @@ export default function Game(props) {
 
                 endRound();
 
+                const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
+                const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
+                setDie1(postTiltValueOfDie1);
+                setDie2(postTiltValueOfDie2);
+                // incrementing dieValuesIndex a 2nd time was not working, so I use index + 1 and then increment it after
                 if (props.dieValues) {
                     setDieValuesIndex(() => dieValuesIndex + 1);
                 }
-                const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex][0] : utilities.getRndIntegerInclusive(1, 6);
-                const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex][1] : utilities.getRndIntegerInclusive(1, 6);
-                setDie1(postTiltValueOfDie1);
-                setDie2(postTiltValueOfDie2);
             }
 
             // after checking tilt status, remove any nudging from both dice
