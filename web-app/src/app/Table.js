@@ -184,32 +184,32 @@ export default function Table(props) {
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_BOX_ID}
                     top="268px"
                     left="100px"
-                    visibility={props.skillShotIndicator1Visibility}
+                    visibility={props.skillShotBox1Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_BOX_ID}
                     top="290px"
                     left="80px"
-                    visibility={props.skillShotIndicator2Visibility}
+                    visibility={props.skillShotBox2Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_BOX_ID}
                     top="313px"
                     left="62px"
-                    visibility={props.skillShotIndicator3Visibility}
+                    visibility={props.skillShotBox3Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_BOX_ID}
                     top="340px"
                     left="54px"
-                    visibility={props.skillShotIndicator4Visibility}
+                    visibility={props.skillShotBox4Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_BOX_ID}
                     top="368px"
                     left="66px"
-                    visibility={props.skillShotIndicator5Visibility}
+                    visibility={props.skillShotBox5Visibility}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_BOX_ID}
                     top="394px"
                     left="83px"
-                    visibility={props.skillShotIndicator6Visibility}
+                    visibility={props.skillShotBox6Visibility}
                 />
             </Fragment>
             <Fragment key="ferriswheel">
