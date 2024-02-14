@@ -10,7 +10,7 @@ export default function SkillShotBox(props) {
             style={{
                 top: props.top,
                 left: props.left,
-                visibility: props.visibility,
+                borderColor: props.borderColor,
             }}
         >
 

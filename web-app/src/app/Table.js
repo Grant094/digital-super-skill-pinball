@@ -184,32 +184,32 @@ export default function Table(props) {
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_BOX_ID}
                     top="268px"
                     left="100px"
-                    visibility={props.skillShotBox1Visibility}
+                    borderColor={props.skillShotBox1BorderColor}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_BOX_ID}
                     top="290px"
                     left="80px"
-                    visibility={props.skillShotBox2Visibility}
+                    borderColor={props.skillShotBox2BorderColor}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_BOX_ID}
                     top="313px"
                     left="62px"
-                    visibility={props.skillShotBox3Visibility}
+                    borderColor={props.skillShotBox3BorderColor}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_BOX_ID}
                     top="340px"
                     left="54px"
-                    visibility={props.skillShotBox4Visibility}
+                    borderColor={props.skillShotBox4BorderColor}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_BOX_ID}
                     top="368px"
                     left="66px"
-                    visibility={props.skillShotBox5Visibility}
+                    borderColor={props.skillShotBox5BorderColor}
                 />
                 <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_BOX_ID}
                     top="394px"
                     left="83px"
-                    visibility={props.skillShotBox6Visibility}
+                    borderColor={props.skillShotBox6BorderColor}
                 />
             </Fragment>
             <Fragment key="ferriswheel">

@@ -38,13 +38,13 @@ export default function Game(props) {
     const [yelFlipperBox23BoxBackgroundColor, setYelFlipperBox23BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
-    //#region skill shot indicator visibility
-    const [skillShotBox1Visibility, setSkillShotBox1Visibility] = useState("hidden");
-    const [skillShotBox2Visibility, setSkillShotBox2Visibility] = useState("hidden");
-    const [skillShotBox3Visibility, setSkillShotBox3Visibility] = useState("hidden");
-    const [skillShotBox4Visibility, setSkillShotBox4Visibility] = useState("hidden");
-    const [skillShotBox5Visibility, setSkillShotBox5Visibility] = useState("hidden");
-    const [skillShotBox6Visibility, setSkillShotBox6Visibility] = useState("hidden");
+    //#region skill shot indicator border colors
+    const [skillShotBox1BorderColor, setSkillShotBox1BorderColor] = useState("blue");
+    const [skillShotBox2BorderColor, setSkillShotBox2BorderColor] = useState("blue");
+    const [skillShotBox3BorderColor, setSkillShotBox3BorderColor] = useState("blue");
+    const [skillShotBox4BorderColor, setSkillShotBox4BorderColor] = useState("blue");
+    const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState("blue");
+    const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState("blue");
     //#endregion
     //#endregion
 
@@ -243,18 +243,18 @@ export default function Game(props) {
                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                 gameOverAlert={gameOverAlert}
                 setAlertParagraphText={setAlertParagraphText}
-                skillShotBox1Visibility={skillShotBox1Visibility}
-                setSkillShotBox1Visibility={setSkillShotBox1Visibility}
-                skillShotBox2Visibility={skillShotBox2Visibility}
-                setSkillShotBox2Visibility={setSkillShotBox2Visibility}
-                skillShotBox3Visibility={skillShotBox3Visibility}
-                setSkillShotBox3Visibility={setSkillShotBox3Visibility}
-                skillShotBox4Visibility={skillShotBox4Visibility}
-                setSkillShotBox4Visibility={setSkillShotBox4Visibility}
-                skillShotBox5Visibility={skillShotBox5Visibility}
-                setSkillShotBox5Visibility={setSkillShotBox5Visibility}
-                skillShotBox6Visibility={skillShotBox6Visibility}
-                setSkillShotBox6Visibility={setSkillShotBox6Visibility}
+                skillShotBox1BorderColor={skillShotBox1BorderColor}
+                setSkillShotBox1BorderColor={setSkillShotBox1BorderColor}
+                skillShotBox2BorderColor={skillShotBox2BorderColor}
+                setSkillShotBox2BorderColor={setSkillShotBox2BorderColor}
+                skillShotBox3BorderColor={skillShotBox3BorderColor}
+                setSkillShotBox3BorderColor={setSkillShotBox3BorderColor}
+                skillShotBox4BorderColor={skillShotBox4BorderColor}
+                setSkillShotBox4BorderColor={setSkillShotBox4BorderColor}
+                skillShotBox5BorderColor={skillShotBox5BorderColor}
+                setSkillShotBox5BorderColor={setSkillShotBox5BorderColor}
+                skillShotBox6BorderColor={skillShotBox6BorderColor}
+                setSkillShotBox6BorderColor={setSkillShotBox6BorderColor}
             />
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
