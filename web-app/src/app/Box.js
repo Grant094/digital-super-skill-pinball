@@ -21,7 +21,7 @@ export default function Box(props) {
 
     function moveWillEndTheGame(round, boxId) {
         return (
-            (round === 3) &&
+            (round === constants.MAX_ROUNDS) &&
             (
                 boxId === constants.YEL_OUTLANE_BOX_ID ||
                 boxId === constants.RED_OUTLANE_BOX_ID ||

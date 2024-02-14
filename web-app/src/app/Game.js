@@ -91,6 +91,23 @@ export default function Game(props) {
         }
     }
 
+    function hasTilted(nextValueOfDie1, nextValueOfDie2) {
+        return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
+    }
+
+    function tilt(nextValueOfDie1, nextValueOfDie2) {
+        setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
+        endRound();
+
+        const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
+        const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
+        setDie1(postTiltValueOfDie1);
+        setDie2(postTiltValueOfDie2);
+        if (props.dieValues) {
+            setDieValuesIndex(() => dieValuesIndex + 1);
+        }
+    }
+
     function endRound() {
         // increment round
         incRound();
@@ -112,21 +129,8 @@ export default function Game(props) {
         setDie2(nextValueOfDie2);
 
         if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
-            // check whether player tilted and if so end the round
-            if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2)) {
-                // player tilted so they should be notified and then the round should be ended
-                setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
-
-                endRound();
-
-                const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
-                const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
-                setDie1(postTiltValueOfDie1);
-                setDie2(postTiltValueOfDie2);
-                // incrementing dieValuesIndex a 2nd time was not working, so I use index + 1 and then increment it after
-                if (props.dieValues) {
-                    setDieValuesIndex(() => dieValuesIndex + 1);
-                }
+            if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
+                tilt(nextValueOfDie1, nextValueOfDie2);
             }
 
             // after checking tilt status, remove any nudging from both dice
