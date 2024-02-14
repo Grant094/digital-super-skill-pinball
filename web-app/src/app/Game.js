@@ -12,6 +12,7 @@ import AlertTray from "./AlertTray";
 export default function Game(props) {
     let didInit = false;
     //#region state
+    //#region misc game state
     const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : null);
     const [die1, setDie1] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
     const [die2, setDie2] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
@@ -24,6 +25,7 @@ export default function Game(props) {
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
+    //#endregion
     //#region dashed boxes
     const [redOutlaneBoxBackgroundColor, setRedOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [yelOutlaneBoxBackgroundColor, setYelOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
