@@ -448,6 +448,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -486,6 +487,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -524,6 +526,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -565,6 +568,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -598,6 +602,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -631,6 +636,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -664,6 +670,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -703,6 +710,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -736,6 +744,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -769,6 +778,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -802,6 +812,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -841,6 +852,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -874,6 +886,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -907,6 +920,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -940,6 +954,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -980,6 +995,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -1020,6 +1036,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -1060,6 +1077,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -1100,6 +1118,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -1140,6 +1159,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -1180,6 +1200,7 @@ export default function Game(props) {
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                         {...props}
                     />
@@ -1222,6 +1243,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1261,6 +1283,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1300,6 +1323,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1341,6 +1365,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1380,6 +1405,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1419,6 +1445,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1458,6 +1485,7 @@ export default function Game(props) {
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                             {...props}
                         />
@@ -1492,6 +1520,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1522,6 +1551,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1556,6 +1586,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1588,6 +1619,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1631,6 +1663,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1662,6 +1695,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1693,6 +1727,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1726,6 +1761,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1757,6 +1793,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1788,6 +1825,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1824,6 +1862,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1848,6 +1887,7 @@ export default function Game(props) {
                 endRound={endRound}
                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                 gameOverAlert={gameOverAlert}
+                alertParagraphText={alertParagraphText}
                 setAlertParagraphText={setAlertParagraphText}
             />
             <Ball ballId={constants.BALL2_ID}
@@ -1870,10 +1910,11 @@ export default function Game(props) {
                 endRound={endRound}
                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                 gameOverAlert={gameOverAlert}
+                alertParagraphText={alertParagraphText}
                 setAlertParagraphText={setAlertParagraphText}
             />
             <Fragment key="roundindicators">
-                <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID} 
+                <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID}
                     forRound="1"
                     top="950px"
                     left="414px"
@@ -1896,6 +1937,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1922,6 +1964,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
@@ -1948,6 +1991,7 @@ export default function Game(props) {
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                     {...props}
                 />
