@@ -73,17 +73,6 @@ export default function Game(props) {
     ];
     //#endregion
 
-    //#region misc vars
-    const skillShotBoxBorderColors = [
-        skillShotBox1BorderColor,
-        skillShotBox2BorderColor,
-        skillShotBox3BorderColor,
-        skillShotBox4BorderColor,
-        skillShotBox5BorderColor,
-        skillShotBox6BorderColor,
-    ];
-    //#endregion
-
     //#region functions
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
     const incRound = (() => setRound(round + 1));
@@ -266,7 +255,6 @@ export default function Game(props) {
                 setSkillShotBox5BorderColor={setSkillShotBox5BorderColor}
                 skillShotBox6BorderColor={skillShotBox6BorderColor}
                 setSkillShotBox6BorderColor={setSkillShotBox6BorderColor}
-                skillShotBoxBorderColors={skillShotBoxBorderColors}
             />
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
