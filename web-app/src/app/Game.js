@@ -282,6 +282,7 @@ export default function Game(props) {
             skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR
         ) {
             skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            setAlertParagraphText("");
         } else if (
             alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
             skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR
