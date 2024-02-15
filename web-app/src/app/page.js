@@ -10,8 +10,11 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
-        // [3, 3], // will nudge -1 to move from start to red flipper via red inlane
-        // [6, 6], // roll that causes tilt
+        [1, 2], // move from start to ferris wheel car 12
+        [1, 1], // move to yel flipper via yel flipper box 1
+        [3, 4], // move to ferris wheel car 34
+        [2, 3], // move to yel flipper via yel flipper box 23
+        [5, 6], // move to ferris wheel car 56
         [1, 1], // final roll
     ];
     //#endregion

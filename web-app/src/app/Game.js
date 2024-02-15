@@ -46,6 +46,12 @@ export default function Game(props) {
     const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     //#endregion
+    //#region ferris wheel car box background colors
+    const [ferriswheelcar12BoxBackgroundColor, setFerriswheelcar12BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [ferriswheelcar34BoxBackgroundColor, setFerriswheelcar34BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [ferriswheelcar56BoxBackgroundColor, setFerriswheelcar56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    //#endregion
+    
     //#endregion
 
     //#region dashed boxes background color arrays
@@ -70,6 +76,20 @@ export default function Game(props) {
         yelFlipperBox1BoxBackgroundColor,
         yelFlipperBox23BoxBackgroundColor,
         yelFlipperBox4BoxBackgroundColor,
+    ];
+    //#endregion
+
+    
+    //#region ferriswheelBoxBackgroundColorArrays
+    const ferriswheelBoxBackgroundColors = [
+        ferriswheelcar12BoxBackgroundColor,
+        ferriswheelcar34BoxBackgroundColor,
+        ferriswheelcar56BoxBackgroundColor,
+    ];
+    const ferriswheelBoxBackgroundColorSetters = [
+        setFerriswheelcar12BoxBackgroundColor,
+        setFerriswheelcar34BoxBackgroundColor,
+        setFerriswheelcar56BoxBackgroundColor,
     ];
     //#endregion
 
@@ -100,6 +120,36 @@ export default function Game(props) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
     }
+
+    function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
+        const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
+        const countOfFilledBoxesInThisGroup = filledBoxes.length;
+        const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
+        return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
+    }
+
+    function ferriswheelcarAction() {
+        if (shouldClearBoxGroup(ferriswheelBoxBackgroundColors)) {
+            setAlertParagraphText(constants.SELECT_SKILL_SHOT_ALERT);
+        }
+    }
+    //#region functions copied from Table.js
+    function clearBoxGroup(boxBackgroundColorSetters) {
+        for (const setter of boxBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
+        }
+    }
+
+    function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, action = null) {
+        if (shouldClearBoxGroup(boxGroupBoxBackgroundColors)) {
+            clearBoxGroup(boxBackgroundColorSetters);
+        }
+
+        if (action) {
+            action();
+        }
+    }
+    //#endregion
 
     function hasTilted(nextValueOfDie1, nextValueOfDie2) {
         return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
@@ -255,6 +305,16 @@ export default function Game(props) {
                 setSkillShotBox5BorderColor={setSkillShotBox5BorderColor}
                 skillShotBox6BorderColor={skillShotBox6BorderColor}
                 setSkillShotBox6BorderColor={setSkillShotBox6BorderColor}
+                ferriswheelcar12BoxBackgroundColor={ferriswheelcar12BoxBackgroundColor}
+                setFerriswheelcar12BoxBackgroundColor={setFerriswheelcar12BoxBackgroundColor}
+                ferriswheelcar34BoxBackgroundColor={ferriswheelcar34BoxBackgroundColor}
+                setFerriswheelcar34BoxBackgroundColor={setFerriswheelcar34BoxBackgroundColor}
+                ferriswheelcar56BoxBackgroundColor={ferriswheelcar56BoxBackgroundColor}
+                setFerriswheelcar56BoxBackgroundColor={setFerriswheelcar56BoxBackgroundColor}
+                ferriswheelBoxBackgroundColors={ferriswheelBoxBackgroundColors}
+                ferriswheelBoxBackgroundColorSetters={ferriswheelBoxBackgroundColorSetters}
+                ferriswheelcarAction={ferriswheelcarAction}
+                possiblyClearFerriswheelcars={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarAction)}
             />
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}

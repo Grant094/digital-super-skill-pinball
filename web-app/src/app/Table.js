@@ -14,9 +14,6 @@ import SkillShotBox from "./SkillShotBox";
 export default function Table(props) {
     //#region state
     //#region box-background-colors
-    const [ferriswheelcar12BoxBackgroundColor, setFerriswheelcar12BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [ferriswheelcar34BoxBackgroundColor, setFerriswheelcar34BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
-    const [ferriswheelcar56BoxBackgroundColor, setFerriswheelcar56BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper121st1BoxBackgroundColor, setBumper121st1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper122nd1BoxBackgroundColor, setBumper122nd1BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumper121st2BoxBackgroundColor, setBumper121st2BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
@@ -47,18 +44,6 @@ export default function Table(props) {
     
     //#endregion
     //#region boxBackgroundColorArrays
-    //#region ferriswheelBoxBackgroundColorArrays
-    const ferriswheelBoxBackgroundColors = [
-        ferriswheelcar12BoxBackgroundColor,
-        ferriswheelcar34BoxBackgroundColor,
-        ferriswheelcar56BoxBackgroundColor,
-    ];
-    const ferriswheelBoxBackgroundColorSetters = [
-        setFerriswheelcar12BoxBackgroundColor,
-        setFerriswheelcar34BoxBackgroundColor,
-        setFerriswheelcar56BoxBackgroundColor,
-    ];
-    //#endregion
     //#region bumperBoxBackgroundColorArrays
     const bumperBoxBackgroundColors = [
         bumper121st1BoxBackgroundColor,
@@ -146,7 +131,6 @@ export default function Table(props) {
         }
     }
 
-    // if all boxes in a group are filled in, they should be cleared
     function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
         const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfFilledBoxesInThisGroup = filledBoxes.length;
@@ -158,11 +142,6 @@ export default function Table(props) {
         if (shouldClearBoxGroup(boxGroupBoxBackgroundColors)) {
             clearBoxGroup(boxBackgroundColorSetters);
         }
-    }
-
-    function ferriswheelcarAction() {
-        props.setAlertParagraphText(constants.SELECT_SKILL_SHOT_ALERT);
-
     }
 
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
@@ -219,13 +198,14 @@ export default function Table(props) {
                         top="304px"
                     />
                     <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
-                        boxBackgroundColor={ferriswheelcar12BoxBackgroundColor}
-                        isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
-                        fillBox={() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                        boxBackgroundColor={props.ferriswheelcar12BoxBackgroundColor}
+                        isThisBoxFilled={isBoxFilled(props.ferriswheelcar12BoxBackgroundColor)}
+                        fillBox={() => props.setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[1, 2]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_12_FEATURE_ID)}
-                        possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
+                        possiblyClearBoxGroup={props.possiblyClearFerriswheelcars}
+                        action={props.ferriswheelcarAction}
                         left="160px"
                         top="246px"
                         height="48px"
@@ -239,12 +219,13 @@ export default function Table(props) {
                         top="280px"
                     />
                     <Box boxId={constants.FERRISWHEEL_CAR_34_BOX_ID}
-                        isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
-                        fillBox={() => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                        isThisBoxFilled={isBoxFilled(props.ferriswheelcar34BoxBackgroundColor)}
+                        fillBox={() => props.setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[3, 4]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_34_FEATURE_ID)}
-                        possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
+                        possiblyClearBoxGroup={props.possiblyClearFerriswheelcars}
+                        action={props.ferriswheelcarAction}
                         left="255px"
                         top="230px"
                         height="40px"
@@ -258,12 +239,13 @@ export default function Table(props) {
                         top="304px"
                     />
                     <Box boxId={constants.FERRISWHEEL_CAR_56_BOX_ID}
-                        isThisBoxFilled={isBoxFilled(ferriswheelcar56BoxBackgroundColor)}
-                        fillBox={() => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
+                        isThisBoxFilled={isBoxFilled(props.ferriswheelcar56BoxBackgroundColor)}
+                        fillBox={() => props.setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                         canReceiveOn={[5, 6]}
                         canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
                         moveSelectedBallToCorrespondingFeature={() => props.moveSelectedBall(constants.FERRISWHEEL_CAR_56_FEATURE_ID)}
-                        possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters)}
+                        possiblyClearBoxGroup={props.possiblyClearFerriswheelcars}
+                        action={props.ferriswheelcarAction}
                         left="350px"
                         top="246px"
                         height="48px"
