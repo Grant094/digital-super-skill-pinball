@@ -1326,6 +1326,33 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2"); // 2 points from using yel inlane but no additional points from using outlane
             //#endregion
         });
+        it('should maintain gained skill shots', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [1, 1], // move to drain
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            //#endregion
+        });
     });
     describe('when filling all boxes in the ferris wheel group', () => {
         it('should clear all boxes in the ferris wheel group and display the skill shot alert', async () => {
