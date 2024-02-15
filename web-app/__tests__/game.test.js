@@ -1328,7 +1328,7 @@ describe("Game", () => {
         });
     });
     describe('when filling all boxes in the ferris wheel group', () => {
-        it('should clear all boxes in the ferris wheel group', async () => {
+        it('should clear all boxes in the ferris wheel group and display the skill shot alert', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -1352,6 +1352,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.SELECT_SKILL_SHOT_ALERT);
             //#endregion
         });
     });
