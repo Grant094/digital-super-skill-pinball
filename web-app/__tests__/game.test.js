@@ -1327,7 +1327,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when filling all boxes in a group', () => {
+    describe('when filling all boxes in the ferris wheel group', () => {
         it('should clear all boxes in the ferris wheel group', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -1354,6 +1354,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
+    });
+    describe('when filling all boxes in the bumper group', () => {
         it('should clear all boxes in the bumper group', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -1403,6 +1405,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
+    });
+    describe('when filling all boxes in the yel drop targets group', () => {
         it('should clear all boxes in the yel droptargets group', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -1429,6 +1433,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
+    });
+    describe('when filling all boxes in the red drop targets group', () => {
         it('should clear all boxes in the red droptargets group', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -1460,6 +1466,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
+    });
+    describe('when filling all hammer space boxes', () => {
         it('should clear all hammer space boxes', async () => {
             //#region arrange
             const DIE_VALUES = [
