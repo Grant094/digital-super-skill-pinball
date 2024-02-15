@@ -397,37 +397,37 @@ export default function Game(props) {
                 top={constants.START_FEATURE_TOP}
             />
             <Fragment key="skill-shot-indicators">
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_BOX_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_ID}
                     top="268px"
                     left="100px"
                     borderColor={skillShotBox1BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox1BorderColor, setSkillShotBox1BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_BOX_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_ID}
                     top="290px"
                     left="80px"
                     borderColor={skillShotBox2BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox2BorderColor, setSkillShotBox2BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_BOX_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_ID}
                     top="313px"
                     left="62px"
                     borderColor={skillShotBox3BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox3BorderColor, setSkillShotBox3BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_BOX_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_ID}
                     top="340px"
                     left="54px"
                     borderColor={skillShotBox4BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox4BorderColor, setSkillShotBox4BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_BOX_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_ID}
                     top="368px"
                     left="66px"
                     borderColor={skillShotBox5BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox5BorderColor, setSkillShotBox5BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_BOX_ID}
+                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_ID}
                     top="394px"
                     left="83px"
                     borderColor={skillShotBox6BorderColor}

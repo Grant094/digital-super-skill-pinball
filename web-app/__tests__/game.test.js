@@ -84,18 +84,18 @@ describe("Game", () => {
             // not applicable
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
     });
@@ -1346,11 +1346,11 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
             //#endregion
         });
     });
@@ -1443,10 +1443,10 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
             //#endregion
         });
         it('should clear the alert paragraph and hide the alert tray after gaining a skill shot', async () => {
@@ -1468,7 +1468,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
@@ -1494,12 +1494,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
         it('should allow gaining a 2nd skill shot if the ferris wheel cars have been filled a 2nd time', async () => {
@@ -1527,18 +1527,18 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_BOX_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
             //#endregion
         });
     });
