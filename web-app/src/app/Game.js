@@ -3,7 +3,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import * as constants from "./constants";
 import * as utilities from "./utilities";
-import Table from "./Table";
 import DiceTray from "./DiceTray";
 import ScoreIndicator from "./ScoreIndicator";
 import RestartTray from "./RestartTray";
