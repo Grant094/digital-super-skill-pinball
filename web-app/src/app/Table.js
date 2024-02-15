@@ -161,7 +161,7 @@ export default function Table(props) {
     }
 
     function ferriswheelcarAction() {
-        props.setAlertParagraphText('Select a Skill Shot!');
+        props.setAlertParagraphText(constants.SELECT_SKILL_SHOT_ALERT);
 
     }
 

@@ -370,6 +370,7 @@ export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 export const ALERT_TRAY_ID = "alert-tray";
 export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
+export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
