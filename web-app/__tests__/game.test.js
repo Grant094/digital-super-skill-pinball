@@ -1779,7 +1779,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when attempting to select and use a skill shot', () => {
+    describe('when attempting to select and/or use a skill shot', () => {
         it('should change to the selected border color and show selected skill shot alert', async () => {
             //#region arrange
             const DIE_VALUES = [
