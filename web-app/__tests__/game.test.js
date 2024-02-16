@@ -1896,6 +1896,35 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
             //#endregion
         });
+        it('should allow the user to deselect a skill shot if they have not overridden a die yet', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [6, 6], // final roll that should not be overridden or used to move
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // to gain skill shot 1
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // to select skill shot 1
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // to deselect skill shot 1
+            await user.click(screen.getByTitle(constants.DIE1_ID)); // should do nothing
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
+            //#endregion
+        });
     });
     describe('when ending the game', () => {
         it('should display the game over message in the alert tray', async () => {
