@@ -44,7 +44,7 @@ export default function Game(props) {
     const [yelFlipperBox23BoxBackgroundColor, setYelFlipperBox23BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [yelFlipperBox4BoxBackgroundColor, setYelFlipperBox4BoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
-    //#region skill shot indicator border colors
+    //#region skill shot box border colors
     const [skillShotBox1BorderColor, setSkillShotBox1BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     const [skillShotBox2BorderColor, setSkillShotBox2BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     const [skillShotBox3BorderColor, setSkillShotBox3BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
@@ -433,38 +433,38 @@ export default function Game(props) {
                 left={constants.START_FEATURE_LEFT}
                 top={constants.START_FEATURE_TOP}
             />
-            <Fragment key="skill-shot-indicators">
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_1_ID}
+            <Fragment key="skill-shot-boxes">
+                <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_1_ID}
                     top="268px"
                     left="100px"
                     borderColor={skillShotBox1BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox1BorderColor, setSkillShotBox1BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_2_ID}
+                <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_2_ID}
                     top="290px"
                     left="80px"
                     borderColor={skillShotBox2BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox2BorderColor, setSkillShotBox2BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_3_ID}
+                <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_3_ID}
                     top="313px"
                     left="62px"
                     borderColor={skillShotBox3BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox3BorderColor, setSkillShotBox3BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_4_ID}
+                <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_4_ID}
                     top="340px"
                     left="54px"
                     borderColor={skillShotBox4BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox4BorderColor, setSkillShotBox4BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_5_ID}
+                <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_5_ID}
                     top="368px"
                     left="66px"
                     borderColor={skillShotBox5BorderColor}
                     handleClick={() => handleSkillShotBoxClick(skillShotBox5BorderColor, setSkillShotBox5BorderColor)}
                 />
-                <SkillShotBox indicatorId={constants.SKILL_SHOT_BOX_6_ID}
+                <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_6_ID}
                     top="394px"
                     left="83px"
                     borderColor={skillShotBox6BorderColor}

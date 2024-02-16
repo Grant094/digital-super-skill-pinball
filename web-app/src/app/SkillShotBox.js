@@ -5,7 +5,7 @@ import styles from "./skillshotbox.module.css";
 
 export default function SkillShotBox(props) {
     return (
-        <div id={props.indicatorId} title={props.indicatorId}
+        <div id={props.skillShotBoxId} title={props.skillShotBoxId}
             className={styles.SkillShotBox}
             onClick={props.handleClick}
             style={{
