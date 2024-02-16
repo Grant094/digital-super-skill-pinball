@@ -253,7 +253,6 @@ export default function Game(props) {
         return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
     }
 
-    //#region functions copied from Table.js
     function isBoxFilled(boxBackgroundColor) {
         return (boxBackgroundColor === constants.FILLED_BACKGROUND_COLOR);
     }
@@ -286,7 +285,6 @@ export default function Game(props) {
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
         addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX);
     }
-    //#endregion
 
     function ferriswheelcarClearGroupAction() {
         if (shouldClearBoxGroup(ferriswheelBoxBackgroundColors)) {
