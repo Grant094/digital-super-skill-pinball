@@ -498,24 +498,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="ferriswheelcar34">
@@ -537,24 +532,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="ferriswheelcar56">
@@ -576,24 +566,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                 </Fragment>
@@ -618,24 +603,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_12_2ND_1_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper122nd1BoxBackgroundColor)}
@@ -652,24 +632,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_12_1ST_2_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper121st2BoxBackgroundColor)}
@@ -686,24 +661,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_12_2ND_2_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper122nd2BoxBackgroundColor)}
@@ -720,24 +690,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="bumper34">
@@ -760,24 +725,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_34_2ND_3_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper342nd3BoxBackgroundColor)}
@@ -794,24 +754,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_34_1ST_4_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper341st4BoxBackgroundColor)}
@@ -828,24 +783,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_34_2ND_4_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper342nd4BoxBackgroundColor)}
@@ -862,24 +812,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="bumper56">
@@ -902,24 +847,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_56_2ND_5_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper562nd5BoxBackgroundColor)}
@@ -936,24 +876,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_56_1ST_6_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper561st6BoxBackgroundColor)}
@@ -970,24 +905,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                         <Box boxId={constants.BUMPER_56_2ND_6_BOX_ID}
                             isThisBoxFilled={isBoxFilled(bumper562nd6BoxBackgroundColor)}
@@ -1004,24 +934,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                 </Fragment>
@@ -1045,24 +970,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-2">
@@ -1086,24 +1006,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-3">
@@ -1127,24 +1042,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-4">
@@ -1168,24 +1078,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-5">
@@ -1209,24 +1114,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-6">
@@ -1250,24 +1150,19 @@ export default function Game(props) {
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
-                            score={score}
                             round={round}
                             addPoints={addPoints}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
                             die2AmountNudgedBy={die2AmountNudgedBy}
-                            nudgesUsed={nudgesUsed}
                             incNudgesUsed={incNudgesUsed}
-                            selectedBallId={selectedBallId}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            moveSelectedBall={moveSelectedBall}
                             endRound={endRound}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
-                            {...props}
                         />
                     </Fragment>
                 </Fragment>
@@ -1293,24 +1188,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                         <Fragment key="yelDropTarget34">
@@ -1333,24 +1223,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                         <Fragment key="yelDropTarget56">
@@ -1373,24 +1258,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                     </Fragment>
@@ -1415,24 +1295,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                         <Fragment key="redDropTarget3">
@@ -1455,24 +1330,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                         <Fragment key="redDropTarget4">
@@ -1495,24 +1365,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                         <Fragment key="redDropTarget56">
@@ -1535,24 +1400,19 @@ export default function Game(props) {
                                 die1={die1}
                                 die2={die2}
                                 rollDice={rollDice}
-                                score={score}
                                 round={round}
                                 addPoints={addPoints}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
                                 die2AmountNudgedBy={die2AmountNudgedBy}
-                                nudgesUsed={nudgesUsed}
                                 incNudgesUsed={incNudgesUsed}
-                                selectedBallId={selectedBallId}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                moveSelectedBall={moveSelectedBall}
                                 endRound={endRound}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
-                                {...props}
                             />
                         </Fragment>
                     </Fragment>
@@ -1570,24 +1430,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
                         isThisBoxFilled={isBoxFilled(yelOutlaneBoxBackgroundColor)}
@@ -1601,24 +1456,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                 </Fragment>
                 <Fragment key="inlanes">
@@ -1636,24 +1486,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
                         isThisBoxFilled={isBoxFilled(yelInlaneBoxBackgroundColor)}
@@ -1669,24 +1514,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                 </Fragment>
                 <Fragment key="flippers">
@@ -1713,24 +1553,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
                         isThisBoxFilled={isBoxFilled(redFlipperBox45BoxBackgroundColor)}
@@ -1745,24 +1580,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
                         isThisBoxFilled={isBoxFilled(redFlipperBox6BoxBackgroundColor)}
@@ -1777,24 +1607,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                 </Fragment>
                 <Fragment key="yelflipperboxes">
@@ -1811,24 +1636,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox23BoxBackgroundColor)}
@@ -1843,24 +1663,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox4BoxBackgroundColor)}
@@ -1875,24 +1690,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                 </Fragment>
                 <Fragment key="drain">
@@ -1912,24 +1722,19 @@ export default function Game(props) {
                         die1={die1}
                         die2={die2}
                         rollDice={rollDice}
-                        score={score}
                         round={round}
                         addPoints={addPoints}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
                         die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
                         incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
                         endRound={endRound}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                 </Fragment>
                 <Ball ballId={constants.BALL1_ID}
@@ -1938,17 +1743,13 @@ export default function Game(props) {
                     die1={die1}
                     die2={die2}
                     rollDice={rollDice}
-                    score={score}
                     addPoints={addPoints}
                     ball1FeatureId={ball1FeatureId}
                     ball2FeatureId={ball2FeatureId}
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
-                    nudgesUsed={nudgesUsed}
                     incNudgesUsed={incNudgesUsed}
-                    selectedBallId={selectedBallId}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                    moveSelectedBall={moveSelectedBall}
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
@@ -1961,17 +1762,13 @@ export default function Game(props) {
                     die1={die1}
                     die2={die2}
                     rollDice={rollDice}
-                    score={score}
                     addPoints={addPoints}
                     ball1FeatureId={ball1FeatureId}
                     ball2FeatureId={ball2FeatureId}
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
-                    nudgesUsed={nudgesUsed}
                     incNudgesUsed={incNudgesUsed}
-                    selectedBallId={selectedBallId}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                    moveSelectedBall={moveSelectedBall}
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
@@ -1984,81 +1781,18 @@ export default function Game(props) {
                         top="950px"
                         left="414px"
                         round={round}
-                        ballFeatureId={ball2FeatureId}
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        score={score}
-                        addPoints={addPoints}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
-                        incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
-                        endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
-                        gameOverAlert={gameOverAlert}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <RoundIndicator RoundIndicatorId={constants.ROUND_2_INDICATOR_ID}
                         forRound="2"
                         top="950px"
                         left="451px"
                         round={round}
-                        ballFeatureId={ball2FeatureId}
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        score={score}
-                        addPoints={addPoints}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
-                        incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
-                        endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
-                        gameOverAlert={gameOverAlert}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                     <RoundIndicator RoundIndicatorId={constants.ROUND_3_INDICATOR_ID}
                         forRound="3"
                         top="950px"
                         left="487px"
                         round={round}
-                        ballFeatureId={ball2FeatureId}
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        score={score}
-                        addPoints={addPoints}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        nudgesUsed={nudgesUsed}
-                        incNudgesUsed={incNudgesUsed}
-                        selectedBallId={selectedBallId}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        moveSelectedBall={moveSelectedBall}
-                        endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
-                        gameOverAlert={gameOverAlert}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
-                        {...props}
                     />
                 </Fragment>
             </Fragment>
