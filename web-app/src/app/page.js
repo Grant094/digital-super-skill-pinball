@@ -10,12 +10,6 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
-        [1, 2], // move from start to ferris wheel car 12
-        [1, 1], // move to yel flipper via yel flipper box 1
-        [3, 4], // move to ferris wheel car 34
-        [2, 3], // move to yel flipper via yel flipper box 23
-        [5, 6], // move to ferris wheel car 56
-        [2, 6], // override die1 with skill shot
         [1, 1], // final roll
     ];
     //#endregion
