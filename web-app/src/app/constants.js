@@ -371,6 +371,7 @@ export const ALERT_TRAY_ID = "alert-tray";
 export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
 export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
+export const OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT = "Select a die to change";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
