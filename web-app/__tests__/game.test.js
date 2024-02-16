@@ -1806,6 +1806,96 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
             //#endregion
         });
+        it('should change the die, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [6, 6], // final roll on whose turn die1 will be overridden
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // choose to gain skill shot 1
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // select to use skill shot 1
+            await user.click(screen.getByTitle(constants.DIE1_ID)); // override die1 ({6}) with 1
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            //#endregion
+        });
+        it('should allow the user to move with the skill shot', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [6, 6], // override die1 to 1 and move to bumper 12 via 1st 1 box
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.DIE1_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            //#endregion
+        });
+        it('should allow the user to move after nudging a skill shot', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [6, 6], // override die1 to 1 and move to bumper 12 via 1st 1 box
+                [1, 6], // avoid tilt on final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.DIE1_ID));
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 1 to 2
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            //#endregion
+        });
     });
     describe('when ending the game', () => {
         it('should display the game over message in the alert tray', async () => {

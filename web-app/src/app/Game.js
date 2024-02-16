@@ -199,6 +199,24 @@ export default function Game(props) {
     ];
     //#endregion
     //#endregion
+    //#region skill shot box border color arrays
+    const skillShotBoxBorderColors = [
+        skillShotBox1BorderColor,
+        skillShotBox2BorderColor,
+        skillShotBox3BorderColor,
+        skillShotBox4BorderColor,
+        skillShotBox5BorderColor,
+        skillShotBox6BorderColor,
+    ];
+    const skillShotBoxBorderColorSetters = [
+        setSkillShotBox1BorderColor,
+        setSkillShotBox2BorderColor,
+        setSkillShotBox3BorderColor,
+        setSkillShotBox4BorderColor,
+        setSkillShotBox5BorderColor,
+        setSkillShotBox6BorderColor,
+    ];
+    //#endregion
 
     //#region functions
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
@@ -289,6 +307,21 @@ export default function Game(props) {
         ) {
             skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
             setAlertParagraphText(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
+        }
+    }
+
+    function isAnySkillShotBoxSelected() {
+        return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
+    }
+
+    function handleDieClick(dieSetter) {
+        if (isAnySkillShotBoxSelected()) {
+            const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            dieSetter(indexOfSelectedSkillShotBox + 1);
+
+            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+
+            setAlertParagraphText("");
         }
     }
 
@@ -2021,6 +2054,8 @@ export default function Game(props) {
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
                 die2={die2}
+                onDie1Click={() => handleDieClick(setDie1)}
+                onDie2Click={() => handleDieClick(setDie2)}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
                 nudgesUsed={nudgesUsed}

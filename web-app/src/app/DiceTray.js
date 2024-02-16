@@ -13,8 +13,18 @@ export default function DiceTray(props) {
     return (
         <div id={props.dicetrayId} className={styles.DiceTray}>
             <Fragment key="dice">
-                <p title={constants.DIE1_ID} className={styles.Die1}>{props.die1}</p>
-                <p title={constants.DIE2_ID} className={styles.Die2}>{props.die2}</p>
+                <p title={constants.DIE1_ID}
+                    className={styles.Die1}
+                    onClick={props.onDie1Click}
+                >
+                    {props.die1}
+                </p>
+                <p title={constants.DIE2_ID} 
+                    className={styles.Die2}
+                    onClick={props.onDie2Click}
+                >
+                    {props.die2}
+                </p>
             </Fragment>
             <Fragment key="nudge-buttons">
                 <NudgeUpButton buttonId={constants.DIE1_NUDGE_UP_BUTTON_ID}
