@@ -336,6 +336,21 @@ export const DICE_IDS = [
     DIE2_ID,
 ];
 //#endregion
+//#region skill shot boxes
+//#region IDs
+export const SKILL_SHOT_BOX_1_ID = "skill-shot-box-1";
+export const SKILL_SHOT_BOX_2_ID = "skill-shot-box-2";
+export const SKILL_SHOT_BOX_3_ID = "skill-shot-box-3";
+export const SKILL_SHOT_BOX_4_ID = "skill-shot-box-4";
+export const SKILL_SHOT_BOX_5_ID = "skill-shot-box-5";
+export const SKILL_SHOT_BOX_6_ID = "skill-shot-box-6";
+//#endregion
+//#region border colors
+export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "skyblue";
+export const SKILL_SHOT_BOX_GAINED_BORDER_COLOR = "black";
+export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = "gold";
+//#endregion
+//#endregion
 //#region roundIndicatorIds
 export const ROUND_1_INDICATOR_ID = "round-1-indicator";
 export const ROUND_2_INDICATOR_ID = "round-2-indicator";
@@ -355,6 +370,8 @@ export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 export const ALERT_TRAY_ID = "alert-tray";
 export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
+export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
+export const OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT = "Select a die to change";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;

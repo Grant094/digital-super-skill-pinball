@@ -32,6 +32,12 @@ export default function Box(props) {
 
     function handleClick() {
         if (
+            (props.alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) || 
+            (props.alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
+            (props.isThisBoxFilled)
+        ) {
+            // do nothing
+        } else if (
             (
                 props.boxId === constants.RED_OUTLANE_BOX_ID ||
                 props.boxId === constants.YEL_OUTLANE_BOX_ID
@@ -40,8 +46,6 @@ export default function Box(props) {
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             props.setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
-        } else if (props.isThisBoxFilled) {
-            // do nothing
         } else if (couldReceiveSelectedBall()) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
