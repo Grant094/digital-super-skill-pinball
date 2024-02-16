@@ -10,7 +10,7 @@ export default function RestartTray(props) {
                 title={props.restartButtonId}
                 className={styles.RestartButton}
                 type="button"
-                onClick={props.onClick}
+                onClick={props.handleRestart}
             >
                 Restart
             </button>

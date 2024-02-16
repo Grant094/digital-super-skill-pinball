@@ -2057,12 +2057,12 @@ export default function Game(props) {
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
                 die2={die2}
-                onDie1Click={() => handleDieClick(setDie1)}
-                onDie2Click={() => handleDieClick(setDie2)}
+                handleDie1Click={() => handleDieClick(setDie1)}
+                handleDie2Click={() => handleDieClick(setDie2)}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
                 nudgesUsed={nudgesUsed}
-                onNudge={handleNudge}
+                handleNudge={handleNudge}
                 rollDice={rollDice}
             />
             <ScoreIndicator scoreIndicatorId={constants.SCORE_INDICATOR_ID}
@@ -2071,7 +2071,7 @@ export default function Game(props) {
             />
             <RestartTray restartTrayId="restart-tray"
                 restartButtonId={constants.RESTART_BUTTON_ID}
-                onClick={handleRestart}
+                handleRestart={handleRestart}
             />
             <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
                 paragraphId={constants.ALERT_PARAGRAPH_ID}

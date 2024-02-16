@@ -15,13 +15,13 @@ export default function DiceTray(props) {
             <Fragment key="dice">
                 <p title={constants.DIE1_ID}
                     className={styles.Die1}
-                    onClick={props.onDie1Click}
+                    onClick={props.handleDie1Click}
                 >
                     {props.die1}
                 </p>
                 <p title={constants.DIE2_ID} 
                     className={styles.Die2}
-                    onClick={props.onDie2Click}
+                    onClick={props.handleDie2Click}
                 >
                     {props.die2}
                 </p>
