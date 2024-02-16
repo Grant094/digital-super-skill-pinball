@@ -1541,6 +1541,84 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
             //#endregion
         });
+        it('should do nothing if clicking on an already gained skill shot when gaining a 2nd skill shot is allowed', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [1, 1], // move to drain
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.SELECT_SKILL_SHOT_ALERT);
+            //#endregion
+        });
+        it('should allow gaining a 2nd skill shot even after clicking on an already gained skill shot', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [1, 1], // move to drain
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            //#endregion
+        });
     });
     describe('when filling all boxes in the bumper group', () => {
         it('should clear all boxes in the bumper group', async () => {
