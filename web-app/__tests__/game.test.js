@@ -115,6 +115,18 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
             //#endregion
         });
+        it('should render the flipper pass bonus box unfilled', async () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {

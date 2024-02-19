@@ -1459,7 +1459,7 @@ export default function Game(props) {
                     </Fragment>
                 </Fragment>
                 <Fragment key="droptarget-bonus-boxes">
-                    <BonusBox id={constants.FLIPPER_PASS_BONUS_BOX_ID}
+                    <BonusBox bonusBoxId={constants.FLIPPER_PASS_BONUS_BOX_ID}
                         top="620px"
                         left="164px"
                         backgroundColor={flipperPassBonusBoxBackgroundColor}
