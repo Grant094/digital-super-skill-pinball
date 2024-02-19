@@ -7,7 +7,7 @@ export default function BonusBox(props) {
     return (
         <div id={props.bonusBoxId} title={props.bonusBoxId}
             className={styles.BonusBox}
-            // onClick={props.handleClick}
+            onClick={props.handleClick}
             style={{
                 top: props.top,
                 left: props.left,

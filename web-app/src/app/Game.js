@@ -445,6 +445,14 @@ export default function Game(props) {
     function redDropTargetGroupAction() {
         dropTargetGroupAction("red", redDroptargetBoxBackgroundColors);
     }
+
+    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter) {
+        if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
+            bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
+            setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+            setAlertParagraphText("");
+        }
+    }
     //#endregion
 
     //#region useEffect
@@ -1462,6 +1470,7 @@ export default function Game(props) {
                     <BonusBox bonusBoxId={constants.FLIPPER_PASS_BONUS_BOX_ID}
                         top="620px"
                         left="164px"
+                        handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor)}
                         backgroundColor={flipperPassBonusBoxBackgroundColor}
                     />
                 </Fragment>

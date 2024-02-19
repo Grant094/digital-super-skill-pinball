@@ -15,7 +15,8 @@ export default function Home(props) {
         [3, 4], // move to yel drop target 34
         [2, 3], // move to yel flipper via yel flipper box 23
         [1, 2], // move to yel drop target 12
-        [1, 1], // final roll
+        [2, 5], // extra roll
+        [1, 6], // final roll
     ];
     //#endregion
 
