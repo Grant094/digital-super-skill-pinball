@@ -328,6 +328,11 @@ export const BALL_IDS = [
     BALL2_ID,
 ];
 //#endregion
+//#region bonus indicators
+export const FLIPPER_PASS_INDICATOR_ID = "indicator-flipper-pass";
+export const OUTLANE_BONUS_INDICATOR_ID = "indicator-outlane-bonus";
+export const BUMPER_BONUS_INDICATOR_ID = "indicator-bumper-bonus";
+//#endregion
 //#region dice
 export const DIE1_ID = "die1";
 export const DIE2_ID = "die2";
