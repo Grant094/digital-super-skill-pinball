@@ -14,6 +14,7 @@ import Outlane from "./Outlane";
 import Ball from "./Ball";
 import RoundIndicator from "./RoundIndicator";
 import SkillShotBox from "./SkillShotBox";
+import BonusIndicator from "./BonusIndicator";
 
 export default function Game(props) {
     let didInit = false;
@@ -488,7 +489,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
                             fillBox={() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1, 2]}
-                            canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.FERRISWHEEL_CAR_12_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarClearGroupAction)}
                             left="160px"
@@ -522,7 +523,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
                             fillBox={() => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3, 4]}
-                            canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.FERRISWHEEL_CAR_34_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarClearGroupAction)}
                             left="255px"
@@ -556,7 +557,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(ferriswheelcar56BoxBackgroundColor)}
                             fillBox={() => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5, 6]}
-                            canReceiveFrom={constants.FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.FERRISWHEEL_CAR_56_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarClearGroupAction)}
                             left="350px"
@@ -592,7 +593,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper121st1BoxBackgroundColor)}
                             fillBox={() => setBumper121st1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1]}
-                            canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="155px"
@@ -621,7 +622,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper122nd1BoxBackgroundColor)}
                             fillBox={() => setBumper122nd1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1]}
-                            canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="155px"
@@ -650,7 +651,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper121st2BoxBackgroundColor)}
                             fillBox={() => setBumper121st2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[2]}
-                            canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="185px"
@@ -679,7 +680,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper122nd2BoxBackgroundColor)}
                             fillBox={() => setBumper122nd2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[2]}
-                            canReceiveFrom={constants.BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="185px"
@@ -714,7 +715,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper341st3BoxBackgroundColor)}
                             fillBox={() => setBumper341st3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3]}
-                            canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="288px"
@@ -743,7 +744,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper342nd3BoxBackgroundColor)}
                             fillBox={() => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3]}
-                            canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="288px"
@@ -772,7 +773,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper341st4BoxBackgroundColor)}
                             fillBox={() => setBumper341st4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[4]}
-                            canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="317px"
@@ -801,7 +802,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper342nd4BoxBackgroundColor)}
                             fillBox={() => setBumper342nd4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[4]}
-                            canReceiveFrom={constants.BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="317px"
@@ -836,7 +837,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper561st5BoxBackgroundColor)}
                             fillBox={() => setBumper561st5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5]}
-                            canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="221px"
@@ -865,7 +866,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper562nd5BoxBackgroundColor)}
                             fillBox={() => setBumper562nd5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5]}
-                            canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="221px"
@@ -894,7 +895,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper561st6BoxBackgroundColor)}
                             fillBox={() => setBumper561st6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[6]}
-                            canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="251px"
@@ -923,7 +924,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(bumper562nd6BoxBackgroundColor)}
                             fillBox={() => setBumper562nd6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[6]}
-                            canReceiveFrom={constants.BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
                             left="251px"
@@ -960,7 +961,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
                             fillBox={() => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[1]}
-                            canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_1_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             left="376px"
@@ -994,7 +995,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
                             fillBox={() => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[2]}
-                            canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_2_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
@@ -1030,7 +1031,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
                             fillBox={() => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[3]}
-                            canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_3_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
@@ -1066,7 +1067,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
                             fillBox={() => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[4]}
-                            canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_4_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
@@ -1102,7 +1103,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
                             fillBox={() => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[5]}
-                            canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_5_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
@@ -1138,7 +1139,7 @@ export default function Game(props) {
                             isThisBoxFilled={isBoxFilled(hammerspace6BoxBackgroundColor)}
                             fillBox={() => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
                             canReceiveOn={[6]}
-                            canReceiveFrom={constants.HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS}
+                            canReceiveFrom={constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS}
                             moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_6_FEATURE_ID)}
                             possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
@@ -1165,6 +1166,23 @@ export default function Game(props) {
                             setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
+                </Fragment>
+                <Fragment key="bonus-indicators">
+                    <BonusIndicator bonusIndicatorId={constants.FLIPPER_PASS_INDICATOR_ID}
+                        top="574px"
+                        left="183px"
+                        borderColor="black"
+                    />
+                    <BonusIndicator bonusIndicatorId={constants.OUTLANE_BONUS_INDICATOR_ID}
+                        top="574px"
+                        left="243px"
+                        borderColor="black"
+                    />
+                    <BonusIndicator bonusIndicatorId={constants.BUMPER_BONUS_INDICATOR_ID}
+                        top="574px"
+                        left="301px"
+                        borderColor="black"
+                    />
                 </Fragment>
                 <Fragment key="droptargets">
                     <Fragment key="yelDropTargets">
