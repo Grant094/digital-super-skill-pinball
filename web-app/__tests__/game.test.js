@@ -98,6 +98,22 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
+        it('should render bonus indicator components with transparent borders', async () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            //#endregion
+        });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {

@@ -329,9 +329,15 @@ export const BALL_IDS = [
 ];
 //#endregion
 //#region bonus indicators
+//#region bonus indicator ids
 export const FLIPPER_PASS_INDICATOR_ID = "indicator-flipper-pass";
 export const OUTLANE_BONUS_INDICATOR_ID = "indicator-outlane-bonus";
 export const BUMPER_BONUS_INDICATOR_ID = "indicator-bumper-bonus";
+//#endregion
+//#region bonus indicator border colors
+export const BONUS_INDICATOR_INACTIVE_BORDER_COLOR = "transparent";
+export const BONUS_INDICATOR_ACTIVE_BORDER_COLOR = "black";
+//#endregion
 //#endregion
 //#region dice
 export const DIE1_ID = "die1";

@@ -92,6 +92,11 @@ export default function Game(props) {
     const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
     //#endregion
+    //#region bonus indicator border colors
+    const [flipperPassIndicatorBorderColor, setFlipperPassIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+    const [outlaneBonusIndicatorBorderColor, setOutlaneBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+    const [bumperBonusIndicatorBorderColor, setBumperBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+    //#endregion
     //#endregion
 
     //#region box background arrays
@@ -1171,17 +1176,17 @@ export default function Game(props) {
                     <BonusIndicator bonusIndicatorId={constants.FLIPPER_PASS_INDICATOR_ID}
                         top="574px"
                         left="183px"
-                        borderColor="black"
+                        borderColor={flipperPassIndicatorBorderColor}
                     />
                     <BonusIndicator bonusIndicatorId={constants.OUTLANE_BONUS_INDICATOR_ID}
                         top="574px"
                         left="243px"
-                        borderColor="black"
+                        borderColor={outlaneBonusIndicatorBorderColor}
                     />
                     <BonusIndicator bonusIndicatorId={constants.BUMPER_BONUS_INDICATOR_ID}
                         top="574px"
                         left="301px"
-                        borderColor="black"
+                        borderColor={bumperBonusIndicatorBorderColor}
                     />
                 </Fragment>
                 <Fragment key="droptargets">
