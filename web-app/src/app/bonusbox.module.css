@@ -1,0 +1,8 @@
+.BonusBox {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 5px;
+    position: absolute;
+    border-color: blue;
+}

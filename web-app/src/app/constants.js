@@ -339,6 +339,9 @@ export const BONUS_INDICATOR_INACTIVE_BORDER_COLOR = "transparent";
 export const BONUS_INDICATOR_ACTIVE_BORDER_COLOR = "black";
 //#endregion
 //#endregion
+//#region bonus boxes
+export const FLIPPER_PASS_BONUS_BOX_ID = "bonus-box-flipper-pass";
+//#endregion
 //#region dice
 export const DIE1_ID = "die1";
 export const DIE2_ID = "die2";

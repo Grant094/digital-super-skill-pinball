@@ -15,6 +15,7 @@ import Ball from "./Ball";
 import RoundIndicator from "./RoundIndicator";
 import SkillShotBox from "./SkillShotBox";
 import BonusIndicator from "./BonusIndicator";
+import BonusBox from "./BonusBox";
 
 export default function Game(props) {
     let didInit = false;
@@ -33,7 +34,7 @@ export default function Game(props) {
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
     //#endregion
-    //#region box background colors
+    //#region dice box background colors
     //#region dashed box background colors
     const [redOutlaneBoxBackgroundColor, setRedOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [yelOutlaneBoxBackgroundColor, setYelOutlaneBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
@@ -97,6 +98,9 @@ export default function Game(props) {
     const [outlaneBonusIndicatorBorderColor, setOutlaneBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     const [bumperBonusIndicatorBorderColor, setBumperBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     //#endregion
+    //#endregion
+    //#region bonus box background colors
+    const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
 
     //#region box background arrays
@@ -1439,6 +1443,13 @@ export default function Game(props) {
                             />
                         </Fragment>
                     </Fragment>
+                </Fragment>
+                <Fragment key="droptarget-bonus-boxes">
+                    <BonusBox id={constants.FLIPPER_PASS_BONUS_BOX_ID}
+                        top="620px"
+                        left="164px"
+                        backgroundColor={flipperPassBonusBoxBackgroundColor}
+                    />
                 </Fragment>
                 <Fragment key="outlanes">
                     <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
