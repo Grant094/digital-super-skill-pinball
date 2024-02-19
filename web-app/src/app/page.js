@@ -10,6 +10,11 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
+        [5, 6], // move from start to yel drop target 56
+        [1, 1], // move to yel flipper via yel flipper box 1
+        [3, 4], // move to yel drop target 34
+        [2, 3], // move to yel flipper via yel flipper box 23
+        [1, 2], // move to yel drop target 12
         [1, 1], // final roll
     ];
     //#endregion

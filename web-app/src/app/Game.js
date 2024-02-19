@@ -431,6 +431,20 @@ export default function Game(props) {
     function gameOverAlert() {
         setAlertParagraphText('Game over!');
     }
+
+    function dropTargetGroupAction(color, relevantFlipperBoxesBackgroundColors) {
+        if (shouldClearBoxGroup(relevantFlipperBoxesBackgroundColors)) {
+            setAlertParagraphText(utilities.alertMessageForChoosingABonus(color));
+        }
+    }
+
+    function yelDropTargetGroupAction() {
+        dropTargetGroupAction("yellow", yelDroptargetBoxBackgroundColors);
+    }
+
+    function redDropTargetGroupAction() {
+        dropTargetGroupAction("red", redDroptargetBoxBackgroundColors);
+    }
     //#endregion
 
     //#region useEffect
@@ -1206,7 +1220,7 @@ export default function Game(props) {
                                 canReceiveOn={[1, 2]}
                                 canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_DROPTARGET_12_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters, yelDropTargetGroupAction)}
                                 left="30px"
                                 top="675px"
                                 height="60px"
@@ -1241,7 +1255,7 @@ export default function Game(props) {
                                 canReceiveOn={[3, 4]}
                                 canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_DROPTARGET_34_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters, yelDropTargetGroupAction)}
                                 left="60px"
                                 top="615px"
                                 height="60px"
@@ -1276,7 +1290,7 @@ export default function Game(props) {
                                 canReceiveOn={[5, 6]}
                                 canReceiveFrom={constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_DROPTARGET_56_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters, yelDropTargetGroupAction)}
                                 left="95px"
                                 top="560px"
                                 height="60px"
