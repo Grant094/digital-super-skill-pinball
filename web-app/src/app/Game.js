@@ -101,6 +101,7 @@ export default function Game(props) {
     //#endregion
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [bumperBonusBoxBackgroundColor, setBumperBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
 
     //#region box background arrays
@@ -450,10 +451,10 @@ export default function Game(props) {
         dropTargetGroupAction("red", redDroptargetBoxBackgroundColors);
     }
 
-    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter) {
+    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter, bonusIndicatorBorderColorSetter) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
             bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
-            setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+            bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             setAlertParagraphText("");
         }
     }
@@ -1348,7 +1349,7 @@ export default function Game(props) {
                                 canReceiveOn={[1, 2]}
                                 canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_12_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="415px"
                                 top="570px"
                                 height="50px"
@@ -1383,7 +1384,7 @@ export default function Game(props) {
                                 canReceiveOn={[3]}
                                 canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_3_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="435px"
                                 top="621px"
                                 height="40px"
@@ -1418,7 +1419,7 @@ export default function Game(props) {
                                 canReceiveOn={[4]}
                                 canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_4_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="455px"
                                 top="665px"
                                 height="42px"
@@ -1453,7 +1454,7 @@ export default function Game(props) {
                                 canReceiveOn={[5, 6]}
                                 canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
                                 moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_56_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters)}
+                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="480px"
                                 top="710px"
                                 height="55px"
@@ -1484,11 +1485,17 @@ export default function Game(props) {
                         <BonusBox bonusBoxId={constants.FLIPPER_PASS_BONUS_BOX_ID}
                             top="620px"
                             left="164px"
-                            handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor)}
+                            handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor, setFlipperPassIndicatorBorderColor)}
                             backgroundColor={flipperPassBonusBoxBackgroundColor}
                         />
                     </Fragment>
                     <Fragment key="red-droptarget-bonus-boxes">
+                        <BonusBox bonusBoxId={constants.BUMPER_BONUS_BOX_ID}
+                            top="616px"
+                            left="346px"
+                            handleClick={() => handleBonusBoxClick("red", setBumperBonusBoxBackgroundColor, setBumperBonusIndicatorBorderColor)}
+                            backgroundColor={bumperBonusBoxBackgroundColor}
+                        />
                     </Fragment>
                 </Fragment>
                 <Fragment key="outlanes">
