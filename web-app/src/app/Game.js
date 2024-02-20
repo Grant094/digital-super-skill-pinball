@@ -361,13 +361,17 @@ export default function Game(props) {
         }
     }
 
+    function clearActiveBonuses() {
+        setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+    }
+
     function endRound() {
-        // increment round
         incRound();
 
         clearDashedBoxes();
 
-        // move ball1 to start
+        clearActiveBonuses();
+
         setSelectedBallId(constants.BALL1_ID);
         moveSelectedBall(constants.START_FEATURE_ID);
     }
