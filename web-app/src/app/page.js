@@ -10,6 +10,13 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
+        [1, 2], // move from start to red drop target 12
+        [3, 3], // move to red flipper via red flipper box 3
+        [3, 3], // move to red drop target 3
+        [4, 5], // move to red flipper via red flipper box 45
+        [4, 4], // move to red drop target 4
+        [6, 6], // move to red flipper via flipper box 6
+        [5, 6], // move to red drop target 56
         [1, 1], // final roll
     ];
     //#endregion
