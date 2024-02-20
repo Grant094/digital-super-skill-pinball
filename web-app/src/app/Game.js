@@ -1480,12 +1480,16 @@ export default function Game(props) {
                     </Fragment>
                 </Fragment>
                 <Fragment key="droptarget-bonus-boxes">
-                    <BonusBox bonusBoxId={constants.FLIPPER_PASS_BONUS_BOX_ID}
-                        top="620px"
-                        left="164px"
-                        handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor)}
-                        backgroundColor={flipperPassBonusBoxBackgroundColor}
-                    />
+                    <Fragment key="yel-droptarget-bonus-boxes">
+                        <BonusBox bonusBoxId={constants.FLIPPER_PASS_BONUS_BOX_ID}
+                            top="620px"
+                            left="164px"
+                            handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor)}
+                            backgroundColor={flipperPassBonusBoxBackgroundColor}
+                        />
+                    </Fragment>
+                    <Fragment key="red-droptarget-bonus-boxes">
+                    </Fragment>
                 </Fragment>
                 <Fragment key="outlanes">
                     <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
