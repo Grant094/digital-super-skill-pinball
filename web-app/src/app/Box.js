@@ -34,6 +34,7 @@ export default function Box(props) {
         if (
             (props.alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) || 
             (props.alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
+            (props.alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
             (props.isThisBoxFilled)
         ) {
             // do nothing
