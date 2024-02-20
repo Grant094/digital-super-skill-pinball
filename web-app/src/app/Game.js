@@ -364,6 +364,7 @@ export default function Game(props) {
 
     function clearActiveBonuses() {
         setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+        setBumperBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     }
 
     function endRound() {
