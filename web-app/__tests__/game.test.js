@@ -3,6 +3,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Game from "../src/app/Game";
 import * as constants from "../src/app/constants";
+import * as utilities from "../src/app/utilities";
 
 describe("Game", () => {
     describe('when the game loads', () => {
@@ -96,6 +97,34 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            //#endregion
+        });
+        it('should render bonus indicator components with transparent borders', async () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            //#endregion
+        });
+        it('should render the flipper pass bonus box unfilled', async () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
     });
@@ -954,7 +983,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Invalid choice!");
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.INVALID_CHOICE_ALERT);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
@@ -1353,6 +1382,33 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
             //#endregion
         });
+        it('should deactivate the flipper pass indicator if it is active', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [1, 1], // move to the drain
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            //#endregion
+        });
     });
     describe('when filling all boxes in the ferris wheel group', () => {
         it('should clear all boxes in the ferris wheel group and display the skill shot alert', async () => {
@@ -1698,6 +1754,123 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
+        it('should alert the user to select a yellow bonus', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("yellow"));
+            //#endregion
+        });
+        it('should allow the user to select the flipper pass bonus', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+            //#endregion
+        });
+        it('should ignore all other clicks before the user chooses a yellow bonus', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [2, 5], // roll after filling all yel drop targets
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID)); // would change the alert paragraph if not ignored
+            await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_OUTLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("yellow"));
+            //#endregion
+        });
+        it('should allow the user to move after choosing a yellow bonus', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [5, 5], // move to yel flipper via yel inlane after choosing flipper pass
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_INLANE_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
     });
     describe('when filling all boxes in the red drop targets group', () => {
         it('should clear all boxes in the red droptargets group', async () => {
@@ -1952,6 +2125,104 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.left);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
+            //#endregion
+        });
+    });
+    describe('when the flipper pass is active', () => {
+        it('should allow the user to move from the yel flipper to a hammer space', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [4, 4], // move to yel flipper via yel flipper box 4
+                [1, 1], // move to hammer space 1
+                [1, 6], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
+            //#endregion
+        });
+        it('should allow the user to move from the red flipper to a ferris wheel car', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [6, 6], // move to red flipper via red flipper box 6
+                [1, 1], // move to ferris wheel car 12
+                [1, 6], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            //#endregion
+        });
+    });
+    describe('when flipper pass has been deactivated after being activated', () => {
+        it('should not allow the user to move from the yel flipper to a hammer space', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                [1, 1], // move to drain
+                [4, 4], // move from start to yel flipper via yel flipper box 4
+                [1, 1], // attempt to move to hammer space 1
+                [1, 6], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.INVALID_CHOICE_ALERT);
             //#endregion
         });
     });

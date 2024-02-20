@@ -32,7 +32,7 @@ export const FERRISWHEEL_GROUP_BOX_IDS = [
     FERRISWHEEL_CAR_56_BOX_ID,
 ];
 //#endregion
-export const FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
     START_FEATURE_ID,
     YEL_FLIPPER_FEATURE_ID,
 ];
@@ -122,22 +122,22 @@ export const BUMPER_GROUP_BOX_IDS = [
 ];
 //#endregion
 //#region bumpersCanReceiveFrom
-export const BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
     START_FEATURE_ID,
     ...FERRISWHEEL_FEATURE_IDS,
     RED_FLIPPER_FEATURE_ID,
     YEL_FLIPPER_FEATURE_ID,
 ];
-export const BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     BUMPER_56_FEATURE_ID,
 ];
-export const BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     BUMPER_12_FEATURE_ID,
 ];
-export const BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     BUMPER_34_FEATURE_ID,
 ]
 //#endregion
@@ -175,7 +175,7 @@ export const HAMMER_SPACE_GROUP_BOX_IDS = [
     HAMMER_SPACE_6_BOX_ID,
 ];
 //#endregion
-export const HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS = [RED_FLIPPER_FEATURE_ID];
+export const HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS = [RED_FLIPPER_FEATURE_ID];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
@@ -230,18 +230,18 @@ export const DROPTARGET_FEATURE_IDS = [
     ...RED_DROPTARGET_FEATURE_IDS,
     ...YEL_DROPTARGET_FEATURE_IDS,
 ];
-export const DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
     START_FEATURE_ID,
     ...FERRISWHEEL_FEATURE_IDS,
     ...BUMPER_FEATURE_IDS,
     ...HAMMER_SPACE_FEATURE_IDS,
 ];
 export const YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     YEL_FLIPPER_FEATURE_ID,
 ];
 export const RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     RED_FLIPPER_FEATURE_ID,
 ]
 //#endregion
@@ -328,6 +328,20 @@ export const BALL_IDS = [
     BALL2_ID,
 ];
 //#endregion
+//#region bonus indicators
+//#region bonus indicator ids
+export const FLIPPER_PASS_INDICATOR_ID = "indicator-flipper-pass";
+export const OUTLANE_BONUS_INDICATOR_ID = "indicator-outlane-bonus";
+export const BUMPER_BONUS_INDICATOR_ID = "indicator-bumper-bonus";
+//#endregion
+//#region bonus indicator border colors
+export const BONUS_INDICATOR_INACTIVE_BORDER_COLOR = "transparent";
+export const BONUS_INDICATOR_ACTIVE_BORDER_COLOR = "black";
+//#endregion
+//#endregion
+//#region bonus boxes
+export const FLIPPER_PASS_BONUS_BOX_ID = "bonus-box-flipper-pass";
+//#endregion
 //#region dice
 export const DIE1_ID = "die1";
 export const DIE2_ID = "die2";
@@ -372,6 +386,7 @@ export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
 export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
 export const OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT = "Select a die to change";
+export const INVALID_CHOICE_ALERT = "Invalid choice!";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
