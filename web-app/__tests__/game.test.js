@@ -2389,6 +2389,76 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when the bumper bonus is active', () => {
+        it('should award two points when moving to a bumper', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red drop target 12 (+1)
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3 (+1)
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4 (+1)
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56 (+1)
+                [2, 3], // move to yel flipper via yel flipper box 23 after choosing the bumper bonus
+                [1, 1], // move to bumper 12 via 1st 1 box (+2)
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("6"); // red drop targets (+4) + bumper 12 (+2)
+            //#endregion
+        });
+    });
+    describe('when the bumper bonus has been deactivated', () => {
+        it('should award one point when moving to a bumper', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red drop target 12 (+1)
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3 (+1)
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4 (+1)
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56 (+1)
+                [2, 3], // move to drain after choosing the bumper bonus
+                [1, 1], // move to bumper 12 via 1st 1 box (+1)
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("5"); // red drop targets (+4) + bumper 12 1st 1 (+1)
+            //#endregion
+        });
+    });
     describe('when ending the game', () => {
         it('should display the game over message in the alert tray', async () => {
             //#region arrange
