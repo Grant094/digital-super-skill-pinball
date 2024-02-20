@@ -99,8 +99,8 @@ export default function Box(props) {
                     props.rollDice();
                 }
             }
-        } else { // invalidChoiceAlert
-            props.setAlertParagraphText(`Invalid choice!`);
+        } else {
+            props.setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
         }
     }
     //#endregion
