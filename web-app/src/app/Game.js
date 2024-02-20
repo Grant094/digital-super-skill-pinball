@@ -468,6 +468,9 @@ export default function Game(props) {
         );
     }
 
+    function valueOfBumpers() {
+        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? "2" : "1");
+    }
     //#endregion
 
     //#region useEffect
@@ -646,7 +649,7 @@ export default function Game(props) {
                             top="373px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -675,7 +678,7 @@ export default function Game(props) {
                             top="402px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -704,7 +707,7 @@ export default function Game(props) {
                             top="373px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -733,7 +736,7 @@ export default function Game(props) {
                             top="402px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -768,7 +771,7 @@ export default function Game(props) {
                             top="373px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -797,7 +800,7 @@ export default function Game(props) {
                             top="402px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -826,7 +829,7 @@ export default function Game(props) {
                             top="373px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -855,7 +858,7 @@ export default function Game(props) {
                             top="402px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -890,7 +893,7 @@ export default function Game(props) {
                             top="475px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -919,7 +922,7 @@ export default function Game(props) {
                             top="505px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -948,7 +951,7 @@ export default function Game(props) {
                             top="475px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
@@ -977,7 +980,7 @@ export default function Game(props) {
                             top="505px"
                             height="25px"
                             width="25px"
-                            points="1"
+                            points={valueOfBumpers()}
                             die1={die1}
                             die2={die2}
                             rollDice={rollDice}
