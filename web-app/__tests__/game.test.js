@@ -1988,6 +1988,47 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("5"); // yel drop targets (+3) + yel bonus points (+2)
             //#endregion
         });
+        it('should allow the user to select 2 bonus points and be awarded those 2 bonus points a 2nd time', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34 (+1)
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56 (+1)
+                // select yellow bonus points (+2)
+                [1, 1], // move to drain via drain box
+                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34 (+1)
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56 (+1)
+                // select yellow bonus points again (+2)
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_BONUS_POINTS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_BONUS_POINTS_BONUS_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("10"); // yel drop targets twice (3 * 2 = 6) + yel bonus points twice (2 * 2 = 4) = 10
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+            //#endregion
+        });
         it('should ignore all other clicks before the user chooses a yellow bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -2235,6 +2276,55 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("7"); // red drop targets (+4) + red bonus points (+3)
+            //#endregion
+        });
+        it('should allow the user to select gaining 3 bonus points and award those 3 points a 2nd time', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red drop target 12 (+1)
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3 (+1)
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4 (+1)
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56 (+1)
+                // select red bonus points (+3)
+                [1, 1], // move to drain via drain box
+                [1, 2], // move from start to red drop target 12 (+1)
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3 (+1)
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4 (+1)
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56 (+1)
+                // select red bonus points again (+3)
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("14"); // red drop targets twice (4 * 2 = 8) + red bonus points twice (3 * 2 = 6) = 14
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
         it('should ignore all other clicks before the user chooses a red bonus', async () => {
