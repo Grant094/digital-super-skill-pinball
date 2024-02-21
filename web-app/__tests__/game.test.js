@@ -1140,11 +1140,28 @@ describe("Game", () => {
         });
     });
     describe('when ending a round but not the game', () => {
-        it('should clear a dashed box but not clear a solid box at the end of the round', async () => {
+        it('should clear a dashed box', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // from start to yel flipper box 1
+                [1, 1], // to drain box
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
+        it('should not clear a solid-lined box', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1], // from start to bumper 12 via its 1st 1 box
-                [1, 1], // to yel flipper box 1
                 [1, 1], // to drain box
                 [1, 1], // final roll
             ];
@@ -1153,12 +1170,10 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
-            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
         it('should make the relevant round indicators visible in round 2 while keeping the round 3 indicator hidden', async () => {
