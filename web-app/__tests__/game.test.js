@@ -2207,6 +2207,36 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
+        it('should allow the user to select gaining 3 bonus points and award those 3 points', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red drop target 12 (+1)
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3 (+1)
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4 (+1)
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56 (+1)
+                // select red bonus points (+3)
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("7"); // red drop targets (+4) + red bonus points (+3)
+            //#endregion
+        });
         it('should ignore all other clicks before the user chooses a red bonus', async () => {
             //#region arrange
             const DIE_VALUES = [

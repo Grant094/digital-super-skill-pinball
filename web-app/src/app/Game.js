@@ -1568,6 +1568,12 @@ export default function Game(props) {
                             handleClick={() => handleBonusBoxClick("red", setOutlaneBonusBoxBackgroundColor, setOutlaneBonusIndicatorBorderColor)}
                             backgroundColor={outlaneBonusBoxBackgroundColor}
                         />
+                        <BonusBox bonusBoxId={constants.RED_BONUS_POINTS_BONUS_BOX_ID}
+                            top="762px"
+                            left="418px"
+                            handleClick={() => handleBonusBoxClick("red", undefined, undefined, () => addPoints(3))}
+                            backgroundColor="transparent"
+                        />
                     </Fragment>
                 </Fragment>
                 <Fragment key="outlanes">

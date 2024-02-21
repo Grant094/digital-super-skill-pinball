@@ -344,6 +344,7 @@ export const FLIPPER_PASS_BONUS_BOX_ID = "bonus-box-flipper-pass";
 export const YEL_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-yel";
 export const BUMPER_BONUS_BOX_ID = "bonus-box-bumper-bonus";
 export const OUTLANE_BONUS_BOX_ID = "bonus-box-outlane-bonus";
+export const RED_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-red";
 //#endregion
 //#region dice
 export const DIE1_ID = "die1";
