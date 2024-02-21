@@ -102,6 +102,7 @@ export default function Game(props) {
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumperBonusBoxBackgroundColor, setBumperBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [outlaneBonusBoxBackgroundColor, setOutlaneBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
 
     //#region box background arrays
@@ -1543,6 +1544,12 @@ export default function Game(props) {
                             left="346px"
                             handleClick={() => handleBonusBoxClick("red", setBumperBonusBoxBackgroundColor, setBumperBonusIndicatorBorderColor)}
                             backgroundColor={bumperBonusBoxBackgroundColor}
+                        />
+                        <BonusBox bonusBoxId={constants.OUTLANE_BONUS_BOX_ID}
+                            top="673px"
+                            left="372px"
+                            handleClick={() => handleBonusBoxClick("red", setOutlaneBonusBoxBackgroundColor, setOutlaneBonusIndicatorBorderColor)}
+                            backgroundColor={outlaneBonusBoxBackgroundColor}
                         />
                     </Fragment>
                 </Fragment>

@@ -127,6 +127,18 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             //#endregion
         });
+        it('should render the outlane bonus box as unfilled', async () => {
+            //#region arrange
+            render(<Game />);
+            //#endregion
+            //#region act
+            // not applicable
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_BOX_ID)).toBeInTheDocument();
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            //#endregion
+        });
     });
     describe('when receiving specific dice rolls as a prop', () => {
         it('should display the 1st dice values passed via props', async () => {
@@ -2065,6 +2077,38 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+            //#endregion
+        });
+        it('should allow the user to select the outlane bonus', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red drop target 12
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.OUTLANE_BONUS_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
         it('should ignore all other clicks before the user chooses a red bonus', async () => {
