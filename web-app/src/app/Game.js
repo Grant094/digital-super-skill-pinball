@@ -454,10 +454,20 @@ export default function Game(props) {
         dropTargetGroupAction("red", redDroptargetBoxBackgroundColors);
     }
 
-    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter, bonusIndicatorBorderColorSetter) {
+    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
-            bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
-            bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+            if (bonusBoxBackgroundColorSetter) {
+                bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
+            }
+            
+            if (bonusIndicatorBorderColorSetter) {
+                bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+            }
+            
+            if (bonusAction) {
+                bonusAction();
+            }
+
             setAlertParagraphText("");
         }
     }
@@ -1537,6 +1547,12 @@ export default function Game(props) {
                             left="164px"
                             handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor, setFlipperPassIndicatorBorderColor)}
                             backgroundColor={flipperPassBonusBoxBackgroundColor}
+                        />
+                        <BonusBox bonusBoxId={constants.YEL_BONUS_POINTS_BONUS_BOX_ID}
+                            top="754px"
+                            left="82px"
+                            handleClick={() => handleBonusBoxClick("yellow", undefined, undefined, () => addPoints(2))}
+                            backgroundColor="transparent"
                         />
                     </Fragment>
                     <Fragment key="red-droptarget-bonus-boxes">

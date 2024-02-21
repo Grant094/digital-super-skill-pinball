@@ -1962,6 +1962,32 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FLIPPER_PASS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
+        it('should allow the user to select 2 bonus points and be awarded those 2 bonus points', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34 (+1)
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56 (+1)
+                // select yellow bonus points (+2)
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_BONUS_POINTS_BONUS_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("5"); // yel drop targets (+3) + yel bonus points (+2)
+            //#endregion
+        });
         it('should ignore all other clicks before the user chooses a yellow bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
