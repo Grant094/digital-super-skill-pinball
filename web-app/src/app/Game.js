@@ -492,6 +492,14 @@ export default function Game(props) {
         }
     }
 
+    function activateMultiball() {
+        if (ball1FeatureId === constants.DRAIN_FEATURE_ID) {
+            setBall1FeatureId(constants.START_FEATURE_ID);
+        } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID) {
+            setBall2FeatureId(constants.START_FEATURE_ID);
+        }
+    }
+
     function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
             if (bonusBoxBackgroundColorSetter) {
@@ -1595,7 +1603,7 @@ export default function Game(props) {
                         <BonusBox bonusBoxId={constants.YEL_MULTIBALL_BONUS_BOX_ID}
                             top="713px"
                             left="112px"
-                            handleClick={() => handleBonusBoxClick("yellow", setYelMultiballBonusBoxBackgroundColor, undefined, undefined)}
+                            handleClick={() => handleBonusBoxClick("yellow", setYelMultiballBonusBoxBackgroundColor, undefined, activateMultiball)}
                             backgroundColor={yelMultiballBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.YEL_BONUS_POINTS_BONUS_BOX_ID}
@@ -1621,7 +1629,7 @@ export default function Game(props) {
                         <BonusBox bonusBoxId={constants.RED_MULTIBALL_BONUS_BOX_ID}
                             top="721px"
                             left="395px"
-                            handleClick={() => handleBonusBoxClick("red", setRedMultiballBonusBoxBackgroundColor, undefined, undefined)}
+                            handleClick={() => handleBonusBoxClick("red", setRedMultiballBonusBoxBackgroundColor, undefined, activateMultiball)}
                             backgroundColor={redMultiballBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.RED_BONUS_POINTS_BONUS_BOX_ID}

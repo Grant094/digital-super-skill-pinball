@@ -1988,7 +1988,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             //#endregion
         });
-        it('should allow the user to activate multiball via the yel multiball bonus', async () => {
+        it('should allow the user to activate multiball with ball1 via the yel multiball bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
@@ -2012,6 +2012,9 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
             //#endregion
         });
         it('should allow the user to select 2 bonus points and be awarded those 2 bonus points', async () => {
@@ -2300,7 +2303,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
-        it('should allow the user to activate multiball via the red multiball bonus', async () => {
+        it('should allow the user to activate multiball with ball1 via the red multiball bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
@@ -2328,6 +2331,9 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
             //#endregion
         });
         it('should allow the user to select gaining 3 bonus points and award those 3 points', async () => {
