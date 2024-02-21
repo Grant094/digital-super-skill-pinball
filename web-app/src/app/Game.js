@@ -301,7 +301,8 @@ export default function Game(props) {
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
         const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
-        addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX);
+        const bonusMultiplier = (outlaneBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? 2 : 1;
+        addPoints(countOfRelevantFlipperBoxesFilled * constants.POINTS_PER_USED_FLIPPER_BOX * bonusMultiplier);
     }
 
     function ferriswheelcarClearGroupAction() {
