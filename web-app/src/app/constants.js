@@ -341,6 +341,7 @@ export const BONUS_INDICATOR_ACTIVE_BORDER_COLOR = "black";
 //#endregion
 //#region bonus boxes
 export const FLIPPER_PASS_BONUS_BOX_ID = "bonus-box-flipper-pass";
+export const FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID = "bonus-fill-two-hammer-spaces";
 export const YEL_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-yel";
 export const BUMPER_BONUS_BOX_ID = "bonus-box-bumper-bonus";
 export const OUTLANE_BONUS_BOX_ID = "bonus-box-outlane-bonus";
