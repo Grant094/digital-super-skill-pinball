@@ -102,8 +102,10 @@ export default function Game(props) {
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [fillTwoHammerSpacesBonusBoxBackgroundColor, setFillTwoHammerSpacesBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelMultiballBonusBoxBackgroundColor, setYelMultiballBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumperBonusBoxBackgroundColor, setBumperBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [outlaneBonusBoxBackgroundColor, setOutlaneBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redMultiballBonusBoxBackgroundColor, setRedMultiballBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
 
     //#region box background arrays
@@ -1590,6 +1592,12 @@ export default function Game(props) {
                             handleClick={() => handleBonusBoxClick("yellow", setFillTwoHammerSpacesBonusBoxBackgroundColor, undefined, fillTwoHammerSpaces)}
                             backgroundColor={fillTwoHammerSpacesBonusBoxBackgroundColor}
                         />
+                        <BonusBox bonusBoxId={constants.YEL_MULTIBALL_BONUS_BOX_ID}
+                            top="713px"
+                            left="112px"
+                            handleClick={() => handleBonusBoxClick("yellow", setYelMultiballBonusBoxBackgroundColor, undefined, undefined)}
+                            backgroundColor={yelMultiballBonusBoxBackgroundColor}
+                        />
                         <BonusBox bonusBoxId={constants.YEL_BONUS_POINTS_BONUS_BOX_ID}
                             top="754px"
                             left="82px"
@@ -1609,6 +1617,12 @@ export default function Game(props) {
                             left="372px"
                             handleClick={() => handleBonusBoxClick("red", setOutlaneBonusBoxBackgroundColor, setOutlaneBonusIndicatorBorderColor)}
                             backgroundColor={outlaneBonusBoxBackgroundColor}
+                        />
+                        <BonusBox bonusBoxId={constants.RED_MULTIBALL_BONUS_BOX_ID}
+                            top="721px"
+                            left="395px"
+                            handleClick={() => handleBonusBoxClick("red", setRedMultiballBonusBoxBackgroundColor, undefined, undefined)}
+                            backgroundColor={redMultiballBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.RED_BONUS_POINTS_BONUS_BOX_ID}
                             top="762px"
