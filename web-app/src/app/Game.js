@@ -101,6 +101,7 @@ export default function Game(props) {
     //#endregion
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [fillTwoHammerSpacesBonusBoxBackgroundColor, setFillTwoHammerSpacesBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumperBonusBoxBackgroundColor, setBumperBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [outlaneBonusBoxBackgroundColor, setOutlaneBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
@@ -452,6 +453,41 @@ export default function Game(props) {
 
     function redDropTargetGroupAction() {
         dropTargetGroupAction("red", redDroptargetBoxBackgroundColors);
+    }
+
+    function fillTwoHammerSpaces() {
+        if (hammerspace1BoxBackgroundColor === constants.UNFILLED_BACKGROUND_COLOR) {
+            setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            addPoints(1); // hammer space 1 (+0) + hammer space 2 (+1) = +1
+        } else if (hammerspace2BoxBackgroundColor === constants.UNFILLED_BACKGROUND_COLOR) {
+            setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            addPoints(2); // hammer space 2 (+1) + hammer space 3 (+1) = +2
+        } else if (hammerspace3BoxBackgroundColor === constants.UNFILLED_BACKGROUND_COLOR) {
+            setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            addPoints(3); // hammer space 3 (+1) + hammer space 4 (+2) = +3
+        } else if (hammerspace4BoxBackgroundColor === constants.UNFILLED_BACKGROUND_COLOR) {
+            setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            addPoints(7); // hammer space 4 (+2) + hammer space 5 (+5) = +7
+        } else if (hammerspace5BoxBackgroundColor === constants.UNFILLED_BACKGROUND_COLOR) {
+            setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            addPoints(25); // hammer space 5 (+5) + hammer space 6 (+20) = +25
+            for (const setter of hammerspaceBoxBackgroundColorSetters) {
+                setter(constants.UNFILLED_BACKGROUND_COLOR);
+            }
+        } else if (hammerspace6BoxBackgroundColor === constants.UNFILLED_BACKGROUND_COLOR) {
+            setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            addPoints(20); // hammer space 6 = +20
+            for (const setter of hammerspaceBoxBackgroundColorSetters) {
+                setter(constants.UNFILLED_BACKGROUND_COLOR);
+            }
+            setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR);
+            // hammer space 1 = +0, so no addPoints() statement
+        }
     }
 
     function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined) {
@@ -1547,6 +1583,12 @@ export default function Game(props) {
                             left="164px"
                             handleClick={() => handleBonusBoxClick("yellow", setFlipperPassBonusBoxBackgroundColor, setFlipperPassIndicatorBorderColor)}
                             backgroundColor={flipperPassBonusBoxBackgroundColor}
+                        />
+                        <BonusBox bonusBoxId={constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID}
+                            top="660px"
+                            left="143px"
+                            handleClick={() => handleBonusBoxClick("yellow", setFillTwoHammerSpacesBonusBoxBackgroundColor, undefined, fillTwoHammerSpaces)}
+                            backgroundColor={fillTwoHammerSpacesBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.YEL_BONUS_POINTS_BONUS_BOX_ID}
                             top="754px"
