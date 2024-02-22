@@ -454,6 +454,10 @@ export default function Game(props) {
         }
     }
 
+    function possiblyAutoSelectBall() {
+        autoSelectOnlyRemainingBall();
+    }
+
     function gameOverAlert() {
         setAlertParagraphText('Game over!');
     }
@@ -652,7 +656,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -690,7 +694,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -728,7 +732,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -772,7 +776,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -808,7 +812,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -844,7 +848,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -880,7 +884,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -922,7 +926,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -958,7 +962,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -994,7 +998,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1030,7 +1034,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1072,7 +1076,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1108,7 +1112,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1144,7 +1148,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1180,7 +1184,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1220,7 +1224,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1260,7 +1264,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1300,7 +1304,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1340,7 +1344,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1380,7 +1384,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1420,7 +1424,7 @@ export default function Game(props) {
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
                             deselectMovedBall={deselectMovedBall}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
                             selectedBallId={selectedBallId}
                             wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1479,7 +1483,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1518,7 +1522,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1557,7 +1561,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1598,7 +1602,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1637,7 +1641,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1676,7 +1680,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1715,7 +1719,7 @@ export default function Game(props) {
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
                                 deselectMovedBall={deselectMovedBall}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
                                 selectedBallId={selectedBallId}
                                 wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1803,7 +1807,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1833,7 +1837,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1867,7 +1871,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1899,7 +1903,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1942,7 +1946,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -1973,7 +1977,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2004,7 +2008,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2037,7 +2041,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2068,7 +2072,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2099,7 +2103,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2135,7 +2139,7 @@ export default function Game(props) {
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
                         deselectMovedBall={deselectMovedBall}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
                         selectedBallId={selectedBallId}
                         wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2161,7 +2165,7 @@ export default function Game(props) {
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
                     deselectMovedBall={deselectMovedBall}
-                    autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                    possiblyAutoSelectBall={possiblyAutoSelectBall}
                     gameOverAlert={gameOverAlert}
                     selectedBallId={selectedBallId}
                     wasBall1MovedThisTurn={wasBall1MovedThisTurn}
@@ -2186,7 +2190,7 @@ export default function Game(props) {
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
                     deselectMovedBall={deselectMovedBall}
-                    autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                    possiblyAutoSelectBall={possiblyAutoSelectBall}
                     gameOverAlert={gameOverAlert}
                     selectedBallId={selectedBallId}
                     wasBall1MovedThisTurn={wasBall1MovedThisTurn}
