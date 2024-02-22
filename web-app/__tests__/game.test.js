@@ -3151,7 +3151,7 @@ describe("Game", () => {
                 //#endregion
             });
         });
-        describe('moving a ball', () => {
+        describe('when moving a ball', () => {
             it('should change the border color of the ball to BALL_MOVED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
