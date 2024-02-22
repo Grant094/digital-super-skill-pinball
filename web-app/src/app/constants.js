@@ -330,6 +330,7 @@ export const BALL_IDS = [
 ];
 export const BALL_UNSELECTED_BORDER_COLOR = "transparent";
 export const BALL_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+export const BALL_MOVED_BORDER_COLOR = "red";
 //#endregion
 //#region bonus indicators
 //#region bonus indicator ids

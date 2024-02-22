@@ -31,6 +31,8 @@ export default function Game(props) {
     const [round, setRound] = useState(1);
     const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
+    // const [wasBall1MovedThisTurn, setWasBall1MovedThisTurn] = useState(false);
+    // const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
     //#endregion
@@ -260,8 +262,10 @@ export default function Game(props) {
     function moveSelectedBall(correspondingFeatureId) {
         if (selectedBallId === constants.BALL1_ID) {
             setBall1FeatureId(correspondingFeatureId);
+            // setWasBall1MovedThisTurn(true);
         } else if (selectedBallId === constants.BALL2_ID) {
             setBall2FeatureId(correspondingFeatureId);
+            // setWasBall2MovedThisTurn(true);
         }
     }
 
@@ -546,6 +550,10 @@ export default function Game(props) {
                 defaultCanReceiveFrom.concat([clockwiseBumperFeatureId]) :
                 defaultCanReceiveFrom
         );
+    }
+
+    function ballBorderColor(ballId) {
+        return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR);
     }
     //#endregion
 
@@ -2022,7 +2030,7 @@ export default function Game(props) {
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
                     incNudgesUsed={incNudgesUsed}
-                    borderColor={selectedBallId === constants.BALL1_ID ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR}
+                    borderColor={ballBorderColor(constants.BALL1_ID)}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
                     deselectMovedBall={deselectMovedBall}
@@ -2044,7 +2052,7 @@ export default function Game(props) {
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
                     incNudgesUsed={incNudgesUsed}
-                    borderColor={selectedBallId === constants.BALL2_ID ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR}
+                    borderColor={ballBorderColor(constants.BALL2_ID)}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
                     deselectMovedBall={deselectMovedBall}
