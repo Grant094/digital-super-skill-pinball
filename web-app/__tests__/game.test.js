@@ -3248,6 +3248,50 @@ describe("Game", () => {
                 expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
                 //#endregion
             });
+            it('should allow both balls to be moved after a previous turn in which both balls were moved', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    // select ball2
+                    [3, 4],
+                    // move ball2 to ferris wheel car 34 with 4
+                    // move ball1 to red flipper via red flipper box 3
+                    [2, 6],
+                    // select ball 1 and move it to bumper 56 via 1st 6 box
+                    // select ball 2 and move it to bumper 12 via 1st 2 box
+                    [1, 1], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+                //#endregion
+            });
         });
     });
     describe('after multiball is deactivated', () => {
