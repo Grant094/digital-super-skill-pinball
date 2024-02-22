@@ -94,6 +94,7 @@ export default function Box(props) {
                     }
                 }
 
+                props.deselectMovedBall();
                 props.autoSelectOnlyRemainingBall();
 
                 if (!moveWillEndTheGame(props.round, props.boxId)) {

@@ -265,6 +265,10 @@ export default function Game(props) {
         }
     }
 
+    function deselectMovedBall() {
+        setSelectedBallId(null);
+    }
+
     function clearDashedBoxes() {
         for (const setter of dashedBoxesBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
@@ -502,6 +506,8 @@ export default function Game(props) {
         } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID) {
             setBall2FeatureId(constants.START_FEATURE_ID);
         }
+
+        setSelectedBallId(null);
     }
 
     function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined) {
@@ -509,11 +515,11 @@ export default function Game(props) {
             if (bonusBoxBackgroundColorSetter) {
                 bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
             }
-            
+
             if (bonusIndicatorBorderColorSetter) {
                 bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             }
-            
+
             if (bonusAction) {
                 bonusAction();
             }
@@ -627,6 +633,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -661,6 +668,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -695,6 +703,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -735,6 +744,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -767,6 +777,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -799,6 +810,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -831,6 +843,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -869,6 +882,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -901,6 +915,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -933,6 +948,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -965,6 +981,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1003,6 +1020,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1035,6 +1053,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1067,6 +1086,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1099,6 +1119,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1135,6 +1156,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1171,6 +1193,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1207,6 +1230,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1243,6 +1267,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1279,6 +1304,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1315,6 +1341,7 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
+                            deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
                             alertParagraphText={alertParagraphText}
@@ -1370,6 +1397,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1405,6 +1433,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1440,6 +1469,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1477,6 +1507,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1512,6 +1543,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1547,6 +1579,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1582,6 +1615,7 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
+                                deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
                                 alertParagraphText={alertParagraphText}
@@ -1666,6 +1700,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1692,6 +1727,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1722,6 +1758,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1750,6 +1787,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1789,6 +1827,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1816,6 +1855,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1843,6 +1883,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1872,6 +1913,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1899,6 +1941,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1926,6 +1969,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1958,6 +2002,7 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
+                        deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
                         alertParagraphText={alertParagraphText}
@@ -1980,6 +2025,7 @@ export default function Game(props) {
                     borderColor={selectedBallId === constants.BALL1_ID ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
+                    deselectMovedBall={deselectMovedBall}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
                     alertParagraphText={alertParagraphText}
@@ -2001,6 +2047,7 @@ export default function Game(props) {
                     borderColor={selectedBallId === constants.BALL2_ID ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
+                    deselectMovedBall={deselectMovedBall}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
                     alertParagraphText={alertParagraphText}
