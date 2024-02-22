@@ -3254,8 +3254,8 @@ describe("Game", () => {
                     // select yel multiball bonus
                     // select ball2
                     [3, 4],
-                    // move ball2 to ferris wheel car 34 with 4
-                    // move ball1 to red flipper via red flipper box 3
+                    // select ball 2 and move it to ferris wheel car 34 with 4
+                    // move ball 1 to red flipper via red flipper box 3
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3270,7 +3270,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 //#endregion
                 //#region assert
@@ -3336,7 +3335,6 @@ describe("Game", () => {
                 // select yel multiball bonus
                 // select ball 2
                 [1, 6], // move ball 2 to the drain via the drain box
-                // select ball 1
                 [3, 3], // move ball 1 to red flipper via red flipper box 3
                 [1, 1], // final roll
             ];
@@ -3352,7 +3350,6 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
             await user.click(screen.getByTitle(constants.BALL2_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-            await user.click(screen.getByTitle(constants.BALL1_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
             //#endregion
             //#region assert
@@ -3370,7 +3367,6 @@ describe("Game", () => {
                 // select yel multiball bonus
                 // select ball 1
                 [1, 6], // move ball 1 to the drain via the drain box
-                // select ball 2
                 [3, 3], // move ball 2 to red flipper via red flipper box 3
                 [1, 1], // final roll
             ];
@@ -3386,7 +3382,6 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
             await user.click(screen.getByTitle(constants.BALL1_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-            await user.click(screen.getByTitle(constants.BALL2_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
             //#endregion
             //#region assert
