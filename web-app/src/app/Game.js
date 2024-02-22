@@ -35,6 +35,10 @@ export default function Game(props) {
     const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
+    const unselectedBall = (
+        selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
+            selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+    );
     //#endregion
     //#region dice box background colors
     //#region dashed box background colors
@@ -445,17 +449,17 @@ export default function Game(props) {
     function addPoints(pointsToAdd) {
         setScore(Number(score) + Number(pointsToAdd));
     }
-
-    function autoSelectOnlyRemainingBall() {
+    
+    function possiblyAutoSelectBall() {
         if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
             setSelectedBallId(constants.BALL2_ID);
         } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
             setSelectedBallId(constants.BALL1_ID);
+        } else if (unselectedBall === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+            setSelectedBallId(constants.BALL2_ID);
+        } else if (unselectedBall === constants.BALL1_ID && !wasBall1MovedThisTurn) {
+            setSelectedBallId(constants.BALL1_ID);
         }
-    }
-
-    function possiblyAutoSelectBall() {
-        autoSelectOnlyRemainingBall();
     }
 
     function gameOverAlert() {
