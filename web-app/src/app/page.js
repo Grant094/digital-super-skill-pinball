@@ -15,7 +15,8 @@ export default function Home(props) {
         [3, 4], // move to yel drop target 34
         [2, 3], // move to yel flipper via yel flipper box 23
         [1, 2], // move to yel drop target 12
-        // select yel bonus
+        // select yel multiball bonus
+        [3, 4], // move ball2 from start to ferris wheel car 34
         [1, 1], // final roll
     ];
     //#endregion

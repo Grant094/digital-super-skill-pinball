@@ -243,6 +243,10 @@ export default function Game(props) {
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
     const incRound = (() => setRound(round + 1));
 
+    function handleBallClick(ballId) {
+        setSelectedBallId(ballId);
+    }
+
     function getSelectedBallFeatureId(selectedBallId) {
         if (selectedBallId === constants.BALL1_ID) {
             return ball1FeatureId;
@@ -1961,6 +1965,7 @@ export default function Game(props) {
                     />
                 </Fragment>
                 <Ball ballId={constants.BALL1_ID}
+                    handleClick={() => handleBallClick(constants.BALL1_ID)}
                     round={round}
                     ballFeatureId={ball1FeatureId}
                     die1={die1}
@@ -1972,6 +1977,7 @@ export default function Game(props) {
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
                     incNudgesUsed={incNudgesUsed}
+                    borderColor={selectedBallId === constants.BALL1_ID ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
@@ -1980,6 +1986,7 @@ export default function Game(props) {
                     setAlertParagraphText={setAlertParagraphText}
                 />
                 <Ball ballId={constants.BALL2_ID}
+                    handleClick={() => handleBallClick(constants.BALL2_ID)}
                     round={round}
                     ballFeatureId={ball2FeatureId}
                     die1={die1}
@@ -1991,6 +1998,7 @@ export default function Game(props) {
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
                     incNudgesUsed={incNudgesUsed}
+                    borderColor={selectedBallId === constants.BALL2_ID ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}

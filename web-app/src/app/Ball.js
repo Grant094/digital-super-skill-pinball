@@ -36,7 +36,10 @@ export default function Ball(props) {
                 top: ballTop,
                 left: ballLeft,
                 visibility: (isBallInDrain() ? "hidden" : "visible"),
+                borderColor: props.borderColor,
+                borderStyle: "solid",
             }}
+            onClick={props.handleClick}
             src="/images/ball.jpg"
             height="25px"
             width="25px"
