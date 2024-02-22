@@ -31,8 +31,8 @@ export default function Game(props) {
     const [round, setRound] = useState(1);
     const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
-    // const [wasBall1MovedThisTurn, setWasBall1MovedThisTurn] = useState(false);
-    // const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
+    const [wasBall1MovedThisTurn, setWasBall1MovedThisTurn] = useState(false);
+    const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
     //#endregion
@@ -262,10 +262,10 @@ export default function Game(props) {
     function moveSelectedBall(correspondingFeatureId) {
         if (selectedBallId === constants.BALL1_ID) {
             setBall1FeatureId(correspondingFeatureId);
-            // setWasBall1MovedThisTurn(true);
+            setWasBall1MovedThisTurn(true);
         } else if (selectedBallId === constants.BALL2_ID) {
             setBall2FeatureId(correspondingFeatureId);
-            // setWasBall2MovedThisTurn(true);
+            setWasBall2MovedThisTurn(true);
         }
     }
 
@@ -403,6 +403,9 @@ export default function Game(props) {
         const nextValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex][1] : utilities.getRndIntegerInclusive(1, 6);
         setDie1(nextValueOfDie1);
         setDie2(nextValueOfDie2);
+
+        setWasBall1MovedThisTurn(false);
+        setWasBall2MovedThisTurn(false);
 
         if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
             if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
@@ -553,7 +556,14 @@ export default function Game(props) {
     }
 
     function ballBorderColor(ballId) {
-        return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR);
+        if (
+            (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
+            (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
+        ) {
+            return constants.BALL_MOVED_BORDER_COLOR;
+        } else {
+            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR);
+        }
     }
     //#endregion
 
@@ -644,6 +654,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -679,6 +692,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -714,6 +730,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -755,6 +774,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -788,6 +810,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -821,6 +846,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -854,6 +882,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -893,6 +924,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -926,6 +960,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -959,6 +996,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -992,6 +1032,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1031,6 +1074,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1064,6 +1110,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1097,6 +1146,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1130,6 +1182,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1167,6 +1222,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1204,6 +1262,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1241,6 +1302,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1278,6 +1342,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1315,6 +1382,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1352,6 +1422,9 @@ export default function Game(props) {
                             deselectMovedBall={deselectMovedBall}
                             autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1408,6 +1481,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1444,6 +1520,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1480,6 +1559,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1518,6 +1600,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1554,6 +1639,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1590,6 +1678,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1626,6 +1717,9 @@ export default function Game(props) {
                                 deselectMovedBall={deselectMovedBall}
                                 autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1711,6 +1805,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1738,6 +1835,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1769,6 +1869,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1798,6 +1901,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1838,6 +1944,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1866,6 +1975,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1894,6 +2006,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1924,6 +2039,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1952,6 +2070,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1980,6 +2101,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -2013,6 +2137,9 @@ export default function Game(props) {
                         deselectMovedBall={deselectMovedBall}
                         autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -2036,6 +2163,9 @@ export default function Game(props) {
                     deselectMovedBall={deselectMovedBall}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    selectedBallId={selectedBallId}
+                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                     alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                 />
@@ -2058,6 +2188,9 @@ export default function Game(props) {
                     deselectMovedBall={deselectMovedBall}
                     autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
                     gameOverAlert={gameOverAlert}
+                    selectedBallId={selectedBallId}
+                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                     alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                 />
@@ -2103,6 +2236,9 @@ export default function Game(props) {
             />
             <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
+                selectedBallId={selectedBallId}
+                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                 alertParagraphText={alertParagraphText}
             />
         </div>

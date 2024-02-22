@@ -32,7 +32,7 @@ export default function Box(props) {
 
     function handleClick() {
         if (
-            (props.alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) || 
+            (props.alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
             (props.alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
             (props.alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
             (props.alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
@@ -93,11 +93,23 @@ export default function Box(props) {
                         props.endRound();
                     }
                 }
+                const movedByThisClickBallId = props.selectedBallId;
+                const notMovedByThisClickBallId = (
+                    movedByThisClickBallId === constants.BALL1_ID ? constants.BALL2_ID :
+                        movedByThisClickBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+                );
+                const notMovedByThisClickBallFeatureId = (notMovedByThisClickBallId === constants.BALL1_ID ? props.ball1FeatureId : props.ball2FeatureId);
+                const wasBallNotMovedByThisClickMovedThisTurn = (notMovedByThisClickBallId === constants.BALL1_ID ? props.wasBall1MovedThisTurn : props.wasBall2MovedThisTurn);
 
                 props.deselectMovedBall();
                 props.autoSelectOnlyRemainingBall();
 
-                if (!moveWillEndTheGame(props.round, props.boxId)) {
+                if (
+                    !moveWillEndTheGame(props.round, props.boxId) && (
+                        notMovedByThisClickBallFeatureId === constants.DRAIN_FEATURE_ID ||
+                        wasBallNotMovedByThisClickMovedThisTurn
+                    )
+                ) {
                     props.rollDice();
                 }
             }
