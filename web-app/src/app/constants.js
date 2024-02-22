@@ -360,6 +360,9 @@ export const DICE_IDS = [
     DIE1_ID,
     DIE2_ID,
 ];
+export const DIE_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+export const DIE_AVAILABLE_BORDER_COLOR = "blue";
+export const DIE_USED_BORDER_COLOR = "red";
 //#endregion
 //#region skill shot boxes
 //#region IDs

@@ -16,12 +16,18 @@ export default function DiceTray(props) {
                 <p title={constants.DIE1_ID}
                     className={styles.Die1}
                     onClick={props.handleDie1Click}
+                    style={{
+                        borderColor: (props.selectedDieId === constants.DIE1_ID ? constants.DIE_SELECTED_BORDER_COLOR : constants.DIE_AVAILABLE_BORDER_COLOR),
+                    }}
                 >
                     {props.die1}
                 </p>
                 <p title={constants.DIE2_ID} 
                     className={styles.Die2}
                     onClick={props.handleDie2Click}
+                    style={{
+                        borderColor: (props.selectedDieId === constants.DIE2_ID ? constants.DIE_SELECTED_BORDER_COLOR : constants.DIE_AVAILABLE_BORDER_COLOR),
+                    }}
                 >
                     {props.die2}
                 </p>

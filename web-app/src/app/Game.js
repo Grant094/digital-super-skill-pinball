@@ -26,6 +26,9 @@ export default function Game(props) {
     const [die2, setDie2] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
     const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
     const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
+    const [selectedDieId, setSelectedDieId] = useState(null);
+    const [wasDie1UsedThisTurn, setWasDie1UsedThisTurn] = useState(false);
+    const [wasDie2UsedthisTurn, setWasDie2UsedthisTurn] = useState(false);
     const [nudgesUsed, setNudgesUsed] = useState(0);
     const [score, setScore] = useState(0);
     const [round, setRound] = useState(1);
@@ -355,7 +358,7 @@ export default function Game(props) {
         return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
     }
 
-    function handleDieClick(dieSetter) {
+    function handleDieClick(dieSetter, dieId) {
         if (isAnySkillShotBoxSelected()) {
             const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
             dieSetter(indexOfSelectedSkillShotBox + 1);
@@ -363,6 +366,12 @@ export default function Game(props) {
             skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
 
             setAlertParagraphText("");
+        } else if (ball1FeatureId !== constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
+            if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
+                setSelectedDieId(constants.DIE1_ID);
+            } else if (dieId === constants.DIE2_ID && !wasDie2UsedthisTurn) {
+                setSelectedDieId(constants.DIE2_ID);
+            }
         }
     }
 
@@ -2226,8 +2235,9 @@ export default function Game(props) {
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
                 die2={die2}
-                handleDie1Click={() => handleDieClick(setDie1)}
-                handleDie2Click={() => handleDieClick(setDie2)}
+                handleDie1Click={() => handleDieClick(setDie1, constants.DIE1_ID)}
+                handleDie2Click={() => handleDieClick(setDie2, constants.DIE2_ID)}
+                selectedDieId={selectedDieId}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
                 nudgesUsed={nudgesUsed}
