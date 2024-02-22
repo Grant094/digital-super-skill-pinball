@@ -3252,7 +3252,6 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper via yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
-                    // select ball2
                     [3, 4],
                     // select ball 2 and move it to ferris wheel car 34 with 4
                     // move ball 1 to red flipper via red flipper box 3
@@ -3286,13 +3285,12 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper via yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
-                    // select ball2
                     [3, 4],
-                    // move ball2 to ferris wheel car 34 with 4
+                    // select ball2 and move it to ferris wheel car 34
                     // move ball1 to red flipper via red flipper box 3
                     [2, 6],
                     // select ball 1 and move it to bumper 56 via 1st 6 box
-                    // select ball 2 and move it to bumper 12 via 1st 2 box
+                    // move ball 2 to bumper 12 via 1st 2 box
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3307,11 +3305,9 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
                 //#endregion
                 //#region assert
