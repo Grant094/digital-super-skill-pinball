@@ -2015,7 +2015,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
             expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
             expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
-            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_UNSELECTED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
         it('should allow the user to select 2 bonus points and be awarded those 2 bonus points', async () => {
@@ -2335,7 +2335,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
             expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
             expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
-            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_UNSELECTED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
         it('should allow the user to select gaining 3 bonus points and award those 3 points', async () => {

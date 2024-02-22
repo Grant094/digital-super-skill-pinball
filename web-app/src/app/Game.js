@@ -562,7 +562,7 @@ export default function Game(props) {
         ) {
             return constants.BALL_MOVED_BORDER_COLOR;
         } else {
-            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_UNSELECTED_BORDER_COLOR);
+            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
         }
     }
     //#endregion
