@@ -102,6 +102,12 @@ export default function Box(props) {
                     props.possiblyClearBoxGroup();
                 }
 
+                if (props.selectedDieId === constants.DIE1_ID) {
+                    props.setSelectedDieId(constants.DIE2_ID);
+                } else if (props.selectedDieId === constants.DIE2_ID) {
+                    props.setSelectedDieId(constants.DIE1_ID);
+                }
+
                 if (
                     (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
                         props.ball1FeatureId === constants.DRAIN_FEATURE_ID ||
