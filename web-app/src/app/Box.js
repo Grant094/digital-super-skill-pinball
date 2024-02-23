@@ -103,9 +103,19 @@ export default function Box(props) {
                 }
 
                 if (props.selectedDieId === constants.DIE1_ID) {
-                    props.setSelectedDieId(constants.DIE2_ID);
+                    if (!props.wasDie2UsedThisTurn) {
+                        props.setSelectedDieId(constants.DIE2_ID);
+                    } else {
+                        props.setSelectedDieId(null);
+                    }
+                    props.setWasDie1UsedThisTurn(true);
                 } else if (props.selectedDieId === constants.DIE2_ID) {
-                    props.setSelectedDieId(constants.DIE1_ID);
+                    if (!props.wasDie1UsedThisTurn) {
+                        props.setSelectedDieId(constants.DIE1_ID);
+                    } else {
+                        props.setSelectedDieId(null);
+                    }
+                    props.setWasDie2UsedThisTurn(true);
                 }
 
                 if (
