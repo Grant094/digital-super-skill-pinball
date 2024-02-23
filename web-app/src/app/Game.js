@@ -253,7 +253,11 @@ export default function Game(props) {
     const incRound = (() => setRound(round + 1));
 
     function handleBallClick(ballId) {
-        setSelectedBallId(ballId);
+        if (ballId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
+            setSelectedBallId(constants.BALL1_ID);
+        } else if (ballId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+            setSelectedBallId(constants.BALL2_ID);
+        }
     }
 
     function getSelectedBallFeatureId(selectedBallId) {
