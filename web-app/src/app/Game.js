@@ -388,7 +388,9 @@ export default function Game(props) {
                 setSelectedDieId(constants.DIE2_ID);
             }
 
-            setAlertParagraphText("");
+            if (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) {
+                setAlertParagraphText("");
+            }
         }
     }
 
