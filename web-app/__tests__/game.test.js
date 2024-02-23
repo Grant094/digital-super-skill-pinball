@@ -3763,6 +3763,45 @@ describe("Game", () => {
                     //#endregion
                 });
             });
+            describe('when moving both balls to the drain on the same turn', () => {
+                it('does end the round', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to yel droptarget 12
+                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [3, 4], // move to yel droptarget 34
+                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [5, 6], // move to yel droptarget 56
+                        // select yel multiball bonus
+                        [3, 4],
+                        // select ball 1 and move it with die 1 (=3) to the drain via the drain box
+                        // move ball 2 with die 2 (=4) to the drain via the drain box
+                        [1, 1], // final roll
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+                    await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+                    expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
+                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
+                    //#endregion
+                });
+            });
         });
     });
     describe('after multiball is deactivated', () => {
