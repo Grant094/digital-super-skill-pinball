@@ -383,6 +383,8 @@ export default function Game(props) {
             } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
                 setSelectedDieId(constants.DIE2_ID);
             }
+
+            setAlertParagraphText("");
         }
     }
 

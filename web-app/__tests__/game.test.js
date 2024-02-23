@@ -3582,6 +3582,38 @@ describe("Game", () => {
                 expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
                 //#endregion
             });
+            it('should remove the alert once you select a die', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    [3, 4],
+                    // select ball 2 and attempt to move it without selecting either die
+                    // select die1 (=3)
+                    [1, 1], // final roll that should not be seen
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+                //#endregion
+            });
         });
         describe('when a die is selected but neither ball is selected', () => {
             it('should not move either ball and should alert the user to select a ball', async () => {
