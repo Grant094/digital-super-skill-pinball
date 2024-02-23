@@ -258,6 +258,10 @@ export default function Game(props) {
         } else if (ballId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
             setSelectedBallId(constants.BALL2_ID);
         }
+
+        if (alertParagraphText === constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT) {
+            setAlertParagraphText("");
+        }
     }
 
     function getSelectedBallFeatureId(selectedBallId) {
