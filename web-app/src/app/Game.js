@@ -358,10 +358,14 @@ export default function Game(props) {
         return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
     }
 
-    function handleDieClick(dieSetter, dieId) {
+    function handleDieClick(dieId) {
         if (isAnySkillShotBoxSelected()) {
             const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
-            dieSetter(indexOfSelectedSkillShotBox + 1);
+            if (dieId === constants.DIE1_ID) {
+                setDie1(indexOfSelectedSkillShotBox + 1);
+            } else if (dieId === constants.DIE2_ID) {
+                setDie2(indexOfSelectedSkillShotBox + 1);
+            }
 
             skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
 
@@ -2487,8 +2491,8 @@ export default function Game(props) {
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
                 die2={die2}
-                handleDie1Click={() => handleDieClick(setDie1, constants.DIE1_ID)}
-                handleDie2Click={() => handleDieClick(setDie2, constants.DIE2_ID)}
+                handleDie1Click={() => handleDieClick(constants.DIE1_ID)}
+                handleDie2Click={() => handleDieClick(constants.DIE2_ID)}
                 selectedDieId={selectedDieId}
                 setSelectedDieId={setSelectedDieId}
                 wasDie1UsedThisTurn={wasDie1UsedThisTurn}
