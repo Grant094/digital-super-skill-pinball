@@ -3222,7 +3222,7 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
-                    [1, 2], // move ball2 to ferris wheel car 12
+                    [1, 2], // move ball2 with die1=1 to ferris wheel car 12
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3236,6 +3236,7 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
                 //#endregion
                 //#region assert
@@ -3252,7 +3253,7 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
-                    [3, 4], // move ball2 to ferris wheel car 34
+                    [3, 4], // move ball2 with die1=3 to ferris wheel car 34
                     [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
@@ -3266,6 +3267,7 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
                 //#endregion
                 //#region assert
@@ -3313,8 +3315,8 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball 2 and move it to ferris wheel car 34 with 4
-                    // move ball 1 to red flipper via red flipper box 3
+                    // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
+                    // move ball 1 with die1=3 to red flipper via red flipper box 3
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3328,6 +3330,8 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE2_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 //#endregion
@@ -3346,11 +3350,11 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball2 and move it to ferris wheel car 34
-                    // move ball1 to red flipper via red flipper box 3
+                    // select ball2 and move it with die2=4 to ferris wheel car 34
+                    // move ball1 with die1=3 to red flipper via red flipper box 3
                     [2, 6],
-                    // select ball 1 and move it to bumper 56 via 1st 6 box
-                    // move ball 2 to bumper 12 via 1st 2 box
+                    // select ball 1 and move it with die2=6 to bumper 56 via 1st 6 box
+                    // move ball 2 with die1=2 to bumper 12 via 1st 2 box
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3364,10 +3368,14 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
                 //#endregion
                 //#region assert
@@ -3389,9 +3397,10 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
-                // select ball 2
-                [1, 6], // move ball 2 to the drain via the drain box
-                [3, 3], // move ball 1 to red flipper via red flipper box 3
+                [1, 6],
+                // select ball 2 and move it with die 1 (=1) to the drain via the drain box
+                // move ball 1 with die 2 (=6) to red flipper via red flipper box 6
+                [1, 1], // move ball 1 to hammer space 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3405,11 +3414,16 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
             await user.click(screen.getByTitle(constants.BALL2_ID));
+            await user.click(screen.getByTitle(constants.DIE1_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE2_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
             //#endregion
         });
         it('should resume auto-selecting the only remaining ball, ball2', async () => {
@@ -3421,9 +3435,10 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
-                // select ball 1
-                [1, 6], // move ball 1 to the drain via the drain box
-                [3, 3], // move ball 2 to red flipper via red flipper box 3
+                [1, 6],
+                // select ball 1 and move it with die 1 (=1) to the drain via the drain box
+                // move ball 2 with die 2 (=6) to red flipper via red flipper box 6
+                [1, 1], // move ball 2 to hammer space 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3437,11 +3452,16 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
             await user.click(screen.getByTitle(constants.BALL1_ID));
+            await user.click(screen.getByTitle(constants.DIE1_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE2_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL2_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
             //#endregion
         });
     });

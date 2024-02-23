@@ -7,16 +7,38 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     //#region functions
+    function isMultiballActive() {
+        return (
+            (props.ball1FeatureId !== constants.DRAIN_FEATURE_ID || props.wasBall1MovedThisTurn) &&
+            (props.ball2FeatureId !== constants.DRAIN_FEATURE_ID || props.wasBall2MovedThisTurn)
+        )
+    }
+
+    function canReceiveFromSelectedDie() {
+        if (props.selectedDieId === constants.DIE1_ID) {
+            return (props.canReceiveOn.includes(props.die1));
+        } else if (props.selectedDieId === constants.DIE2_ID) {
+            return (props.canReceiveOn.includes(props.die2));
+        } else {
+            return false;
+        }
+    }
+
     function canReceiveFromEitherDie() {
         return (props.canReceiveOn.includes(props.die1) || props.canReceiveOn.includes(props.die2));
     }
 
     function couldReceiveSelectedBall() {
-        return (
-            canReceiveFromEitherDie() &&
+        const partialRet = (
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
             !props.isThisBoxFilled
         );
+
+        if (isMultiballActive()) {
+            return (partialRet && canReceiveFromSelectedDie());
+        } else {
+            return (partialRet && canReceiveFromEitherDie());
+        }
     }
 
     function moveWillEndTheGame(round, boxId) {

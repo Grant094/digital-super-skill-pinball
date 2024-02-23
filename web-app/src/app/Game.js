@@ -366,7 +366,10 @@ export default function Game(props) {
             skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
 
             setAlertParagraphText("");
-        } else if (ball1FeatureId !== constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
+        } else if (
+            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
+            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
+        ) {
             if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
                 setSelectedDieId(constants.DIE1_ID);
             } else if (dieId === constants.DIE2_ID && !wasDie2UsedthisTurn) {
@@ -458,7 +461,7 @@ export default function Game(props) {
     function addPoints(pointsToAdd) {
         setScore(Number(score) + Number(pointsToAdd));
     }
-    
+
     function possiblyAutoSelectBall() {
         if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
             setSelectedBallId(constants.BALL2_ID);
@@ -661,6 +664,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -699,6 +703,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -737,6 +742,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -781,6 +787,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -817,6 +824,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -853,6 +861,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -889,6 +898,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -931,6 +941,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -967,6 +978,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1003,6 +1015,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1039,6 +1052,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1081,6 +1095,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1117,6 +1132,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1153,6 +1169,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1189,6 +1206,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1229,6 +1247,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1269,6 +1288,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1309,6 +1329,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1349,6 +1370,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1389,6 +1411,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1429,6 +1452,7 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1488,6 +1512,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1527,6 +1552,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1566,6 +1592,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1607,6 +1634,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1646,6 +1674,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1685,6 +1714,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1724,6 +1754,7 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1812,6 +1843,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1842,6 +1874,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1876,6 +1909,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1908,6 +1942,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1951,6 +1986,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1982,6 +2018,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2013,6 +2050,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2046,6 +2084,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2077,6 +2116,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2108,6 +2148,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2144,6 +2185,7 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2169,6 +2211,7 @@ export default function Game(props) {
                     die2={die2}
                     rollDice={rollDice}
                     addPoints={addPoints}
+                    selectedDieId={selectedDieId}
                     ball1FeatureId={ball1FeatureId}
                     ball2FeatureId={ball2FeatureId}
                     die1AmountNudgedBy={die1AmountNudgedBy}
@@ -2194,6 +2237,7 @@ export default function Game(props) {
                     die2={die2}
                     rollDice={rollDice}
                     addPoints={addPoints}
+                    selectedDieId={selectedDieId}
                     ball1FeatureId={ball1FeatureId}
                     ball2FeatureId={ball2FeatureId}
                     die1AmountNudgedBy={die1AmountNudgedBy}

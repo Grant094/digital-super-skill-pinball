@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Game from "./Game";
+import * as utilities from "./utilities";
 
 export default function Home(props) {
     //#region state
@@ -10,13 +11,12 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
-        [5, 6], // move from start to yel drop target 56
+        [1, 2], // move from start to yel droptarget 12
         [1, 1], // move to yel flipper via yel flipper box 1
-        [3, 4], // move to yel drop target 34
+        [3, 4], // move to yel droptarget 34
         [2, 3], // move to yel flipper via yel flipper box 23
-        [1, 2], // move to yel drop target 12
+        [5, 6], // move to yel droptarget 56
         // select yel multiball bonus
-        [3, 4], // move ball2 from start to ferris wheel car 34
         [1, 1], // final roll
     ];
     //#endregion
