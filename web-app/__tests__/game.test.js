@@ -3732,6 +3732,41 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
             //#endregion
         });
+        it('should ignore attempts by the user to select a die', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to yel droptarget 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to yel droptarget 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to yel droptarget 56
+                // select yel multiball bonus
+                [1, 6],
+                // select ball 2 and move it with die 1 (=1) to the drain via the drain box
+                // move ball 1 with die 2 (=6) to red flipper via red flipper box 6
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.BALL2_ID));
+            await user.click(screen.getByTitle(constants.DIE1_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE2_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE1_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.DIE1_ID).style.borderColor).toEqual(constants.DIE_AVAILABLE_BORDER_COLOR);
+            //#endregion
+        });
     });
     describe('when the bumper bonus is active', () => {
         it('should award two points when moving to a bumper', async () => {
