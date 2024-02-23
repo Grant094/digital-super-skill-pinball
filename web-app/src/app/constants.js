@@ -400,6 +400,9 @@ export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
 export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
 export const OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT = "Select a die to change";
+export const MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT = "Select a die to use";
+export const MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT = "Select a ball to move";
+export const MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT = "Select a ball and a die";
 export const INVALID_CHOICE_ALERT = "Invalid choice!";
 //#endregion
 //#region misc

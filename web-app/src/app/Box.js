@@ -56,6 +56,9 @@ export default function Box(props) {
         if (
             (props.alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
             (props.alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
+            (props.alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) ||
+            (props.alertParagraphText === constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT) ||
+            (props.alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) ||
             (props.alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
             (props.alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
             (props.isThisBoxFilled)
@@ -152,7 +155,17 @@ export default function Box(props) {
                 }
             }
         } else {
-            props.setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
+            if (isMultiballActive()) {
+                if (props.selectedBallId === constants.BALL1_ID || props.selectedBallId === constants.BALL2_ID) {
+                    props.setAlertParagraphText(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
+                } else if (props.selectedDieId === constants.DIE1_ID || props.selectedDieId === constants.DIE2_ID) {
+                    props.setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
+                } else {
+                    props.setAlertParagraphText(constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT);
+                }
+            } else {
+                props.setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
+            }
         }
     }
     //#endregion
