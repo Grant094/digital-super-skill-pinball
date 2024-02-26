@@ -1,3 +1,4 @@
+export const SELECTED_BORDER_COLOR = "gold";
 //#region start
 export const START_FEATURE_ID = "start";
 export const START_FEATURE_TOP = "240px";
@@ -32,7 +33,7 @@ export const FERRISWHEEL_GROUP_BOX_IDS = [
     FERRISWHEEL_CAR_56_BOX_ID,
 ];
 //#endregion
-export const FERRISWHEEL_CARS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
     START_FEATURE_ID,
     YEL_FLIPPER_FEATURE_ID,
 ];
@@ -122,22 +123,22 @@ export const BUMPER_GROUP_BOX_IDS = [
 ];
 //#endregion
 //#region bumpersCanReceiveFrom
-export const BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
     START_FEATURE_ID,
     ...FERRISWHEEL_FEATURE_IDS,
     RED_FLIPPER_FEATURE_ID,
     YEL_FLIPPER_FEATURE_ID,
 ];
-export const BUMPER_12_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     BUMPER_56_FEATURE_ID,
 ];
-export const BUMPER_34_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     BUMPER_12_FEATURE_ID,
 ];
-export const BUMPER_56_CAN_RECIEVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS = [
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     BUMPER_34_FEATURE_ID,
 ]
 //#endregion
@@ -175,7 +176,7 @@ export const HAMMER_SPACE_GROUP_BOX_IDS = [
     HAMMER_SPACE_6_BOX_ID,
 ];
 //#endregion
-export const HAMMER_SPACES_CAN_RECIEVE_FROM_FEATURE_IDS = [RED_FLIPPER_FEATURE_ID];
+export const HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS = [RED_FLIPPER_FEATURE_ID];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
@@ -230,18 +231,18 @@ export const DROPTARGET_FEATURE_IDS = [
     ...RED_DROPTARGET_FEATURE_IDS,
     ...YEL_DROPTARGET_FEATURE_IDS,
 ];
-export const DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
     START_FEATURE_ID,
     ...FERRISWHEEL_FEATURE_IDS,
     ...BUMPER_FEATURE_IDS,
     ...HAMMER_SPACE_FEATURE_IDS,
 ];
 export const YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     YEL_FLIPPER_FEATURE_ID,
 ];
 export const RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS,
+    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
     RED_FLIPPER_FEATURE_ID,
 ]
 //#endregion
@@ -327,6 +328,30 @@ export const BALL_IDS = [
     BALL1_ID,
     BALL2_ID,
 ];
+export const BALL_AVAILABLE_BORDER_COLOR = "green";
+export const BALL_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+export const BALL_MOVED_BORDER_COLOR = "red";
+//#endregion
+//#region bonus indicators
+//#region bonus indicator ids
+export const FLIPPER_PASS_INDICATOR_ID = "indicator-flipper-pass";
+export const OUTLANE_BONUS_INDICATOR_ID = "indicator-outlane-bonus";
+export const BUMPER_BONUS_INDICATOR_ID = "indicator-bumper-bonus";
+//#endregion
+//#region bonus indicator border colors
+export const BONUS_INDICATOR_INACTIVE_BORDER_COLOR = "transparent";
+export const BONUS_INDICATOR_ACTIVE_BORDER_COLOR = "black";
+//#endregion
+//#endregion
+//#region bonus boxes
+export const FLIPPER_PASS_BONUS_BOX_ID = "bonus-box-flipper-pass";
+export const FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID = "bonus-fill-two-hammer-spaces";
+export const YEL_MULTIBALL_BONUS_BOX_ID = "bonus-multiball-yel";
+export const YEL_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-yel";
+export const BUMPER_BONUS_BOX_ID = "bonus-box-bumper-bonus";
+export const OUTLANE_BONUS_BOX_ID = "bonus-box-outlane-bonus";
+export const RED_MULTIBALL_BONUS_BOX_ID = "bonus-multiball-red";
+export const RED_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-red";
 //#endregion
 //#region dice
 export const DIE1_ID = "die1";
@@ -335,6 +360,24 @@ export const DICE_IDS = [
     DIE1_ID,
     DIE2_ID,
 ];
+export const DIE_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+export const DIE_AVAILABLE_BORDER_COLOR = "blue";
+export const DIE_USED_BORDER_COLOR = "red";
+//#endregion
+//#region skill shot boxes
+//#region IDs
+export const SKILL_SHOT_BOX_1_ID = "skill-shot-box-1";
+export const SKILL_SHOT_BOX_2_ID = "skill-shot-box-2";
+export const SKILL_SHOT_BOX_3_ID = "skill-shot-box-3";
+export const SKILL_SHOT_BOX_4_ID = "skill-shot-box-4";
+export const SKILL_SHOT_BOX_5_ID = "skill-shot-box-5";
+export const SKILL_SHOT_BOX_6_ID = "skill-shot-box-6";
+//#endregion
+//#region border colors
+export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "skyblue";
+export const SKILL_SHOT_BOX_GAINED_BORDER_COLOR = "black";
+export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+//#endregion
 //#endregion
 //#region roundIndicatorIds
 export const ROUND_1_INDICATOR_ID = "round-1-indicator";
@@ -355,6 +398,12 @@ export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 export const ALERT_TRAY_ID = "alert-tray";
 export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
+export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
+export const OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT = "Select a die to change";
+export const MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT = "Select a die to use";
+export const MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT = "Select a ball to move";
+export const MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT = "Select a ball and a die";
+export const INVALID_CHOICE_ALERT = "Invalid choice!";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;

@@ -17,3 +17,7 @@ export function isGameOver(round) {
 export function isLastRound(round) {
     return (Number(round) === constants.MAX_ROUNDS);
 }
+
+export function alertMessageForChoosingABonus(color) {
+    return (`Choose a ${color} bonus!`);
+}

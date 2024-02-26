@@ -13,8 +13,36 @@ export default function DiceTray(props) {
     return (
         <div id={props.dicetrayId} className={styles.DiceTray}>
             <Fragment key="dice">
-                <p title={constants.DIE1_ID} className={styles.Die1}>{props.die1}</p>
-                <p title={constants.DIE2_ID} className={styles.Die2}>{props.die2}</p>
+                <p title={constants.DIE1_ID}
+                    className={styles.Die1}
+                    onClick={props.handleDie1Click}
+                    style={{
+                        borderColor: (
+                            props.selectedDieId === constants.DIE1_ID ?
+                                constants.DIE_SELECTED_BORDER_COLOR :
+                                props.wasDie1UsedThisTurn ?
+                                    constants.DIE_USED_BORDER_COLOR :
+                                    constants.DIE_AVAILABLE_BORDER_COLOR
+                        ),
+                    }}
+                >
+                    {props.die1}
+                </p>
+                <p title={constants.DIE2_ID} 
+                    className={styles.Die2}
+                    onClick={props.handleDie2Click}
+                    style={{
+                        borderColor: (
+                            props.selectedDieId === constants.DIE2_ID ?
+                                constants.DIE_SELECTED_BORDER_COLOR :
+                                props.wasDie2UsedThisTurn ?
+                                    constants.DIE_USED_BORDER_COLOR :
+                                    constants.DIE_AVAILABLE_BORDER_COLOR
+                        ),
+                    }}
+                >
+                    {props.die2}
+                </p>
             </Fragment>
             <Fragment key="nudge-buttons">
                 <NudgeUpButton buttonId={constants.DIE1_NUDGE_UP_BUTTON_ID}

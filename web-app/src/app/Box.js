@@ -7,16 +7,38 @@ import * as utilities from "./utilities";
 
 export default function Box(props) {
     //#region functions
+    function isMultiballActive() {
+        return (
+            (props.ball1FeatureId !== constants.DRAIN_FEATURE_ID || props.wasBall1MovedThisTurn) &&
+            (props.ball2FeatureId !== constants.DRAIN_FEATURE_ID || props.wasBall2MovedThisTurn)
+        )
+    }
+
+    function canReceiveFromSelectedDie() {
+        if (props.selectedDieId === constants.DIE1_ID) {
+            return (props.canReceiveOn.includes(props.die1));
+        } else if (props.selectedDieId === constants.DIE2_ID) {
+            return (props.canReceiveOn.includes(props.die2));
+        } else {
+            return false;
+        }
+    }
+
     function canReceiveFromEitherDie() {
         return (props.canReceiveOn.includes(props.die1) || props.canReceiveOn.includes(props.die2));
     }
 
     function couldReceiveSelectedBall() {
-        return (
-            canReceiveFromEitherDie() &&
+        const partialRet = (
             props.canReceiveFrom.includes(props.getSelectedBallFeatureId()) &&
             !props.isThisBoxFilled
         );
+
+        if (isMultiballActive()) {
+            return (partialRet && canReceiveFromSelectedDie());
+        } else {
+            return (partialRet && canReceiveFromEitherDie());
+        }
     }
 
     function moveWillEndTheGame(round, boxId) {
@@ -32,6 +54,17 @@ export default function Box(props) {
 
     function handleClick() {
         if (
+            (props.alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
+            (props.alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
+            (props.alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) ||
+            (props.alertParagraphText === constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT) ||
+            (props.alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) ||
+            (props.alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
+            (props.alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
+            (props.isThisBoxFilled)
+        ) {
+            // do nothing
+        } else if (
             (
                 props.boxId === constants.RED_OUTLANE_BOX_ID ||
                 props.boxId === constants.YEL_OUTLANE_BOX_ID
@@ -40,8 +73,6 @@ export default function Box(props) {
         ) {
             // a user cannot nudge to use an outlane, so this situation is checked for first
             props.setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
-        } else if (props.isThisBoxFilled) {
-            // do nothing
         } else if (couldReceiveSelectedBall()) {
             if (
                 (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(props.boxId)) &&
@@ -74,6 +105,22 @@ export default function Box(props) {
                     props.possiblyClearBoxGroup();
                 }
 
+                if (props.selectedDieId === constants.DIE1_ID) {
+                    if (!props.wasDie2UsedThisTurn) {
+                        props.setSelectedDieId(constants.DIE2_ID);
+                    } else {
+                        props.setSelectedDieId(null);
+                    }
+                    props.setWasDie1UsedThisTurn(true);
+                } else if (props.selectedDieId === constants.DIE2_ID) {
+                    if (!props.wasDie1UsedThisTurn) {
+                        props.setSelectedDieId(constants.DIE1_ID);
+                    } else {
+                        props.setSelectedDieId(null);
+                    }
+                    props.setWasDie2UsedThisTurn(true);
+                }
+
                 if (
                     (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
                         props.ball1FeatureId === constants.DRAIN_FEATURE_ID ||
@@ -87,15 +134,38 @@ export default function Box(props) {
                         props.endRound();
                     }
                 }
+                const movedByThisClickBallId = props.selectedBallId;
+                const notMovedByThisClickBallId = (
+                    movedByThisClickBallId === constants.BALL1_ID ? constants.BALL2_ID :
+                        movedByThisClickBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+                );
+                const notMovedByThisClickBallFeatureId = (notMovedByThisClickBallId === constants.BALL1_ID ? props.ball1FeatureId : props.ball2FeatureId);
+                const wasBallNotMovedByThisClickMovedThisTurn = (notMovedByThisClickBallId === constants.BALL1_ID ? props.wasBall1MovedThisTurn : props.wasBall2MovedThisTurn);
 
-                props.autoSelectOnlyRemainingBall();
+                props.deselectMovedBall();
+                props.possiblyAutoSelectBall(constants.DRAIN_CORRESPONDING_BOX_IDS.includes(props.boxId));
 
-                if (!moveWillEndTheGame(props.round, props.boxId)) {
+                if (
+                    !moveWillEndTheGame(props.round, props.boxId) && (
+                        notMovedByThisClickBallFeatureId === constants.DRAIN_FEATURE_ID ||
+                        wasBallNotMovedByThisClickMovedThisTurn
+                    )
+                ) {
                     props.rollDice();
                 }
             }
-        } else { // invalidChoiceAlert
-            props.setAlertParagraphText(`Invalid choice!`);
+        } else {
+            if (isMultiballActive()) {
+                if (props.selectedBallId === constants.BALL1_ID || props.selectedBallId === constants.BALL2_ID) {
+                    props.setAlertParagraphText(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
+                } else if (props.selectedDieId === constants.DIE1_ID || props.selectedDieId === constants.DIE2_ID) {
+                    props.setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
+                } else {
+                    props.setAlertParagraphText(constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT);
+                }
+            } else {
+                props.setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
+            }
         }
     }
     //#endregion
