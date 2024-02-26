@@ -328,7 +328,7 @@ export const BALL_IDS = [
     BALL1_ID,
     BALL2_ID,
 ];
-export const BALL_AVAILABLE_BORDER_COLOR = "transparent";
+export const BALL_AVAILABLE_BORDER_COLOR = "green";
 export const BALL_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
 export const BALL_MOVED_BORDER_COLOR = "red";
 //#endregion
