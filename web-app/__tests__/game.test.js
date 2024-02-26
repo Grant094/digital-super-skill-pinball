@@ -4205,75 +4205,150 @@ describe("Game", () => {
             });
         });
         describe('when the red multiball bonus box is unfilled and the red drop target group is filled', () => {
-            it('should ignore clicks on the red multiball bonus box', async () => {
-                //#region arrange
-                const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
-                    // select yel multiball bonus
-                    [3, 2],
-                    // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
-                    // move ball 2 with die 2 (=2) to red drop target 12
-                    [3, 4],
-                    // move ball 1 with die 1 (=3) to red drop target 3
-                    // move ball 2 with die 2 (=4) to yel flipper via yel flipper box 4
-                    [4, 1],
-                    // move ball 1 with die 1 (=4) to red flipper via red flipper box 45
-                    // move ball 2 with die 2 (=1) to ferris wheel car 12
-                    [4, 1],
-                    // move ball 1 with die 1 (=4) to red drop target 4
-                    // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
-                    [6, 3],
-                    // move ball 1 with die 1 (=6) to red flipper via red flipper box 6
-                    // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
-                    [5, 5],
-                    // move ball 1 with die 1 (=5) to red drop target 56
-                    // attempt to select red multiball bonus
-                    [1, 1], // final roll
-                ];
-                const user = userEvent.setup();
-                render(<Game dieValues={DIE_VALUES} />);
-                //#endregion
-                //#region act
-                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
-                await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
-                //#endregion
-                //#region assert
-                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.left);
-                expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("red"));
-                //#endregion
+            describe('when the 1st ball is the one that cleared the red drop target group', () => {
+                it('should ignore clicks on the red multiball bonus box', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to yel droptarget 12
+                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [3, 4], // move to yel droptarget 34
+                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [5, 6], // move to yel droptarget 56
+                        // select yel multiball bonus
+                        [3, 2],
+                        // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                        // move ball 2 with die 2 (=2) to red drop target 12
+                        [3, 4],
+                        // move ball 1 with die 1 (=3) to red drop target 3
+                        // move ball 2 with die 2 (=4) to yel flipper via yel flipper box 4
+                        [4, 1],
+                        // move ball 1 with die 1 (=4) to red flipper via red flipper box 45
+                        // move ball 2 with die 2 (=1) to ferris wheel car 12
+                        [4, 1],
+                        // move ball 1 with die 1 (=4) to red drop target 4
+                        // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
+                        [6, 3],
+                        // move ball 1 with die 1 (=6) to red flipper via red flipper box 6
+                        // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
+                        [5, 5],
+                        // move ball 1 with die 1 (=5) to red drop target 56
+                        // attempt to select red multiball bonus
+                        [1, 1], // final roll
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+                    await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("red"));
+                    //#endregion
+                });
+            });
+            describe('when the 1st ball was moved to the drain', () => {
+                it('should allow multiball to be activated again', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to yel droptarget 12
+                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [3, 4], // move to yel droptarget 34
+                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [5, 6], // move to yel droptarget 56
+                        // select yel multiball bonus
+                        [3, 2],
+                        // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                        // move ball 2 with die 2 (=2) to red drop target 12
+                        [3, 4],
+                        // move ball 1 with die 1 (=3) to red drop target 3
+                        // move ball 2 with die 2 (=4) to yel flipper via yel flipper box 4
+                        [4, 1],
+                        // move ball 1 with die 1 (=4) to red flipper via red flipper box 45
+                        // move ball 2 with die 2 (=1) to ferris wheel car 12
+                        [4, 1],
+                        // move ball 1 with die 1 (=4) to red drop target 4
+                        // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
+                        [6, 3],
+                        // move ball 1 with die 1 (=6) to red flipper via red flipper box 6
+                        // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
+                        [5, 5],
+                        // move ball 2 with die 2 (=5) to the drain via the drain box
+                        // move ball 1 with die 1 (=5) to red drop target 56
+                        // select red multiball bonus
+                        [1, 1], // final roll
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+                    await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL2_ID));
+                    await user.click(screen.getByTitle(constants.DIE2_ID));
+                    await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                    //#endregion
+                });
             });
             it('should allow the red points bonus to be selected and award double points', async () => {
                 //#region arrange
@@ -4347,78 +4422,156 @@ describe("Game", () => {
             });
         });
         describe('when the yellow multiball bonus box is unfilled and the yellow drop target group is filled', () => {
-            it('should ignore clicks on the yellow multiball bonus box', async () => {
-                //#region arrange
-                const DIE_VALUES = [
-                    [1, 2], // move from start to red droptarget 12
-                    [3, 3], // move to red flipper via red flipper box 3
-                    [3, 3], // move to red droptarget 3
-                    [4, 5], // move to red flipper via red flipper box 45
-                    [4, 4], // move to red droptarget 4
-                    [6, 6], // move to red flipper via red flipper box 6
-                    [5, 6], // move to red droptarget 56
-                    // select red multiball bonus
-                    [1, 2],
-                    // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper via yel flipper box 1
-                    // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
-                    [1, 3],
-                    // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
-                    // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
-                    [2, 5],
-                    // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper via yel flipper box 23
-                    // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
-                    [3, 1],
-                    // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
-                    // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
-                    [4, 4],
-                    // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper via yel flipper box 4
-                    // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
-                    [5, 6],
-                    // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
-                    [1, 1], // final roll
-                ];
-                const user = userEvent.setup();
-                render(<Game dieValues={DIE_VALUES} />);
-                //#endregion
-                //#region act
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
-                await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
-                await user.click(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID));
-                await user.click(screen.getByTitle(constants.BALL1_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
-                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
-                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
-                //#endregion
-                //#region assert
-                expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
-                expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("yellow"));
-                expect(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-                //#endregion
+            describe('when the 1st ball is the one that cleared the yellow drop target group', () => {
+                it('should ignore clicks on the yellow multiball bonus box', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to red droptarget 12
+                        [3, 3], // move to red flipper via red flipper box 3
+                        [3, 3], // move to red droptarget 3
+                        [4, 5], // move to red flipper via red flipper box 45
+                        [4, 4], // move to red droptarget 4
+                        [6, 6], // move to red flipper via red flipper box 6
+                        [5, 6], // move to red droptarget 56
+                        // select red multiball bonus
+                        [1, 2],
+                        // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper via yel flipper box 1
+                        // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
+                        [1, 3],
+                        // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
+                        // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
+                        [2, 5],
+                        // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper via yel flipper box 23
+                        // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
+                        [3, 1],
+                        // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
+                        // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
+                        [4, 4],
+                        // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper via yel flipper box 4
+                        // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
+                        [5, 6],
+                        // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
+                        [1, 1], // final roll
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+                    expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("yellow"));
+                    expect(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+                    //#endregion
+                });
+            });
+            describe('when the 1st moved ball was moved to the drain', () => {
+                it('should allow multiball to be activated again', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to red droptarget 12
+                        [3, 3], // move to red flipper via red flipper box 3
+                        [3, 3], // move to red droptarget 3
+                        [4, 5], // move to red flipper via red flipper box 45
+                        [4, 4], // move to red droptarget 4
+                        [6, 6], // move to red flipper via red flipper box 6
+                        [5, 6], // move to red droptarget 56
+                        // select red multiball bonus
+                        [1, 2],
+                        // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper via yel flipper box 1
+                        // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
+                        [1, 3],
+                        // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
+                        // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
+                        [2, 5],
+                        // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper via yel flipper box 23
+                        // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
+                        [3, 1],
+                        // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
+                        // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
+                        [4, 4],
+                        // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper via yel flipper box 4
+                        // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
+                        [5, 6],
+                        // move ball 2 with die 2 (=6) from bumper 34 to the drain via the drain box
+                        // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
+                        [1, 1], // final roll
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL2_ID));
+                    await user.click(screen.getByTitle(constants.DIE2_ID));
+                    await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                    //#endregion
+                });
             });
             it('should allow the yellow points bonus to be selected and award double points', async () => {
                 //#region arrange
