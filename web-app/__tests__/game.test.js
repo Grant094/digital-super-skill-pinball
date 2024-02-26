@@ -4346,7 +4346,7 @@ describe("Game", () => {
                 //#endregion
             });
         });
-        describe('when the yellow multiball bonus box is unfilled and the yellow drop target group is filled and award double points', () => {
+        describe('when the yellow multiball bonus box is unfilled and the yellow drop target group is filled', () => {
             it('should ignore clicks on the yellow multiball bonus box', async () => {
                 //#region arrange
                 const DIE_VALUES = [
@@ -4420,7 +4420,7 @@ describe("Game", () => {
                 expect(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
                 //#endregion
             });
-            it('should allow the yellow points bonus to be selected', async () => {
+            it('should allow the yellow points bonus to be selected and award double points', async () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to red droptarget 12
