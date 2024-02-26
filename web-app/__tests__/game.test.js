@@ -4495,6 +4495,45 @@ describe("Game", () => {
                 //#endregion
             });
         });
+        describe('when moving the 1st-moved ball to the drain', () => {
+            it('should still award double points for each move on this turn', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    [6, 1],
+                    // move ball 1 with die 1 (=6) from yel drop target 56 to drain via the yel outlane
+                    // move ball 2 with die 2 (=1) from start to bumper 12 via 1st 1 box
+                    [1, 1], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                const pointsBeforeEitherMove = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
+                await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+                const pointsAfterFirstMove = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
+                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                const pointsAfterSecondMove = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
+                //#endregion
+                //#region assert
+                expect(pointsAfterFirstMove - pointsBeforeEitherMove).toEqual(8); // 2 boxes filled * 2 points each * 2 for multiball = 8
+                expect(pointsAfterSecondMove - pointsAfterFirstMove).toEqual(2); // 1 point * 2 for multiball = 2
+                //#endregion
+            });
+        });
     });
     describe('after multiball is deactivated', () => {
         it('should resume auto-selecting the only remaining ball, ball1', async () => {
