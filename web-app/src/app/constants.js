@@ -1,3 +1,4 @@
+export const SELECTED_BORDER_COLOR = "gold";
 //#region start
 export const START_FEATURE_ID = "start";
 export const START_FEATURE_TOP = "240px";
@@ -327,6 +328,9 @@ export const BALL_IDS = [
     BALL1_ID,
     BALL2_ID,
 ];
+export const BALL_AVAILABLE_BORDER_COLOR = "green";
+export const BALL_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+export const BALL_MOVED_BORDER_COLOR = "red";
 //#endregion
 //#region bonus indicators
 //#region bonus indicator ids
@@ -342,9 +346,11 @@ export const BONUS_INDICATOR_ACTIVE_BORDER_COLOR = "black";
 //#region bonus boxes
 export const FLIPPER_PASS_BONUS_BOX_ID = "bonus-box-flipper-pass";
 export const FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID = "bonus-fill-two-hammer-spaces";
+export const YEL_MULTIBALL_BONUS_BOX_ID = "bonus-multiball-yel";
 export const YEL_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-yel";
 export const BUMPER_BONUS_BOX_ID = "bonus-box-bumper-bonus";
 export const OUTLANE_BONUS_BOX_ID = "bonus-box-outlane-bonus";
+export const RED_MULTIBALL_BONUS_BOX_ID = "bonus-multiball-red";
 export const RED_BONUS_POINTS_BONUS_BOX_ID = "bonus-points-red";
 //#endregion
 //#region dice
@@ -354,6 +360,9 @@ export const DICE_IDS = [
     DIE1_ID,
     DIE2_ID,
 ];
+export const DIE_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
+export const DIE_AVAILABLE_BORDER_COLOR = "blue";
+export const DIE_USED_BORDER_COLOR = "red";
 //#endregion
 //#region skill shot boxes
 //#region IDs
@@ -367,7 +376,7 @@ export const SKILL_SHOT_BOX_6_ID = "skill-shot-box-6";
 //#region border colors
 export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "skyblue";
 export const SKILL_SHOT_BOX_GAINED_BORDER_COLOR = "black";
-export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = "gold";
+export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
 //#endregion
 //#endregion
 //#region roundIndicatorIds
@@ -391,6 +400,9 @@ export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
 export const SELECT_SKILL_SHOT_ALERT = "Select a Skill Shot!";
 export const OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT = "Select a die to change";
+export const MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT = "Select a die to use";
+export const MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT = "Select a ball to move";
+export const MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT = "Select a ball and a die";
 export const INVALID_CHOICE_ALERT = "Invalid choice!";
 //#endregion
 //#region misc

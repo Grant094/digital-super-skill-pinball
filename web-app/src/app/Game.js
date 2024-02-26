@@ -26,13 +26,22 @@ export default function Game(props) {
     const [die2, setDie2] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
     const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
     const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
+    const [selectedDieId, setSelectedDieId] = useState(null);
+    const [wasDie1UsedThisTurn, setWasDie1UsedThisTurn] = useState(false);
+    const [wasDie2UsedThisTurn, setWasDie2UsedThisTurn] = useState(false);
     const [nudgesUsed, setNudgesUsed] = useState(0);
     const [score, setScore] = useState(0);
     const [round, setRound] = useState(1);
     const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
+    const [wasBall1MovedThisTurn, setWasBall1MovedThisTurn] = useState(false);
+    const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
+    const unselectedBall = (
+        selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
+            selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+    );
     //#endregion
     //#region dice box background colors
     //#region dashed box background colors
@@ -102,8 +111,10 @@ export default function Game(props) {
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [fillTwoHammerSpacesBonusBoxBackgroundColor, setFillTwoHammerSpacesBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [yelMultiballBonusBoxBackgroundColor, setYelMultiballBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [bumperBonusBoxBackgroundColor, setBumperBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [outlaneBonusBoxBackgroundColor, setOutlaneBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
+    const [redMultiballBonusBoxBackgroundColor, setRedMultiballBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
 
     //#region box background arrays
@@ -241,6 +252,20 @@ export default function Game(props) {
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
     const incRound = (() => setRound(round + 1));
 
+    function handleBallClick(ballId) {
+        if (ballId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
+            setSelectedBallId(constants.BALL1_ID);
+        } else if (ballId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+            setSelectedBallId(constants.BALL2_ID);
+        }
+
+        if (alertParagraphText === constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT) {
+            setAlertParagraphText("");
+        } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
+            setAlertParagraphText(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
+        }
+    }
+
     function getSelectedBallFeatureId(selectedBallId) {
         if (selectedBallId === constants.BALL1_ID) {
             return ball1FeatureId;
@@ -254,9 +279,15 @@ export default function Game(props) {
     function moveSelectedBall(correspondingFeatureId) {
         if (selectedBallId === constants.BALL1_ID) {
             setBall1FeatureId(correspondingFeatureId);
+            setWasBall1MovedThisTurn(true);
         } else if (selectedBallId === constants.BALL2_ID) {
             setBall2FeatureId(correspondingFeatureId);
+            setWasBall2MovedThisTurn(true);
         }
+    }
+
+    function deselectMovedBall() {
+        setSelectedBallId(null);
     }
 
     function clearDashedBoxes() {
@@ -337,14 +368,33 @@ export default function Game(props) {
         return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
     }
 
-    function handleDieClick(dieSetter) {
+    function handleDieClick(dieId) {
         if (isAnySkillShotBoxSelected()) {
             const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
-            dieSetter(indexOfSelectedSkillShotBox + 1);
+            if (dieId === constants.DIE1_ID) {
+                setDie1(indexOfSelectedSkillShotBox + 1);
+            } else if (dieId === constants.DIE2_ID) {
+                setDie2(indexOfSelectedSkillShotBox + 1);
+            }
 
             skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
 
             setAlertParagraphText("");
+        } else if (
+            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
+            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
+        ) {
+            if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
+                setSelectedDieId(constants.DIE1_ID);
+            } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
+                setSelectedDieId(constants.DIE2_ID);
+            }
+
+            if (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) {
+                setAlertParagraphText("");
+            } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
+                setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
+            }
         }
     }
 
@@ -390,6 +440,12 @@ export default function Game(props) {
         setDie1(nextValueOfDie1);
         setDie2(nextValueOfDie2);
 
+        setWasBall1MovedThisTurn(false);
+        setWasBall2MovedThisTurn(false);
+
+        setWasDie1UsedThisTurn(false);
+        setWasDie2UsedThisTurn(false);
+
         if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
             if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
                 tilt(nextValueOfDie1, nextValueOfDie2);
@@ -426,13 +482,31 @@ export default function Game(props) {
     }
 
     function addPoints(pointsToAdd) {
-        setScore(Number(score) + Number(pointsToAdd));
+        const multiballMulitplier = (
+            (
+                (ball1FeatureId !== constants.DRAIN_FEATURE_ID || (ball1FeatureId === constants.DRAIN_FEATURE_ID && wasBall1MovedThisTurn)) &&
+                (ball2FeatureId !== constants.DRAIN_FEATURE_ID || (ball2FeatureId === constants.DRAIN_FEATURE_ID && wasBall2MovedThisTurn))
+            ) ? 2 : 1
+        )
+        setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
-    function autoSelectOnlyRemainingBall() {
+    function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
+        if (doesThisSendSelectedBallToDrain) {
+            if (selectedBallId === constants.BALL1_ID) {
+                setSelectedBallId(constants.BALL2_ID);
+            } else if (selectedBallId === constants.BALL2_ID) {
+                setSelectedBallId(constants.BALL1_ID);
+            }
+        }
+
         if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
             setSelectedBallId(constants.BALL2_ID);
         } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
+            setSelectedBallId(constants.BALL1_ID);
+        } else if (unselectedBall === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+            setSelectedBallId(constants.BALL2_ID);
+        } else if (unselectedBall === constants.BALL1_ID && !wasBall1MovedThisTurn) {
             setSelectedBallId(constants.BALL1_ID);
         }
     }
@@ -490,21 +564,35 @@ export default function Game(props) {
         }
     }
 
-    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined) {
-        if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
-            if (bonusBoxBackgroundColorSetter) {
-                bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
-            }
-            
-            if (bonusIndicatorBorderColorSetter) {
-                bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
-            }
-            
-            if (bonusAction) {
-                bonusAction();
-            }
+    function activateMultiball() {
+        if (ball1FeatureId === constants.DRAIN_FEATURE_ID) {
+            setBall1FeatureId(constants.START_FEATURE_ID);
+        } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID) {
+            setBall2FeatureId(constants.START_FEATURE_ID);
+        }
 
-            setAlertParagraphText("");
+        setSelectedBallId(null);
+    }
+
+    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined, willActivateMultiball = false) {
+        if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
+            if (ball1FeatureId !== constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID && willActivateMultiball) {
+                // do nothing
+            } else {
+                if (bonusBoxBackgroundColorSetter) {
+                    bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
+                }
+
+                if (bonusIndicatorBorderColorSetter) {
+                    bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+                }
+
+                if (bonusAction) {
+                    bonusAction();
+                }
+
+                setAlertParagraphText("");
+            }
         }
     }
 
@@ -526,6 +614,17 @@ export default function Game(props) {
                 defaultCanReceiveFrom.concat([clockwiseBumperFeatureId]) :
                 defaultCanReceiveFrom
         );
+    }
+
+    function ballBorderColor(ballId) {
+        if (
+            (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
+            (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
+        ) {
+            return constants.BALL_MOVED_BORDER_COLOR;
+        } else {
+            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
+        }
     }
     //#endregion
 
@@ -606,6 +705,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -613,8 +718,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -640,6 +749,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -647,8 +762,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -674,6 +793,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -681,8 +806,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -714,6 +843,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -721,8 +856,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -746,6 +885,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -753,8 +898,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -778,6 +927,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -785,8 +940,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -810,6 +969,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -817,8 +982,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -848,6 +1017,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -855,8 +1030,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -880,6 +1059,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -887,8 +1072,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -912,6 +1101,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -919,8 +1114,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -944,6 +1143,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -951,8 +1156,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -982,6 +1191,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -989,8 +1204,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1014,6 +1233,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1021,8 +1246,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1046,6 +1275,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1053,8 +1288,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1078,6 +1317,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1085,8 +1330,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1114,6 +1363,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1121,8 +1376,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1150,6 +1409,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1157,8 +1422,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1186,6 +1455,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1193,8 +1468,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1222,6 +1501,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1229,8 +1514,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1258,6 +1547,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1265,8 +1560,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1294,6 +1593,12 @@ export default function Game(props) {
                             rollDice={rollDice}
                             round={round}
                             addPoints={addPoints}
+                            selectedDieId={selectedDieId}
+                            setSelectedDieId={setSelectedDieId}
+                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                             ball1FeatureId={ball1FeatureId}
                             ball2FeatureId={ball2FeatureId}
                             die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1301,8 +1606,12 @@ export default function Game(props) {
                             incNudgesUsed={incNudgesUsed}
                             getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                             endRound={endRound}
-                            autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                            deselectMovedBall={deselectMovedBall}
+                            possiblyAutoSelectBall={possiblyAutoSelectBall}
                             gameOverAlert={gameOverAlert}
+                            selectedBallId={selectedBallId}
+                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                             alertParagraphText={alertParagraphText}
                             setAlertParagraphText={setAlertParagraphText}
                         />
@@ -1349,6 +1658,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1356,8 +1671,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1384,6 +1703,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1391,8 +1716,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1419,6 +1748,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1426,8 +1761,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1456,6 +1795,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1463,8 +1808,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1491,6 +1840,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1498,8 +1853,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1526,6 +1885,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1533,8 +1898,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1561,6 +1930,12 @@ export default function Game(props) {
                                 rollDice={rollDice}
                                 round={round}
                                 addPoints={addPoints}
+                                selectedDieId={selectedDieId}
+                                setSelectedDieId={setSelectedDieId}
+                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                                 ball1FeatureId={ball1FeatureId}
                                 ball2FeatureId={ball2FeatureId}
                                 die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1568,8 +1943,12 @@ export default function Game(props) {
                                 incNudgesUsed={incNudgesUsed}
                                 getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                                 endRound={endRound}
-                                autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                                deselectMovedBall={deselectMovedBall}
+                                possiblyAutoSelectBall={possiblyAutoSelectBall}
                                 gameOverAlert={gameOverAlert}
+                                selectedBallId={selectedBallId}
+                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                                 alertParagraphText={alertParagraphText}
                                 setAlertParagraphText={setAlertParagraphText}
                             />
@@ -1590,6 +1969,12 @@ export default function Game(props) {
                             handleClick={() => handleBonusBoxClick("yellow", setFillTwoHammerSpacesBonusBoxBackgroundColor, undefined, fillTwoHammerSpaces)}
                             backgroundColor={fillTwoHammerSpacesBonusBoxBackgroundColor}
                         />
+                        <BonusBox bonusBoxId={constants.YEL_MULTIBALL_BONUS_BOX_ID}
+                            top="713px"
+                            left="112px"
+                            handleClick={() => handleBonusBoxClick("yellow", setYelMultiballBonusBoxBackgroundColor, undefined, activateMultiball, true)}
+                            backgroundColor={yelMultiballBonusBoxBackgroundColor}
+                        />
                         <BonusBox bonusBoxId={constants.YEL_BONUS_POINTS_BONUS_BOX_ID}
                             top="754px"
                             left="82px"
@@ -1609,6 +1994,12 @@ export default function Game(props) {
                             left="372px"
                             handleClick={() => handleBonusBoxClick("red", setOutlaneBonusBoxBackgroundColor, setOutlaneBonusIndicatorBorderColor)}
                             backgroundColor={outlaneBonusBoxBackgroundColor}
+                        />
+                        <BonusBox bonusBoxId={constants.RED_MULTIBALL_BONUS_BOX_ID}
+                            top="721px"
+                            left="395px"
+                            handleClick={() => handleBonusBoxClick("red", setRedMultiballBonusBoxBackgroundColor, undefined, activateMultiball, true)}
+                            backgroundColor={redMultiballBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.RED_BONUS_POINTS_BONUS_BOX_ID}
                             top="762px"
@@ -1633,6 +2024,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1640,8 +2037,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1659,6 +2060,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1666,8 +2073,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1689,6 +2100,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1696,8 +2113,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1717,6 +2138,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1724,8 +2151,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1756,6 +2187,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1763,8 +2200,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1783,6 +2224,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1790,8 +2237,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1810,6 +2261,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1817,8 +2274,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1839,6 +2300,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1846,8 +2313,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1866,6 +2337,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1873,8 +2350,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1893,6 +2374,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1900,8 +2387,12 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
@@ -1925,6 +2416,12 @@ export default function Game(props) {
                         rollDice={rollDice}
                         round={round}
                         addPoints={addPoints}
+                        selectedDieId={selectedDieId}
+                        setSelectedDieId={setSelectedDieId}
+                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                         ball1FeatureId={ball1FeatureId}
                         ball2FeatureId={ball2FeatureId}
                         die1AmountNudgedBy={die1AmountNudgedBy}
@@ -1932,47 +2429,75 @@ export default function Game(props) {
                         incNudgesUsed={incNudgesUsed}
                         getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                         endRound={endRound}
-                        autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                        deselectMovedBall={deselectMovedBall}
+                        possiblyAutoSelectBall={possiblyAutoSelectBall}
                         gameOverAlert={gameOverAlert}
+                        selectedBallId={selectedBallId}
+                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                         alertParagraphText={alertParagraphText}
                         setAlertParagraphText={setAlertParagraphText}
                     />
                 </Fragment>
                 <Ball ballId={constants.BALL1_ID}
+                    handleClick={() => handleBallClick(constants.BALL1_ID)}
                     round={round}
                     ballFeatureId={ball1FeatureId}
                     die1={die1}
                     die2={die2}
                     rollDice={rollDice}
                     addPoints={addPoints}
+                    selectedDieId={selectedDieId}
+                    setSelectedDieId={setSelectedDieId}
+                    wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                    wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                    setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                    setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                     ball1FeatureId={ball1FeatureId}
                     ball2FeatureId={ball2FeatureId}
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
                     incNudgesUsed={incNudgesUsed}
+                    borderColor={ballBorderColor(constants.BALL1_ID)}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
-                    autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                    deselectMovedBall={deselectMovedBall}
+                    possiblyAutoSelectBall={possiblyAutoSelectBall}
                     gameOverAlert={gameOverAlert}
+                    selectedBallId={selectedBallId}
+                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                     alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                 />
                 <Ball ballId={constants.BALL2_ID}
+                    handleClick={() => handleBallClick(constants.BALL2_ID)}
                     round={round}
                     ballFeatureId={ball2FeatureId}
                     die1={die1}
                     die2={die2}
                     rollDice={rollDice}
                     addPoints={addPoints}
+                    selectedDieId={selectedDieId}
+                    setSelectedDieId={setSelectedDieId}
+                    wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                    wasDie2UsedThisTurn={wasDie2UsedThisTurn}
+                    setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
+                    setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
                     ball1FeatureId={ball1FeatureId}
                     ball2FeatureId={ball2FeatureId}
                     die1AmountNudgedBy={die1AmountNudgedBy}
                     die2AmountNudgedBy={die2AmountNudgedBy}
                     incNudgesUsed={incNudgesUsed}
+                    borderColor={ballBorderColor(constants.BALL2_ID)}
                     getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
                     endRound={endRound}
-                    autoSelectOnlyRemainingBall={autoSelectOnlyRemainingBall}
+                    deselectMovedBall={deselectMovedBall}
+                    possiblyAutoSelectBall={possiblyAutoSelectBall}
                     gameOverAlert={gameOverAlert}
+                    selectedBallId={selectedBallId}
+                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                     alertParagraphText={alertParagraphText}
                     setAlertParagraphText={setAlertParagraphText}
                 />
@@ -2000,8 +2525,12 @@ export default function Game(props) {
             <DiceTray dicetrayId="dice-tray"
                 die1={die1}
                 die2={die2}
-                handleDie1Click={() => handleDieClick(setDie1)}
-                handleDie2Click={() => handleDieClick(setDie2)}
+                handleDie1Click={() => handleDieClick(constants.DIE1_ID)}
+                handleDie2Click={() => handleDieClick(constants.DIE2_ID)}
+                selectedDieId={selectedDieId}
+                setSelectedDieId={setSelectedDieId}
+                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
+                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
                 nudgesUsed={nudgesUsed}
@@ -2018,6 +2547,9 @@ export default function Game(props) {
             />
             <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
+                selectedBallId={selectedBallId}
+                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
+                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                 alertParagraphText={alertParagraphText}
             />
         </div>
