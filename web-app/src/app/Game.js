@@ -568,21 +568,25 @@ export default function Game(props) {
         setSelectedBallId(null);
     }
 
-    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined) {
+    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined, willActivateMultiball = false) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
-            if (bonusBoxBackgroundColorSetter) {
-                bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
+            if (ball1FeatureId !== constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID && willActivateMultiball) {
+                // do nothing
+            } else {
+                if (bonusBoxBackgroundColorSetter) {
+                    bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
+                }
+    
+                if (bonusIndicatorBorderColorSetter) {
+                    bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
+                }
+    
+                if (bonusAction) {
+                    bonusAction();
+                }
+    
+                setAlertParagraphText("");
             }
-
-            if (bonusIndicatorBorderColorSetter) {
-                bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
-            }
-
-            if (bonusAction) {
-                bonusAction();
-            }
-
-            setAlertParagraphText("");
         }
     }
 
@@ -1962,7 +1966,7 @@ export default function Game(props) {
                         <BonusBox bonusBoxId={constants.YEL_MULTIBALL_BONUS_BOX_ID}
                             top="713px"
                             left="112px"
-                            handleClick={() => handleBonusBoxClick("yellow", setYelMultiballBonusBoxBackgroundColor, undefined, activateMultiball)}
+                            handleClick={() => handleBonusBoxClick("yellow", setYelMultiballBonusBoxBackgroundColor, undefined, activateMultiball, true)}
                             backgroundColor={yelMultiballBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.YEL_BONUS_POINTS_BONUS_BOX_ID}
@@ -1988,7 +1992,7 @@ export default function Game(props) {
                         <BonusBox bonusBoxId={constants.RED_MULTIBALL_BONUS_BOX_ID}
                             top="721px"
                             left="395px"
-                            handleClick={() => handleBonusBoxClick("red", setRedMultiballBonusBoxBackgroundColor, undefined, activateMultiball)}
+                            handleClick={() => handleBonusBoxClick("red", setRedMultiballBonusBoxBackgroundColor, undefined, activateMultiball, true)}
                             backgroundColor={redMultiballBonusBoxBackgroundColor}
                         />
                         <BonusBox bonusBoxId={constants.RED_BONUS_POINTS_BONUS_BOX_ID}
