@@ -3783,6 +3783,75 @@ describe("Game", () => {
                     //#endregion
                 });
             });
+            describe('when a ball and a die are each then selected', () => {
+                it('should not show any alert', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to yel droptarget 12
+                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [3, 4], // move to yel droptarget 34
+                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [5, 6], // move to yel droptarget 56
+                        // select yel multiball bonus
+                        [3, 4],
+                        // attempt to move to the red flipper via red flipper box 3
+                        // select ball 1 (at yel drop target 56)
+                        // select die 1 (=3)
+                        [1, 1], // final roll that should not be seen
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+                    //#endregion
+                });
+                it('should allow the user to move the selected ball', async () => {
+                    //#region arrange
+                    const DIE_VALUES = [
+                        [1, 2], // move from start to yel droptarget 12
+                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [3, 4], // move to yel droptarget 34
+                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [5, 6], // move to yel droptarget 56
+                        // select yel multiball bonus
+                        [3, 4],
+                        // attempt to move to the red flipper via red flipper box 3
+                        // move ball 1 with die 1 (=3) to the red flipper via red flipper box 3
+                        [1, 1], // final roll that should not be reached
+                    ];
+                    const user = userEvent.setup();
+                    render(<Game dieValues={DIE_VALUES} />);
+                    //#endregion
+                    //#region act
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                    await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    await user.click(screen.getByTitle(constants.BALL1_ID));
+                    await user.click(screen.getByTitle(constants.DIE1_ID));
+                    await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                    //#endregion
+                    //#region assert
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+                    //#endregion
+                });
+            });
         });
         describe('when only one ball has been moved', () => {
             it('should ignore clicks on the moved ball', async () => {
