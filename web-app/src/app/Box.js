@@ -143,7 +143,7 @@ export default function Box(props) {
                 const wasBallNotMovedByThisClickMovedThisTurn = (notMovedByThisClickBallId === constants.BALL1_ID ? props.wasBall1MovedThisTurn : props.wasBall2MovedThisTurn);
 
                 props.deselectMovedBall();
-                props.possiblyAutoSelectBall();
+                props.possiblyAutoSelectBall(constants.DRAIN_CORRESPONDING_BOX_IDS.includes(props.boxId));
 
                 if (
                     !moveWillEndTheGame(props.round, props.boxId) && (

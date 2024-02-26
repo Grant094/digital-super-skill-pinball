@@ -485,7 +485,15 @@ export default function Game(props) {
         setScore(Number(score) + Number(pointsToAdd));
     }
 
-    function possiblyAutoSelectBall() {
+    function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
+        if (doesThisSendSelectedBallToDrain) {
+            if (selectedBallId === constants.BALL1_ID) {
+                setSelectedBallId(constants.BALL2_ID);
+            } else if (selectedBallId === constants.BALL2_ID) {
+                setSelectedBallId(constants.BALL1_ID);
+            }
+        }
+
         if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
             setSelectedBallId(constants.BALL2_ID);
         } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
