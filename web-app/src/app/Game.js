@@ -261,6 +261,8 @@ export default function Game(props) {
 
         if (alertParagraphText === constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT) {
             setAlertParagraphText("");
+        } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
+            setAlertParagraphText(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
         }
     }
 
