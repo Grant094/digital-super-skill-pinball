@@ -1495,6 +1495,38 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
             //#endregion
         });
+        it('should deactivate the outlane bonus indicator if it is active', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to red drop target 12
+                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red drop target 3
+                [4, 5], // move to red flipper via red flipper box 45
+                [4, 4], // move to red drop target 4
+                [6, 6], // move to red flipper via red flipper box 6
+                [5, 6], // move to red drop target 56
+                // select outlane bonus
+                [1, 6], // move to drain via drain box
+                [1, 1], // final roll
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.OUTLANE_BONUS_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+            //#endregion
+        });
         it('should award 12 points when using the red outlane and three red flipper boxes have been filled and the outlane bonus is active', async () => {
             //#region arrange
             const DIE_VALUES = [
