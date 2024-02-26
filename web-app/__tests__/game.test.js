@@ -3511,6 +3511,37 @@ describe("Game", () => {
                 expect(screen.getByTitle(constants.DIE1_ID).style.borderColor).toEqual(constants.DIE_USED_BORDER_COLOR);
                 //#endregion
             });
+            it('should award double the points that would otherwise be awarded', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    [1, 2], // move ball 2 with die 1 (=1) to bumper 12 via 1st 1 box
+                    [1, 1], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                const pointsBeforeMoveString = screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML;
+                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforeMoveString)).toEqual(2); // 1 point for bumper * 2 for multiball
+                //#endregion
+            });
             it('should automatically select the non-moved ball after only one ball has been moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
@@ -4244,7 +4275,7 @@ describe("Game", () => {
                 expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("red"));
                 //#endregion
             });
-            it('should allow the red points bonus to be selected', async () => {
+            it('should allow the red points bonus to be selected and award double points', async () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
@@ -4311,11 +4342,11 @@ describe("Game", () => {
                 //#endregion
                 //#region assert
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforePointsBonus)).toEqual(3);
+                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforePointsBonus)).toEqual(6); // 3 points * 2 for multiball
                 //#endregion
             });
         });
-        describe('when the yellow multiball bonus box is unfilled and the yellow drop target group is filled', () => {
+        describe('when the yellow multiball bonus box is unfilled and the yellow drop target group is filled and award double points', () => {
             it('should ignore clicks on the yellow multiball bonus box', async () => {
                 //#region arrange
                 const DIE_VALUES = [
@@ -4460,7 +4491,7 @@ describe("Game", () => {
                 //#endregion
                 //#region assert
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforePointsBonus)).toEqual(2);
+                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforePointsBonus)).toEqual(4); // 2 points * 2 for multiball
                 //#endregion
             });
         });

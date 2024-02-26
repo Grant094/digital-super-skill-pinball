@@ -482,7 +482,13 @@ export default function Game(props) {
     }
 
     function addPoints(pointsToAdd) {
-        setScore(Number(score) + Number(pointsToAdd));
+        const multiballMulitplier = (
+            (
+                (ball1FeatureId !== constants.DRAIN_FEATURE_ID || (ball1FeatureId === constants.DRAIN_FEATURE_ID && wasBall1MovedThisTurn)) &&
+                (ball2FeatureId !== constants.DRAIN_FEATURE_ID || (ball2FeatureId === constants.DRAIN_FEATURE_ID && wasBall2MovedThisTurn))
+            ) ? 2 : 1
+        )
+        setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
     function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
@@ -576,15 +582,15 @@ export default function Game(props) {
                 if (bonusBoxBackgroundColorSetter) {
                     bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
                 }
-    
+
                 if (bonusIndicatorBorderColorSetter) {
                     bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
                 }
-    
+
                 if (bonusAction) {
                     bonusAction();
                 }
-    
+
                 setAlertParagraphText("");
             }
         }
