@@ -427,13 +427,13 @@ export default function Game(props) {
         boxBackgroundColor,
         canReceiveFrom,
         canReceiveOn,
-        fillBox = (() => {}),
+        fillBox = (() => { }),
         correspondingFeatureId,
         points = 0,
-        boxAction = (() => {}),
+        boxAction = (() => { }),
         boxGroupBoxBackgroundColors,
         boxBackgroundColorSetters,
-        groupAction = (() => {}),
+        groupAction = (() => { }),
         isPrecedingHammerspaceBoxFilled = null,
     ) {
         if (
@@ -872,7 +872,7 @@ export default function Game(props) {
                                 (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
                                 constants.FERRISWHEEL_CAR_12_FEATURE_ID, // correspondingFeatureId
                                 0, // points
-                                () => {}, // boxAction
+                                () => { }, // boxAction
                                 ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
                                 ferriswheelBoxBackgroundColorSetters, // boxBackgroundColorSetters
                                 ferriswheelcarClearGroupAction, // groupAction
@@ -899,7 +899,7 @@ export default function Game(props) {
                                 () => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.FERRISWHEEL_CAR_34_FEATURE_ID,
                                 0,
-                                () => {}, // boxAction
+                                () => { }, // boxAction
                                 ferriswheelBoxBackgroundColors,
                                 ferriswheelBoxBackgroundColorSetters,
                                 ferriswheelcarClearGroupAction,
@@ -926,7 +926,7 @@ export default function Game(props) {
                                 () => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.FERRISWHEEL_CAR_56_FEATURE_ID,
                                 0,
-                                () => {},
+                                () => { },
                                 ferriswheelBoxBackgroundColors,
                                 ferriswheelBoxBackgroundColorSetters,
                                 ferriswheelcarClearGroupAction,
@@ -958,10 +958,10 @@ export default function Game(props) {
                                 () => setBumper121st1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_12_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper121st1BoxBackgroundColor)}
@@ -982,10 +982,10 @@ export default function Game(props) {
                                 () => setBumper122nd1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_12_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper122nd1BoxBackgroundColor)}
@@ -1006,10 +1006,10 @@ export default function Game(props) {
                                 () => setBumper121st2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_12_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper121st2BoxBackgroundColor)}
@@ -1030,10 +1030,10 @@ export default function Game(props) {
                                 () => setBumper122nd2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_12_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper122nd2BoxBackgroundColor)}
@@ -1060,10 +1060,10 @@ export default function Game(props) {
                                 () => setBumper341st3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_34_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper341st3BoxBackgroundColor)}
@@ -1084,10 +1084,10 @@ export default function Game(props) {
                                 () => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_34_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper342nd3BoxBackgroundColor)}
@@ -1108,10 +1108,10 @@ export default function Game(props) {
                                 () => setBumper341st4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_34_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper341st4BoxBackgroundColor)}
@@ -1132,10 +1132,10 @@ export default function Game(props) {
                                 () => setBumper342nd4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_34_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper342nd4BoxBackgroundColor)}
@@ -1162,10 +1162,10 @@ export default function Game(props) {
                                 () => setBumper561st5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_56_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper561st5BoxBackgroundColor)}
@@ -1186,10 +1186,10 @@ export default function Game(props) {
                                 () => setBumper562nd5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_56_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper562nd5BoxBackgroundColor)}
@@ -1210,10 +1210,10 @@ export default function Game(props) {
                                 () => setBumper561st6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_56_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper561st6BoxBackgroundColor)}
@@ -1234,10 +1234,10 @@ export default function Game(props) {
                                 () => setBumper562nd6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.BUMPER_56_FEATURE_ID,
                                 valueOfBumpers(),
-                                () => {},
+                                () => { },
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(bumper562nd6BoxBackgroundColor)}
@@ -1263,10 +1263,10 @@ export default function Game(props) {
                                 () => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_1_FEATURE_ID,
                                 0,
-                                () => {},
+                                () => { },
                                 hammerspaceBoxBackgroundColors,
                                 hammerspaceBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 null
                             )}
                             isThisBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
@@ -1290,10 +1290,10 @@ export default function Game(props) {
                                 () => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_2_FEATURE_ID,
                                 1,
-                                () => {},
+                                () => { },
                                 hammerspaceBoxBackgroundColors,
                                 hammerspaceBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 isBoxFilled(hammerspace1BoxBackgroundColor)
                             )}
                             isThisBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
@@ -1318,10 +1318,10 @@ export default function Game(props) {
                                 () => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_3_FEATURE_ID,
                                 1,
-                                () => {},
+                                () => { },
                                 hammerspaceBoxBackgroundColors,
                                 hammerspaceBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 isBoxFilled(hammerspace2BoxBackgroundColor)
                             )}
                             isThisBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
@@ -1345,10 +1345,10 @@ export default function Game(props) {
                                 () => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_4_FEATURE_ID,
                                 2,
-                                () => {},
+                                () => { },
                                 hammerspaceBoxBackgroundColors,
                                 hammerspaceBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 isBoxFilled(hammerspace3BoxBackgroundColor)
                             )}
                             isThisBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
@@ -1372,10 +1372,10 @@ export default function Game(props) {
                                 () => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_5_FEATURE_ID,
                                 5,
-                                () => {},
+                                () => { },
                                 hammerspaceBoxBackgroundColors,
                                 hammerspaceBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 isBoxFilled(hammerspace4BoxBackgroundColor)
                             )}
                             isThisBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
@@ -1399,10 +1399,10 @@ export default function Game(props) {
                                 () => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_6_FEATURE_ID,
                                 20,
-                                () => {},
+                                () => { },
                                 hammerspaceBoxBackgroundColors,
                                 hammerspaceBoxBackgroundColorSetters,
-                                () => {},
+                                () => { },
                                 isBoxFilled(hammerspace5BoxBackgroundColor)
                             )}
                             isThisBoxFilled={isBoxFilled(hammerspace6BoxBackgroundColor)}
@@ -1438,43 +1438,25 @@ export default function Game(props) {
                                 top="700px"
                             />
                             <Box boxId={constants.YEL_DROPTARGET_12_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.YEL_DROPTARGET_12_BOX_ID,
+                                    yelDroptarget12BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [1, 2],
+                                    () => setYelDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.YEL_DROPTARGET_12_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    yelDroptargetBoxBackgroundColors,
+                                    yelDroptargetBoxBackgroundColorSetters,
+                                    yelDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(yelDroptarget12BoxBackgroundColor)}
-                                fillBox={() => setYelDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[1, 2]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_DROPTARGET_12_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters, yelDropTargetGroupAction)}
                                 left="30px"
                                 top="675px"
                                 height="60px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                         <Fragment key="yelDropTarget34">
@@ -1483,43 +1465,25 @@ export default function Game(props) {
                                 top="630px"
                             />
                             <Box boxId={constants.YEL_DROPTARGET_34_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.YEL_DROPTARGET_34_BOX_ID,
+                                    yelDroptarget34BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [3, 4],
+                                    () => setYelDroptarget34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.YEL_DROPTARGET_34_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    yelDroptargetBoxBackgroundColors,
+                                    yelDroptargetBoxBackgroundColorSetters,
+                                    yelDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(yelDroptarget34BoxBackgroundColor)}
-                                fillBox={() => setYelDroptarget34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[3, 4]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_DROPTARGET_34_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters, yelDropTargetGroupAction)}
                                 left="60px"
                                 top="615px"
                                 height="60px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                         <Fragment key="yelDropTarget56">
@@ -1528,43 +1492,25 @@ export default function Game(props) {
                                 top="575px"
                             />
                             <Box boxId={constants.YEL_DROPTARGET_56_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.YEL_DROPTARGET_56_BOX_ID,
+                                    yelDroptarget56BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [5, 6],
+                                    () => setYelDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.YEL_DROPTARGET_56_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    yelDroptargetBoxBackgroundColors,
+                                    yelDroptargetBoxBackgroundColorSetters,
+                                    yelDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(yelDroptarget56BoxBackgroundColor)}
-                                fillBox={() => setYelDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[5, 6]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_DROPTARGET_56_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(yelDroptargetBoxBackgroundColors, yelDroptargetBoxBackgroundColorSetters, yelDropTargetGroupAction)}
                                 left="95px"
                                 top="560px"
                                 height="60px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                     </Fragment>
@@ -1575,43 +1521,25 @@ export default function Game(props) {
                                 top="585px"
                             />
                             <Box boxId={constants.RED_DROPTARGET_12_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.RED_DROPTARGET_12_BOX_ID,
+                                    redDroptarget12BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [1, 2],
+                                    () => setRedDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.RED_DROPTARGET_12_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    redDroptargetBoxBackgroundColors,
+                                    redDroptargetBoxBackgroundColorSetters,
+                                    redDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget12BoxBackgroundColor)}
-                                fillBox={() => setRedDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[1, 2]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_12_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="415px"
                                 top="570px"
                                 height="50px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                         <Fragment key="redDropTarget3">
@@ -1620,43 +1548,25 @@ export default function Game(props) {
                                 top="628px"
                             />
                             <Box boxId={constants.RED_DROPTARGET_3_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.RED_DROPTARGET_3_BOX_ID,
+                                    redDroptarget3BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [3],
+                                    () => setRedDroptarget3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.RED_DROPTARGET_3_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    redDroptargetBoxBackgroundColors,
+                                    redDroptargetBoxBackgroundColorSetters,
+                                    redDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget3BoxBackgroundColor)}
-                                fillBox={() => setRedDroptarget3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[3]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_3_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="435px"
                                 top="621px"
                                 height="40px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                         <Fragment key="redDropTarget4">
@@ -1665,43 +1575,25 @@ export default function Game(props) {
                                 top="674px"
                             />
                             <Box boxId={constants.RED_DROPTARGET_4_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.RED_DROPTARGET_4_BOX_ID,
+                                    redDroptarget4BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [4],
+                                    () => setRedDroptarget4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.RED_DROPTARGET_4_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    redDroptargetBoxBackgroundColors,
+                                    redDroptargetBoxBackgroundColorSetters,
+                                    redDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget4BoxBackgroundColor)}
-                                fillBox={() => setRedDroptarget4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[4]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_4_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="455px"
                                 top="665px"
                                 height="42px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                         <Fragment key="redDropTarget56">
@@ -1710,43 +1602,25 @@ export default function Game(props) {
                                 top="725px"
                             />
                             <Box boxId={constants.RED_DROPTARGET_56_BOX_ID}
+                                handleClick={() => handleDiceBoxClick(
+                                    constants.RED_DROPTARGET_56_BOX_ID,
+                                    redDroptarget56BoxBackgroundColor,
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    [5, 6],
+                                    () => setRedDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                    constants.RED_DROPTARGET_56_FEATURE_ID,
+                                    1,
+                                    () => { },
+                                    redDroptargetBoxBackgroundColors,
+                                    redDroptargetBoxBackgroundColorSetters,
+                                    redDropTargetGroupAction,
+                                    null
+                                )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget56BoxBackgroundColor)}
-                                fillBox={() => setRedDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                                canReceiveOn={[5, 6]}
-                                canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                                moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_DROPTARGET_56_FEATURE_ID)}
-                                possiblyClearBoxGroup={possiblyClearBoxGroup(redDroptargetBoxBackgroundColors, redDroptargetBoxBackgroundColorSetters, redDropTargetGroupAction)}
                                 left="480px"
                                 top="710px"
                                 height="55px"
                                 width="35px"
-                                points="1"
-                                die1={die1}
-                                die2={die2}
-                                rollDice={rollDice}
-                                round={round}
-                                addPoints={addPoints}
-                                selectedDieId={selectedDieId}
-                                setSelectedDieId={setSelectedDieId}
-                                wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                                wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                                setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                                setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                                ball1FeatureId={ball1FeatureId}
-                                ball2FeatureId={ball2FeatureId}
-                                die1AmountNudgedBy={die1AmountNudgedBy}
-                                die2AmountNudgedBy={die2AmountNudgedBy}
-                                incNudgesUsed={incNudgesUsed}
-                                getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                                endRound={endRound}
-                                deselectMovedBall={deselectMovedBall}
-                                possiblyAutoSelectBall={possiblyAutoSelectBall}
-                                gameOverAlert={gameOverAlert}
-                                selectedBallId={selectedBallId}
-                                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                                alertParagraphText={alertParagraphText}
-                                setAlertParagraphText={setAlertParagraphText}
                             />
                         </Fragment>
                     </Fragment>
@@ -1807,154 +1681,86 @@ export default function Game(props) {
                 </Fragment>
                 <Fragment key="outlanes">
                     <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.RED_OUTLANE_BOX_ID,
+                            redOutlaneBoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [1],
+                            () => setRedOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.DRAIN_FEATURE_ID,
+                            0,
+                            () => outlaneAction(redFlipperBoxesBackgroundColors),
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(redOutlaneBoxBackgroundColor)}
-                        fillBox={() => setRedOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[1]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.DRAIN_FEATURE_ID)}
-                        action={() => outlaneAction(redFlipperBoxesBackgroundColors)}
                         left="18px"
                         top="815px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                     <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.YEL_OUTLANE_BOX_ID,
+                            yelOutlaneBoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [6],
+                            () => setYelOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.DRAIN_FEATURE_ID,
+                            0,
+                            () => outlaneAction(yelFlipperBoxesBackgroundColors),
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(yelOutlaneBoxBackgroundColor)}
-                        fillBox={() => setYelOutlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[6]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.DRAIN_FEATURE_ID)}
-                        action={() => outlaneAction(yelFlipperBoxesBackgroundColors)}
                         left="458px"
                         top="815px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                 </Fragment>
                 <Fragment key="inlanes">
                     <DashedBox boxId={constants.RED_INLANE_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.RED_INLANE_BOX_ID,
+                            redInlaneBoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [2],
+                            () => setRedInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.RED_FLIPPER_FEATURE_ID,
+                            2,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(redInlaneBoxBackgroundColor)}
-                        fillBox={() => setRedInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[2]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                         left="94px"
                         top="821px"
                         height="25px"
                         width="25px"
-                        points="2"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                     <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.YEL_INLANE_BOX_ID,
+                            yelInlaneBoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [5],
+                            () => setYelInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.YEL_FLIPPER_FEATURE_ID,
+                            2,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(yelInlaneBoxBackgroundColor)}
-                        fillBox={() => setYelInlaneBoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[5]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                         left="419px"
                         top="821px"
                         height="25px"
                         width="25px"
-                        points="2"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                 </Fragment>
                 <Fragment key="flippers">
@@ -1969,228 +1775,132 @@ export default function Game(props) {
                 </Fragment>
                 <Fragment key="redflipperboxes">
                     <DashedBox boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.RED_FLIPPER_BOX_3_BOX_ID,
+                            redFlipperBox3BoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [3],
+                            () => setRedFlipperBox3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.RED_FLIPPER_FEATURE_ID,
+                            0,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(redFlipperBox3BoxBackgroundColor)}
-                        fillBox={() => setRedFlipperBox3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[3]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                         left="215px"
                         top="840px"
                         height="35px"
                         width="40px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                     <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.RED_FLIPPER_BOX_45_BOX_ID,
+                            redFlipperBox45BoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [4, 5],
+                            () => setRedFlipperBox45BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.RED_FLIPPER_FEATURE_ID,
+                            0,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(redFlipperBox45BoxBackgroundColor)}
-                        fillBox={() => setRedFlipperBox45BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[4, 5]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                         left="195px"
                         top="875px"
                         height="45px"
                         width="45px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                     <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.RED_FLIPPER_BOX_6_BOX_ID,
+                            redFlipperBox6BoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [6],
+                            () => setRedFlipperBox6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.RED_FLIPPER_FEATURE_ID,
+                            0,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(redFlipperBox6BoxBackgroundColor)}
-                        fillBox={() => setRedFlipperBox6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[6]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.RED_FLIPPER_FEATURE_ID)}
                         left="178px"
                         top="915px"
                         height="45px"
                         width="45px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                 </Fragment>
                 <Fragment key="yelflipperboxes">
                     <DashedBox boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.YEL_FLIPPER_BOX_1_BOX_ID,
+                            yelFlipperBox1BoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [1],
+                            () => setYelFlipperBox1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.YEL_FLIPPER_FEATURE_ID,
+                            0,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox1BoxBackgroundColor)}
-                        fillBox={() => setYelFlipperBox1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[1]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                         left="285px"
                         top="840px"
                         height="40px"
                         width="40px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                     <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.YEL_FLIPPER_BOX_23_BOX_ID,
+                            yelFlipperBox23BoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [2, 3],
+                            () => setYelFlipperBox23BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.YEL_FLIPPER_FEATURE_ID,
+                            0,
+                            () => { },
+                            [],
+                            [],
+                            () => { },
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox23BoxBackgroundColor)}
-                        fillBox={() => setYelFlipperBox23BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[2, 3]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                         left="300px"
                         top="875px"
                         height="45px"
                         width="45px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                     <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.YEL_FLIPPER_BOX_4_BOX_ID,
+                            yelFlipperBox4BoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [4],
+                            () => setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.YEL_FLIPPER_FEATURE_ID,
+                            0,
+                            () => {},
+                            [],
+                            [],
+                            () => {},
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox4BoxBackgroundColor)}
-                        fillBox={() => setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                        canReceiveOn={[4]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.YEL_FLIPPER_FEATURE_ID)}
                         left="315px"
                         top="915px"
                         height="45px"
                         width="45px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                 </Fragment>
                 <Fragment key="drain">
@@ -2199,40 +1909,25 @@ export default function Game(props) {
                         top={constants.DRAIN_FEATURE_TOP}
                     />
                     <Box boxId={constants.DRAIN_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.DRAIN_BOX_ID,
+                            drainBoxBackgroundColor,
+                            constants.ALL_FEATURE_IDS,
+                            [1, 2, 3, 4, 5, 6],
+                            () => {},
+                            constants.DRAIN_FEATURE_ID,
+                            0,
+                            () => {},
+                            [],
+                            [],
+                            () => {},
+                            null
+                        )}
                         isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
-                        canReceiveOn={[1, 2, 3, 4, 5, 6]}
-                        canReceiveFrom={constants.ALL_FEATURE_IDS}
-                        moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.DRAIN_FEATURE_ID)}
                         left="220px"
                         top="920px"
                         height="85px"
                         width="98px"
-                        die1={die1}
-                        die2={die2}
-                        rollDice={rollDice}
-                        round={round}
-                        addPoints={addPoints}
-                        selectedDieId={selectedDieId}
-                        setSelectedDieId={setSelectedDieId}
-                        wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                        wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                        setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                        setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                        ball1FeatureId={ball1FeatureId}
-                        ball2FeatureId={ball2FeatureId}
-                        die1AmountNudgedBy={die1AmountNudgedBy}
-                        die2AmountNudgedBy={die2AmountNudgedBy}
-                        incNudgesUsed={incNudgesUsed}
-                        getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                        endRound={endRound}
-                        deselectMovedBall={deselectMovedBall}
-                        possiblyAutoSelectBall={possiblyAutoSelectBall}
-                        gameOverAlert={gameOverAlert}
-                        selectedBallId={selectedBallId}
-                        wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                        wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                        alertParagraphText={alertParagraphText}
-                        setAlertParagraphText={setAlertParagraphText}
                     />
                 </Fragment>
                 <Ball ballId={constants.BALL1_ID}
