@@ -38,6 +38,10 @@ export default function Game(props) {
     const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
+    const selectedBallFeatureId = (
+        selectedBallId === constants.BALL1_ID ? ball1FeatureId :
+            selectedBallId === constants.BALL2_ID ? ball2FeatureId : null
+    );
     const unselectedBall = (
         selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
             selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
@@ -266,33 +270,51 @@ export default function Game(props) {
         }
     }
 
-    function getSelectedBallFeatureId(selectedBallId) {
-        if (selectedBallId === constants.BALL1_ID) {
+    function isMultiballActive() {
+        return (
+            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
+            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
+        )
+    }
+
+    function isBoxFilled(boxBackgroundColor) {
+        return (boxBackgroundColor === constants.FILLED_BACKGROUND_COLOR);
+    }
+
+    function getSelectedBallFeatureId(ballId) {
+        if (ballId === constants.BALL1_ID) {
             return ball1FeatureId;
-        } else if (selectedBallId === constants.BALL2_ID) {
+        } else if (ballId === constants.BALL2_ID) {
             return ball2FeatureId;
         } else {
             return null;
         }
     }
 
-    function moveSelectedBall(correspondingFeatureId) {
-        if (selectedBallId === constants.BALL1_ID) {
-            setBall1FeatureId(correspondingFeatureId);
-            setWasBall1MovedThisTurn(true);
-        } else if (selectedBallId === constants.BALL2_ID) {
-            setBall2FeatureId(correspondingFeatureId);
-            setWasBall2MovedThisTurn(true);
+    function canReceiveFromSelectedDie(canReceiveOn) {
+        if (selectedDieId === constants.DIE1_ID) {
+            return (canReceiveOn.includes(die1));
+        } else if (selectedDieId === constants.DIE2_ID) {
+            return (canReceiveOn.includes(die2));
+        } else {
+            return false;
         }
     }
 
-    function deselectMovedBall() {
-        setSelectedBallId(null);
+    function canReceiveFromEitherDie(canReceiveOn) {
+        return (canReceiveOn.includes(die1) || canReceiveOn.includes(die2));
     }
 
-    function clearDashedBoxes() {
-        for (const setter of dashedBoxesBackgroundColorSetters) {
-            setter(constants.UNFILLED_BACKGROUND_COLOR);
+    function couldReceiveSelectedBall(boxBackgroundColor, canReceiveFrom, canReceiveOn) {
+        const partialRet = (
+            canReceiveFrom.includes(selectedBallFeatureId) &&
+            !isBoxFilled(boxBackgroundColor)
+        );
+
+        if (isMultiballActive()) {
+            return (partialRet && canReceiveFromSelectedDie(canReceiveOn));
+        } else {
+            return (partialRet && canReceiveFromEitherDie(canReceiveOn));
         }
     }
 
@@ -301,10 +323,6 @@ export default function Game(props) {
         const countOfFilledBoxesInThisGroup = filledBoxes.length;
         const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
         return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
-    }
-
-    function isBoxFilled(boxBackgroundColor) {
-        return (boxBackgroundColor === constants.FILLED_BACKGROUND_COLOR);
     }
 
     function clearBoxGroup(boxBackgroundColorSetters) {
@@ -320,13 +338,229 @@ export default function Game(props) {
         return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
     }
 
-    function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, action = null) {
+    function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction = (() => { })) {
         if (shouldClearBoxGroup(boxGroupBoxBackgroundColors)) {
             clearBoxGroup(boxBackgroundColorSetters);
         }
 
-        if (action) {
-            action();
+        groupAction();
+    }
+
+    function gameOverAlert() {
+        setAlertParagraphText('Game over!');
+    }
+
+    function endRound() {
+        incRound();
+
+        clearDashedBoxes();
+
+        clearActiveBonuses();
+
+        setSelectedBallId(constants.BALL1_ID);
+        moveSelectedBall(constants.START_FEATURE_ID);
+    }
+
+    function deselectMovedBall() {
+        setSelectedBallId(null);
+    }
+
+    function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
+        if (doesThisSendSelectedBallToDrain) {
+            if (selectedBallId === constants.BALL1_ID) {
+                setSelectedBallId(constants.BALL2_ID);
+            } else if (selectedBallId === constants.BALL2_ID) {
+                setSelectedBallId(constants.BALL1_ID);
+            }
+        }
+
+        if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
+            setSelectedBallId(constants.BALL2_ID);
+        } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
+            setSelectedBallId(constants.BALL1_ID);
+        } else if (unselectedBall === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+            setSelectedBallId(constants.BALL2_ID);
+        } else if (unselectedBall === constants.BALL1_ID && !wasBall1MovedThisTurn) {
+            setSelectedBallId(constants.BALL1_ID);
+        }
+    }
+
+    function rollDice() {
+        if (props.dieValues) {
+            setDieValuesIndex(() => dieValuesIndex + 1);
+        }
+        const nextValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex][0] : utilities.getRndIntegerInclusive(1, 6);
+        const nextValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex][1] : utilities.getRndIntegerInclusive(1, 6);
+        setDie1(nextValueOfDie1);
+        setDie2(nextValueOfDie2);
+
+        setWasBall1MovedThisTurn(false);
+        setWasBall2MovedThisTurn(false);
+
+        setWasDie1UsedThisTurn(false);
+        setWasDie2UsedThisTurn(false);
+
+        if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
+            if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
+                tilt(nextValueOfDie1, nextValueOfDie2);
+            }
+
+            // after checking tilt status, remove any nudging from both dice
+            setDie1AmountNudgedBy(0);
+            setDie2AmountNudgedBy(0);
+        }
+    }
+
+    function moveWillEndTheGame(boxId) {
+        return (
+            (round === constants.MAX_ROUNDS) &&
+            (
+                boxId === constants.YEL_OUTLANE_BOX_ID ||
+                boxId === constants.RED_OUTLANE_BOX_ID ||
+                boxId === constants.DRAIN_BOX_ID
+            )
+        )
+    }
+
+    function handleDiceBoxClick(
+        boxId,
+        boxBackgroundColor,
+        canReceiveFrom,
+        canReceiveOn,
+        fillBox = (() => { }),
+        correspondingFeatureId,
+        points = 0,
+        boxAction = (() => { }),
+        boxGroupBoxBackgroundColors,
+        boxBackgroundColorSetters,
+        groupAction = (() => { }),
+        isPrecedingHammerspaceBoxFilled = null,
+    ) {
+        if (
+            (alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
+            (alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
+            (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) ||
+            (alertParagraphText === constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT) ||
+            (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) ||
+            (alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
+            (alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
+            (isBoxFilled(boxBackgroundColor))
+        ) {
+            // do nothing
+        } else if (
+            (
+                boxId === constants.RED_OUTLANE_BOX_ID ||
+                boxId === constants.YEL_OUTLANE_BOX_ID
+            ) &&
+            utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)
+        ) {
+            // a user cannot nudge to use an outlane, so this situation is checked for first
+            setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
+        } else if (couldReceiveSelectedBall(boxBackgroundColor, canReceiveFrom, canReceiveOn)) {
+            if (
+                (constants.HAMMER_SPACE_GROUP_BOX_IDS.includes(boxId)) &&
+                (boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
+                (!isPrecedingHammerspaceBoxFilled)
+            ) {
+                setAlertParagraphText(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+            } else {
+                setAlertParagraphText("");
+                // if nudged, increment nudges used
+                if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
+                    incNudgesUsed();
+                }
+
+                fillBox();
+
+                moveSelectedBall(correspondingFeatureId);
+
+                addPoints(points);
+
+                boxAction();
+
+                possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction);
+
+                if (selectedDieId === constants.DIE1_ID) {
+                    if (!wasDie2UsedThisTurn) {
+                        setSelectedDieId(constants.DIE2_ID);
+                    } else {
+                        setSelectedDieId(null);
+                    }
+                    setWasDie1UsedThisTurn(true);
+                } else if (selectedDieId === constants.DIE2_ID) {
+                    if (!wasDie1UsedThisTurn) {
+                        setSelectedDieId(constants.DIE1_ID);
+                    } else {
+                        setSelectedDieId(null);
+                    }
+                    setWasDie2UsedThisTurn(true);
+                }
+
+                if (
+                    (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
+                        ball1FeatureId === constants.DRAIN_FEATURE_ID ||
+                        ball2FeatureId === constants.DRAIN_FEATURE_ID
+                    ) &&
+                    (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId)) // does this box send the ball to the drain?
+                ) {
+                    if (utilities.isLastRound(round)) {
+                        gameOverAlert();
+                    } else {
+                        endRound();
+                    }
+                }
+                const movedByThisClickBallId = selectedBallId;
+                const notMovedByThisClickBallId = (
+                    movedByThisClickBallId === constants.BALL1_ID ? constants.BALL2_ID :
+                        movedByThisClickBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+                );
+                const notMovedByThisClickBallFeatureId = (notMovedByThisClickBallId === constants.BALL1_ID ? ball1FeatureId : ball2FeatureId);
+                const wasBallNotMovedByThisClickMovedThisTurn = (notMovedByThisClickBallId === constants.BALL1_ID ? wasBall1MovedThisTurn : wasBall2MovedThisTurn);
+
+                deselectMovedBall();
+                possiblyAutoSelectBall(constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId));
+
+                if (
+                    !moveWillEndTheGame(round, boxId) && (
+                        notMovedByThisClickBallFeatureId === constants.DRAIN_FEATURE_ID ||
+                        wasBallNotMovedByThisClickMovedThisTurn
+                    )
+                ) {
+                    rollDice();
+                }
+            }
+        } else {
+            if (isMultiballActive()) {
+                if (selectedBallId === constants.BALL1_ID || selectedBallId === constants.BALL2_ID) {
+                    setAlertParagraphText(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
+                } else if (selectedDieId === constants.DIE1_ID || selectedDieId === constants.DIE2_ID) {
+                    setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
+                } else {
+                    setAlertParagraphText(constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT);
+                }
+            } else {
+                setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
+                console.log(boxBackgroundColor);
+                console.log(canReceiveFrom);
+                console.log(canReceiveOn);
+                console.log(canReceiveFrom.includes(selectedBallFeatureId) && isBoxFilled(boxBackgroundColor))
+            }
+        }
+    }
+
+    function moveSelectedBall(correspondingFeatureId) {
+        if (selectedBallId === constants.BALL1_ID) {
+            setBall1FeatureId(correspondingFeatureId);
+            setWasBall1MovedThisTurn(true);
+        } else if (selectedBallId === constants.BALL2_ID) {
+            setBall2FeatureId(correspondingFeatureId);
+            setWasBall2MovedThisTurn(true);
+        }
+    }
+
+    function clearDashedBoxes() {
+        for (const setter of dashedBoxesBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
     }
 
@@ -421,43 +655,6 @@ export default function Game(props) {
         setOutlaneBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     }
 
-    function endRound() {
-        incRound();
-
-        clearDashedBoxes();
-
-        clearActiveBonuses();
-
-        setSelectedBallId(constants.BALL1_ID);
-        moveSelectedBall(constants.START_FEATURE_ID);
-    }
-
-    function rollDice() {
-        if (props.dieValues) {
-            setDieValuesIndex(() => dieValuesIndex + 1);
-        }
-        const nextValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex][0] : utilities.getRndIntegerInclusive(1, 6);
-        const nextValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex][1] : utilities.getRndIntegerInclusive(1, 6);
-        setDie1(nextValueOfDie1);
-        setDie2(nextValueOfDie2);
-
-        setWasBall1MovedThisTurn(false);
-        setWasBall2MovedThisTurn(false);
-
-        setWasDie1UsedThisTurn(false);
-        setWasDie2UsedThisTurn(false);
-
-        if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
-            if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
-                tilt(nextValueOfDie1, nextValueOfDie2);
-            }
-
-            // after checking tilt status, remove any nudging from both dice
-            setDie1AmountNudgedBy(0);
-            setDie2AmountNudgedBy(0);
-        }
-    }
-
     function handleNudge(dieId, symbol) {
         if (dieId === "1") {
             if (symbol === "+") {
@@ -490,30 +687,6 @@ export default function Game(props) {
             ) ? 2 : 1
         )
         setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
-    }
-
-    function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
-        if (doesThisSendSelectedBallToDrain) {
-            if (selectedBallId === constants.BALL1_ID) {
-                setSelectedBallId(constants.BALL2_ID);
-            } else if (selectedBallId === constants.BALL2_ID) {
-                setSelectedBallId(constants.BALL1_ID);
-            }
-        }
-
-        if (ball1FeatureId === constants.DRAIN_FEATURE_ID && ball2FeatureId !== constants.DRAIN_FEATURE_ID) {
-            setSelectedBallId(constants.BALL2_ID);
-        } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID && ball1FeatureId !== constants.DRAIN_FEATURE_ID) {
-            setSelectedBallId(constants.BALL1_ID);
-        } else if (unselectedBall === constants.BALL2_ID && !wasBall2MovedThisTurn) {
-            setSelectedBallId(constants.BALL2_ID);
-        } else if (unselectedBall === constants.BALL1_ID && !wasBall1MovedThisTurn) {
-            setSelectedBallId(constants.BALL1_ID);
-        }
-    }
-
-    function gameOverAlert() {
-        setAlertParagraphText('Game over!');
     }
 
     function dropTargetGroupAction(color, relevantFlipperBoxesBackgroundColors) {
@@ -691,42 +864,26 @@ export default function Game(props) {
                             top="304px"
                         />
                         <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.FERRISWHEEL_CAR_12_BOX_ID,
+                                ferriswheelcar12BoxBackgroundColor,
+                                constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS, // canReceiveFrom
+                                [1, 2], // canReceiveOn
+                                (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)),
+                                constants.FERRISWHEEL_CAR_12_FEATURE_ID,
+                                0, // points
+                                () => {}, // boxAction
+                                ferriswheelBoxBackgroundColors,
+                                ferriswheelBoxBackgroundColorSetters,
+                                ferriswheelcarClearGroupAction,
+                                null // isPrecedingHammerspaceBoxFilled
+                            )}
                             isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
-                            fillBox={() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[1, 2]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.FERRISWHEEL_CAR_12_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarClearGroupAction)}
                             left="160px"
                             top="246px"
                             height="48px"
                             width="65px"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
                             round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="ferriswheelcar34">
