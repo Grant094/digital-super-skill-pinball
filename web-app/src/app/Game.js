@@ -1255,42 +1255,25 @@ export default function Game(props) {
                             top="535px"
                         />
                         <Box boxId={constants.HAMMER_SPACE_1_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.HAMMER_SPACE_1_BOX_ID,
+                                hammerspace1BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                [1],
+                                () => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.HAMMER_SPACE_1_FEATURE_ID,
+                                0,
+                                () => {},
+                                hammerspaceBoxBackgroundColors,
+                                hammerspaceBoxBackgroundColorSetters,
+                                () => {},
+                                null
+                            )}
                             isThisBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
-                            fillBox={() => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[1]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_1_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
                             left="376px"
                             top="535px"
                             height="25px"
                             width="25px"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-2">
@@ -1299,44 +1282,26 @@ export default function Game(props) {
                             top="505px"
                         />
                         <Box boxId={constants.HAMMER_SPACE_2_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.HAMMER_SPACE_2_BOX_ID,
+                                hammerspace2BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                [2],
+                                () => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.HAMMER_SPACE_2_FEATURE_ID,
+                                1,
+                                () => {},
+                                hammerspaceBoxBackgroundColors,
+                                hammerspaceBoxBackgroundColorSetters,
+                                () => {},
+                                isBoxFilled(hammerspace1BoxBackgroundColor)
+                            )}
                             isThisBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
-                            fillBox={() => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[2]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_2_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
-                            isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
                             left="388px"
                             top="505px"
                             height="25px"
                             width="25px"
                             points="1"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-3">
@@ -1345,44 +1310,25 @@ export default function Game(props) {
                             top="477px"
                         />
                         <Box boxId={constants.HAMMER_SPACE_3_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.HAMMER_SPACE_3_BOX_ID,
+                                hammerspace3BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                [3],
+                                () => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.HAMMER_SPACE_3_FEATURE_ID,
+                                1,
+                                () => {},
+                                hammerspaceBoxBackgroundColors,
+                                hammerspaceBoxBackgroundColorSetters,
+                                () => {},
+                                isBoxFilled(hammerspace2BoxBackgroundColor)
+                            )}
                             isThisBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
-                            fillBox={() => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[3]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_3_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
-                            isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
                             left="398px"
                             top="477px"
                             height="25px"
                             width="25px"
-                            points="1"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-4">
@@ -1391,44 +1337,25 @@ export default function Game(props) {
                             top="448px"
                         />
                         <Box boxId={constants.HAMMER_SPACE_4_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.HAMMER_SPACE_4_BOX_ID,
+                                hammerspace4BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                [4],
+                                () => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.HAMMER_SPACE_4_FEATURE_ID,
+                                2,
+                                () => {},
+                                hammerspaceBoxBackgroundColors,
+                                hammerspaceBoxBackgroundColorSetters,
+                                () => {},
+                                isBoxFilled(hammerspace3BoxBackgroundColor)
+                            )}
                             isThisBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
-                            fillBox={() => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[4]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_4_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
-                            isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
                             left="409px"
                             top="448px"
                             height="25px"
                             width="25px"
-                            points="2"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-5">
@@ -1437,44 +1364,25 @@ export default function Game(props) {
                             top="420px"
                         />
                         <Box boxId={constants.HAMMER_SPACE_5_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.HAMMER_SPACE_5_BOX_ID,
+                                hammerspace5BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                [5],
+                                () => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.HAMMER_SPACE_5_FEATURE_ID,
+                                5,
+                                () => {},
+                                hammerspaceBoxBackgroundColors,
+                                hammerspaceBoxBackgroundColorSetters,
+                                () => {},
+                                isBoxFilled(hammerspace4BoxBackgroundColor)
+                            )}
                             isThisBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
-                            fillBox={() => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[5]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_5_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
-                            isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
                             left="420px"
                             top="420px"
                             height="25px"
                             width="25px"
-                            points="5"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="hammerspace-6">
@@ -1483,44 +1391,25 @@ export default function Game(props) {
                             top="390px"
                         />
                         <Box boxId={constants.HAMMER_SPACE_6_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.HAMMER_SPACE_6_BOX_ID,
+                                hammerspace6BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                [6],
+                                () => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.HAMMER_SPACE_6_FEATURE_ID,
+                                20,
+                                () => {},
+                                hammerspaceBoxBackgroundColors,
+                                hammerspaceBoxBackgroundColorSetters,
+                                () => {},
+                                isBoxFilled(hammerspace5BoxBackgroundColor)
+                            )}
                             isThisBoxFilled={isBoxFilled(hammerspace6BoxBackgroundColor)}
-                            fillBox={() => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[6]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.HAMMER_SPACE_6_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(hammerspaceBoxBackgroundColors, hammerspaceBoxBackgroundColorSetters)}
-                            isPrecedingHammerspaceBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
                             left="430px"
                             top="390px"
                             height="25px"
                             width="25px"
-                            points="20"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                 </Fragment>
