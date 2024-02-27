@@ -427,13 +427,13 @@ export default function Game(props) {
         boxBackgroundColor,
         canReceiveFrom,
         canReceiveOn,
-        fillBox = (() => { }),
+        fillBox = (() => {}),
         correspondingFeatureId,
         points = 0,
-        boxAction = (() => { }),
+        boxAction = (() => {}),
         boxGroupBoxBackgroundColors,
         boxBackgroundColorSetters,
-        groupAction = (() => { }),
+        groupAction = (() => {}),
         isPrecedingHammerspaceBoxFilled = null,
     ) {
         if (
@@ -865,17 +865,17 @@ export default function Game(props) {
                         />
                         <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
                             handleClick={() => handleDiceBoxClick(
-                                constants.FERRISWHEEL_CAR_12_BOX_ID,
-                                ferriswheelcar12BoxBackgroundColor,
-                                constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS, // canReceiveFrom
+                                constants.FERRISWHEEL_CAR_12_BOX_ID, // boxId
+                                ferriswheelcar12BoxBackgroundColor, // boxBackgroundColor
+                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS), // canReceiveFrom
                                 [1, 2], // canReceiveOn
-                                (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)),
-                                constants.FERRISWHEEL_CAR_12_FEATURE_ID,
+                                (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
+                                constants.FERRISWHEEL_CAR_12_FEATURE_ID, // correspondingFeatureId
                                 0, // points
                                 () => {}, // boxAction
-                                ferriswheelBoxBackgroundColors,
-                                ferriswheelBoxBackgroundColorSetters,
-                                ferriswheelcarClearGroupAction,
+                                ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
+                                ferriswheelBoxBackgroundColorSetters, // boxBackgroundColorSetters
+                                ferriswheelcarClearGroupAction, // groupAction
                                 null // isPrecedingHammerspaceBoxFilled
                             )}
                             isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
@@ -883,7 +883,6 @@ export default function Game(props) {
                             top="246px"
                             height="48px"
                             width="65px"
-                            round={round}
                         />
                     </Fragment>
                     <Fragment key="ferriswheelcar34">
@@ -892,42 +891,25 @@ export default function Game(props) {
                             top="280px"
                         />
                         <Box boxId={constants.FERRISWHEEL_CAR_34_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.FERRISWHEEL_CAR_34_BOX_ID,
+                                ferriswheelcar34BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                [3, 4],
+                                () => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.FERRISWHEEL_CAR_34_FEATURE_ID,
+                                0,
+                                () => {}, // boxAction
+                                ferriswheelBoxBackgroundColors,
+                                ferriswheelBoxBackgroundColorSetters,
+                                ferriswheelcarClearGroupAction,
+                                null // isPrecedingHammerspaceBoxFilled
+                            )}
                             isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
-                            fillBox={() => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[3, 4]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.FERRISWHEEL_CAR_34_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarClearGroupAction)}
                             left="255px"
                             top="230px"
                             height="40px"
                             width="62px"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="ferriswheelcar56">
@@ -936,42 +918,25 @@ export default function Game(props) {
                             top="304px"
                         />
                         <Box boxId={constants.FERRISWHEEL_CAR_56_BOX_ID}
+                            handleClick={() => handleDiceBoxClick(
+                                constants.FERRISWHEEL_CAR_56_BOX_ID,
+                                ferriswheelcar56BoxBackgroundColor,
+                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                [5, 6],
+                                () => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.FERRISWHEEL_CAR_56_FEATURE_ID,
+                                0,
+                                () => {},
+                                ferriswheelBoxBackgroundColors,
+                                ferriswheelBoxBackgroundColorSetters,
+                                ferriswheelcarClearGroupAction,
+                                null
+                            )}
                             isThisBoxFilled={isBoxFilled(ferriswheelcar56BoxBackgroundColor)}
-                            fillBox={() => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[5, 6]}
-                            canReceiveFrom={possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS)}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.FERRISWHEEL_CAR_56_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(ferriswheelBoxBackgroundColors, ferriswheelBoxBackgroundColorSetters, ferriswheelcarClearGroupAction)}
                             left="350px"
                             top="246px"
                             height="48px"
                             width="62px"
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                 </Fragment>
@@ -982,172 +947,100 @@ export default function Game(props) {
                             top="388px"
                         />
                         <Box boxId={constants.BUMPER_12_1ST_1_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper121st1BoxBackgroundColor)}
-                            fillBox={() => setBumper121st1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[1]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_34_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_12_1ST_1_BOX_ID,
+                                bumper121st1BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_34_FEATURE_ID
+                                ),
+                                [1],
+                                () => setBumper121st1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_12_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper121st1BoxBackgroundColor)}
                             left="155px"
                             top="373px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_12_2ND_1_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper122nd1BoxBackgroundColor)}
-                            fillBox={() => setBumper122nd1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[1]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_34_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_12_2ND_1_BOX_ID,
+                                bumper122nd1BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_34_FEATURE_ID
+                                ),
+                                [1],
+                                () => setBumper122nd1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_12_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper122nd1BoxBackgroundColor)}
                             left="155px"
                             top="402px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_12_1ST_2_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper121st2BoxBackgroundColor)}
-                            fillBox={() => setBumper121st2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[2]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_34_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_12_1ST_2_BOX_ID,
+                                bumper121st2BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_34_FEATURE_ID
+                                ),
+                                [2],
+                                () => setBumper121st2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_12_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper121st2BoxBackgroundColor)}
                             left="185px"
                             top="373px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_12_2ND_2_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper122nd2BoxBackgroundColor)}
-                            fillBox={() => setBumper122nd2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[2]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_34_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_12_2ND_2_BOX_ID,
+                                bumper122nd2BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_34_FEATURE_ID
+                                ),
+                                [2],
+                                () => setBumper122nd2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_12_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_12_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper122nd2BoxBackgroundColor)}
                             left="185px"
                             top="402px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="bumper34">
@@ -1156,172 +1049,100 @@ export default function Game(props) {
                             top="388px"
                         />
                         <Box boxId={constants.BUMPER_34_1ST_3_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper341st3BoxBackgroundColor)}
-                            fillBox={() => setBumper341st3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[3]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_56_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_34_1ST_3_BOX_ID,
+                                bumper341st3BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_56_FEATURE_ID
+                                ),
+                                [3],
+                                () => setBumper341st3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_34_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper341st3BoxBackgroundColor)}
                             left="288px"
                             top="373px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_34_2ND_3_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper342nd3BoxBackgroundColor)}
-                            fillBox={() => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[3]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_56_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_34_2ND_3_BOX_ID,
+                                bumper342nd3BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_56_FEATURE_ID
+                                ),
+                                [3],
+                                () => setBumper342nd3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_34_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper342nd3BoxBackgroundColor)}
                             left="288px"
                             top="402px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_34_1ST_4_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper341st4BoxBackgroundColor)}
-                            fillBox={() => setBumper341st4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[4]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_56_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_34_1ST_4_BOX_ID,
+                                bumper341st4BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_56_FEATURE_ID
+                                ),
+                                [4],
+                                () => setBumper341st4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_34_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper341st4BoxBackgroundColor)}
                             left="317px"
                             top="373px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_34_2ND_4_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper342nd4BoxBackgroundColor)}
-                            fillBox={() => setBumper342nd4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[4]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_56_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_34_2ND_4_BOX_ID,
+                                bumper342nd4BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_56_FEATURE_ID
+                                ),
+                                [4],
+                                () => setBumper342nd4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_34_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_34_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper342nd4BoxBackgroundColor)}
                             left="317px"
                             top="402px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                     <Fragment key="bumper56">
@@ -1330,172 +1151,100 @@ export default function Game(props) {
                             top="490px"
                         />
                         <Box boxId={constants.BUMPER_56_1ST_5_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper561st5BoxBackgroundColor)}
-                            fillBox={() => setBumper561st5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[5]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_12_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_56_1ST_5_BOX_ID,
+                                bumper561st5BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_12_FEATURE_ID
+                                ),
+                                [5],
+                                () => setBumper561st5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_56_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper561st5BoxBackgroundColor)}
                             left="221px"
                             top="475px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_56_2ND_5_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper562nd5BoxBackgroundColor)}
-                            fillBox={() => setBumper562nd5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[5]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_12_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_56_2ND_5_BOX_ID,
+                                bumper562nd5BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_12_FEATURE_ID
+                                ),
+                                [5],
+                                () => setBumper562nd5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_56_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper562nd5BoxBackgroundColor)}
                             left="221px"
                             top="505px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_56_1ST_6_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper561st6BoxBackgroundColor)}
-                            fillBox={() => setBumper561st6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[6]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_12_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_56_1ST_6_BOX_ID,
+                                bumper561st6BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_12_FEATURE_ID
+                                ),
+                                [6],
+                                () => setBumper561st6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_56_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper561st6BoxBackgroundColor)}
                             left="251px"
                             top="475px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                         <Box boxId={constants.BUMPER_56_2ND_6_BOX_ID}
-                            isThisBoxFilled={isBoxFilled(bumper562nd6BoxBackgroundColor)}
-                            fillBox={() => setBumper562nd6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)}
-                            canReceiveOn={[6]}
-                            canReceiveFrom={possiblyReceiveFromEitherOtherBumper(
-                                possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
-                                constants.BUMPER_12_FEATURE_ID
+                            handleClick={() => handleDiceBoxClick(
+                                constants.BUMPER_56_2ND_6_BOX_ID,
+                                bumper562nd6BoxBackgroundColor,
+                                possiblyReceiveFromEitherOtherBumper(
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    constants.BUMPER_12_FEATURE_ID
+                                ),
+                                [6],
+                                () => setBumper562nd6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                                constants.BUMPER_56_FEATURE_ID,
+                                valueOfBumpers(),
+                                () => {},
+                                bumperBoxBackgroundColors,
+                                bumperBoxBackgroundColorSetters,
+                                () => {},
+                                null
                             )}
-                            moveSelectedBallToCorrespondingFeature={() => moveSelectedBall(constants.BUMPER_56_FEATURE_ID)}
-                            possiblyClearBoxGroup={possiblyClearBoxGroup(bumperBoxBackgroundColors, bumperBoxBackgroundColorSetters)}
+                            isThisBoxFilled={isBoxFilled(bumper562nd6BoxBackgroundColor)}
                             left="251px"
                             top="505px"
                             height="25px"
                             width="25px"
-                            points={valueOfBumpers()}
-                            die1={die1}
-                            die2={die2}
-                            rollDice={rollDice}
-                            round={round}
-                            addPoints={addPoints}
-                            selectedDieId={selectedDieId}
-                            setSelectedDieId={setSelectedDieId}
-                            wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                            wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                            setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                            setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                            ball1FeatureId={ball1FeatureId}
-                            ball2FeatureId={ball2FeatureId}
-                            die1AmountNudgedBy={die1AmountNudgedBy}
-                            die2AmountNudgedBy={die2AmountNudgedBy}
-                            incNudgesUsed={incNudgesUsed}
-                            getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                            endRound={endRound}
-                            deselectMovedBall={deselectMovedBall}
-                            possiblyAutoSelectBall={possiblyAutoSelectBall}
-                            gameOverAlert={gameOverAlert}
-                            selectedBallId={selectedBallId}
-                            wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                            wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                            alertParagraphText={alertParagraphText}
-                            setAlertParagraphText={setAlertParagraphText}
                         />
                     </Fragment>
                 </Fragment>

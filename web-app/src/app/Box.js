@@ -20,7 +20,6 @@ export default function Box(props) {
                 left: props.left,
                 height: props.height,
                 width: props.width,
-                visibility: (utilities.isGameOver(props.round) ? "hidden" : "visible"),
             }}
         >
         </div>
