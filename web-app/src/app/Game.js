@@ -2009,14 +2009,12 @@ export default function Game(props) {
                 handleDie1Click={() => handleDieClick(constants.DIE1_ID)}
                 handleDie2Click={() => handleDieClick(constants.DIE2_ID)}
                 selectedDieId={selectedDieId}
-                setSelectedDieId={setSelectedDieId}
                 wasDie1UsedThisTurn={wasDie1UsedThisTurn}
                 wasDie2UsedThisTurn={wasDie2UsedThisTurn}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
                 nudgesUsed={nudgesUsed}
                 handleNudge={handleNudge}
-                rollDice={rollDice}
             />
             <ScoreIndicator scoreIndicatorId={constants.SCORE_INDICATOR_ID}
                 scorePId={constants.SCORE_PARAGRAPH_ID}
