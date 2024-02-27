@@ -2026,9 +2026,6 @@ export default function Game(props) {
             />
             <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
-                selectedBallId={selectedBallId}
-                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                 alertParagraphText={alertParagraphText}
             />
         </div>
