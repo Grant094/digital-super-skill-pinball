@@ -253,9 +253,12 @@ export default function Game(props) {
     //#endregion
 
     //#region functions
+    //#region incrementing functions
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
     const incRound = (() => setRound(round + 1));
+    //#endregion
 
+    //#region balls
     function handleBallClick(ballId) {
         if (ballId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
             setSelectedBallId(constants.BALL1_ID);
@@ -270,6 +273,19 @@ export default function Game(props) {
         }
     }
 
+    function ballBorderColor(ballId) {
+        if (
+            (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
+            (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
+        ) {
+            return constants.BALL_MOVED_BORDER_COLOR;
+        } else {
+            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
+        }
+    }
+    //#endregion
+
+    //#region handle dice box click
     function isMultiballActive() {
         return (
             (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
@@ -318,6 +334,7 @@ export default function Game(props) {
         }
     }
 
+    //#region clearing box groups
     function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
         const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfFilledBoxesInThisGroupBeforeThisMove = filledBoxes.length;
@@ -339,9 +356,23 @@ export default function Game(props) {
 
         groupAction();
     }
+    //#endregion
 
+    //#region round and game end
     function gameOverAlert() {
         setAlertParagraphText('Game over!');
+    }
+
+    function clearDashedBoxes() {
+        for (const setter of dashedBoxesBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
+        }
+    }
+
+    function clearActiveBonuses() {
+        setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+        setBumperBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+        setOutlaneBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     }
 
     function endRound() {
@@ -354,6 +385,7 @@ export default function Game(props) {
         setSelectedBallId(constants.BALL1_ID);
         moveSelectedBall(constants.START_FEATURE_ID);
     }
+    //#endregion
 
     function deselectMovedBall() {
         setSelectedBallId(null);
@@ -414,6 +446,26 @@ export default function Game(props) {
                 boxId === constants.DRAIN_BOX_ID
             )
         )
+    }
+
+    function moveSelectedBall(correspondingFeatureId) {
+        if (selectedBallId === constants.BALL1_ID) {
+            setBall1FeatureId(correspondingFeatureId);
+            setWasBall1MovedThisTurn(true);
+        } else if (selectedBallId === constants.BALL2_ID) {
+            setBall2FeatureId(correspondingFeatureId);
+            setWasBall2MovedThisTurn(true);
+        }
+    }
+
+    function addPoints(pointsToAdd) {
+        const multiballMulitplier = (
+            (
+                (ball1FeatureId !== constants.DRAIN_FEATURE_ID || (ball1FeatureId === constants.DRAIN_FEATURE_ID && wasBall1MovedThisTurn)) &&
+                (ball2FeatureId !== constants.DRAIN_FEATURE_ID || (ball2FeatureId === constants.DRAIN_FEATURE_ID && wasBall2MovedThisTurn))
+            ) ? 2 : 1
+        )
+        setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
     function handleDiceBoxClick(
@@ -537,23 +589,9 @@ export default function Game(props) {
             }
         }
     }
+    //#endregion
 
-    function moveSelectedBall(correspondingFeatureId) {
-        if (selectedBallId === constants.BALL1_ID) {
-            setBall1FeatureId(correspondingFeatureId);
-            setWasBall1MovedThisTurn(true);
-        } else if (selectedBallId === constants.BALL2_ID) {
-            setBall2FeatureId(correspondingFeatureId);
-            setWasBall2MovedThisTurn(true);
-        }
-    }
-
-    function clearDashedBoxes() {
-        for (const setter of dashedBoxesBackgroundColorSetters) {
-            setter(constants.UNFILLED_BACKGROUND_COLOR);
-        }
-    }
-
+    //#region actions
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
         const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
@@ -565,118 +603,6 @@ export default function Game(props) {
         if (shouldClearBoxGroup(ferriswheelBoxBackgroundColors)) {
             setAlertParagraphText(constants.SELECT_SKILL_SHOT_ALERT);
         }
-    }
-
-    function handleSkillShotBoxClick(skillShotBoxBorderColor, skillShotBoxBorderColorSetter) {
-        if (
-            alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT &&
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR
-        ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            setAlertParagraphText("");
-        } else if (
-            alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR
-        ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
-            setAlertParagraphText(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
-        } else if (
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR
-        ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            setAlertParagraphText("");
-        }
-    }
-
-    function isAnySkillShotBoxSelected() {
-        return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
-    }
-
-    function handleDieClick(dieId) {
-        if (isAnySkillShotBoxSelected()) {
-            const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
-            if (dieId === constants.DIE1_ID) {
-                setDie1(indexOfSelectedSkillShotBox + 1);
-            } else if (dieId === constants.DIE2_ID) {
-                setDie2(indexOfSelectedSkillShotBox + 1);
-            }
-
-            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-
-            setAlertParagraphText("");
-        } else if (
-            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
-            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
-        ) {
-            if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
-                setSelectedDieId(constants.DIE1_ID);
-            } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
-                setSelectedDieId(constants.DIE2_ID);
-            }
-
-            if (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) {
-                setAlertParagraphText("");
-            } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
-                setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
-            }
-        }
-    }
-
-    function hasTilted(nextValueOfDie1, nextValueOfDie2) {
-        return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
-    }
-
-    function tilt(nextValueOfDie1, nextValueOfDie2) {
-        setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
-        endRound();
-
-        const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
-        const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
-        setDie1(postTiltValueOfDie1);
-        setDie2(postTiltValueOfDie2);
-        if (props.dieValues) {
-            setDieValuesIndex(() => dieValuesIndex + 1);
-        }
-    }
-
-    function clearActiveBonuses() {
-        setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
-        setBumperBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
-        setOutlaneBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
-    }
-
-    function handleNudge(dieId, symbol) {
-        if (dieId === "1") {
-            if (symbol === "+") {
-                setDie1(Number(die1) + 1);
-                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) + 1);
-            } else {
-                setDie1(Number(die1) - 1);
-                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) - 1);
-            }
-        } else {
-            if (symbol === "+") {
-                setDie2(Number(die2) + 1);
-                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) + 1);
-            } else {
-                setDie2(Number(die2) - 1);
-                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) - 1);
-            }
-        }
-    }
-
-    function handleRestart() {
-        props.incGameId();
-    }
-
-    function addPoints(pointsToAdd) {
-        const multiballMulitplier = (
-            (
-                (ball1FeatureId !== constants.DRAIN_FEATURE_ID || (ball1FeatureId === constants.DRAIN_FEATURE_ID && wasBall1MovedThisTurn)) &&
-                (ball2FeatureId !== constants.DRAIN_FEATURE_ID || (ball2FeatureId === constants.DRAIN_FEATURE_ID && wasBall2MovedThisTurn))
-            ) ? 2 : 1
-        )
-        setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
     function dropTargetGroupAction(color, relevantFlipperBoxesBackgroundColors) {
@@ -737,6 +663,107 @@ export default function Game(props) {
 
         setSelectedBallId(null);
     }
+    //#endregion
+
+    //#region handle die click
+    function isAnySkillShotBoxSelected() {
+        return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
+    }
+
+    function handleDieClick(dieId) {
+        if (isAnySkillShotBoxSelected()) {
+            const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            if (dieId === constants.DIE1_ID) {
+                setDie1(indexOfSelectedSkillShotBox + 1);
+            } else if (dieId === constants.DIE2_ID) {
+                setDie2(indexOfSelectedSkillShotBox + 1);
+            }
+
+            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+
+            setAlertParagraphText("");
+        } else if (
+            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
+            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
+        ) {
+            if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
+                setSelectedDieId(constants.DIE1_ID);
+            } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
+                setSelectedDieId(constants.DIE2_ID);
+            }
+
+            if (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) {
+                setAlertParagraphText("");
+            } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
+                setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
+            }
+        }
+    }
+    //#endregion
+
+    //#region tilting
+    function hasTilted(nextValueOfDie1, nextValueOfDie2) {
+        return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
+    }
+
+    function tilt(nextValueOfDie1, nextValueOfDie2) {
+        setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
+        endRound();
+
+        const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
+        const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
+        setDie1(postTiltValueOfDie1);
+        setDie2(postTiltValueOfDie2);
+        if (props.dieValues) {
+            setDieValuesIndex(() => dieValuesIndex + 1);
+        }
+    }
+    //#endregion
+
+    function handleNudge(dieId, symbol) {
+        if (dieId === "1") {
+            if (symbol === "+") {
+                setDie1(Number(die1) + 1);
+                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) + 1);
+            } else {
+                setDie1(Number(die1) - 1);
+                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) - 1);
+            }
+        } else {
+            if (symbol === "+") {
+                setDie2(Number(die2) + 1);
+                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) + 1);
+            } else {
+                setDie2(Number(die2) - 1);
+                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) - 1);
+            }
+        }
+    }
+
+    function handleRestart() {
+        props.incGameId();
+    }
+
+    function handleSkillShotBoxClick(skillShotBoxBorderColor, skillShotBoxBorderColorSetter) {
+        if (
+            alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT &&
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR
+        ) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            setAlertParagraphText("");
+        } else if (
+            alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR
+        ) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            setAlertParagraphText(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
+        } else if (
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR
+        ) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            setAlertParagraphText("");
+        }
+    }
 
     function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined, willActivateMultiball = false) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
@@ -760,16 +787,13 @@ export default function Game(props) {
         }
     }
 
+    //#region possibly receive
     function possiblyReceiveFromEitherFlipper(defaultCanReceiveFrom) {
         return (
             (flipperPassIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ?
                 defaultCanReceiveFrom.concat([constants.RED_FLIPPER_FEATURE_ID, constants.YEL_FLIPPER_FEATURE_ID]) :
                 defaultCanReceiveFrom
         );
-    }
-
-    function valueOfBumpers() {
-        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? "2" : "1");
     }
 
     function possiblyReceiveFromEitherOtherBumper(defaultCanReceiveFrom, clockwiseBumperFeatureId) {
@@ -779,16 +803,10 @@ export default function Game(props) {
                 defaultCanReceiveFrom
         );
     }
+    //#endregion
 
-    function ballBorderColor(ballId) {
-        if (
-            (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
-            (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
-        ) {
-            return constants.BALL_MOVED_BORDER_COLOR;
-        } else {
-            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
-        }
+    function valueOfBumpers() {
+        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? "2" : "1");
     }
     //#endregion
 
