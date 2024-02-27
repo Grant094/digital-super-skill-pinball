@@ -320,22 +320,16 @@ export default function Game(props) {
 
     function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
         const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
-        const countOfFilledBoxesInThisGroup = filledBoxes.length;
+        const countOfFilledBoxesInThisGroupBeforeThisMove = filledBoxes.length;
+        const countOfFilledBoxesInThisGroupAfterThisMove = countOfFilledBoxesInThisGroupBeforeThisMove + 1;
         const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
-        return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
+        return ((countOfFilledBoxesInThisGroupAfterThisMove) === countOfAllBoxesInThisGroup);
     }
 
     function clearBoxGroup(boxBackgroundColorSetters) {
         for (const setter of boxBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
-    }
-
-    function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
-        const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
-        const countOfFilledBoxesInThisGroup = filledBoxes.length;
-        const countOfAllBoxesInThisGroup = boxGroupBoxBackgroundColors.length
-        return (countOfFilledBoxesInThisGroup === countOfAllBoxesInThisGroup);
     }
 
     function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction = (() => { })) {
@@ -521,7 +515,7 @@ export default function Game(props) {
                 possiblyAutoSelectBall(constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId));
 
                 if (
-                    !moveWillEndTheGame(round, boxId) && (
+                    !(moveWillEndTheGame(boxId)) && (
                         notMovedByThisClickBallFeatureId === constants.DRAIN_FEATURE_ID ||
                         wasBallNotMovedByThisClickMovedThisTurn
                     )
@@ -540,10 +534,6 @@ export default function Game(props) {
                 }
             } else {
                 setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
-                console.log(boxBackgroundColor);
-                console.log(canReceiveFrom);
-                console.log(canReceiveOn);
-                console.log(canReceiveFrom.includes(selectedBallFeatureId) && isBoxFilled(boxBackgroundColor))
             }
         }
     }
@@ -1890,10 +1880,10 @@ export default function Game(props) {
                             () => setYelFlipperBox4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                             constants.YEL_FLIPPER_FEATURE_ID,
                             0,
-                            () => {},
+                            () => { },
                             [],
                             [],
-                            () => {},
+                            () => { },
                             null
                         )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox4BoxBackgroundColor)}
@@ -1914,13 +1904,13 @@ export default function Game(props) {
                             drainBoxBackgroundColor,
                             constants.ALL_FEATURE_IDS,
                             [1, 2, 3, 4, 5, 6],
-                            () => {},
+                            () => { },
                             constants.DRAIN_FEATURE_ID,
                             0,
-                            () => {},
+                            () => { },
                             [],
                             [],
-                            () => {},
+                            () => { },
                             null
                         )}
                         isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
