@@ -9,8 +9,6 @@ import RestartTray from "./RestartTray";
 import AlertTray from "./AlertTray";
 import Box from "./Box";
 import Feature from "./Feature";
-import DashedBox from "./DashedBox";
-import Outlane from "./Outlane";
 import Ball from "./Ball";
 import RoundIndicator from "./RoundIndicator";
 import SkillShotBox from "./SkillShotBox";
@@ -18,7 +16,6 @@ import BonusIndicator from "./BonusIndicator";
 import BonusBox from "./BonusBox";
 
 export default function Game(props) {
-    let didInit = false;
     //#region state
     //#region misc game state
     const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : null);
@@ -46,6 +43,7 @@ export default function Game(props) {
         selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
             selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
     );
+    let didInit = false;
     //#endregion
     //#region dice box background colors
     //#region dashed box background colors
@@ -111,7 +109,6 @@ export default function Game(props) {
     const [outlaneBonusIndicatorBorderColor, setOutlaneBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     const [bumperBonusIndicatorBorderColor, setBumperBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     //#endregion
-    //#endregion
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [fillTwoHammerSpacesBonusBoxBackgroundColor, setFillTwoHammerSpacesBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
@@ -120,7 +117,6 @@ export default function Game(props) {
     const [outlaneBonusBoxBackgroundColor, setOutlaneBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [redMultiballBonusBoxBackgroundColor, setRedMultiballBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
-
     //#region box background arrays
     //#region dashed boxes background color arrays
     const dashedBoxesBackgroundColorSetters = [
@@ -251,11 +247,14 @@ export default function Game(props) {
         setSkillShotBox6BorderColor,
     ];
     //#endregion
+    //#endregion
 
     //#region functions
+    //#region incrementing functions
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
     const incRound = (() => setRound(round + 1));
-
+    //#endregion
+    //#region balls
     function handleBallClick(ballId) {
         if (ballId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
             setSelectedBallId(constants.BALL1_ID);
@@ -270,6 +269,18 @@ export default function Game(props) {
         }
     }
 
+    function ballBorderColor(ballId) {
+        if (
+            (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
+            (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
+        ) {
+            return constants.BALL_MOVED_BORDER_COLOR;
+        } else {
+            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
+        }
+    }
+    //#endregion
+    //#region handle dice box click
     function isMultiballActive() {
         return (
             (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
@@ -318,6 +329,7 @@ export default function Game(props) {
         }
     }
 
+    //#region clearing box groups
     function shouldClearBoxGroup(boxGroupBoxBackgroundColors) {
         const filledBoxes = boxGroupBoxBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfFilledBoxesInThisGroupBeforeThisMove = filledBoxes.length;
@@ -339,9 +351,23 @@ export default function Game(props) {
 
         groupAction();
     }
+    //#endregion
 
+    //#region round and game end
     function gameOverAlert() {
         setAlertParagraphText('Game over!');
+    }
+
+    function clearDashedBoxes() {
+        for (const setter of dashedBoxesBackgroundColorSetters) {
+            setter(constants.UNFILLED_BACKGROUND_COLOR);
+        }
+    }
+
+    function clearActiveBonuses() {
+        setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+        setBumperBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
+        setOutlaneBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     }
 
     function endRound() {
@@ -354,6 +380,7 @@ export default function Game(props) {
         setSelectedBallId(constants.BALL1_ID);
         moveSelectedBall(constants.START_FEATURE_ID);
     }
+    //#endregion
 
     function deselectMovedBall() {
         setSelectedBallId(null);
@@ -414,6 +441,26 @@ export default function Game(props) {
                 boxId === constants.DRAIN_BOX_ID
             )
         )
+    }
+
+    function moveSelectedBall(correspondingFeatureId) {
+        if (selectedBallId === constants.BALL1_ID) {
+            setBall1FeatureId(correspondingFeatureId);
+            setWasBall1MovedThisTurn(true);
+        } else if (selectedBallId === constants.BALL2_ID) {
+            setBall2FeatureId(correspondingFeatureId);
+            setWasBall2MovedThisTurn(true);
+        }
+    }
+
+    function addPoints(pointsToAdd) {
+        const multiballMulitplier = (
+            (
+                (ball1FeatureId !== constants.DRAIN_FEATURE_ID || (ball1FeatureId === constants.DRAIN_FEATURE_ID && wasBall1MovedThisTurn)) &&
+                (ball2FeatureId !== constants.DRAIN_FEATURE_ID || (ball2FeatureId === constants.DRAIN_FEATURE_ID && wasBall2MovedThisTurn))
+            ) ? 2 : 1
+        )
+        setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
     function handleDiceBoxClick(
@@ -537,23 +584,8 @@ export default function Game(props) {
             }
         }
     }
-
-    function moveSelectedBall(correspondingFeatureId) {
-        if (selectedBallId === constants.BALL1_ID) {
-            setBall1FeatureId(correspondingFeatureId);
-            setWasBall1MovedThisTurn(true);
-        } else if (selectedBallId === constants.BALL2_ID) {
-            setBall2FeatureId(correspondingFeatureId);
-            setWasBall2MovedThisTurn(true);
-        }
-    }
-
-    function clearDashedBoxes() {
-        for (const setter of dashedBoxesBackgroundColorSetters) {
-            setter(constants.UNFILLED_BACKGROUND_COLOR);
-        }
-    }
-
+    //#endregion
+    //#region actions
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
         const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
         const countOfRelevantFlipperBoxesFilled = relevantFlipperBoxesFilled.length;
@@ -565,118 +597,6 @@ export default function Game(props) {
         if (shouldClearBoxGroup(ferriswheelBoxBackgroundColors)) {
             setAlertParagraphText(constants.SELECT_SKILL_SHOT_ALERT);
         }
-    }
-
-    function handleSkillShotBoxClick(skillShotBoxBorderColor, skillShotBoxBorderColorSetter) {
-        if (
-            alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT &&
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR
-        ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            setAlertParagraphText("");
-        } else if (
-            alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR
-        ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
-            setAlertParagraphText(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
-        } else if (
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR
-        ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            setAlertParagraphText("");
-        }
-    }
-
-    function isAnySkillShotBoxSelected() {
-        return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
-    }
-
-    function handleDieClick(dieId) {
-        if (isAnySkillShotBoxSelected()) {
-            const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
-            if (dieId === constants.DIE1_ID) {
-                setDie1(indexOfSelectedSkillShotBox + 1);
-            } else if (dieId === constants.DIE2_ID) {
-                setDie2(indexOfSelectedSkillShotBox + 1);
-            }
-
-            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-
-            setAlertParagraphText("");
-        } else if (
-            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
-            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
-        ) {
-            if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
-                setSelectedDieId(constants.DIE1_ID);
-            } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
-                setSelectedDieId(constants.DIE2_ID);
-            }
-
-            if (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) {
-                setAlertParagraphText("");
-            } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
-                setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
-            }
-        }
-    }
-
-    function hasTilted(nextValueOfDie1, nextValueOfDie2) {
-        return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
-    }
-
-    function tilt(nextValueOfDie1, nextValueOfDie2) {
-        setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
-        endRound();
-
-        const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
-        const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
-        setDie1(postTiltValueOfDie1);
-        setDie2(postTiltValueOfDie2);
-        if (props.dieValues) {
-            setDieValuesIndex(() => dieValuesIndex + 1);
-        }
-    }
-
-    function clearActiveBonuses() {
-        setFlipperPassIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
-        setBumperBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
-        setOutlaneBonusIndicatorBorderColor(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
-    }
-
-    function handleNudge(dieId, symbol) {
-        if (dieId === "1") {
-            if (symbol === "+") {
-                setDie1(Number(die1) + 1);
-                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) + 1);
-            } else {
-                setDie1(Number(die1) - 1);
-                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) - 1);
-            }
-        } else {
-            if (symbol === "+") {
-                setDie2(Number(die2) + 1);
-                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) + 1);
-            } else {
-                setDie2(Number(die2) - 1);
-                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) - 1);
-            }
-        }
-    }
-
-    function handleRestart() {
-        props.incGameId();
-    }
-
-    function addPoints(pointsToAdd) {
-        const multiballMulitplier = (
-            (
-                (ball1FeatureId !== constants.DRAIN_FEATURE_ID || (ball1FeatureId === constants.DRAIN_FEATURE_ID && wasBall1MovedThisTurn)) &&
-                (ball2FeatureId !== constants.DRAIN_FEATURE_ID || (ball2FeatureId === constants.DRAIN_FEATURE_ID && wasBall2MovedThisTurn))
-            ) ? 2 : 1
-        )
-        setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
     function dropTargetGroupAction(color, relevantFlipperBoxesBackgroundColors) {
@@ -737,6 +657,105 @@ export default function Game(props) {
 
         setSelectedBallId(null);
     }
+    //#endregion
+    //#region handle die click
+    function isAnySkillShotBoxSelected() {
+        return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
+    }
+
+    function handleDieClick(dieId) {
+        if (isAnySkillShotBoxSelected()) {
+            const indexOfSelectedSkillShotBox = skillShotBoxBorderColors.indexOf(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            if (dieId === constants.DIE1_ID) {
+                setDie1(indexOfSelectedSkillShotBox + 1);
+            } else if (dieId === constants.DIE2_ID) {
+                setDie2(indexOfSelectedSkillShotBox + 1);
+            }
+
+            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+
+            setAlertParagraphText("");
+        } else if (
+            (ball1FeatureId !== constants.DRAIN_FEATURE_ID || wasBall1MovedThisTurn) &&
+            (ball2FeatureId !== constants.DRAIN_FEATURE_ID || wasBall2MovedThisTurn)
+        ) {
+            if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
+                setSelectedDieId(constants.DIE1_ID);
+            } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
+                setSelectedDieId(constants.DIE2_ID);
+            }
+
+            if (alertParagraphText === constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT) {
+                setAlertParagraphText("");
+            } else if (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) {
+                setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
+            }
+        }
+    }
+    //#endregion
+    //#region tilting
+    function hasTilted(nextValueOfDie1, nextValueOfDie2) {
+        return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
+    }
+
+    function tilt(nextValueOfDie1, nextValueOfDie2) {
+        setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
+        endRound();
+
+        const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);
+        const postTiltValueOfDie2 = props.dieValues ? props.dieValues[dieValuesIndex + 1][1] : utilities.getRndIntegerInclusive(1, 6);
+        setDie1(postTiltValueOfDie1);
+        setDie2(postTiltValueOfDie2);
+        if (props.dieValues) {
+            setDieValuesIndex(() => dieValuesIndex + 1);
+        }
+    }
+    //#endregion
+
+    function handleNudge(dieId, symbol) {
+        if (dieId === "1") {
+            if (symbol === "+") {
+                setDie1(Number(die1) + 1);
+                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) + 1);
+            } else {
+                setDie1(Number(die1) - 1);
+                setDie1AmountNudgedBy(Number(die1AmountNudgedBy) - 1);
+            }
+        } else {
+            if (symbol === "+") {
+                setDie2(Number(die2) + 1);
+                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) + 1);
+            } else {
+                setDie2(Number(die2) - 1);
+                setDie2AmountNudgedBy(Number(die2AmountNudgedBy) - 1);
+            }
+        }
+    }
+
+    function handleRestart() {
+        props.incGameId();
+    }
+
+    function handleSkillShotBoxClick(skillShotBoxBorderColor, skillShotBoxBorderColorSetter) {
+        if (
+            alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT &&
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR
+        ) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            setAlertParagraphText("");
+        } else if (
+            alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR
+        ) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
+            setAlertParagraphText(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
+        } else if (
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR
+        ) {
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            setAlertParagraphText("");
+        }
+    }
 
     function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined, willActivateMultiball = false) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
@@ -760,16 +779,13 @@ export default function Game(props) {
         }
     }
 
+    //#region possibly receive
     function possiblyReceiveFromEitherFlipper(defaultCanReceiveFrom) {
         return (
             (flipperPassIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ?
                 defaultCanReceiveFrom.concat([constants.RED_FLIPPER_FEATURE_ID, constants.YEL_FLIPPER_FEATURE_ID]) :
                 defaultCanReceiveFrom
         );
-    }
-
-    function valueOfBumpers() {
-        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? "2" : "1");
     }
 
     function possiblyReceiveFromEitherOtherBumper(defaultCanReceiveFrom, clockwiseBumperFeatureId) {
@@ -779,16 +795,10 @@ export default function Game(props) {
                 defaultCanReceiveFrom
         );
     }
+    //#endregion
 
-    function ballBorderColor(ballId) {
-        if (
-            (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
-            (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
-        ) {
-            return constants.BALL_MOVED_BORDER_COLOR;
-        } else {
-            return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
-        }
+    function valueOfBumpers() {
+        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? "2" : "1");
     }
     //#endregion
 
@@ -1145,7 +1155,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_1ST_5_BOX_ID,
                                 bumper561st5BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [5],
@@ -1169,7 +1179,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_2ND_5_BOX_ID,
                                 bumper562nd5BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [5],
@@ -1193,7 +1203,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_1ST_6_BOX_ID,
                                 bumper561st6BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [6],
@@ -1217,7 +1227,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_2ND_6_BOX_ID,
                                 bumper562nd6BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [6],
@@ -1248,7 +1258,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_1_BOX_ID,
                                 hammerspace1BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                 [1],
                                 () => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_1_FEATURE_ID,
@@ -1275,7 +1285,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_2_BOX_ID,
                                 hammerspace2BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                 [2],
                                 () => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_2_FEATURE_ID,
@@ -1303,7 +1313,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_3_BOX_ID,
                                 hammerspace3BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                 [3],
                                 () => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_3_FEATURE_ID,
@@ -1330,7 +1340,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_4_BOX_ID,
                                 hammerspace4BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                 [4],
                                 () => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_4_FEATURE_ID,
@@ -1357,7 +1367,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_5_BOX_ID,
                                 hammerspace5BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                 [5],
                                 () => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_5_FEATURE_ID,
@@ -1384,7 +1394,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_6_BOX_ID,
                                 hammerspace6BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECIEVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
                                 [6],
                                 () => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_6_FEATURE_ID,
@@ -1670,7 +1680,7 @@ export default function Game(props) {
                     </Fragment>
                 </Fragment>
                 <Fragment key="outlanes">
-                    <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
+                    <Box boxId={constants.RED_OUTLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_OUTLANE_BOX_ID,
                             redOutlaneBoxBackgroundColor,
@@ -1688,8 +1698,10 @@ export default function Game(props) {
                         isThisBoxFilled={isBoxFilled(redOutlaneBoxBackgroundColor)}
                         left="18px"
                         top="815px"
+                        height="130px"
+                        width="62px"
                     />
-                    <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
+                    <Box boxId={constants.YEL_OUTLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_OUTLANE_BOX_ID,
                             yelOutlaneBoxBackgroundColor,
@@ -1707,10 +1719,12 @@ export default function Game(props) {
                         isThisBoxFilled={isBoxFilled(yelOutlaneBoxBackgroundColor)}
                         left="458px"
                         top="815px"
+                        height="130px"
+                        width="62px"
                     />
                 </Fragment>
                 <Fragment key="inlanes">
-                    <DashedBox boxId={constants.RED_INLANE_BOX_ID}
+                    <Box boxId={constants.RED_INLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_INLANE_BOX_ID,
                             redInlaneBoxBackgroundColor,
@@ -1731,7 +1745,7 @@ export default function Game(props) {
                         height="25px"
                         width="25px"
                     />
-                    <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
+                    <Box boxId={constants.YEL_INLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_INLANE_BOX_ID,
                             yelInlaneBoxBackgroundColor,
@@ -1764,7 +1778,7 @@ export default function Game(props) {
                     />
                 </Fragment>
                 <Fragment key="redflipperboxes">
-                    <DashedBox boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
+                    <Box boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_FLIPPER_BOX_3_BOX_ID,
                             redFlipperBox3BoxBackgroundColor,
@@ -1785,7 +1799,7 @@ export default function Game(props) {
                         height="35px"
                         width="40px"
                     />
-                    <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
+                    <Box boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_FLIPPER_BOX_45_BOX_ID,
                             redFlipperBox45BoxBackgroundColor,
@@ -1806,7 +1820,7 @@ export default function Game(props) {
                         height="45px"
                         width="45px"
                     />
-                    <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
+                    <Box boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_FLIPPER_BOX_6_BOX_ID,
                             redFlipperBox6BoxBackgroundColor,
@@ -1829,7 +1843,7 @@ export default function Game(props) {
                     />
                 </Fragment>
                 <Fragment key="yelflipperboxes">
-                    <DashedBox boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
+                    <Box boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_FLIPPER_BOX_1_BOX_ID,
                             yelFlipperBox1BoxBackgroundColor,
@@ -1850,7 +1864,7 @@ export default function Game(props) {
                         height="40px"
                         width="40px"
                     />
-                    <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
+                    <Box boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_FLIPPER_BOX_23_BOX_ID,
                             yelFlipperBox23BoxBackgroundColor,
@@ -1871,7 +1885,7 @@ export default function Game(props) {
                         height="45px"
                         width="45px"
                     />
-                    <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
+                    <Box boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_FLIPPER_BOX_4_BOX_ID,
                             yelFlipperBox4BoxBackgroundColor,
@@ -1922,65 +1936,13 @@ export default function Game(props) {
                 </Fragment>
                 <Ball ballId={constants.BALL1_ID}
                     handleClick={() => handleBallClick(constants.BALL1_ID)}
-                    round={round}
                     ballFeatureId={ball1FeatureId}
-                    die1={die1}
-                    die2={die2}
-                    rollDice={rollDice}
-                    addPoints={addPoints}
-                    selectedDieId={selectedDieId}
-                    setSelectedDieId={setSelectedDieId}
-                    wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                    wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                    setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                    setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                    ball1FeatureId={ball1FeatureId}
-                    ball2FeatureId={ball2FeatureId}
-                    die1AmountNudgedBy={die1AmountNudgedBy}
-                    die2AmountNudgedBy={die2AmountNudgedBy}
-                    incNudgesUsed={incNudgesUsed}
                     borderColor={ballBorderColor(constants.BALL1_ID)}
-                    getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                    endRound={endRound}
-                    deselectMovedBall={deselectMovedBall}
-                    possiblyAutoSelectBall={possiblyAutoSelectBall}
-                    gameOverAlert={gameOverAlert}
-                    selectedBallId={selectedBallId}
-                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                    alertParagraphText={alertParagraphText}
-                    setAlertParagraphText={setAlertParagraphText}
                 />
                 <Ball ballId={constants.BALL2_ID}
                     handleClick={() => handleBallClick(constants.BALL2_ID)}
-                    round={round}
                     ballFeatureId={ball2FeatureId}
-                    die1={die1}
-                    die2={die2}
-                    rollDice={rollDice}
-                    addPoints={addPoints}
-                    selectedDieId={selectedDieId}
-                    setSelectedDieId={setSelectedDieId}
-                    wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                    wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                    setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                    setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                    ball1FeatureId={ball1FeatureId}
-                    ball2FeatureId={ball2FeatureId}
-                    die1AmountNudgedBy={die1AmountNudgedBy}
-                    die2AmountNudgedBy={die2AmountNudgedBy}
-                    incNudgesUsed={incNudgesUsed}
                     borderColor={ballBorderColor(constants.BALL2_ID)}
-                    getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                    endRound={endRound}
-                    deselectMovedBall={deselectMovedBall}
-                    possiblyAutoSelectBall={possiblyAutoSelectBall}
-                    gameOverAlert={gameOverAlert}
-                    selectedBallId={selectedBallId}
-                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                    alertParagraphText={alertParagraphText}
-                    setAlertParagraphText={setAlertParagraphText}
                 />
                 <Fragment key="roundindicators">
                     <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID}
@@ -2009,14 +1971,12 @@ export default function Game(props) {
                 handleDie1Click={() => handleDieClick(constants.DIE1_ID)}
                 handleDie2Click={() => handleDieClick(constants.DIE2_ID)}
                 selectedDieId={selectedDieId}
-                setSelectedDieId={setSelectedDieId}
                 wasDie1UsedThisTurn={wasDie1UsedThisTurn}
                 wasDie2UsedThisTurn={wasDie2UsedThisTurn}
                 die1AmountNudgedBy={die1AmountNudgedBy}
                 die2AmountNudgedBy={die2AmountNudgedBy}
                 nudgesUsed={nudgesUsed}
                 handleNudge={handleNudge}
-                rollDice={rollDice}
             />
             <ScoreIndicator scoreIndicatorId={constants.SCORE_INDICATOR_ID}
                 scorePId={constants.SCORE_PARAGRAPH_ID}
@@ -2028,9 +1988,6 @@ export default function Game(props) {
             />
             <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
-                selectedBallId={selectedBallId}
-                wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                wasBall2MovedThisTurn={wasBall2MovedThisTurn}
                 alertParagraphText={alertParagraphText}
             />
         </div>

@@ -6,7 +6,16 @@ import * as constants from "./constants";
 import * as utilities from "./utilities";
 
 export default function Box(props) {
+    //#region state
+    // none
+    //#endregion
+    
     //#region functions
+    // none
+    //#endregion
+
+    //#region useEffect
+    // none
     //#endregion
 
     return (

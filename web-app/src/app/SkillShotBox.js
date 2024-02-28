@@ -4,6 +4,18 @@ import React, { useState } from "react";
 import styles from "./skillshotbox.module.css";
 
 export default function SkillShotBox(props) {
+    //#region state
+    // none
+    //#endregion
+
+    //#region functions
+    // none
+    //#endregion
+
+    //#region useEffect
+    // none
+    //#endregion
+
     return (
         <div id={props.skillShotBoxId} title={props.skillShotBoxId}
             className={styles.SkillShotBox}

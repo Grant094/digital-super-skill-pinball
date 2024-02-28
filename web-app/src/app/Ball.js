@@ -5,10 +5,11 @@ import * as constants from "./constants";
 import * as utilities from "./utilities";
 
 export default function Ball(props) {
+    //#region state
     let ballTop, ballLeft;
 
     //#region calc ballTop and ballLeft
-    // since the first render is before the document becomes available, the balls' initial values need to be set this way
+    // since the first render is before the document becomes available, the balls' initial values need to be initialized another way
     if (typeof window === "undefined") {
         if (props.ballId === constants.BALL1_ID) {
             ballTop = constants.START_FEATURE_TOP;
@@ -22,10 +23,17 @@ export default function Ball(props) {
         ballLeft = document.getElementById(props.ballFeatureId).style.left;
     }
     //#endregion
+    //#endregion
 
+    //#region functions
     function isBallInDrain() {
         return (props.ballFeatureId === constants.DRAIN_FEATURE_ID);
     }
+    //#endregion
+
+    //#region useEffect
+    // not applicable
+    //#endregion
 
     return (
         <img id={props.ballId}
