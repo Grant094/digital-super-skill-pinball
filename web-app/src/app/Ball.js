@@ -1,8 +1,7 @@
 "use client"
 
-import React, { useState } from "react";
+import React from "react";
 import * as constants from "./constants";
-import * as utilities from "./utilities";
 
 export default function Ball(props) {
     //#region state
