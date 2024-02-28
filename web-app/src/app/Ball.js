@@ -15,8 +15,8 @@ export default function Ball(props) {
             ballTop = constants.START_BOX_TOP;
             ballLeft = constants.START_BOX_LEFT;
         } else if (props.ballId === constants.BALL2_ID) {
-            ballTop = constants.DRAIN_BOX_LEFT;
-            ballLeft = constants.DRAIN_BOX_TOP;
+            ballTop = constants.DRAIN_BOX_TOP;
+            ballLeft = constants.DRAIN_BOX_LEFT;
         }
     } else if (document.getElementById(props.ballBoxId)) {
         ballTop = document.getElementById(props.ballBoxId).style.top;
