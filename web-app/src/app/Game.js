@@ -9,8 +9,6 @@ import RestartTray from "./RestartTray";
 import AlertTray from "./AlertTray";
 import Box from "./Box";
 import Feature from "./Feature";
-import DashedBox from "./DashedBox";
-import Outlane from "./Outlane";
 import Ball from "./Ball";
 import RoundIndicator from "./RoundIndicator";
 import SkillShotBox from "./SkillShotBox";
@@ -1682,7 +1680,7 @@ export default function Game(props) {
                     </Fragment>
                 </Fragment>
                 <Fragment key="outlanes">
-                    <Outlane boxId={constants.RED_OUTLANE_BOX_ID}
+                    <Box boxId={constants.RED_OUTLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_OUTLANE_BOX_ID,
                             redOutlaneBoxBackgroundColor,
@@ -1700,8 +1698,10 @@ export default function Game(props) {
                         isThisBoxFilled={isBoxFilled(redOutlaneBoxBackgroundColor)}
                         left="18px"
                         top="815px"
+                        height="130px"
+                        width="62px"
                     />
-                    <Outlane boxId={constants.YEL_OUTLANE_BOX_ID}
+                    <Box boxId={constants.YEL_OUTLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_OUTLANE_BOX_ID,
                             yelOutlaneBoxBackgroundColor,
@@ -1719,10 +1719,12 @@ export default function Game(props) {
                         isThisBoxFilled={isBoxFilled(yelOutlaneBoxBackgroundColor)}
                         left="458px"
                         top="815px"
+                        height="130px"
+                        width="62px"
                     />
                 </Fragment>
                 <Fragment key="inlanes">
-                    <DashedBox boxId={constants.RED_INLANE_BOX_ID}
+                    <Box boxId={constants.RED_INLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_INLANE_BOX_ID,
                             redInlaneBoxBackgroundColor,
@@ -1743,7 +1745,7 @@ export default function Game(props) {
                         height="25px"
                         width="25px"
                     />
-                    <DashedBox boxId={constants.YEL_INLANE_BOX_ID}
+                    <Box boxId={constants.YEL_INLANE_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_INLANE_BOX_ID,
                             yelInlaneBoxBackgroundColor,
@@ -1776,7 +1778,7 @@ export default function Game(props) {
                     />
                 </Fragment>
                 <Fragment key="redflipperboxes">
-                    <DashedBox boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
+                    <Box boxId={constants.RED_FLIPPER_BOX_3_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_FLIPPER_BOX_3_BOX_ID,
                             redFlipperBox3BoxBackgroundColor,
@@ -1797,7 +1799,7 @@ export default function Game(props) {
                         height="35px"
                         width="40px"
                     />
-                    <DashedBox boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
+                    <Box boxId={constants.RED_FLIPPER_BOX_45_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_FLIPPER_BOX_45_BOX_ID,
                             redFlipperBox45BoxBackgroundColor,
@@ -1818,7 +1820,7 @@ export default function Game(props) {
                         height="45px"
                         width="45px"
                     />
-                    <DashedBox boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
+                    <Box boxId={constants.RED_FLIPPER_BOX_6_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.RED_FLIPPER_BOX_6_BOX_ID,
                             redFlipperBox6BoxBackgroundColor,
@@ -1841,7 +1843,7 @@ export default function Game(props) {
                     />
                 </Fragment>
                 <Fragment key="yelflipperboxes">
-                    <DashedBox boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
+                    <Box boxId={constants.YEL_FLIPPER_BOX_1_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_FLIPPER_BOX_1_BOX_ID,
                             yelFlipperBox1BoxBackgroundColor,
@@ -1862,7 +1864,7 @@ export default function Game(props) {
                         height="40px"
                         width="40px"
                     />
-                    <DashedBox boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
+                    <Box boxId={constants.YEL_FLIPPER_BOX_23_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_FLIPPER_BOX_23_BOX_ID,
                             yelFlipperBox23BoxBackgroundColor,
@@ -1883,7 +1885,7 @@ export default function Game(props) {
                         height="45px"
                         width="45px"
                     />
-                    <DashedBox boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
+                    <Box boxId={constants.YEL_FLIPPER_BOX_4_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
                             constants.YEL_FLIPPER_BOX_4_BOX_ID,
                             yelFlipperBox4BoxBackgroundColor,
