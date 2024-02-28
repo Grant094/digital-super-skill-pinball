@@ -1934,65 +1934,13 @@ export default function Game(props) {
                 </Fragment>
                 <Ball ballId={constants.BALL1_ID}
                     handleClick={() => handleBallClick(constants.BALL1_ID)}
-                    round={round}
                     ballFeatureId={ball1FeatureId}
-                    die1={die1}
-                    die2={die2}
-                    rollDice={rollDice}
-                    addPoints={addPoints}
-                    selectedDieId={selectedDieId}
-                    setSelectedDieId={setSelectedDieId}
-                    wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                    wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                    setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                    setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                    ball1FeatureId={ball1FeatureId}
-                    ball2FeatureId={ball2FeatureId}
-                    die1AmountNudgedBy={die1AmountNudgedBy}
-                    die2AmountNudgedBy={die2AmountNudgedBy}
-                    incNudgesUsed={incNudgesUsed}
                     borderColor={ballBorderColor(constants.BALL1_ID)}
-                    getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                    endRound={endRound}
-                    deselectMovedBall={deselectMovedBall}
-                    possiblyAutoSelectBall={possiblyAutoSelectBall}
-                    gameOverAlert={gameOverAlert}
-                    selectedBallId={selectedBallId}
-                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                    alertParagraphText={alertParagraphText}
-                    setAlertParagraphText={setAlertParagraphText}
                 />
                 <Ball ballId={constants.BALL2_ID}
                     handleClick={() => handleBallClick(constants.BALL2_ID)}
-                    round={round}
                     ballFeatureId={ball2FeatureId}
-                    die1={die1}
-                    die2={die2}
-                    rollDice={rollDice}
-                    addPoints={addPoints}
-                    selectedDieId={selectedDieId}
-                    setSelectedDieId={setSelectedDieId}
-                    wasDie1UsedThisTurn={wasDie1UsedThisTurn}
-                    wasDie2UsedThisTurn={wasDie2UsedThisTurn}
-                    setWasDie1UsedThisTurn={setWasDie1UsedThisTurn}
-                    setWasDie2UsedThisTurn={setWasDie2UsedThisTurn}
-                    ball1FeatureId={ball1FeatureId}
-                    ball2FeatureId={ball2FeatureId}
-                    die1AmountNudgedBy={die1AmountNudgedBy}
-                    die2AmountNudgedBy={die2AmountNudgedBy}
-                    incNudgesUsed={incNudgesUsed}
                     borderColor={ballBorderColor(constants.BALL2_ID)}
-                    getSelectedBallFeatureId={() => getSelectedBallFeatureId(selectedBallId)}
-                    endRound={endRound}
-                    deselectMovedBall={deselectMovedBall}
-                    possiblyAutoSelectBall={possiblyAutoSelectBall}
-                    gameOverAlert={gameOverAlert}
-                    selectedBallId={selectedBallId}
-                    wasBall1MovedThisTurn={wasBall1MovedThisTurn}
-                    wasBall2MovedThisTurn={wasBall2MovedThisTurn}
-                    alertParagraphText={alertParagraphText}
-                    setAlertParagraphText={setAlertParagraphText}
                 />
                 <Fragment key="roundindicators">
                     <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID}
