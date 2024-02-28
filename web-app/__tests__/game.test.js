@@ -7,21 +7,6 @@ import * as utilities from "../src/app/utilities";
 
 describe("Game", () => {
     describe('when the game loads', () => {
-        it('should render all features as visible', () => {
-            //#region arrange
-            render(<Game />);
-            //#endregion
-            //#region act
-            // not applicable
-            //#endregion
-            //#region assert
-            for (const featureId of constants.ALL_FEATURE_IDS) {
-                expect(screen.getByTitle(featureId)).toBeInTheDocument();
-                expect(screen.getByTitle(featureId)).toBeVisible();
-
-            }
-            //#endregion
-        });
         it('should render all boxes as visible and unfilled', () => {
             //#region arrange
             render(<Game />);
@@ -38,7 +23,7 @@ describe("Game", () => {
             }
             //#endregion
         });
-        it('should render ball 1 as visible at the Start feature', () => {
+        it('should render ball 1 as visible at START_BOX_ID', () => {
             //#region arrange
             render(<Game />);
             //#endregion
@@ -52,7 +37,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID)).toBeVisible();
             //#endregion
         });
-        it('should render ball 2 as hidden at the Drain feature', () => {
+        it('should render ball 2 as hidden at DRAIN_BOX_ID', () => {
             //#region arrange
             render(<Game />);
             //#endregion
@@ -61,8 +46,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL2_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
             //#endregion
         });
