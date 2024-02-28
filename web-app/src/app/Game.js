@@ -867,7 +867,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.FERRISWHEEL_CAR_12_BOX_ID, // boxId
                                 ferriswheelcar12BoxBackgroundColor, // boxBackgroundColor
-                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS), // canReceiveFrom
+                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM), // canReceiveFrom
                                 [1, 2], // canReceiveOn
                                 (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
                                 constants.FERRISWHEEL_CAR_12_FEATURE_ID, // correspondingFeatureId
@@ -894,7 +894,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.FERRISWHEEL_CAR_34_BOX_ID,
                                 ferriswheelcar34BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
                                 [3, 4],
                                 () => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.FERRISWHEEL_CAR_34_FEATURE_ID,
@@ -921,7 +921,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.FERRISWHEEL_CAR_56_BOX_ID,
                                 ferriswheelcar56BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
                                 [5, 6],
                                 () => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.FERRISWHEEL_CAR_56_FEATURE_ID,
@@ -951,7 +951,7 @@ export default function Game(props) {
                                 constants.BUMPER_12_1ST_1_BOX_ID,
                                 bumper121st1BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_34_FEATURE_ID
                                 ),
                                 [1],
@@ -975,7 +975,7 @@ export default function Game(props) {
                                 constants.BUMPER_12_2ND_1_BOX_ID,
                                 bumper122nd1BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_34_FEATURE_ID
                                 ),
                                 [1],
@@ -999,7 +999,7 @@ export default function Game(props) {
                                 constants.BUMPER_12_1ST_2_BOX_ID,
                                 bumper121st2BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_34_FEATURE_ID
                                 ),
                                 [2],
@@ -1023,7 +1023,7 @@ export default function Game(props) {
                                 constants.BUMPER_12_2ND_2_BOX_ID,
                                 bumper122nd2BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_34_FEATURE_ID
                                 ),
                                 [2],
@@ -1053,7 +1053,7 @@ export default function Game(props) {
                                 constants.BUMPER_34_1ST_3_BOX_ID,
                                 bumper341st3BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_56_FEATURE_ID
                                 ),
                                 [3],
@@ -1077,7 +1077,7 @@ export default function Game(props) {
                                 constants.BUMPER_34_2ND_3_BOX_ID,
                                 bumper342nd3BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_56_FEATURE_ID
                                 ),
                                 [3],
@@ -1101,7 +1101,7 @@ export default function Game(props) {
                                 constants.BUMPER_34_1ST_4_BOX_ID,
                                 bumper341st4BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_56_FEATURE_ID
                                 ),
                                 [4],
@@ -1125,7 +1125,7 @@ export default function Game(props) {
                                 constants.BUMPER_34_2ND_4_BOX_ID,
                                 bumper342nd4BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_34_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_56_FEATURE_ID
                                 ),
                                 [4],
@@ -1155,7 +1155,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_1ST_5_BOX_ID,
                                 bumper561st5BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [5],
@@ -1179,7 +1179,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_2ND_5_BOX_ID,
                                 bumper562nd5BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [5],
@@ -1203,7 +1203,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_1ST_6_BOX_ID,
                                 bumper561st6BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [6],
@@ -1227,7 +1227,7 @@ export default function Game(props) {
                                 constants.BUMPER_56_2ND_6_BOX_ID,
                                 bumper562nd6BoxBackgroundColor,
                                 possiblyReceiveFromEitherOtherBumper(
-                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.BUMPER_56_DEFAULT_CAN_RECEIVE_FROM),
                                     constants.BUMPER_12_FEATURE_ID
                                 ),
                                 [6],
@@ -1258,7 +1258,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_1_BOX_ID,
                                 hammerspace1BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
                                 [1],
                                 () => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_1_FEATURE_ID,
@@ -1285,7 +1285,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_2_BOX_ID,
                                 hammerspace2BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
                                 [2],
                                 () => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_2_FEATURE_ID,
@@ -1313,7 +1313,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_3_BOX_ID,
                                 hammerspace3BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
                                 [3],
                                 () => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_3_FEATURE_ID,
@@ -1340,7 +1340,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_4_BOX_ID,
                                 hammerspace4BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
                                 [4],
                                 () => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_4_FEATURE_ID,
@@ -1367,7 +1367,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_5_BOX_ID,
                                 hammerspace5BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
                                 [5],
                                 () => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_5_FEATURE_ID,
@@ -1394,7 +1394,7 @@ export default function Game(props) {
                             handleClick={() => handleDiceBoxClick(
                                 constants.HAMMER_SPACE_6_BOX_ID,
                                 hammerspace6BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
                                 [6],
                                 () => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                 constants.HAMMER_SPACE_6_FEATURE_ID,
@@ -1441,7 +1441,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.YEL_DROPTARGET_12_BOX_ID,
                                     yelDroptarget12BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [1, 2],
                                     () => setYelDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.YEL_DROPTARGET_12_FEATURE_ID,
@@ -1468,7 +1468,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.YEL_DROPTARGET_34_BOX_ID,
                                     yelDroptarget34BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [3, 4],
                                     () => setYelDroptarget34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.YEL_DROPTARGET_34_FEATURE_ID,
@@ -1495,7 +1495,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.YEL_DROPTARGET_56_BOX_ID,
                                     yelDroptarget56BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.YEL_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [5, 6],
                                     () => setYelDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.YEL_DROPTARGET_56_FEATURE_ID,
@@ -1524,7 +1524,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.RED_DROPTARGET_12_BOX_ID,
                                     redDroptarget12BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [1, 2],
                                     () => setRedDroptarget12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.RED_DROPTARGET_12_FEATURE_ID,
@@ -1551,7 +1551,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.RED_DROPTARGET_3_BOX_ID,
                                     redDroptarget3BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [3],
                                     () => setRedDroptarget3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.RED_DROPTARGET_3_FEATURE_ID,
@@ -1578,7 +1578,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.RED_DROPTARGET_4_BOX_ID,
                                     redDroptarget4BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [4],
                                     () => setRedDroptarget4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.RED_DROPTARGET_4_FEATURE_ID,
@@ -1605,7 +1605,7 @@ export default function Game(props) {
                                 handleClick={() => handleDiceBoxClick(
                                     constants.RED_DROPTARGET_56_BOX_ID,
                                     redDroptarget56BoxBackgroundColor,
-                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS),
+                                    possiblyReceiveFromEitherFlipper(constants.RED_DROPTARGETS_CAN_RECEIVE_FROM),
                                     [5, 6],
                                     () => setRedDroptarget56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                                     constants.RED_DROPTARGET_56_FEATURE_ID,

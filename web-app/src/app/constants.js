@@ -79,9 +79,15 @@ export const FERRISWHEEL_GROUP_BOX_IDS = [
     FERRISWHEEL_CAR_56_BOX_ID,
 ];
 //#endregion
-export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region features
     START_FEATURE_ID,
     YEL_FLIPPER_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...YEL_FLIPPER_GROUP_BOX_IDS,
+    YEL_INLANE_BOX_ID,
+    //#endregion
 ];
 //#endregion
 //#region bumpers
@@ -169,23 +175,53 @@ export const BUMPER_GROUP_BOX_IDS = [
 ];
 //#endregion
 //#region bumpersCanReceiveFrom
-export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region features
     START_FEATURE_ID,
     ...FERRISWHEEL_FEATURE_IDS,
     RED_FLIPPER_FEATURE_ID,
     YEL_FLIPPER_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...FERRISWHEEL_GROUP_BOX_IDS,
+    ...RED_FLIPPER_GROUP_BOX_IDS,
+    RED_INLANE_BOX_ID,
+    ...YEL_FLIPPER_GROUP_BOX_IDS,
+    YEL_INLANE_BOX_ID,
+    //#endregion
 ];
-export const BUMPER_12_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_12_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region inheriting from array
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM,
+    //#endregion
+    //#region features
     BUMPER_56_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...BUMPER_56_BOX_IDS,
+    //#endregion
 ];
-export const BUMPER_34_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_34_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region inheriting from array
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM,
+    //#endregion
+    //#region features
     BUMPER_12_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...BUMPER_12_BOX_IDS,
+    //#endregion
 ];
-export const BUMPER_56_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const BUMPER_56_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region inheriting from array
+    ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM,
+    //#endregion
+    //#region features
     BUMPER_34_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...BUMPER_34_BOX_IDS,
+    //#endregion
 ]
 //#endregion
 //#endregion
@@ -222,7 +258,15 @@ export const HAMMER_SPACE_GROUP_BOX_IDS = [
     HAMMER_SPACE_6_BOX_ID,
 ];
 //#endregion
-export const HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [RED_FLIPPER_FEATURE_ID];
+export const HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region features
+    RED_FLIPPER_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...RED_FLIPPER_GROUP_BOX_IDS,
+    RED_INLANE_BOX_ID,
+    //#endregion
+];
 //#endregion
 //#region droptargets
 //#region yelDropTargets
@@ -277,19 +321,42 @@ export const DROPTARGET_FEATURE_IDS = [
     ...RED_DROPTARGET_FEATURE_IDS,
     ...YEL_DROPTARGET_FEATURE_IDS,
 ];
-export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS = [
+export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM = [
+    //#region features
     START_FEATURE_ID,
     ...FERRISWHEEL_FEATURE_IDS,
     ...BUMPER_FEATURE_IDS,
     ...HAMMER_SPACE_FEATURE_IDS,
+    //#endregion
+    //#region boxes
+    ...FERRISWHEEL_GROUP_BOX_IDS,
+    ...BUMPER_GROUP_BOX_IDS,
+    ...HAMMER_SPACE_GROUP_BOX_IDS,
+    //#endregion
 ];
-export const YEL_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const YEL_DROPTARGETS_CAN_RECEIVE_FROM = [
+    //#region inheriting from array
+    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM,
+    //#endregion
+    //#region features
     YEL_FLIPPER_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...YEL_FLIPPER_GROUP_BOX_IDS,
+    YEL_INLANE_BOX_ID,
+    //#endregion
 ];
-export const RED_DROPTARGETS_CAN_RECEIVE_FROM_FEATURE_IDS = [
-    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM_FEATURE_IDS,
+export const RED_DROPTARGETS_CAN_RECEIVE_FROM = [
+    //#region inheriting from array
+    ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM,
+    //#endregion
+    //#region features
     RED_FLIPPER_FEATURE_ID,
+    //#endregion
+    //#region boxes
+    ...RED_FLIPPER_GROUP_BOX_IDS,
+    RED_INLANE_BOX_ID,
+    //#endregion
 ]
 //#endregion
 //#region drain
