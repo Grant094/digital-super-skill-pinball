@@ -479,11 +479,6 @@ export default function Game(props) {
         groupAction = (() => { }),
         isPrecedingHammerspaceBoxFilled = null,
     ) {
-        console.log(`
-            boxId: ${boxId}
-            unselectedBallBoxId: ${unselectedBallBoxId}
-            boxId === unselectedBallBoxId: ${boxId === unselectedBallBoxId}
-        `)
         if (
             (alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
             (alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
@@ -492,10 +487,11 @@ export default function Game(props) {
             (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) ||
             (alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
             (alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
-            (isBoxFilled(boxBackgroundColor)) ||
-            (boxId === unselectedBallBoxId)
+            (isBoxFilled(boxBackgroundColor))
         ) {
             // do nothing
+        } else if (boxId === unselectedBallBoxId) {
+            setAlertParagraphText(constants.ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT);
         } else if (
             (
                 boxId === constants.RED_OUTLANE_BOX_ID ||

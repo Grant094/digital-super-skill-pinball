@@ -4777,7 +4777,7 @@ describe("Game", () => {
             });
         });
         describe('when moving a ball to a box, besides the middle drain box, which contains the other ball', () => {
-            it('should not move the ball', async () => {
+            it('should not move the ball and should display the alert for this specific situation', async () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
@@ -4837,6 +4837,8 @@ describe("Game", () => {
                 //#region assert
                 expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.top);
                 expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+                expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT);
                 //#endregion
             });
         });
