@@ -295,16 +295,6 @@ export default function Game(props) {
         return (boxBackgroundColor === constants.FILLED_BACKGROUND_COLOR);
     }
 
-    function getSelectedballBoxId(ballId) {
-        if (ballId === constants.BALL1_ID) {
-            return ball1BoxId;
-        } else if (ballId === constants.BALL2_ID) {
-            return ball2BoxId;
-        } else {
-            return null;
-        }
-    }
-
     function canReceiveFromSelectedDie(canReceiveOn) {
         if (selectedDieId === constants.DIE1_ID) {
             return (canReceiveOn.includes(die1));
