@@ -16,7 +16,6 @@ import BonusIndicator from "./BonusIndicator";
 import BonusBox from "./BonusBox";
 
 export default function Game(props) {
-    let didInit = false;
     //#region state
     //#region misc game state
     const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : null);
@@ -44,6 +43,7 @@ export default function Game(props) {
         selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
             selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
     );
+    let didInit = false;
     //#endregion
     //#region dice box background colors
     //#region dashed box background colors
