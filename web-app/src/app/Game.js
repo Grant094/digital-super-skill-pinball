@@ -111,7 +111,6 @@ export default function Game(props) {
     const [outlaneBonusIndicatorBorderColor, setOutlaneBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     const [bumperBonusIndicatorBorderColor, setBumperBonusIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
     //#endregion
-    //#endregion
     //#region bonus box background colors
     const [flipperPassBonusBoxBackgroundColor, setFlipperPassBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [fillTwoHammerSpacesBonusBoxBackgroundColor, setFillTwoHammerSpacesBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
@@ -120,7 +119,6 @@ export default function Game(props) {
     const [outlaneBonusBoxBackgroundColor, setOutlaneBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     const [redMultiballBonusBoxBackgroundColor, setRedMultiballBonusBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
-
     //#region box background arrays
     //#region dashed boxes background color arrays
     const dashedBoxesBackgroundColorSetters = [
@@ -251,13 +249,13 @@ export default function Game(props) {
         setSkillShotBox6BorderColor,
     ];
     //#endregion
+    //#endregion
 
     //#region functions
     //#region incrementing functions
     const incNudgesUsed = (() => setNudgesUsed(nudgesUsed + 1));
     const incRound = (() => setRound(round + 1));
     //#endregion
-
     //#region balls
     function handleBallClick(ballId) {
         if (ballId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
@@ -284,7 +282,6 @@ export default function Game(props) {
         }
     }
     //#endregion
-
     //#region handle dice box click
     function isMultiballActive() {
         return (
@@ -590,7 +587,6 @@ export default function Game(props) {
         }
     }
     //#endregion
-
     //#region actions
     function outlaneAction(relevantFlipperBoxesBackgroundColors) {
         const relevantFlipperBoxesFilled = relevantFlipperBoxesBackgroundColors.filter((color) => color === constants.FILLED_BACKGROUND_COLOR);
@@ -664,7 +660,6 @@ export default function Game(props) {
         setSelectedBallId(null);
     }
     //#endregion
-
     //#region handle die click
     function isAnySkillShotBoxSelected() {
         return (skillShotBoxBorderColors.filter((color) => color === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR).length);
@@ -700,7 +695,6 @@ export default function Game(props) {
         }
     }
     //#endregion
-
     //#region tilting
     function hasTilted(nextValueOfDie1, nextValueOfDie2) {
         return utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy) > Math.abs(nextValueOfDie1 - nextValueOfDie2);
