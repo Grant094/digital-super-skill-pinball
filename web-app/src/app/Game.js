@@ -443,12 +443,12 @@ export default function Game(props) {
         )
     }
 
-    function moveSelectedBall(correspondingFeatureId) {
+    function moveSelectedBall(locationToMoveTo) {
         if (selectedBallId === constants.BALL1_ID) {
-            setBall1FeatureId(correspondingFeatureId);
+            setBall1FeatureId(locationToMoveTo);
             setWasBall1MovedThisTurn(true);
         } else if (selectedBallId === constants.BALL2_ID) {
-            setBall2FeatureId(correspondingFeatureId);
+            setBall2FeatureId(locationToMoveTo);
             setWasBall2MovedThisTurn(true);
         }
     }
@@ -469,7 +469,7 @@ export default function Game(props) {
         canReceiveFrom,
         canReceiveOn,
         fillBox = (() => { }),
-        correspondingFeatureId,
+        locationToMoveTo,
         points = 0,
         boxAction = (() => { }),
         boxGroupBoxBackgroundColors,
@@ -513,7 +513,7 @@ export default function Game(props) {
 
                 fillBox();
 
-                moveSelectedBall(correspondingFeatureId);
+                moveSelectedBall(locationToMoveTo);
 
                 addPoints(points);
 
@@ -870,7 +870,7 @@ export default function Game(props) {
                                 possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM), // canReceiveFrom
                                 [1, 2], // canReceiveOn
                                 (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
-                                constants.FERRISWHEEL_CAR_12_FEATURE_ID, // correspondingFeatureId
+                                constants.FERRISWHEEL_CAR_12_FEATURE_ID, // locationToMoveTo
                                 0, // points
                                 () => { }, // boxAction
                                 ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
