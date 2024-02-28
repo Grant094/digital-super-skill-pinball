@@ -8,8 +8,18 @@ import NudgeUpButton from "./NudgeUpButton";
 import NudgeDnButton from "./NudgeDnButton";
 
 export default function DiceTray(props) {
+    //#region state
     let netNudgeAmount = utilities.calcNetNudgeAmount(props.die1AmountNudgedBy, props.die2AmountNudgedBy);
+    //#endregion
 
+    //#region functions
+    // none
+    //#endregion
+
+    //#region useEffect
+    // none
+    //#endregion
+    
     return (
         <div id={props.dicetrayId} className={styles.DiceTray}>
             <Fragment key="dice">

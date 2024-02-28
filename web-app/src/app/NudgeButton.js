@@ -4,6 +4,18 @@ import React from "react";
 import styles from "./nudgebutton.module.css";
 
 export default function NudgeButton(props) {
+    //#region state
+    // none
+    //#endregion
+
+    //#region functions
+    // none
+    //#endregion
+
+    //#region useEffect
+    // none
+    //#endregion
+    
     return (
         <button id={props.buttonId}
             title={props.buttonId}
