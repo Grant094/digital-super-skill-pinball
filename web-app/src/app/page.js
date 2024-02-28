@@ -11,9 +11,16 @@ export default function Home(props) {
 
     //#region vars
     const MANUAL_DIE_VALUES = [
-        [1, 1], // move from start to drain to end round 1/3
-        [1, 1], // move from start to drain to end round 2/3
-        [3, 3], // move from start to drain to end round 3/3
+        [1, 2], // move from start to red drop target 12 (+1)
+        [3, 3], // move to red flipper via red flipper box 3
+        [3, 3], // move to red drop target 3 (+1)
+        [4, 5], // move to red flipper via red flipper box 45
+        [4, 4], // move to red drop target 4 (+1)
+        [6, 6], // move to red flipper via red flipper box 6
+        [5, 6], // move to red drop target 56 (+1)
+        [2, 3], // move to drain via drain box after choosing the bumper bonus
+        [1, 1], // move to bumper 12 via 1st 1 box (+1)
+        [5, 5], // attempt to move to bumper 56 via 1st 5 box
         [1, 1], // final roll which should not be reached
     ];
     //#endregion

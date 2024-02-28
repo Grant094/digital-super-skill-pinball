@@ -388,6 +388,12 @@ export const ALL_BOX_IDS = [
     ...DRAIN_GROUP_BOX_ID,
 ];
 //#endregion
+//#region all features and boxes
+export const ALL_FEATURE_AND_BOX_IDS = [
+    ...ALL_FEATURE_IDS,
+    ...ALL_BOX_IDS,
+];
+//#endregion
 //#region balls
 export const BALL1_ID = "ball1"
 export const BALL2_ID = "ball2"
