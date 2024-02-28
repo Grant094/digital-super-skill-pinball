@@ -38,10 +38,14 @@ export default function Game(props) {
         selectedBallId === constants.BALL1_ID ? ball1BoxId :
             selectedBallId === constants.BALL2_ID ? ball2BoxId : null
     );
-    const unselectedBall = (
+    const unselectedBallId = (
         selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
             selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
     );
+    const unselectedBallBoxId = (
+        unselectedBallId === constants.BALL1_ID ? ball1BoxId :
+            unselectedBallId === constants.BALL2_ID ? ball2BoxId : null
+    )
     let didInit = false;
     //#endregion
     //#region dice box background colors
@@ -398,9 +402,9 @@ export default function Game(props) {
             setSelectedBallId(constants.BALL2_ID);
         } else if (ball2BoxId === constants.DRAIN_BOX_ID && ball1BoxId !== constants.DRAIN_BOX_ID) {
             setSelectedBallId(constants.BALL1_ID);
-        } else if (unselectedBall === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+        } else if (unselectedBallId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
             setSelectedBallId(constants.BALL2_ID);
-        } else if (unselectedBall === constants.BALL1_ID && !wasBall1MovedThisTurn) {
+        } else if (unselectedBallId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
             setSelectedBallId(constants.BALL1_ID);
         }
     }
@@ -475,6 +479,11 @@ export default function Game(props) {
         groupAction = (() => { }),
         isPrecedingHammerspaceBoxFilled = null,
     ) {
+        console.log(`
+            boxId: ${boxId}
+            unselectedBallBoxId: ${unselectedBallBoxId}
+            boxId === unselectedBallBoxId: ${boxId === unselectedBallBoxId}
+        `)
         if (
             (alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
             (alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
@@ -483,7 +492,8 @@ export default function Game(props) {
             (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) ||
             (alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
             (alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
-            (isBoxFilled(boxBackgroundColor))
+            (isBoxFilled(boxBackgroundColor)) ||
+            (boxId === unselectedBallBoxId)
         ) {
             // do nothing
         } else if (
