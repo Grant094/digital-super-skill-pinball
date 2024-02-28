@@ -490,7 +490,7 @@ export default function Game(props) {
             (isBoxFilled(boxBackgroundColor))
         ) {
             // do nothing
-        } else if (boxId === unselectedBallBoxId) {
+        } else if ((boxId === unselectedBallBoxId) && (boxId !== constants.DRAIN_BOX_ID)) {
             setAlertParagraphText(constants.ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT);
         } else if (
             (
