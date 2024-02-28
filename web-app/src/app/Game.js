@@ -867,75 +867,69 @@ export default function Game(props) {
                     />
                 </Fragment>
                 <Fragment key="ferriswheel">
-                    <Fragment key="ferriswheelcar12">
-                        <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.FERRISWHEEL_CAR_12_BOX_ID, // boxId
-                                ferriswheelcar12BoxBackgroundColor, // boxBackgroundColor
-                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM), // canReceiveFrom
-                                [1, 2], // canReceiveOn
-                                (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
-                                constants.FERRISWHEEL_CAR_12_BOX_ID, // locationToMoveTo
-                                0, // points
-                                () => { }, // boxAction
-                                ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
-                                ferriswheelBoxBackgroundColorSetters, // boxBackgroundColorSetters
-                                ferriswheelcarClearGroupAction, // groupAction
-                                null // isPrecedingHammerspaceBoxFilled
-                            )}
-                            isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
-                            left="160px"
-                            top="246px"
-                            height="48px"
-                            width="65px"
-                        />
-                    </Fragment>
-                    <Fragment key="ferriswheelcar34">
-                        <Box boxId={constants.FERRISWHEEL_CAR_34_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.FERRISWHEEL_CAR_34_BOX_ID,
-                                ferriswheelcar34BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
-                                [3, 4],
-                                () => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.FERRISWHEEL_CAR_34_BOX_ID,
-                                0,
-                                () => { }, // boxAction
-                                ferriswheelBoxBackgroundColors,
-                                ferriswheelBoxBackgroundColorSetters,
-                                ferriswheelcarClearGroupAction,
-                                null // isPrecedingHammerspaceBoxFilled
-                            )}
-                            isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
-                            left="255px"
-                            top="230px"
-                            height="40px"
-                            width="62px"
-                        />
-                    </Fragment>
-                    <Fragment key="ferriswheelcar56">
-                        <Box boxId={constants.FERRISWHEEL_CAR_56_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.FERRISWHEEL_CAR_56_BOX_ID,
-                                ferriswheelcar56BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
-                                [5, 6],
-                                () => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.FERRISWHEEL_CAR_56_BOX_ID,
-                                0,
-                                () => { },
-                                ferriswheelBoxBackgroundColors,
-                                ferriswheelBoxBackgroundColorSetters,
-                                ferriswheelcarClearGroupAction,
-                                null
-                            )}
-                            isThisBoxFilled={isBoxFilled(ferriswheelcar56BoxBackgroundColor)}
-                            left="350px"
-                            top="246px"
-                            height="48px"
-                            width="62px"
-                        />
-                    </Fragment>
+                    <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.FERRISWHEEL_CAR_12_BOX_ID, // boxId
+                            ferriswheelcar12BoxBackgroundColor, // boxBackgroundColor
+                            possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM), // canReceiveFrom
+                            [1, 2], // canReceiveOn
+                            (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
+                            constants.FERRISWHEEL_CAR_12_BOX_ID, // locationToMoveTo
+                            0, // points
+                            () => { }, // boxAction
+                            ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
+                            ferriswheelBoxBackgroundColorSetters, // boxBackgroundColorSetters
+                            ferriswheelcarClearGroupAction, // groupAction
+                            null // isPrecedingHammerspaceBoxFilled
+                        )}
+                        isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
+                        left="160px"
+                        top="246px"
+                        height="48px"
+                        width="65px"
+                    />
+                    <Box boxId={constants.FERRISWHEEL_CAR_34_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.FERRISWHEEL_CAR_34_BOX_ID,
+                            ferriswheelcar34BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
+                            [3, 4],
+                            () => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.FERRISWHEEL_CAR_34_BOX_ID,
+                            0,
+                            () => { }, // boxAction
+                            ferriswheelBoxBackgroundColors,
+                            ferriswheelBoxBackgroundColorSetters,
+                            ferriswheelcarClearGroupAction,
+                            null // isPrecedingHammerspaceBoxFilled
+                        )}
+                        isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
+                        left="255px"
+                        top="230px"
+                        height="40px"
+                        width="62px"
+                    />
+                    <Box boxId={constants.FERRISWHEEL_CAR_56_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.FERRISWHEEL_CAR_56_BOX_ID,
+                            ferriswheelcar56BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
+                            [5, 6],
+                            () => setFerriswheelcar56BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.FERRISWHEEL_CAR_56_BOX_ID,
+                            0,
+                            () => { },
+                            ferriswheelBoxBackgroundColors,
+                            ferriswheelBoxBackgroundColorSetters,
+                            ferriswheelcarClearGroupAction,
+                            null
+                        )}
+                        isThisBoxFilled={isBoxFilled(ferriswheelcar56BoxBackgroundColor)}
+                        left="350px"
+                        top="246px"
+                        height="48px"
+                        width="62px"
+                    />
                 </Fragment>
                 <Fragment key="bumpers">
                     <Fragment key="bumper12">
@@ -1258,145 +1252,133 @@ export default function Game(props) {
                     </Fragment>
                 </Fragment>
                 <Fragment key="hammerspaces">
-                    <Fragment key="hammerspace-1">
-                        <Box boxId={constants.HAMMER_SPACE_1_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.HAMMER_SPACE_1_BOX_ID,
-                                hammerspace1BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
-                                [1],
-                                () => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.HAMMER_SPACE_1_BOX_ID,
-                                0,
-                                () => { },
-                                hammerspaceBoxBackgroundColors,
-                                hammerspaceBoxBackgroundColorSetters,
-                                () => { },
-                                null
-                            )}
-                            isThisBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
-                            left="376px"
-                            top="535px"
-                            height="25px"
-                            width="25px"
-                        />
-                    </Fragment>
-                    <Fragment key="hammerspace-2">
-                        <Box boxId={constants.HAMMER_SPACE_2_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.HAMMER_SPACE_2_BOX_ID,
-                                hammerspace2BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
-                                [2],
-                                () => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.HAMMER_SPACE_2_BOX_ID,
-                                1,
-                                () => { },
-                                hammerspaceBoxBackgroundColors,
-                                hammerspaceBoxBackgroundColorSetters,
-                                () => { },
-                                isBoxFilled(hammerspace1BoxBackgroundColor)
-                            )}
-                            isThisBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
-                            left="388px"
-                            top="505px"
-                            height="25px"
-                            width="25px"
-                            points="1"
-                        />
-                    </Fragment>
-                    <Fragment key="hammerspace-3">
-                        <Box boxId={constants.HAMMER_SPACE_3_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.HAMMER_SPACE_3_BOX_ID,
-                                hammerspace3BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
-                                [3],
-                                () => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.HAMMER_SPACE_3_BOX_ID,
-                                1,
-                                () => { },
-                                hammerspaceBoxBackgroundColors,
-                                hammerspaceBoxBackgroundColorSetters,
-                                () => { },
-                                isBoxFilled(hammerspace2BoxBackgroundColor)
-                            )}
-                            isThisBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
-                            left="398px"
-                            top="477px"
-                            height="25px"
-                            width="25px"
-                        />
-                    </Fragment>
-                    <Fragment key="hammerspace-4">
-                        <Box boxId={constants.HAMMER_SPACE_4_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.HAMMER_SPACE_4_BOX_ID,
-                                hammerspace4BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
-                                [4],
-                                () => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.HAMMER_SPACE_4_BOX_ID,
-                                2,
-                                () => { },
-                                hammerspaceBoxBackgroundColors,
-                                hammerspaceBoxBackgroundColorSetters,
-                                () => { },
-                                isBoxFilled(hammerspace3BoxBackgroundColor)
-                            )}
-                            isThisBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
-                            left="409px"
-                            top="448px"
-                            height="25px"
-                            width="25px"
-                        />
-                    </Fragment>
-                    <Fragment key="hammerspace-5">
-                        <Box boxId={constants.HAMMER_SPACE_5_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.HAMMER_SPACE_5_BOX_ID,
-                                hammerspace5BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
-                                [5],
-                                () => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.HAMMER_SPACE_5_BOX_ID,
-                                5,
-                                () => { },
-                                hammerspaceBoxBackgroundColors,
-                                hammerspaceBoxBackgroundColorSetters,
-                                () => { },
-                                isBoxFilled(hammerspace4BoxBackgroundColor)
-                            )}
-                            isThisBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
-                            left="420px"
-                            top="420px"
-                            height="25px"
-                            width="25px"
-                        />
-                    </Fragment>
-                    <Fragment key="hammerspace-6">
-                        <Box boxId={constants.HAMMER_SPACE_6_BOX_ID}
-                            handleClick={() => handleDiceBoxClick(
-                                constants.HAMMER_SPACE_6_BOX_ID,
-                                hammerspace6BoxBackgroundColor,
-                                possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
-                                [6],
-                                () => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
-                                constants.HAMMER_SPACE_6_BOX_ID,
-                                20,
-                                () => { },
-                                hammerspaceBoxBackgroundColors,
-                                hammerspaceBoxBackgroundColorSetters,
-                                () => { },
-                                isBoxFilled(hammerspace5BoxBackgroundColor)
-                            )}
-                            isThisBoxFilled={isBoxFilled(hammerspace6BoxBackgroundColor)}
-                            left="430px"
-                            top="390px"
-                            height="25px"
-                            width="25px"
-                        />
-                    </Fragment>
+                    <Box boxId={constants.HAMMER_SPACE_1_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.HAMMER_SPACE_1_BOX_ID,
+                            hammerspace1BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
+                            [1],
+                            () => setHammerspace1BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.HAMMER_SPACE_1_BOX_ID,
+                            0,
+                            () => { },
+                            hammerspaceBoxBackgroundColors,
+                            hammerspaceBoxBackgroundColorSetters,
+                            () => { },
+                            null
+                        )}
+                        isThisBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
+                        left="376px"
+                        top="535px"
+                        height="25px"
+                        width="25px"
+                    />
+                    <Box boxId={constants.HAMMER_SPACE_2_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.HAMMER_SPACE_2_BOX_ID,
+                            hammerspace2BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
+                            [2],
+                            () => setHammerspace2BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.HAMMER_SPACE_2_BOX_ID,
+                            1,
+                            () => { },
+                            hammerspaceBoxBackgroundColors,
+                            hammerspaceBoxBackgroundColorSetters,
+                            () => { },
+                            isBoxFilled(hammerspace1BoxBackgroundColor)
+                        )}
+                        isThisBoxFilled={isBoxFilled(hammerspace2BoxBackgroundColor)}
+                        left="388px"
+                        top="505px"
+                        height="25px"
+                        width="25px"
+                        points="1"
+                    />
+                    <Box boxId={constants.HAMMER_SPACE_3_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.HAMMER_SPACE_3_BOX_ID,
+                            hammerspace3BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
+                            [3],
+                            () => setHammerspace3BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.HAMMER_SPACE_3_BOX_ID,
+                            1,
+                            () => { },
+                            hammerspaceBoxBackgroundColors,
+                            hammerspaceBoxBackgroundColorSetters,
+                            () => { },
+                            isBoxFilled(hammerspace2BoxBackgroundColor)
+                        )}
+                        isThisBoxFilled={isBoxFilled(hammerspace3BoxBackgroundColor)}
+                        left="398px"
+                        top="477px"
+                        height="25px"
+                        width="25px"
+                    />
+                    <Box boxId={constants.HAMMER_SPACE_4_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.HAMMER_SPACE_4_BOX_ID,
+                            hammerspace4BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
+                            [4],
+                            () => setHammerspace4BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.HAMMER_SPACE_4_BOX_ID,
+                            2,
+                            () => { },
+                            hammerspaceBoxBackgroundColors,
+                            hammerspaceBoxBackgroundColorSetters,
+                            () => { },
+                            isBoxFilled(hammerspace3BoxBackgroundColor)
+                        )}
+                        isThisBoxFilled={isBoxFilled(hammerspace4BoxBackgroundColor)}
+                        left="409px"
+                        top="448px"
+                        height="25px"
+                        width="25px"
+                    />
+                    <Box boxId={constants.HAMMER_SPACE_5_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.HAMMER_SPACE_5_BOX_ID,
+                            hammerspace5BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
+                            [5],
+                            () => setHammerspace5BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.HAMMER_SPACE_5_BOX_ID,
+                            5,
+                            () => { },
+                            hammerspaceBoxBackgroundColors,
+                            hammerspaceBoxBackgroundColorSetters,
+                            () => { },
+                            isBoxFilled(hammerspace4BoxBackgroundColor)
+                        )}
+                        isThisBoxFilled={isBoxFilled(hammerspace5BoxBackgroundColor)}
+                        left="420px"
+                        top="420px"
+                        height="25px"
+                        width="25px"
+                    />
+                    <Box boxId={constants.HAMMER_SPACE_6_BOX_ID}
+                        handleClick={() => handleDiceBoxClick(
+                            constants.HAMMER_SPACE_6_BOX_ID,
+                            hammerspace6BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM),
+                            [6],
+                            () => setHammerspace6BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
+                            constants.HAMMER_SPACE_6_BOX_ID,
+                            20,
+                            () => { },
+                            hammerspaceBoxBackgroundColors,
+                            hammerspaceBoxBackgroundColorSetters,
+                            () => { },
+                            isBoxFilled(hammerspace5BoxBackgroundColor)
+                        )}
+                        isThisBoxFilled={isBoxFilled(hammerspace6BoxBackgroundColor)}
+                        left="430px"
+                        top="390px"
+                        height="25px"
+                        width="25px"
+                    />
                 </Fragment>
                 <Fragment key="bonus-indicators">
                     <BonusIndicator bonusIndicatorId={constants.FLIPPER_PASS_INDICATOR_ID}
