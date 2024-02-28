@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Game from "./Game";
-import * as utilities from "./utilities";
 
 export default function Home(props) {
     //#region state
