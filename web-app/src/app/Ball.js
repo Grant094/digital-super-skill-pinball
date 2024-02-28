@@ -12,22 +12,26 @@ export default function Ball(props) {
     // since the first render is before the document becomes available, the balls' initial values need to be initialized another way
     if (typeof window === "undefined") {
         if (props.ballId === constants.BALL1_ID) {
-            ballTop = constants.START_FEATURE_TOP;
-            ballLeft = constants.START_FEATURE_LEFT;
+            ballTop = constants.START_BOX_TOP;
+            ballLeft = constants.START_BOX_LEFT;
         } else if (props.ballId === constants.BALL2_ID) {
-            ballTop = constants.DRAIN_FEATURE_TOP;
-            ballLeft = constants.DRAIN_FEATURE_LEFT;
+            ballTop = constants.DRAIN_BOX_TOP;
+            ballLeft = constants.DRAIN_BOX_LEFT;
         }
-    } else if (document.getElementById(props.ballFeatureId)) {
-        ballTop = document.getElementById(props.ballFeatureId).style.top;
-        ballLeft = document.getElementById(props.ballFeatureId).style.left;
+    } else if (document.getElementById(props.ballBoxId)) {
+        ballTop = document.getElementById(props.ballBoxId).style.top;
+        ballLeft = document.getElementById(props.ballBoxId).style.left;
     }
     //#endregion
     //#endregion
 
     //#region functions
     function isBallInDrain() {
-        return (props.ballFeatureId === constants.DRAIN_FEATURE_ID);
+        return (
+            props.ballBoxId === constants.DRAIN_BOX_ID ||
+            props.ballBoxId === constants.RED_OUTLANE_BOX_ID ||
+            props.ballBoxId === constants.YEL_OUTLANE_BOX_ID
+        );
     }
     //#endregion
 

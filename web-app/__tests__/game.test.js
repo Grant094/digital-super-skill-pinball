@@ -7,21 +7,6 @@ import * as utilities from "../src/app/utilities";
 
 describe("Game", () => {
     describe('when the game loads', () => {
-        it('should render all features as visible', () => {
-            //#region arrange
-            render(<Game />);
-            //#endregion
-            //#region act
-            // not applicable
-            //#endregion
-            //#region assert
-            for (const featureId of constants.ALL_FEATURE_IDS) {
-                expect(screen.getByTitle(featureId)).toBeInTheDocument();
-                expect(screen.getByTitle(featureId)).toBeVisible();
-
-            }
-            //#endregion
-        });
         it('should render all boxes as visible and unfilled', () => {
             //#region arrange
             render(<Game />);
@@ -38,7 +23,7 @@ describe("Game", () => {
             }
             //#endregion
         });
-        it('should render ball 1 as visible at the Start feature', () => {
+        it('should render ball 1 as visible at START_BOX_ID', () => {
             //#region arrange
             render(<Game />);
             //#endregion
@@ -47,12 +32,12 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID)).toBeVisible();
             //#endregion
         });
-        it('should render ball 2 as hidden at the Drain feature', () => {
+        it('should render ball 2 as hidden at DRAIN_BOX_ID', () => {
             //#region arrange
             render(<Game />);
             //#endregion
@@ -61,8 +46,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL2_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
             //#endregion
         });
@@ -193,8 +178,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {2, 2}', async () => {
@@ -211,8 +196,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {1, 4}', async () => {
@@ -229,8 +214,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
         it('should be able to go from start to ferris wheel car 12 and fill it in on roll {4, 1}', async () => {
@@ -247,8 +232,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
     });
@@ -268,8 +253,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -287,8 +272,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -306,8 +291,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -327,8 +312,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -346,8 +331,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -365,8 +350,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -384,8 +369,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -403,8 +388,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -422,8 +407,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -441,8 +426,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -460,8 +445,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -479,8 +464,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -498,8 +483,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -517,8 +502,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -536,8 +521,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -557,8 +542,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -576,8 +561,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -595,8 +580,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -614,8 +599,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -633,8 +618,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -652,8 +637,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -671,8 +656,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             //#endregion
         });
@@ -692,8 +677,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             //#endregion
         });
@@ -711,8 +696,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -730,8 +715,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -749,8 +734,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -768,8 +753,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             //#endregion
         });
@@ -787,8 +772,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -806,8 +791,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -825,8 +810,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -845,8 +830,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -863,8 +848,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -881,8 +866,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
@@ -904,8 +889,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
@@ -948,8 +933,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
             //#endregion
         });
@@ -973,8 +958,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("You must fill in the hammer spaces in sequence from 1 to 6!");
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("6");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
@@ -996,8 +981,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.INVALID_CHOICE_ALERT);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
@@ -1019,8 +1004,8 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).not.toBeVisible();
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
@@ -1047,8 +1032,8 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
@@ -1073,8 +1058,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.OUTLANE_NUDGE_ALERT);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(Number(DIE1_1ST_VALUE) - 1); // was nudged
             expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
             //#endregion
@@ -1097,8 +1082,8 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
     });
@@ -1117,8 +1102,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
@@ -1139,8 +1124,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -1664,8 +1649,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.left);
             //#endregion
         });
         it('should allow a skill shot to be gained', async () => {
@@ -2045,8 +2030,8 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
-            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
@@ -2143,8 +2128,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.left);
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.RED_OUTLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -2177,8 +2162,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_INLANE_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.left);
             expect(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             //#endregion
         });
@@ -2365,8 +2350,8 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
-            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
@@ -2478,8 +2463,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID)); // would change the alert text if not ignored
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.left);
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("red"));
             expect(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -2515,8 +2500,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
@@ -2682,8 +2667,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
             //#endregion
         });
         it('should allow the user to move after nudging a skill shot', async () => {
@@ -2713,8 +2698,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.left);
             //#endregion
         });
         it('should allow the user to deselect a skill shot if they have not overridden a die yet', async () => {
@@ -2770,8 +2755,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID)); // should do nothing
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.left);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
             //#endregion
         });
@@ -2803,8 +2788,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.left);
             //#endregion
         });
         it('should allow the user to move from the red flipper to a ferris wheel car', async () => {
@@ -2833,8 +2818,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
     });
@@ -2867,8 +2852,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.INVALID_CHOICE_ALERT);
             //#endregion
@@ -3169,8 +3154,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             //#endregion
         });
         it('should move the drained ball, ball 2, to start even if it had entered the drain earlier in the round', async () => {
@@ -3220,8 +3205,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             //#endregion
         });
     });
@@ -3776,10 +3761,10 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
                 //#endregion
                 //#region assert
-                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
-                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.left);
                 //#endregion
             });
         });
@@ -3810,8 +3795,8 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
                 //#endregion
                 //#region assert
-                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
                 expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
                 //#endregion
@@ -3876,10 +3861,10 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 //#endregion
                 //#region assert
-                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
-                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
                 expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
                 //#endregion
@@ -3943,10 +3928,10 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 //#endregion
                 //#region assert
-                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
-                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
                 expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT);
                 //#endregion
@@ -4081,8 +4066,8 @@ describe("Game", () => {
                     await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                     //#endregion
                     //#region assert
-                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.left);
                     //#endregion
                 });
             });
@@ -4154,8 +4139,8 @@ describe("Game", () => {
                     //#endregion
                     //#region assert
                     expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
-                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.left);
                     //#endregion
                 });
             });
@@ -4191,8 +4176,8 @@ describe("Game", () => {
                     //#endregion
                     //#region assert
                     expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
-                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.left);
                     //#endregion
                 });
             });
@@ -4229,8 +4214,8 @@ describe("Game", () => {
                     //#region assert
                     expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
                     expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
-                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
                     expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
                     //#endregion
                 });
@@ -4303,8 +4288,8 @@ describe("Game", () => {
                     await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
                     //#endregion
                     //#region assert
-                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.left);
                     expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("red"));
                     //#endregion
                 });
@@ -4377,8 +4362,8 @@ describe("Game", () => {
                     await user.click(screen.getByTitle(constants.RED_MULTIBALL_BONUS_BOX_ID));
                     //#endregion
                     //#region assert
-                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
                     //#endregion
                 });
             });
@@ -4600,8 +4585,8 @@ describe("Game", () => {
                     await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                     //#endregion
                     //#region assert
-                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_FEATURE_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
                     //#endregion
                 });
             });
@@ -4719,6 +4704,144 @@ describe("Game", () => {
                 //#endregion
             });
         });
+        describe('when moving a ball to the yel outlane', () => {
+            it('should keep the ball hidden in the outlane', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    [6, 1],
+                    // move ball 1 with die 1 (=6) from yel drop target 56 to yel outlane
+                    // move ball 2 with die 2 (=1) from start to bumper 12 via 1st 1 box
+                    [1, 1], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
+                //#endregion
+            });
+        });
+        describe('when moving a ball to the red outlane', () => {
+            it('should keep the ball hidden in the outlane', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    [1, 1],
+                    // move ball 1 with die 1 (=1) from yel drop target 56 to red outlane
+                    // move ball 2 with die 2 (=1) from start to bumper 12 via 1st 1 box
+                    [1, 1], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_OUTLANE_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_OUTLANE_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
+                //#endregion
+            });
+        });
+        describe('when moving a ball to a box, besides the middle drain box, which contains the other ball', () => {
+            it('should not move the ball and should display the alert for this specific situation', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel droptarget 12
+                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [3, 4], // move to yel droptarget 34
+                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [5, 6], // move to yel droptarget 56
+                    // select yel multiball bonus
+                    [3, 1],
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                    // move ball 2 with die 2 (=1) from start to red drop target 12
+                    [3, 4],
+                    // move ball 1 with die 1 (=3) from red flipper box 3 to red drop target 3
+                    // move ball 2 with die 2 (=4) from red drop target 12 to red flipper box 45
+                    [6, 4],
+                    // move ball 1 with die 1 (=6) from red drop target 3 to red flipper box 6
+                    // move ball 2 with die 2 (=4) from red flipper box 45 to red drop target 4
+                    [6, 2],
+                    // move ball 1 with die 1 (=6) from red flipper box 6 to red drop target 56
+                    // select red points bonus
+                    // move ball 2 with die 2 (=2) from red drop target 4 to red inlane
+                    [5, 5],
+                    // attempt to move ball 2 with die 2 (=5) from red inlane to red drop target 56
+                    [1, 1], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+                await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE2_ID));
+                await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.left);
+                expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
+                expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT);
+                //#endregion
+            });
+        });
     });
     describe('after multiball is deactivated', () => {
         it('should resume auto-selecting the only remaining ball, ball1', async () => {
@@ -4755,8 +4878,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.left);
             //#endregion
         });
         it('should resume auto-selecting the only remaining ball, ball2', async () => {
@@ -4793,8 +4916,8 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL2_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.left);
             //#endregion
         });
         it('should ignore attempts by the user to select a die', async () => {
@@ -4905,8 +5028,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.left);
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("14"); // red drop targets (+4) + five bumper boxes with the bumper bonus (+10)
             //#endregion
         });
@@ -4977,8 +5100,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.top);
-            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_FEATURE_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.INVALID_CHOICE_ALERT);
             //#endregion
