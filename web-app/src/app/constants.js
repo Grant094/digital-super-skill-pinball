@@ -3,6 +3,7 @@ export const SELECTED_BORDER_COLOR = "gold";
 export const START_FEATURE_ID = "start";
 export const START_FEATURE_TOP = "240px";
 export const START_FEATURE_LEFT = "450px";
+export const START_BOX_ID = "box-start";
 //#endregion
 //#region flippers
 export const RED_FLIPPER_FEATURE_ID = "feature-red-flipper";
@@ -85,6 +86,7 @@ export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM = [
     YEL_FLIPPER_FEATURE_ID,
     //#endregion
     //#region boxes
+    START_BOX_ID,
     ...YEL_FLIPPER_GROUP_BOX_IDS,
     YEL_INLANE_BOX_ID,
     //#endregion
@@ -183,6 +185,7 @@ export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM = [
     YEL_FLIPPER_FEATURE_ID,
     //#endregion
     //#region boxes
+    START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
     ...RED_FLIPPER_GROUP_BOX_IDS,
     RED_INLANE_BOX_ID,
@@ -329,6 +332,7 @@ export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM = [
     ...HAMMER_SPACE_FEATURE_IDS,
     //#endregion
     //#region boxes
+    START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
     ...BUMPER_GROUP_BOX_IDS,
     ...HAMMER_SPACE_GROUP_BOX_IDS,
@@ -379,6 +383,7 @@ export const ALL_FEATURE_IDS = [
 //#endregion
 //#region allBoxIds
 export const ALL_BOX_IDS = [
+    START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
     ...BUMPER_GROUP_BOX_IDS,
     ...HAMMER_SPACE_GROUP_BOX_IDS,

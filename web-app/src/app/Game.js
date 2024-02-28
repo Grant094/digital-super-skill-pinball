@@ -29,7 +29,7 @@ export default function Game(props) {
     const [nudgesUsed, setNudgesUsed] = useState(0);
     const [score, setScore] = useState(0);
     const [round, setRound] = useState(1);
-    const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_FEATURE_ID);
+    const [ball1FeatureId, setBall1FeatureId] = useState(constants.START_BOX_ID);
     const [ball2FeatureId, setBall2FeatureId] = useState(constants.DRAIN_FEATURE_ID);
     const [wasBall1MovedThisTurn, setWasBall1MovedThisTurn] = useState(false);
     const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
@@ -378,7 +378,7 @@ export default function Game(props) {
         clearActiveBonuses();
 
         setSelectedBallId(constants.BALL1_ID);
-        moveSelectedBall(constants.START_FEATURE_ID);
+        moveSelectedBall(constants.START_BOX_ID);
     }
     //#endregion
 
@@ -650,9 +650,9 @@ export default function Game(props) {
 
     function activateMultiball() {
         if (ball1FeatureId === constants.DRAIN_FEATURE_ID) {
-            setBall1FeatureId(constants.START_FEATURE_ID);
+            setBall1FeatureId(constants.START_BOX_ID);
         } else if (ball2FeatureId === constants.DRAIN_FEATURE_ID) {
-            setBall2FeatureId(constants.START_FEATURE_ID);
+            setBall2FeatureId(constants.START_BOX_ID);
         }
 
         setSelectedBallId(null);
@@ -830,6 +830,14 @@ export default function Game(props) {
                 <Feature featureId={constants.START_FEATURE_ID}
                     left={constants.START_FEATURE_LEFT}
                     top={constants.START_FEATURE_TOP}
+                />
+                <Box boxId={constants.START_BOX_ID}
+                    handleClick={() => { }}
+                    isThisBoxFilled={false}
+                    left={constants.START_FEATURE_LEFT}
+                    top={constants.START_FEATURE_TOP}
+                    height="25px"
+                    width="25px"
                 />
                 <Fragment key="skill-shot-boxes">
                     <SkillShotBox skillShotBoxId={constants.SKILL_SHOT_BOX_1_ID}
