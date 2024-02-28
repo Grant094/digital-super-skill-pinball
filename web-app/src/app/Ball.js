@@ -27,7 +27,11 @@ export default function Ball(props) {
 
     //#region functions
     function isBallInDrain() {
-        return (props.ballFeatureId === constants.DRAIN_FEATURE_ID);
+        return (
+            props.ballFeatureId === constants.DRAIN_FEATURE_ID ||
+            props.ballFeatureId === constants.RED_OUTLANE_BOX_ID ||
+            props.ballFeatureId === constants.YEL_OUTLANE_BOX_ID
+        );
     }
     //#endregion
 
