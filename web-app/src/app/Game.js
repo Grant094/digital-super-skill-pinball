@@ -1836,29 +1836,27 @@ export default function Game(props) {
                         width="45px"
                     />
                 </Fragment>
-                <Fragment key="drain">
-                    <Box boxId={constants.DRAIN_BOX_ID}
-                        handleClick={() => handleDiceBoxClick(
-                            constants.DRAIN_BOX_ID,
-                            drainBoxBackgroundColor,
-                            constants.ALL_BOX_IDS,
-                            [1, 2, 3, 4, 5, 6],
-                            () => { },
-                            constants.DRAIN_BOX_ID,
-                            0,
-                            () => { },
-                            [],
-                            [],
-                            () => { },
-                            null
-                        )}
-                        isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
-                        left={constants.DRAIN_BOX_LEFT}
-                        top={constants.DRAIN_BOX_TOP}
-                        height="85px"
-                        width="98px"
-                    />
-                </Fragment>
+                <Box boxId={constants.DRAIN_BOX_ID}
+                    handleClick={() => handleDiceBoxClick(
+                        constants.DRAIN_BOX_ID,
+                        drainBoxBackgroundColor,
+                        constants.ALL_BOX_IDS,
+                        [1, 2, 3, 4, 5, 6],
+                        () => { },
+                        constants.DRAIN_BOX_ID,
+                        0,
+                        () => { },
+                        [],
+                        [],
+                        () => { },
+                        null
+                    )}
+                    isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
+                    left={constants.DRAIN_BOX_LEFT}
+                    top={constants.DRAIN_BOX_TOP}
+                    height="85px"
+                    width="98px"
+                />
                 <Ball ballId={constants.BALL1_ID}
                     handleClick={() => handleBallClick(constants.BALL1_ID)}
                     ballBoxId={ball1BoxId}
