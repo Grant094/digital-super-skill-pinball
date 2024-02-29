@@ -336,7 +336,7 @@ export default function Game(props) {
         return ((countOfFilledBoxesInThisGroupAfterThisMove) === countOfAllBoxesInThisGroup);
     }
 
-    function clearBoxGroup(boxBackgroundColorSetters) {
+    function unfillBoxes(boxBackgroundColorSetters) {
         for (const setter of boxBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
         }
@@ -344,7 +344,7 @@ export default function Game(props) {
 
     function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction = (() => { })) {
         if (shouldClearBoxGroup(boxGroupBoxBackgroundColors)) {
-            clearBoxGroup(boxBackgroundColorSetters);
+            unfillBoxes(boxBackgroundColorSetters);
         }
 
         groupAction();
@@ -353,9 +353,7 @@ export default function Game(props) {
 
     //#region round and game end
     function clearDashedBoxes() {
-        for (const setter of dashedBoxesBackgroundColorSetters) {
-            setter(constants.UNFILLED_BACKGROUND_COLOR);
-        }
+        unfillBoxes(dashedBoxesBackgroundColorSetters);
     }
 
     function clearActiveBonuses() {
