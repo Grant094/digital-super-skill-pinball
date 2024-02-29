@@ -2612,7 +2612,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
             //#endregion
         });
-        it('should change the die, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
+        it('should change the selected die, die 1, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2637,6 +2637,35 @@ describe("Game", () => {
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            //#endregion
+        });
+        it('should change the selected die, die 1, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 2], // move from start to ferris wheel car 12
+                [1, 1], // move to yel flipper via yel flipper box 1
+                [3, 4], // move to ferris wheel car 34
+                [2, 3], // move to yel flipper via yel flipper box 23
+                [5, 6], // move to ferris wheel car 56
+                [6, 6], // final roll on whose turn die 2 will be overridden
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // choose to gain skill shot 1
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // select to use skill shot 1
+            await user.click(screen.getByTitle(constants.DIE2_ID)); // override die 2 (=6) with 1
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             //#endregion
