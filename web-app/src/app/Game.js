@@ -16,7 +16,7 @@ import BonusBox from "./BonusBox";
 
 export default function Game(props) {
     //#region state
-    //#region misc game state
+    //#region misc
     const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : null);
     const [die1, setDie1] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
     const [die2, setDie2] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
@@ -145,7 +145,7 @@ export default function Game(props) {
         yelFlipperBox4BoxBackgroundColor,
     ];
     //#endregion
-    //#region ferriswheelBoxBackgroundColorArrays
+    //#region ferris wheel box background color arrays
     const ferriswheelBoxBackgroundColors = [
         ferriswheelcar12BoxBackgroundColor,
         ferriswheelcar34BoxBackgroundColor,
@@ -157,7 +157,7 @@ export default function Game(props) {
         setFerriswheelcar56BoxBackgroundColor,
     ];
     //#endregion
-    //#region bumperBoxBackgroundColorArrays
+    //#region bumper box background color arrays
     const bumperBoxBackgroundColors = [
         bumper121st1BoxBackgroundColor,
         bumper122nd1BoxBackgroundColor,
@@ -187,7 +187,7 @@ export default function Game(props) {
         setBumper562nd6BoxBackgroundColor,
     ];
     //#endregion
-    //#region hammerspaceBoxBackgroundColorArrays
+    //#region hammer space box background color arrays
     const hammerspaceBoxBackgroundColors = [
         hammerspace1BoxBackgroundColor,
         hammerspace2BoxBackgroundColor,
@@ -205,7 +205,7 @@ export default function Game(props) {
         setHammerspace6BoxBackgroundColor,
     ];
     //#endregion
-    //#region yelDroptargetBoxBackgroundColorArrays
+    //#region yel drop target box background color arrays
     const yelDroptargetBoxBackgroundColors = [
         yelDroptarget12BoxBackgroundColor,
         yelDroptarget34BoxBackgroundColor,
@@ -217,7 +217,7 @@ export default function Game(props) {
         setYelDroptarget56BoxBackgroundColor,
     ];
     //#endregion
-    //#region redDroptargetBoxBackgroundColorArrays
+    //#region red drop target box background color arrays
     const redDroptargetBoxBackgroundColors = [
         redDroptarget12BoxBackgroundColor,
         redDroptarget3BoxBackgroundColor,

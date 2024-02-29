@@ -4,9 +4,9 @@ export const START_BOX_TOP = "240px";
 export const START_BOX_LEFT = "450px";
 export const START_BOX_ID = "box-start";
 //#endregion
-//#region dashedBoxIds
-//#region flipperBoxIds
-//#region redFlipperBoxIds
+//#region dashed box ids
+//#region flipper box ids
+//#region red flipper box ids
 export const RED_FLIPPER_BOX_3_BOX_ID = "box-redflipperbox-3";
 export const RED_FLIPPER_BOX_45_BOX_ID = "box-redflipperbox-45";
 export const RED_FLIPPER_BOX_6_BOX_ID = "box-redflipperbox-6";
@@ -16,7 +16,7 @@ export const RED_FLIPPER_GROUP_BOX_IDS = [
     RED_FLIPPER_BOX_6_BOX_ID,
 ];
 //#endregion
-//#region yelFlipperBoxIds
+//#region yel flipper box ids
 export const YEL_FLIPPER_BOX_1_BOX_ID = "box-yelflipperbox-1";
 export const YEL_FLIPPER_BOX_23_BOX_ID = "box-yelflipperbox-23";
 export const YEL_FLIPPER_BOX_4_BOX_ID = "box-yelflipperbox-4";
@@ -50,8 +50,8 @@ export const DASHED_BOX_IDS = [
     ...OUTLANE_BOX_IDS,
 ];
 //#endregion
-//#region ferriswheel
-//#region ferriswheelBoxIds
+//#region ferris wheel
+//#region ferris wheel box ids
 export const FERRISWHEEL_CAR_12_BOX_ID = "box-ferriswheel-car-12";
 export const FERRISWHEEL_CAR_34_BOX_ID = "box-ferriswheel-car-34";
 export const FERRISWHEEL_CAR_56_BOX_ID = "box-ferriswheel-car-56";
@@ -68,9 +68,9 @@ export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM = [
 ];
 //#endregion
 //#region bumpers
-//#region bumperBoxIds
-//#region bumper12
-//#region bumper121BoxIds
+//#region bumper box ids
+//#region bumper 12
+//#region bumper 12 1 Box ids
 export const BUMPER_12_1ST_1_BOX_ID = "box-bumper-12-1st-1";
 export const BUMPER_12_2ND_1_BOX_ID = "box-bumper-12-2nd-1";
 export const BUMPER_12_1_BOX_IDS = [
@@ -78,7 +78,7 @@ export const BUMPER_12_1_BOX_IDS = [
     BUMPER_12_2ND_1_BOX_ID,
 ];
 //#endregion
-//#region bumper122BoxIds
+//#region bumper 12 2 box ids
 export const BUMPER_12_1ST_2_BOX_ID = "box-bumper-12-1st-2";
 export const BUMPER_12_2ND_2_BOX_ID = "box-bumper-12-2nd-2";
 export const BUMPER_12_2_BOX_IDS = [
@@ -91,8 +91,8 @@ export const BUMPER_12_BOX_IDS = [
     ...BUMPER_12_2_BOX_IDS
 ];
 //#endregion
-//#region bumper34
-//#region bumper343BoxIds
+//#region bumper 34
+//#region bumper 34 3 box ids
 export const BUMPER_34_1ST_3_BOX_ID = "box-bumper-34-1st-3";
 export const BUMPER_34_2ND_3_BOX_ID = "box-bumper-34-2nd-3";
 export const BUMPER_34_3_BOX_ID = [
@@ -100,7 +100,7 @@ export const BUMPER_34_3_BOX_ID = [
     BUMPER_34_2ND_3_BOX_ID,
 ];
 //#endregion
-//#region bumper344BoxIds
+//#region bumper 34 4 box ids
 export const BUMPER_34_1ST_4_BOX_ID = "box-bumper-34-1st-4";
 export const BUMPER_34_2ND_4_BOX_ID = "box-bumper-34-2nd-4";
 export const BUMPER_34_4_BOX_IDS = [
@@ -113,8 +113,8 @@ export const BUMPER_34_BOX_IDS = [
     ...BUMPER_34_4_BOX_IDS
 ];
 //#endregion
-//#region bumper56
-//#region bumper565BoxIds
+//#region bumper 56
+//#region bumper 56 5 box ids
 export const BUMPER_56_1ST_5_BOX_ID = "box-bumper-56-1st-5";
 export const BUMPER_56_2ND_5_BOX_ID = "box-bumper-56-2nd-5";
 export const BUMPER_56_5_BOX_IDS = [
@@ -122,7 +122,7 @@ export const BUMPER_56_5_BOX_IDS = [
     BUMPER_56_2ND_5_BOX_ID,
 ];
 //#endregion
-//#region bumper566BoxIds
+//#region bumper 56 6 box ids
 export const BUMPER_56_1ST_6_BOX_ID = "box-bumper-56-1st-6";
 export const BUMPER_56_2ND_6_BOX_ID = "box-bumper-56-2nd-6";
 export const BUMPER_56_6_BOX_IDS = [
@@ -141,7 +141,7 @@ export const BUMPER_GROUP_BOX_IDS = [
     ...BUMPER_56_BOX_IDS,
 ];
 //#endregion
-//#region bumpersCanReceiveFrom
+//#region bumpers can receive from
 export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM = [
     START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
@@ -176,8 +176,8 @@ export const BUMPER_56_DEFAULT_CAN_RECEIVE_FROM = [
 ]
 //#endregion
 //#endregion
-//#region hammerSpaces
-//#region hammerSpaceGroupBoxIds
+//#region hammer spaces
+//#region hammer space box ids
 export const HAMMER_SPACE_1_BOX_ID = "box-hammer-space-1";
 export const HAMMER_SPACE_2_BOX_ID = "box-hammer-space-2";
 export const HAMMER_SPACE_3_BOX_ID = "box-hammer-space-3";
@@ -200,9 +200,9 @@ export const HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM = [
     //#endregion
 ];
 //#endregion
-//#region droptargets
-//#region yelDropTargets
-//#region yelDropTargetBoxIds
+//#region drop targets
+//#region yel drop targets
+//#region yel drop target box ids
 export const YEL_DROPTARGET_12_BOX_ID = "box-droptarget-yel-12";
 export const YEL_DROPTARGET_34_BOX_ID = "box-droptarget-yel-34";
 export const YEL_DROPTARGET_56_BOX_ID = "box-droptarget-yel-56";
@@ -213,8 +213,8 @@ export const YEL_DROPTARGET_GROUP_BOX_IDS = [
 ];
 //#endregion
 //#endregion
-//#region redDropTargets
-//#region redDropTargetBoxIds
+//#region red drop targets
+//#region red drop target box ids
 export const RED_DROPTARGET_12_BOX_ID = "box-droptarget-red-12";
 export const RED_DROPTARGET_3_BOX_ID = "box-droptarget-red-3";
 export const RED_DROPTARGET_4_BOX_ID = "box-droptarget-red-4";
@@ -259,7 +259,7 @@ export const DRAIN_BOX_TOP = "920px";
 export const DRAIN_GROUP_BOX_ID = [DRAIN_BOX_ID];
 export const DRAIN_CORRESPONDING_BOX_IDS = [YEL_OUTLANE_BOX_ID, RED_OUTLANE_BOX_ID, DRAIN_BOX_ID];
 //#endregion
-//#region allBoxIds
+//#region all box ids
 export const ALL_BOX_IDS = [
     START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
@@ -315,7 +315,7 @@ export const DIE_AVAILABLE_BORDER_COLOR = "blue";
 export const DIE_USED_BORDER_COLOR = "red";
 //#endregion
 //#region skill shot boxes
-//#region IDs
+//#region skill shot box ids
 export const SKILL_SHOT_BOX_1_ID = "skill-shot-box-1";
 export const SKILL_SHOT_BOX_2_ID = "skill-shot-box-2";
 export const SKILL_SHOT_BOX_3_ID = "skill-shot-box-3";
@@ -323,28 +323,28 @@ export const SKILL_SHOT_BOX_4_ID = "skill-shot-box-4";
 export const SKILL_SHOT_BOX_5_ID = "skill-shot-box-5";
 export const SKILL_SHOT_BOX_6_ID = "skill-shot-box-6";
 //#endregion
-//#region border colors
+//#region skill shot box border colors
 export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "skyblue";
 export const SKILL_SHOT_BOX_GAINED_BORDER_COLOR = "black";
 export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
 //#endregion
 //#endregion
-//#region roundIndicatorIds
+//#region round indicator ids
 export const ROUND_1_INDICATOR_ID = "round-1-indicator";
 export const ROUND_2_INDICATOR_ID = "round-2-indicator";
 export const ROUND_3_INDICATOR_ID = "round-3-indicator";
 //#endregion
-//#region scoreIndicator
+//#region score indicator
 export const SCORE_INDICATOR_ID = "score-indicator";
 export const SCORE_PARAGRAPH_ID = "score";
 //#endregion
-//#region nudgebuttons
+//#region nudge buttons
 export const DIE1_NUDGE_UP_BUTTON_ID = "nudge-up-button-die1";
 export const DIE1_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die1";
 export const DIE2_NUDGE_UP_BUTTON_ID = "nudge-up-button-die2";
 export const DIE2_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die2";
 //#endregion
-//#region AlertTray
+//#region alert tray
 export const ALERT_TRAY_ID = "alert-tray";
 export const ALERT_PARAGRAPH_ID = "alert-paragraph"
 export const OUTLANE_NUDGE_ALERT = "You cannot nudge into an outlane";
