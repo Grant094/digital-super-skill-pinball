@@ -310,12 +310,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 12 via the 2nd 1 box, fill the box, and add 1 to the score, on a roll of {1, 1}', async () => {
@@ -329,12 +330,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_1_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 12 via the 1st 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
@@ -348,12 +350,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 12 via the 2nd 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
@@ -367,12 +370,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_2ND_2_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 1st 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -386,12 +390,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 2nd 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -405,12 +410,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_3_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 1st 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
@@ -424,12 +430,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_4_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 34 via the 2nd 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
@@ -443,12 +450,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_2ND_4_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 1st 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -462,12 +470,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 2nd 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -481,12 +490,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_5_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 1st 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
@@ -500,12 +510,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to bumper 56 via the 2nd 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
@@ -519,12 +530,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_2ND_6_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         //#endregion
@@ -540,12 +552,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to yel droptarget 34, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -559,12 +572,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to yel droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -578,12 +592,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to red droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
@@ -597,12 +612,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_12_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to red droptarget 3, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
@@ -616,12 +632,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_3_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to red droptarget 4, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
@@ -635,12 +652,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should be able to move from start to red droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
@@ -654,12 +672,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         //#endregion
@@ -675,12 +694,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
@@ -694,12 +714,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
@@ -713,12 +734,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to red flipper via red flipper box 6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
@@ -732,12 +754,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to yel flipper via the yel inlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
@@ -751,12 +774,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_INLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_INLANE_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
@@ -770,12 +794,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
@@ -789,12 +814,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to yel flipper via yel flipper box 4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
@@ -808,12 +834,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         //#endregion
@@ -829,11 +856,12 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to start via the yel outlane, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
@@ -847,11 +875,12 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should be able to move from start to start via drain, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
@@ -865,11 +894,12 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         //#endregion
@@ -888,55 +918,74 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move to each hammer space in the correct order and have the correct score afterwards', async () => {
+        it('should be able to move to each hammer space in the correct order and award the correct number of points each time', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // from start to red flipper via red inlane
-                [1, 1], // to hammer space 1
+                [1, 1], // to hammer space 1 (+0)
                 [3, 3], // to red flipper via red flipper box 3
-                [2, 2], // to hammer space 2
+                [2, 2], // to hammer space 2 (+1)
                 [4, 4], // to red flipper via red flipper box 45
-                [3, 3], // to hammer space 3
+                [3, 3], // to hammer space 3 (+1)
                 [6, 6], // to red flipper via red flipper box 6
-                [4, 4], // to hammer space 4
+                [4, 4], // to hammer space 4 (+2)
                 [1, 1], // to drain via drain box since all boxes for red flipper are filled
                 [2, 2], // from start to red flipper via red inlane
-                [5, 5], // to hammer space 5
+                [5, 5], // to hammer space 5 (+5)
                 [3, 3], // to red flipper via red flipper box 3
-                [6, 6], // to hammer space 6
+                [6, 6], // to hammer space 6 (+20)
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
+            let prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML)
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
+            const pointsAwardedForHammerSpace1 = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_2_BOX_ID));
+            const pointsAwardedForHammerSpace2 = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
+            prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_3_BOX_ID));
+            const pointsAwardedForHammerSpace3 = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
+            prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID));
+            const pointsAwardedForHammerSpace4 = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID));
+            const pointsAwardedForHammerSpace5 = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+            prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
+            const pointsAwardedForHammerSpace6 = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("33"); // each hammerspace (20 + 5 + 2 + 1 + 1 = 29) + red inlane * 2 (2 * 2 = 4) = 33
+            expect(pointsAwardedForHammerSpace1).toEqual(0);
+            expect(pointsAwardedForHammerSpace2).toEqual(1);
+            expect(pointsAwardedForHammerSpace3).toEqual(1);
+            expect(pointsAwardedForHammerSpace4).toEqual(2);
+            expect(pointsAwardedForHammerSpace5).toEqual(5);
+            expect(pointsAwardedForHammerSpace6).toEqual(20);
             //#endregion
         });
         it('should have an alert and no other change when attempting to go out of sequence', async () => {
@@ -1001,6 +1050,7 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_5_BOX_ID));
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID)).toBeInTheDocument();
@@ -1009,7 +1059,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
     });
@@ -1029,10 +1079,11 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("2");
@@ -1101,12 +1152,13 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
@@ -1123,13 +1175,14 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(pointsAwarded).toEqual(2);
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
@@ -1151,12 +1204,13 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 1
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
@@ -1173,13 +1227,14 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die 1 from 2 to 3
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
@@ -1201,12 +1256,13 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
@@ -1223,13 +1279,14 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(pointsAwarded).toEqual(2);
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
@@ -1251,12 +1308,13 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 1
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
@@ -1273,13 +1331,14 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID)); // nudge die 1 from 2 to 3
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
@@ -1404,9 +1463,10 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should add 4 points when using the red outlane and two red flipper boxes have been filled', async () => {
@@ -1424,9 +1484,10 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("4");
+            expect(pointsAwarded).toEqual(4);
             //#endregion
         });
         it('should add 6 points when using the red outlane and three red flipper boxes have been filled', async () => {
@@ -1446,9 +1507,10 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("6");
+            expect(pointsAwarded).toEqual(6);
             //#endregion
         });
         it('should add 0 points when using the red outlane after the inlane but no red flipper boxes have been filled', async () => {
@@ -1464,9 +1526,10 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2"); // inlane was worth 2 points
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should add 2 points when using the yel outlane and one yel flipper box has been filled', async () => {
@@ -1482,9 +1545,10 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should add 4 points when using the yel outlane and two yel flipper boxes have been filled', async () => {
@@ -1502,9 +1566,10 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("4");
+            expect(pointsAwarded).toEqual(4);
             //#endregion
         });
         it('should add 6 points when using the yel outlane and three yel flipper boxes have been filled', async () => {
@@ -1524,9 +1589,10 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("6");
+            expect(pointsAwarded).toEqual(6);
             //#endregion
         });
         it('should add 0 points when using the yel outlane after the inlane but no yel flipper boxes have been filled', async () => {
@@ -1541,10 +1607,12 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.YEL_INLANE_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2"); // 2 points from using yel inlane but no additional points from using outlane
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         it('should maintain gained skill shots', async () => {
@@ -1690,10 +1758,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
             await user.click(screen.getByTitle(constants.OUTLANE_BONUS_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("16"); // red drop targets (+4) + red outlane with bonus (3 * 2 * 2 = 12)
+            expect(pointsAwarded).toEqual(12);
             //#endregion
         });
         it('should award 12 points when using the yel outlane and three yel flipper boxes have been filled and the outlane bonus is active', async () => {
@@ -1728,10 +1798,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("16"); // red drop targets (+4) + yel outlane with bonus (3 * 2 * 2 = 12)
+            expect(pointsAwarded).toEqual(12);
             //#endregion
         });
     });
@@ -2207,10 +2279,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.YEL_BONUS_POINTS_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("5"); // yel drop targets (+3) + yel bonus points (+2)
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should allow the user to select 2 bonus points and be awarded those 2 bonus points a 2nd time', async () => {
@@ -2247,10 +2321,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.YEL_BONUS_POINTS_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("10"); // yel drop targets twice (3 * 2 = 6) + yel bonus points twice (2 * 2 = 4) = 10
+            expect(pointsAwarded).toEqual(2);
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
@@ -2531,10 +2607,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("7"); // red drop targets (+4) + red bonus points (+3)
+            expect(pointsAwarded).toEqual(3);
             //#endregion
         });
         it('should allow the user to select gaining 3 bonus points and award those 3 points a 2nd time', async () => {
@@ -2579,10 +2657,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_4_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("14"); // red drop targets twice (4 * 2 = 8) + red bonus points twice (3 * 2 = 6) = 14
+            expect(pointsAwarded).toEqual(3);
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
@@ -3060,7 +3140,9 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -3069,7 +3151,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("4"); // yel drop targets (+3) + hammer space 1 (+0) + hammer space 2 (+1) = 4
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should only fill hammer spaces 2 and 3 and award 2 additional points if only hammer space 1 is filled', async () => {
@@ -3096,7 +3178,9 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -3105,7 +3189,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("5"); // yel drop targets (+3) + hammer space 2 (+1) + hammer space 3 (+1) = 5
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should only fill hammer spaces 3 and 4 and award 3 additional points if only hammer spaces 1 & 2 are filled', async () => {
@@ -3136,7 +3220,9 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -3145,7 +3231,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("7"); // yel drop targets (+3) + hammer spaces 1 + 2 + 3 + 4 (0 + 1 + 1 + 2 = +4) = +7
+            expect(pointsAwarded).toEqual(3);
             //#endregion
         });
         it('should only fill hammer spaces 4 and 5 and award 7 additional points if only hammer spaces 1-3 are filled', async () => {
@@ -3180,7 +3266,9 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -3189,7 +3277,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("12"); // yel drop targets (+3) + hammer spaces 1 + 2 + 3 + 4 + 5 (0 + 1 + 1 + 2 + 5= +9) = +12
+            expect(pointsAwarded).toEqual(7);
             //#endregion
         });
         it('should fill hammer spaces 5 and 6, award 25 additional points, and unfill all hammer spaces, all if only hammer spaces 1-4 are filled', async () => {
@@ -3228,7 +3316,9 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -3237,7 +3327,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("34"); // yel drop targets (+3) + red inlane (+2) + hammer spaces 1 + 2 + 3 + 4 + 5 + 6 (0 + 1 + 1 + 2 + 5 + 20= +29) = +34
+            expect(pointsAwarded).toEqual(25);
             //#endregion
         });
         it('should fill hammer spaces 6 and 1, unfill other hammer spaces, and award 20 additional points, all if only hammer spaces 1-5 are filled', async () => {
@@ -3282,10 +3372,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("34"); // yel drop targets (+3) + red inlane (+2) + hammer spaces 1-6 (0 + 1 + 1 + 2 + 5 + 20 = +29) + hammer space 1 (+0) = +34
+            expect(pointsAwarded).toEqual(20);
             //#endregion
         });
     });
@@ -3732,11 +3824,12 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
-                const pointsBeforeMoveString = screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML;
+                const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
                 await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore)
                 //#endregion
                 //#region assert
-                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforeMoveString)).toEqual(2); // 1 point for bumper * 2 for multiball
+                expect(pointsAwarded).toEqual(2);
                 //#endregion
             });
             it('should automatically select the non-moved ball after only one ball has been moved', async () => {
@@ -4609,12 +4702,13 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
-                const pointsBeforePointsBonus = screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML;
+                const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
                 await user.click(screen.getByTitle(constants.RED_BONUS_POINTS_BONUS_BOX_ID));
+                const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
                 //#endregion
                 //#region assert
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforePointsBonus)).toEqual(6); // 3 points * 2 for multiball
+                expect(pointsAwarded).toEqual(6);
                 //#endregion
             });
         });
@@ -4836,12 +4930,13 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
-                const pointsBeforePointsBonus = screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML;
+                const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
                 await user.click(screen.getByTitle(constants.YEL_BONUS_POINTS_BONUS_BOX_ID));
+                const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
                 //#endregion
                 //#region assert
                 expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-                expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - Number(pointsBeforePointsBonus)).toEqual(4); // 2 points * 2 for multiball
+                expect(pointsAwarded).toEqual(4);
                 //#endregion
             });
         });
@@ -5164,10 +5259,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
             await user.click(screen.getByTitle(constants.BUMPER_BONUS_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("6"); // red drop targets (+4) + bumper 12 (+2)
+            expect(pointsAwarded).toEqual(2);
             //#endregion
         });
         it('should allow the user to move counterclockwise between bumpers', async () => {
@@ -5210,7 +5307,6 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("14"); // red drop targets (+4) + five bumper boxes with the bumper bonus (+10)
             //#endregion
         });
     });
@@ -5242,10 +5338,12 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.RED_DROPTARGET_56_BOX_ID));
             await user.click(screen.getByTitle(constants.BUMPER_BONUS_BOX_ID));
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            const prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("5"); // red drop targets (+4) + bumper 12 1st 1 (+1)
+            expect(pointsAwarded).toEqual(1);
             //#endregion
         });
         it('should not move counterclockwise between bumpers', async () => {
@@ -5376,10 +5474,11 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
             await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 3
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            const pointsBeforeLastTurn = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML)).toEqual(pointsBeforeLastTurn);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             //#endregion
         });
