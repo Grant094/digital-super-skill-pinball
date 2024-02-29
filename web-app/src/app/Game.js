@@ -352,10 +352,6 @@ export default function Game(props) {
     //#endregion
 
     //#region round and game end
-    function gameOverAlert() {
-        setAlertParagraphText(constants.GAME_OVER_ALERT);
-    }
-
     function clearDashedBoxes() {
         for (const setter of dashedBoxesBackgroundColorSetters) {
             setter(constants.UNFILLED_BACKGROUND_COLOR);
@@ -545,7 +541,7 @@ export default function Game(props) {
                     (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId)) // does this box send the ball to the drain?
                 ) {
                     if (utilities.isLastRound(round)) {
-                        gameOverAlert();
+                        setAlertParagraphText(constants.GAME_OVER_ALERT);
                     } else {
                         endRound();
                     }
