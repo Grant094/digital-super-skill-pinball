@@ -55,7 +55,8 @@ describe("Game", () => {
             //#region arrange
             render(<Game />);
             //#endregion
-            //#region act - not applicable
+            //#region act
+            // not applicable
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeInTheDocument();
@@ -238,7 +239,7 @@ describe("Game", () => {
         });
     });
     describe('when attempting to move the only ball from start via boxes that can receive from start', () => {
-        //#region ferriswheelcars
+        //#region ferris wheel cars
         it('should be able to move from start to ferris wheel car 12, fill the box, and maintain score, all on a roll of {1, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -527,7 +528,7 @@ describe("Game", () => {
             //#endregion
         });
         //#endregion
-        //#region droptargets
+        //#region drop targets
         it('should be able to move from start to yel droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
