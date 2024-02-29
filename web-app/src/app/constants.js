@@ -355,6 +355,7 @@ export const MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT = "Select a ball to move";
 export const MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT = "Select a ball and a die";
 export const INVALID_CHOICE_ALERT = "Invalid choice!";
 export const ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT = "Balls cannot be on the same space";
+export const GAME_OVER_ALERT = "Game over!";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;

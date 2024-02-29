@@ -5405,4 +5405,27 @@ describe("Game", () => {
             //#endregion
         });
     });
+    describe('when a game has ended', () => {
+        it('should ignore a click on a dice box', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [1, 1], // go to drain to go from round 1 to round 2
+                [1, 1], // go to drain to go from round 2 to round 3
+                [1, 1], // go to drain to end the game
+                [1, 1], // final roll which should not be used to move
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.GAME_OVER_ALERT);
+            //#endregion
+        });
+    });
 });

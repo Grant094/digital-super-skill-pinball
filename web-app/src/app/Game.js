@@ -353,7 +353,7 @@ export default function Game(props) {
 
     //#region round and game end
     function gameOverAlert() {
-        setAlertParagraphText('Game over!');
+        setAlertParagraphText(constants.GAME_OVER_ALERT);
     }
 
     function clearDashedBoxes() {
@@ -482,6 +482,7 @@ export default function Game(props) {
             (alertParagraphText === constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT) ||
             (alertParagraphText === utilities.alertMessageForChoosingABonus("yellow")) ||
             (alertParagraphText === utilities.alertMessageForChoosingABonus("red")) ||
+            (alertParagraphText === constants.GAME_OVER_ALERT) ||
             (isBoxFilled(boxBackgroundColor))
         ) {
             // do nothing
