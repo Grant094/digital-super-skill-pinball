@@ -1773,7 +1773,7 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [3, 4], // attempt to click on boxes that can receive on this
-                [1, 1], // final roll that should never be reached
+                [1, 1], // final roll that should not be reached
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -1813,7 +1813,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                [1, 1], // final roll that should never be reached
+                [1, 1], // final roll that should not be used to move
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -1838,7 +1838,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                [1, 1], // final roll that should never be reached
+                [1, 1], // final roll which should never be used to move
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2596,8 +2596,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper via red flipper box 6
                 [5, 6], // move to red drop target 56
-                [2, 5], // extra roll which should not be used
-                [1, 1], // final roll which should not be reached
+                [1, 1], // final roll which should not be used to move
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2891,7 +2890,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                [6, 6], // final roll that should not be overridden or used to move
+                [6, 6], // final roll that should neither be overridden nor used to move
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -3960,7 +3959,7 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4], // select ball 2 and attempt to move it without selecting either die
-                    [1, 1], // final roll that should not be seen
+                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3994,7 +3993,7 @@ describe("Game", () => {
                     [3, 4],
                     // select ball 2 and attempt to move it without selecting either die
                     // select die1 (=3)
-                    [1, 1], // final roll that should not be seen
+                    [1, 1], // final roll that should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4026,7 +4025,7 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4], // select die 1 (=3) and attempt to move either ball to red flipper via red flipper box 3
-                    [1, 1], // final roll that should not be seen
+                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4062,7 +4061,7 @@ describe("Game", () => {
                     [3, 4],
                     // select die 1 (=3) and attempt to move either ball to red flipper via red flipper box 3
                     // select ball 1
-                    [1, 1], // final roll that should not be seen
+                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4094,7 +4093,7 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4], // attempt to move either ball with either die to red flipper box 3
-                    [1, 1], // final roll that should not be seen
+                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4130,7 +4129,7 @@ describe("Game", () => {
                         [3, 4],
                         // attempt to move to the red flipper via red flipper box 3
                         // select die 1 (=3)
-                        [1, 1], // final roll that should not be seen
+                        [1, 1], // final roll which should not be reached
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4163,7 +4162,7 @@ describe("Game", () => {
                         [3, 4],
                         // attempt to move to the red flipper via red flipper box 3
                         // select ball 1 (at yel drop target 56)
-                        [1, 1], // final roll that should not be seen
+                        [1, 1], // final roll which should not be reached
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4197,7 +4196,7 @@ describe("Game", () => {
                         // attempt to move to the red flipper via red flipper box 3
                         // select ball 1 (at yel drop target 56)
                         // select die 1 (=3)
-                        [1, 1], // final roll that should not be seen
+                        [1, 1], // final roll which should not be reached
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -5390,7 +5389,7 @@ describe("Game", () => {
                 [1, 1], // move from start to drain to end round 1/3
                 [1, 1], // move from start to drain to end round 2/3
                 [3, 3], // move from start to drain to end round 3/3
-                [1, 1], // final roll which should not be reached
+                [1, 1], // final roll which should not be used to move
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
