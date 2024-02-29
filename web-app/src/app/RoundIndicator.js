@@ -19,8 +19,8 @@ export default function RoundIndicator(props) {
     //#endregion
 
     return (
-        <p id={props.RoundIndicatorId}
-            title={props.RoundIndicatorId}
+        <p id={props.roundIndicatorId}
+            title={props.roundIndicatorId}
             className={styles.RoundIndicator}
             style={{
                 top: props.top,

@@ -1829,19 +1829,19 @@ export default function Game(props) {
                     borderColor={ballBorderColor(constants.BALL2_ID)}
                 />
                 <Fragment key="roundindicators">
-                    <RoundIndicator RoundIndicatorId={constants.ROUND_1_INDICATOR_ID}
+                    <RoundIndicator roundIndicatorId={constants.ROUND_1_INDICATOR_ID}
                         forRound="1"
                         top="950px"
                         left="414px"
                         round={round}
                     />
-                    <RoundIndicator RoundIndicatorId={constants.ROUND_2_INDICATOR_ID}
+                    <RoundIndicator roundIndicatorId={constants.ROUND_2_INDICATOR_ID}
                         forRound="2"
                         top="950px"
                         left="451px"
                         round={round}
                     />
-                    <RoundIndicator RoundIndicatorId={constants.ROUND_3_INDICATOR_ID}
+                    <RoundIndicator roundIndicatorId={constants.ROUND_3_INDICATOR_ID}
                         forRound="3"
                         top="950px"
                         left="487px"
