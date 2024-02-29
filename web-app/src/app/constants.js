@@ -151,28 +151,16 @@ export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM = [
     YEL_INLANE_BOX_ID,
 ];
 export const BUMPER_12_DEFAULT_CAN_RECEIVE_FROM = [
-    //#region inheriting from array
     ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM,
-    //#endregion
-    //#region boxes
     ...BUMPER_56_BOX_IDS,
-    //#endregion
 ];
 export const BUMPER_34_DEFAULT_CAN_RECEIVE_FROM = [
-    //#region inheriting from array
     ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM,
-    //#endregion
-    //#region boxes
     ...BUMPER_12_BOX_IDS,
-    //#endregion
 ];
 export const BUMPER_56_DEFAULT_CAN_RECEIVE_FROM = [
-    //#region inheriting from array
     ...BUMPERS_DEFAULT_CAN_RECEIVE_FROM,
-    //#endregion
-    //#region boxes
     ...BUMPER_34_BOX_IDS,
-    //#endregion
 ]
 //#endregion
 //#endregion
@@ -194,14 +182,11 @@ export const HAMMER_SPACE_GROUP_BOX_IDS = [
 ];
 //#endregion
 export const HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM = [
-    //#region boxes
     ...RED_FLIPPER_GROUP_BOX_IDS,
     RED_INLANE_BOX_ID,
-    //#endregion
 ];
 //#endregion
 //#region drop targets
-//#region yel drop targets
 //#region yel drop target box ids
 export const YEL_DROPTARGET_12_BOX_ID = "box-droptarget-yel-12";
 export const YEL_DROPTARGET_34_BOX_ID = "box-droptarget-yel-34";
@@ -212,8 +197,6 @@ export const YEL_DROPTARGET_GROUP_BOX_IDS = [
     YEL_DROPTARGET_56_BOX_ID,
 ];
 //#endregion
-//#endregion
-//#region red drop targets
 //#region red drop target box ids
 export const RED_DROPTARGET_12_BOX_ID = "box-droptarget-red-12";
 export const RED_DROPTARGET_3_BOX_ID = "box-droptarget-red-3";
@@ -226,7 +209,7 @@ export const RED_DROPTARGET_GROUP_BOX_IDS = [
     RED_DROPTARGET_56_BOX_ID,
 ];
 //#endregion
-//#endregion
+//#region drop targets can receive from
 export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM = [
     START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
@@ -234,23 +217,16 @@ export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM = [
     ...HAMMER_SPACE_GROUP_BOX_IDS,
 ];
 export const YEL_DROPTARGETS_CAN_RECEIVE_FROM = [
-    //#region inheriting from array
     ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM,
-    //#endregion
-    //#region boxes
     ...YEL_FLIPPER_GROUP_BOX_IDS,
     YEL_INLANE_BOX_ID,
-    //#endregion
 ];
 export const RED_DROPTARGETS_CAN_RECEIVE_FROM = [
-    //#region inheriting from array
     ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM,
-    //#endregion
-    //#region boxes
     ...RED_FLIPPER_GROUP_BOX_IDS,
     RED_INLANE_BOX_ID,
-    //#endregion
 ]
+//#endregion
 //#endregion
 //#region drain
 export const DRAIN_BOX_ID = "box-drain-123456";
@@ -338,7 +314,7 @@ export const ROUND_3_INDICATOR_ID = "round-3-indicator";
 export const SCORE_INDICATOR_ID = "score-indicator";
 export const SCORE_PARAGRAPH_ID = "score";
 //#endregion
-//#region nudge buttons
+//#region nudge button ids
 export const DIE1_NUDGE_UP_BUTTON_ID = "nudge-up-button-die1";
 export const DIE1_NUDGE_DN_BUTTON_ID = "nudge-dn-button-die1";
 export const DIE2_NUDGE_UP_BUTTON_ID = "nudge-up-button-die2";
