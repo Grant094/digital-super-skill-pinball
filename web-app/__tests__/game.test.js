@@ -1126,6 +1126,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -1175,6 +1176,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
@@ -1224,6 +1226,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
@@ -1273,6 +1276,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
