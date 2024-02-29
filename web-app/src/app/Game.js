@@ -819,7 +819,7 @@ export default function Game(props) {
     return (
         <div>
             <Fragment key="table">
-                <img src="/images/carniball.jpg" id="carniballTable" title="carniballTable" alt="Carniball board" />
+                <img src="/images/carniball.jpg" id="carniballTable" title="carniballTable" alt="Carniball Table" />
                 <Box boxId={constants.START_BOX_ID}
                     handleClick={() => { }}
                     isThisBoxFilled={false}
