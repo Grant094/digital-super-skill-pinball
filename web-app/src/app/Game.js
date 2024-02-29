@@ -17,12 +17,12 @@ import BonusBox from "./BonusBox";
 export default function Game(props) {
     //#region state
     //#region misc
-    const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : null);
+    const [dieValuesIndex, setDieValuesIndex] = useState(props.dieValues ? 0 : undefined);
     const [die1, setDie1] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
     const [die2, setDie2] = useState(props.dieValues ? props.dieValues[dieValuesIndex] : 0);
     const [die1AmountNudgedBy, setDie1AmountNudgedBy] = useState(0);
     const [die2AmountNudgedBy, setDie2AmountNudgedBy] = useState(0);
-    const [selectedDieId, setSelectedDieId] = useState(null);
+    const [selectedDieId, setSelectedDieId] = useState(undefined);
     const [wasDie1UsedThisTurn, setWasDie1UsedThisTurn] = useState(false);
     const [wasDie2UsedThisTurn, setWasDie2UsedThisTurn] = useState(false);
     const [nudgesUsed, setNudgesUsed] = useState(0);
@@ -36,15 +36,15 @@ export default function Game(props) {
     const [alertParagraphText, setAlertParagraphText] = useState("");
     const selectedballBoxId = (
         selectedBallId === constants.BALL1_ID ? ball1BoxId :
-            selectedBallId === constants.BALL2_ID ? ball2BoxId : null
+            selectedBallId === constants.BALL2_ID ? ball2BoxId : undefined
     );
     const unselectedBallId = (
         selectedBallId === constants.BALL1_ID ? constants.BALL2_ID :
-            selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+            selectedBallId === constants.BALL2_ID ? constants.BALL1_ID : undefined
     );
     const unselectedBallBoxId = (
         unselectedBallId === constants.BALL1_ID ? ball1BoxId :
-            unselectedBallId === constants.BALL2_ID ? ball2BoxId : null
+            unselectedBallId === constants.BALL2_ID ? ball2BoxId : undefined
     )
     let didInit = false;
     //#endregion
@@ -375,7 +375,7 @@ export default function Game(props) {
     //#endregion
 
     function deselectMovedBall() {
-        setSelectedBallId(null);
+        setSelectedBallId(undefined);
     }
 
     function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
@@ -466,7 +466,7 @@ export default function Game(props) {
         boxGroupBoxBackgroundColors,
         boxBackgroundColorSetters,
         groupAction = (() => { }),
-        isPrecedingHammerspaceBoxFilled = null,
+        isPrecedingHammerspaceBoxFilled = undefined,
     ) {
         if (
             (alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
@@ -519,14 +519,14 @@ export default function Game(props) {
                     if (!wasDie2UsedThisTurn) {
                         setSelectedDieId(constants.DIE2_ID);
                     } else {
-                        setSelectedDieId(null);
+                        setSelectedDieId(undefined);
                     }
                     setWasDie1UsedThisTurn(true);
                 } else if (selectedDieId === constants.DIE2_ID) {
                     if (!wasDie1UsedThisTurn) {
                         setSelectedDieId(constants.DIE1_ID);
                     } else {
-                        setSelectedDieId(null);
+                        setSelectedDieId(undefined);
                     }
                     setWasDie2UsedThisTurn(true);
                 }
@@ -547,7 +547,7 @@ export default function Game(props) {
                 const movedByThisClickBallId = selectedBallId;
                 const notMovedByThisClickBallId = (
                     movedByThisClickBallId === constants.BALL1_ID ? constants.BALL2_ID :
-                        movedByThisClickBallId === constants.BALL2_ID ? constants.BALL1_ID : null
+                        movedByThisClickBallId === constants.BALL2_ID ? constants.BALL1_ID : undefined
                 );
                 const notMovedByThisClickballBoxId = (notMovedByThisClickBallId === constants.BALL1_ID ? ball1BoxId : ball2BoxId);
                 const wasBallNotMovedByThisClickMovedThisTurn = (notMovedByThisClickBallId === constants.BALL1_ID ? wasBall1MovedThisTurn : wasBall2MovedThisTurn);
@@ -649,7 +649,7 @@ export default function Game(props) {
             setBall2BoxId(constants.START_BOX_ID);
         }
 
-        setSelectedBallId(null);
+        setSelectedBallId(undefined);
     }
     //#endregion
     //#region handle die click
@@ -874,7 +874,7 @@ export default function Game(props) {
                             ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
                             ferriswheelBoxBackgroundColorSetters, // boxBackgroundColorSetters
                             ferriswheelcarClearGroupAction, // groupAction
-                            null // isPrecedingHammerspaceBoxFilled
+                            undefined // isPrecedingHammerspaceBoxFilled
                         )}
                         isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
                         left="160px"
@@ -894,7 +894,7 @@ export default function Game(props) {
                             ferriswheelBoxBackgroundColors,
                             ferriswheelBoxBackgroundColorSetters,
                             ferriswheelcarClearGroupAction,
-                            null // isPrecedingHammerspaceBoxFilled
+                            undefined // isPrecedingHammerspaceBoxFilled
                         )}
                         isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
                         left="255px"
@@ -914,7 +914,7 @@ export default function Game(props) {
                             ferriswheelBoxBackgroundColors,
                             ferriswheelBoxBackgroundColorSetters,
                             ferriswheelcarClearGroupAction,
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(ferriswheelcar56BoxBackgroundColor)}
                         left="350px"
@@ -942,7 +942,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper121st1BoxBackgroundColor)}
                             left="155px"
@@ -967,7 +967,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper122nd1BoxBackgroundColor)}
                             left="155px"
@@ -992,7 +992,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper121st2BoxBackgroundColor)}
                             left="185px"
@@ -1017,7 +1017,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper122nd2BoxBackgroundColor)}
                             left="185px"
@@ -1044,7 +1044,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper341st3BoxBackgroundColor)}
                             left="288px"
@@ -1069,7 +1069,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper342nd3BoxBackgroundColor)}
                             left="288px"
@@ -1094,7 +1094,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper341st4BoxBackgroundColor)}
                             left="317px"
@@ -1119,7 +1119,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper342nd4BoxBackgroundColor)}
                             left="317px"
@@ -1146,7 +1146,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper561st5BoxBackgroundColor)}
                             left="221px"
@@ -1171,7 +1171,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper562nd5BoxBackgroundColor)}
                             left="221px"
@@ -1196,7 +1196,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper561st6BoxBackgroundColor)}
                             left="251px"
@@ -1221,7 +1221,7 @@ export default function Game(props) {
                                 bumperBoxBackgroundColors,
                                 bumperBoxBackgroundColorSetters,
                                 () => { },
-                                null
+                                undefined
                             )}
                             isThisBoxFilled={isBoxFilled(bumper562nd6BoxBackgroundColor)}
                             left="251px"
@@ -1244,7 +1244,7 @@ export default function Game(props) {
                             hammerspaceBoxBackgroundColors,
                             hammerspaceBoxBackgroundColorSetters,
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(hammerspace1BoxBackgroundColor)}
                         left="376px"
@@ -1386,7 +1386,7 @@ export default function Game(props) {
                                     yelDroptargetBoxBackgroundColors,
                                     yelDroptargetBoxBackgroundColorSetters,
                                     yelDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(yelDroptarget12BoxBackgroundColor)}
                                 left="30px"
@@ -1408,7 +1408,7 @@ export default function Game(props) {
                                     yelDroptargetBoxBackgroundColors,
                                     yelDroptargetBoxBackgroundColorSetters,
                                     yelDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(yelDroptarget34BoxBackgroundColor)}
                                 left="60px"
@@ -1430,7 +1430,7 @@ export default function Game(props) {
                                     yelDroptargetBoxBackgroundColors,
                                     yelDroptargetBoxBackgroundColorSetters,
                                     yelDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(yelDroptarget56BoxBackgroundColor)}
                                 left="95px"
@@ -1454,7 +1454,7 @@ export default function Game(props) {
                                     redDroptargetBoxBackgroundColors,
                                     redDroptargetBoxBackgroundColorSetters,
                                     redDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget12BoxBackgroundColor)}
                                 left="415px"
@@ -1476,7 +1476,7 @@ export default function Game(props) {
                                     redDroptargetBoxBackgroundColors,
                                     redDroptargetBoxBackgroundColorSetters,
                                     redDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget3BoxBackgroundColor)}
                                 left="435px"
@@ -1498,7 +1498,7 @@ export default function Game(props) {
                                     redDroptargetBoxBackgroundColors,
                                     redDroptargetBoxBackgroundColorSetters,
                                     redDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget4BoxBackgroundColor)}
                                 left="455px"
@@ -1520,7 +1520,7 @@ export default function Game(props) {
                                     redDroptargetBoxBackgroundColors,
                                     redDroptargetBoxBackgroundColorSetters,
                                     redDropTargetGroupAction,
-                                    null
+                                    undefined
                                 )}
                                 isThisBoxFilled={isBoxFilled(redDroptarget56BoxBackgroundColor)}
                                 left="480px"
@@ -1598,7 +1598,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(redOutlaneBoxBackgroundColor)}
                         left="18px"
@@ -1618,7 +1618,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(yelOutlaneBoxBackgroundColor)}
                         left="458px"
@@ -1640,7 +1640,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(redInlaneBoxBackgroundColor)}
                         left="94px"
@@ -1660,7 +1660,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(yelInlaneBoxBackgroundColor)}
                         left="419px"
@@ -1682,7 +1682,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(redFlipperBox3BoxBackgroundColor)}
                         left="215px"
@@ -1702,7 +1702,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(redFlipperBox45BoxBackgroundColor)}
                         left="195px"
@@ -1722,7 +1722,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(redFlipperBox6BoxBackgroundColor)}
                         left="178px"
@@ -1744,7 +1744,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox1BoxBackgroundColor)}
                         left="285px"
@@ -1764,7 +1764,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox23BoxBackgroundColor)}
                         left="300px"
@@ -1784,7 +1784,7 @@ export default function Game(props) {
                             [],
                             [],
                             () => { },
-                            null
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(yelFlipperBox4BoxBackgroundColor)}
                         left="315px"
@@ -1805,7 +1805,7 @@ export default function Game(props) {
                         [],
                         [],
                         () => { },
-                        null
+                        undefined
                     )}
                     isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
                     left={constants.DRAIN_BOX_LEFT}

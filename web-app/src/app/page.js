@@ -28,7 +28,7 @@ export default function Home(props) {
                     props.dieValues :
                     (MANUAL_DIE_VALUES.length > 1) ?
                         MANUAL_DIE_VALUES :
-                        null
+                        undefined
                 }
             />
         </div>
