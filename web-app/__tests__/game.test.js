@@ -1087,7 +1087,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when validly nudging the only ball to move the only ball', () => {
+    describe('when validly nudging down die 1 to move the only ball', () => {
         it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -1129,6 +1129,153 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            //#endregion
+        });
+    });
+    describe('when validly nudging up die 1 to move the only ball', () => {
+        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge die 1 by +1 to move to bumper 34 via 1st 3 box
+                [1, 6], // final roll that avoids tilting
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge die 1 by +1 to move from start to bumper 34 via 1st 3 box
+                [6, 6], // roll that causes tilt
+                [1, 1], // final roll post-tilt
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die 1 from 2 to 3
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            //#endregion
+        });
+    });
+    describe('when validly nudging down die 2 to move the only ball', () => {
+        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge die 2 by -1 to move to bumper 12 via 1st 1 box
+                [1, 6], // final roll that avoids tilting
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [3, 3], // will nudge die 2 by -1 to move from start to red flipper via red inlane
+                [6, 6], // roll that causes tilt
+                [1, 1], // final roll post-tilt
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("2");
+            expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+            //#endregion
+        });
+    });
+    describe('when validly nudging up die 2 to move the only ball', () => {
+        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge die 2 by +1 to move to bumper 34 via 1st 3 box
+                [1, 6], // final roll that avoids tilting
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
+            //#endregion
+        });
+        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+            //#region arrange
+            const DIE_VALUES = [
+                [2, 2], // will nudge die 2 by +1 to move from start to bumper 34 via 1st 3 box
+                [6, 6], // roll that causes tilt
+                [1, 1], // final roll post-tilt
+            ];
+            const user = userEvent.setup();
+            render(<Game dieValues={DIE_VALUES} />);
+            //#endregion
+            //#region act
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID)); // nudge die 1 from 2 to 3
+            await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
+            //#endregion
+            //#region assert
+            expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+            expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+            expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
+            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
