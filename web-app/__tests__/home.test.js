@@ -10,10 +10,10 @@ describe('Home', () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1], // move from start to ferris wheel car 12 (a solid box)
-                [1, 1], // nudge die1 to 2 then move to red flipper via red inlane (a dashed box) (worth 2 points)
-                [1, 6], // avoid tilting and then move to drain via drain box to start round 2
-                [1, 1], // roll after restarting the game
-                [1, 1], // final roll
+                [1, 1], // nudge die1 to 2 then move to red flipper via red inlane (a dashed box worth 2 points)
+                [1, 6], // avoid tilting and then move to drain box to end round 1
+                [3, 4], // roll for the start of round 2
+                [5, 5], // roll that should never be seen
             ];
             const user = userEvent.setup();
             render(<Home dieValues={DIE_VALUES} />);
@@ -39,6 +39,8 @@ describe('Home', () => {
             expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.left);
             expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
+            expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
+            expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             //#endregion
         });
     });
