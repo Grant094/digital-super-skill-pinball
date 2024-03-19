@@ -1483,7 +1483,7 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // move from start to red flipper box 3
-                [1, 1], // move to the red outlane
+                [1, 1], // move to red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1503,7 +1503,7 @@ describe("Game", () => {
             const DIE_VALUES = [
                 [3, 3], // move from start to red flipper box 3
                 [4, 5], // move to red flipper box 45
-                [1, 1], // move to the red outlane
+                [1, 1], // move to red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1525,7 +1525,7 @@ describe("Game", () => {
                 [3, 3], // move from start to red flipper box 3
                 [4, 5], // move to red flipper box 45
                 [6, 6], // move to red flipper box 6
-                [1, 1], // move to the red outlane
+                [1, 1], // move to red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1546,7 +1546,7 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // move from start to red inlane (worth 2 points)
-                [1, 1], // move to the red outlane
+                [1, 1], // move to red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1565,7 +1565,7 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1], // move from start to yel flipper box 1
-                [6, 6], // move to the yel outlane
+                [6, 6], // move to yel outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
