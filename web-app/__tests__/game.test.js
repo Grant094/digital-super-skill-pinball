@@ -1153,7 +1153,7 @@ describe("Game", () => {
         });
     });
     describe('when validly nudging down die 1 to move the only ball', () => {
-        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+        it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -1209,7 +1209,7 @@ describe("Game", () => {
         });
     });
     describe('when validly nudging up die 1 to move the only ball', () => {
-        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+        it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // will nudge die 1 by +1 to move to bumper 34 via 1st 3 box
@@ -1261,7 +1261,7 @@ describe("Game", () => {
         });
     });
     describe('when validly nudging down die 2 to move the only ball', () => {
-        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+        it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // will nudge die 2 by -1 to move to bumper 12 via 1st 1 box
@@ -1313,7 +1313,7 @@ describe("Game", () => {
         });
     });
     describe('when validly nudging up die 2 to move the only ball', () => {
-        it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
+        it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // will nudge die 2 by +1 to move to bumper 34 via 1st 3 box
