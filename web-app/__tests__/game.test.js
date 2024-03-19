@@ -2034,7 +2034,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
             //#endregion
         });
-        it('should do nothing if clicking on an already gained skill shot when gaining a 2nd skill shot is allowed', async () => {
+        it('should do nothing if clicking on an already gained skill shot when otherwise validly attempting to gain a 2nd skill shot', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2042,12 +2042,14 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
+                // select skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
+                // attempt to select already-selected skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
