@@ -1479,11 +1479,11 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ROUND_3_INDICATOR_ID)).toBeVisible();
             //#endregion
         });
-        it('should add 2 points when using the red outlane and one red flipper box has been filled', async () => {
+        it('should award 2 points when using the red outlane and one red flipper box has been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // move from start to red flipper box 3
-                [1, 1], // move to red outlane
+                [1, 1], // move to the red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1498,12 +1498,12 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should add 4 points when using the red outlane and two red flipper boxes have been filled', async () => {
+        it('should award 4 points when using the red outlane and two red flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // move from start to red flipper box 3
                 [4, 5], // move to red flipper box 45
-                [1, 1], // move to red outlane
+                [1, 1], // move to the red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1519,13 +1519,13 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(4);
             //#endregion
         });
-        it('should add 6 points when using the red outlane and three red flipper boxes have been filled', async () => {
+        it('should award 6 points when using the red outlane and three red flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // move from start to red flipper box 3
                 [4, 5], // move to red flipper box 45
                 [6, 6], // move to red flipper box 6
-                [1, 1], // move to red outlane
+                [1, 1], // move to the red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1542,11 +1542,11 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(6);
             //#endregion
         });
-        it('should add 0 points when using the red outlane after the inlane but no red flipper boxes have been filled', async () => {
+        it('should award 0 points when using the red outlane after the inlane but no red flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // move from start to red inlane (worth 2 points)
-                [1, 1], // move to red outlane
+                [1, 1], // move to the red outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1561,11 +1561,11 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should add 2 points when using the yel outlane and one yel flipper box has been filled', async () => {
+        it('should award 2 points when using the yel outlane and one yel flipper box has been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1], // move from start to yel flipper box 1
-                [6, 6], // move to drain via yel outlane
+                [6, 6], // move to the yel outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1580,12 +1580,12 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should add 4 points when using the yel outlane and two yel flipper boxes have been filled', async () => {
+        it('should award 4 points when using the yel outlane and two yel flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1], // move from start to yel flipper box 1
                 [2, 3], // move to yel flipper box 23
-                [6, 6], // move to drain via yel outlane
+                [6, 6], // move to yel outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1601,13 +1601,13 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(4);
             //#endregion
         });
-        it('should add 6 points when using the yel outlane and three yel flipper boxes have been filled', async () => {
+        it('should award 6 points when using the yel outlane and three yel flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1], // move from start to yel flipper box 1
                 [2, 3], // move to yel flipper box 23
                 [4, 4], // move to yel flipper box 4
-                [6, 6], // move to drain via yel outlane
+                [6, 6], // move to yel outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1624,11 +1624,11 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(6);
             //#endregion
         });
-        it('should add 0 points when using the yel outlane after the inlane but no yel flipper boxes have been filled', async () => {
+        it('should award 0 points when using the yel outlane after the inlane but no yel flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5], // move from start to yel inlane (worth 2 points)
-                [6, 6], // move to drain via yel outlane
+                [6, 6], // move to yel outlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
