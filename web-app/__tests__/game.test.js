@@ -19,7 +19,6 @@ describe("Game", () => {
                 expect(screen.getByTitle(boxId)).toBeInTheDocument();
                 expect(screen.getByTitle(boxId).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
                 expect(screen.getByTitle(boxId)).toBeVisible();
-
             }
             //#endregion
         });
