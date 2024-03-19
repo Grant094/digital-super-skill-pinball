@@ -543,7 +543,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region drop targets
-        it('should be able to move from start to yel droptarget 12, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to yel drop target 12, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -563,7 +563,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to yel droptarget 34, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to yel drop target 34, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -583,7 +583,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to yel droptarget 56, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to yel drop target 56, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -603,7 +603,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 12, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to red drop target 12, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -623,7 +623,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 3, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to red drop target 3, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -643,7 +643,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 4, fill the box, and award 1 point, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to red drop target 4, fill the box, and award 1 point, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -663,7 +663,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 56, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to red drop target 56, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -1674,11 +1674,11 @@ describe("Game", () => {
         it('should deactivate the flipper pass indicator if it is active', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select flipper pass bonus
                 [1, 1], // move to the drain
                 [1, 1], // final roll
@@ -1800,13 +1800,13 @@ describe("Game", () => {
         it('should award 12 points when using the yel outlane and three yel flipper boxes have been filled and the outlane bonus is active', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red droptarget 12
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red droptarget 3
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red droptarget 4
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red droptarget 56
+                [5, 6], // move to red drop target 56
                 // select outlane bonus
                 [1, 1], // move to yel flipper box 1
                 [2, 3], // move to yel flipper box 23
@@ -2173,11 +2173,11 @@ describe("Game", () => {
         it('should clear all boxes in the yel drop targets group', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2199,11 +2199,11 @@ describe("Game", () => {
         it('should alert the user to select a yellow bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2223,11 +2223,11 @@ describe("Game", () => {
         it('should allow the user to select the flipper pass bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select flipper pass bonus
                 [1, 1], // final roll
             ];
@@ -2252,11 +2252,11 @@ describe("Game", () => {
         it('should allow the user to select the fill 2 hammer spaces bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces bonus
                 [1, 1], // final roll
             ];
@@ -2278,11 +2278,11 @@ describe("Game", () => {
         it('should allow the user to activate multiball with ball 1 via the yel multiball bonus and deselect the activating ball', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 1], // final roll
             ];
@@ -2308,11 +2308,11 @@ describe("Game", () => {
         it('should allow the user to select 2 bonus points and be awarded those 2 bonus points', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select 2 bonus points
                 [1, 1], // final roll
             ];
@@ -2336,18 +2336,18 @@ describe("Game", () => {
         it('should allow the user to select 2 bonus points and be awarded those 2 bonus points a 2nd time', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select 2 bonus points
                 [1, 1], // move to drain
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select 2 bonus points again
                 [1, 1], // final roll
             ];
@@ -2381,11 +2381,11 @@ describe("Game", () => {
             const DIE1_FINAL_VALUE = 2;
             const DIE2_FINAL_VALUE = 5;
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 [DIE1_FINAL_VALUE, DIE2_FINAL_VALUE],
                 // attempt to move to yel flipper box 4
                 // attempt to move to red outlane
@@ -2422,11 +2422,11 @@ describe("Game", () => {
         it('should allow the user to move after choosing a yellow bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 [5, 5], // move to yel inlane
                 // select flipper pass
                 // move to yel inlane
@@ -2453,11 +2453,11 @@ describe("Game", () => {
         it('should not allow the user to select a red bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // attempt to select bumper (red) bonus
                 [1, 1], // final roll
             ];
@@ -2483,13 +2483,13 @@ describe("Game", () => {
         it('should clear all boxes in the red drop targets group', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red droptarget 12
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red droptarget 3
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red droptarget 4
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red droptarget 56
+                [5, 6], // move to red drop target 56
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3110,11 +3110,11 @@ describe("Game", () => {
         it('should allow the user to move from the yel flipper to a hammer space', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select flipper pass
                 [4, 4], // move to yel flipper box 4
                 [1, 1], // move to hammer space 1
@@ -3141,11 +3141,11 @@ describe("Game", () => {
         it('should allow the user to move from the red flipper to a ferris wheel car', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select flipper pass
                 [6, 6], // move to red flipper box 6
                 [1, 1], // move to ferris wheel car 12
@@ -3174,11 +3174,11 @@ describe("Game", () => {
         it('should not allow the user to move from the yel flipper to a hammer space', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select flipper pass
                 [1, 1], // move to drain
                 [4, 4], // move from start to yel flipper box 4
@@ -3211,11 +3211,11 @@ describe("Game", () => {
         it('should only fill hammer spaces 1 and 2 and award 1 point if no hammer spaces are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces
                 [1, 1], // final roll
             ];
@@ -3245,13 +3245,13 @@ describe("Game", () => {
         it('should only fill hammer spaces 2 and 3 and award 2 points if only hammer space 1 is filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces
                 [1, 1], // final roll
             ];
@@ -3283,15 +3283,15 @@ describe("Game", () => {
         it('should only fill hammer spaces 3 and 4 and award 3 points if only hammer spaces 1 & 2 are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
                 [2, 2], // move to hammer space 2
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces
                 [1, 1], // final roll
             ];
@@ -3325,7 +3325,7 @@ describe("Game", () => {
         it('should only fill hammer spaces 4 and 5 and award 7 additional points if only hammer spaces [1, 3] are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
@@ -3333,9 +3333,9 @@ describe("Game", () => {
                 [6, 6], // move to red flipper box 6
                 [3, 3], // move to hammer space 3
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces
                 [1, 1], // final roll
             ];
@@ -3371,7 +3371,7 @@ describe("Game", () => {
         it('should fill hammer spaces 5 and 6, award 25 points, and unfill all hammer spaces, all if only hammer spaces 1-4 are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
@@ -3381,9 +3381,9 @@ describe("Game", () => {
                 [2, 2], // move to red inlane
                 [4, 4], // move to hammer space 4
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces
                 [1, 1], // final roll
             ];
@@ -3421,7 +3421,7 @@ describe("Game", () => {
         it('should fill hammer spaces 6 and 1, unfill other hammer spaces, and award 20 additional points, all if only hammer spaces 1-5 are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
@@ -3434,9 +3434,9 @@ describe("Game", () => {
                 [3, 3], // move to red flipper box 3
                 [5, 5], // move to hammer space 5
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select fill two hammer spaces
                 [1, 1], // final roll
             ];
@@ -3521,11 +3521,11 @@ describe("Game", () => {
         it('should move the drained ball, ball 2, to start even if it had entered the drain earlier in the round', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [3, 2],
                 // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
@@ -3604,11 +3604,11 @@ describe("Game", () => {
                 it('should neither deselect ball 1 nor change border color of ball 2', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [1, 1], // final roll
                         // move ball 2 with die 1 (=1) from start to ferris wheel car 12
@@ -3640,11 +3640,11 @@ describe("Game", () => {
             it('should change the border color of ball 1 to BALL_SELECTED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [1, 1], // final roll
                     // select ball 1
@@ -3669,11 +3669,11 @@ describe("Game", () => {
                 it('should neither deselect ball 2 nor change the border color of ball 1 from BALL_MOVED_BORDER_COLOR', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 1], // final roll
                         // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
@@ -3705,11 +3705,11 @@ describe("Game", () => {
             it('should change border color of die 1 to be DIE_SELECTED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [1, 1], // final roll
                     // select die 1
@@ -3733,11 +3733,11 @@ describe("Game", () => {
             it('should do nothing if die 1 has been used this turn', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
@@ -3769,11 +3769,11 @@ describe("Game", () => {
             it('should change border color of die 2 to be DIE_SELECTED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [1, 1], // final roll
                     // select die 2
@@ -3797,11 +3797,11 @@ describe("Game", () => {
             it('should do nothing if die 2 has been used this turn', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // move ball 1 with die 2 (=4) from yel drop target 56 to red flipper box 45
@@ -3833,11 +3833,11 @@ describe("Game", () => {
             it('should change the border color of the ball to BALL_MOVED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     // select ball2
                     [1, 2], // move ball2 with die1=1 to ferris wheel car 12
@@ -3864,11 +3864,11 @@ describe("Game", () => {
             it('should change the border color of the used die to DIE_USED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     // select ball2
                     [1, 2], // move ball2 with die1=1 to ferris wheel car 12
@@ -3895,11 +3895,11 @@ describe("Game", () => {
             it('should award double the points that would otherwise be awarded', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [1, 2], // move ball 2 with die 1 (=1) to bumper 12 via 1st 1 box
                     [1, 1], // final roll
@@ -3927,11 +3927,11 @@ describe("Game", () => {
             it('should automatically select the non-moved ball after only one ball has been moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     // select ball2
                     [3, 4], // move ball2 with die1=3 to ferris wheel car 34
@@ -3958,11 +3958,11 @@ describe("Game", () => {
             it('should automatically select the unused die after only one ball has been moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     // select ball2
                     [3, 4], // move ball 2 with die 1 (=3) to ferris wheel car 34
@@ -3989,11 +3989,11 @@ describe("Game", () => {
             it('should not roll the dice after only one ball has been moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     // select ball2
                     [3, 4], // move ball2 to ferris wheel car 34
@@ -4020,11 +4020,11 @@ describe("Game", () => {
             it('should roll the dice after both balls have been moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
@@ -4055,11 +4055,11 @@ describe("Game", () => {
             it('should change border colors of both dice to DIE_AVAILABLE_BORDER_COLOR after both balls have been moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
@@ -4090,11 +4090,11 @@ describe("Game", () => {
             it('should allow both balls to be moved after a previous turn in which both balls were moved', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball2 and move it with die2=4 to ferris wheel car 34
@@ -4137,11 +4137,11 @@ describe("Game", () => {
             it('should not move the ball and should alert the user to select a die', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4], // select ball 2 and attempt to move it without selecting either die
                     [1, 1], // final roll which should not be reached
@@ -4169,11 +4169,11 @@ describe("Game", () => {
             it('should remove the alert once you select a die', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball 2 and attempt to move it without selecting either die
@@ -4203,11 +4203,11 @@ describe("Game", () => {
             it('should not move either ball and should alert the user to select a ball', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4], // select die 1 (=3) and attempt to move either ball to red flipper box 3
                     [1, 1], // final roll which should not be reached
@@ -4237,11 +4237,11 @@ describe("Game", () => {
             it('should remove the alert once a ball is selected', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // select die 1 (=3) and attempt to move either ball to red flipper box 3
@@ -4271,11 +4271,11 @@ describe("Game", () => {
             it('should not move either ball and should alert the user to select a ball and a die', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4], // attempt to move either ball with either die to red flipper box 3
                     [1, 1], // final roll which should not be reached
@@ -4305,11 +4305,11 @@ describe("Game", () => {
                 it('should change the alert to be about not having selected only a ball', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // attempt to move to the red flipper box 3
@@ -4338,11 +4338,11 @@ describe("Game", () => {
                 it('should change the alert to be about not having selected a die', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // attempt to move to the red flipper box 3
@@ -4371,11 +4371,11 @@ describe("Game", () => {
                 it('should not show any alert', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // attempt to move to the red flipper box 3
@@ -4404,11 +4404,11 @@ describe("Game", () => {
                 it('should allow the user to move the selected ball', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // attempt to move to the red flipper box 3
@@ -4441,11 +4441,11 @@ describe("Game", () => {
             it('should ignore clicks on the moved ball', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball 2 and move it with die 1 (=3) to ferris wheel car 34
@@ -4478,11 +4478,11 @@ describe("Game", () => {
                 it('should not end the round', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // select ball 2 and move it with die 1 (=3) to the drain via the drain box
@@ -4513,11 +4513,11 @@ describe("Game", () => {
                 it('should not end the round', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // select ball 1 and move it with die 1 (=3) to the red flipper box 3
@@ -4550,11 +4550,11 @@ describe("Game", () => {
                 it('does end the round', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
                         // select ball 1 and move it with die 1 (=3) to the drain via the drain box
@@ -4591,11 +4591,11 @@ describe("Game", () => {
                 it('should ignore clicks on the red multiball bonus box', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 2],
                         // move ball 1 with die 1 (=3) to red flipper box 3
@@ -4663,11 +4663,11 @@ describe("Game", () => {
                 it('should allow multiball to be activated again', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to yel droptarget 12
+                        [1, 2], // move from start to yel drop target 12
                         [1, 1], // move to yel flipper box 1
-                        [3, 4], // move to yel droptarget 34
+                        [3, 4], // move to yel drop target 34
                         [2, 3], // move to yel flipper box 23
-                        [5, 6], // move to yel droptarget 56
+                        [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 2],
                         // move ball 1 with die 1 (=3) to red flipper box 3
@@ -4735,11 +4735,11 @@ describe("Game", () => {
             it('should allow the red points bonus to be selected and award double points', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 2],
                     // move ball 1 with die 1 (=3) to red flipper box 3
@@ -4809,13 +4809,13 @@ describe("Game", () => {
                 it('should ignore clicks on the yellow multiball bonus box', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to red droptarget 12
+                        [1, 2], // move from start to red drop target 12
                         [3, 3], // move to red flipper box 3
-                        [3, 3], // move to red droptarget 3
+                        [3, 3], // move to red drop target 3
                         [4, 5], // move to red flipper box 45
-                        [4, 4], // move to red droptarget 4
+                        [4, 4], // move to red drop target 4
                         [6, 6], // move to red flipper box 6
-                        [5, 6], // move to red droptarget 56
+                        [5, 6], // move to red drop target 56
                         // select red multiball bonus
                         [1, 2],
                         // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
@@ -4884,13 +4884,13 @@ describe("Game", () => {
                 it('should allow multiball to be activated again', async () => {
                     //#region arrange
                     const DIE_VALUES = [
-                        [1, 2], // move from start to red droptarget 12
+                        [1, 2], // move from start to red drop target 12
                         [3, 3], // move to red flipper box 3
-                        [3, 3], // move to red droptarget 3
+                        [3, 3], // move to red drop target 3
                         [4, 5], // move to red flipper box 45
-                        [4, 4], // move to red droptarget 4
+                        [4, 4], // move to red drop target 4
                         [6, 6], // move to red flipper box 6
-                        [5, 6], // move to red droptarget 56
+                        [5, 6], // move to red drop target 56
                         // select red multiball bonus
                         [1, 2],
                         // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
@@ -4959,13 +4959,13 @@ describe("Game", () => {
             it('should allow the yellow points bonus to be selected and award double points', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to red droptarget 12
+                    [1, 2], // move from start to red drop target 12
                     [3, 3], // move to red flipper box 3
-                    [3, 3], // move to red droptarget 3
+                    [3, 3], // move to red drop target 3
                     [4, 5], // move to red flipper box 45
-                    [4, 4], // move to red droptarget 4
+                    [4, 4], // move to red drop target 4
                     [6, 6], // move to red flipper box 6
-                    [5, 6], // move to red droptarget 56
+                    [5, 6], // move to red drop target 56
                     // select red multiball bonus
                     [1, 2],
                     // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
@@ -5036,11 +5036,11 @@ describe("Game", () => {
             it('should still award double points for each move on this turn', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [6, 1],
                     // move ball 1 with die 1 (=6) from yel drop target 56 to drain via the yel outlane
@@ -5075,11 +5075,11 @@ describe("Game", () => {
             it('should keep the ball hidden in the outlane', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [6, 1],
                     // move ball 1 with die 1 (=6) from yel drop target 56 to yel outlane
@@ -5111,11 +5111,11 @@ describe("Game", () => {
             it('should keep the ball hidden in the outlane', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [1, 1],
                     // move ball 1 with die 1 (=1) from yel drop target 56 to red outlane
@@ -5147,11 +5147,11 @@ describe("Game", () => {
             it('should not move the ball and should display the alert for this specific situation', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 1],
                     // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
@@ -5214,11 +5214,11 @@ describe("Game", () => {
         it('should resume auto-selecting the only remaining ball, ball1', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 6],
                 // select ball 2 and move it with die 1 (=1) to the drain via the drain box
@@ -5252,11 +5252,11 @@ describe("Game", () => {
         it('should resume auto-selecting the only remaining ball, ball2', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 6],
                 // select ball 1 and move it with die 1 (=1) to the drain via the drain box
@@ -5290,11 +5290,11 @@ describe("Game", () => {
         it('should ignore attempts by the user to select a die', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12
+                [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34
+                [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56
+                [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 6],
                 // select ball 2 and move it with die 1 (=1) to the drain via the drain box
