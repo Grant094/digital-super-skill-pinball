@@ -2170,7 +2170,7 @@ describe("Game", () => {
         });
     });
     describe('when filling all boxes in the yel drop targets group', () => {
-        it('should clear all boxes in the yel droptargets group', async () => {
+        it('should clear all boxes in the yel drop targets group', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
