@@ -4436,8 +4436,8 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball 2 and move it with die 1 (=3) to ferris wheel car 34
-                    // attempt to select ball 2 again without having moved ball 1
+                    // move ball 2 with die 1 (=3) to ferris wheel car 34
+                    // click on ball 2
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
