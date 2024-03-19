@@ -2550,6 +2550,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
+                // select the bumper bonus
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2582,6 +2583,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
+                // select the outlane bonus
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2641,14 +2643,14 @@ describe("Game", () => {
         it('should allow the user to select gaining 3 bonus points and award those 3 points', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red drop target 12 (+1)
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red drop target 3 (+1)
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red drop target 4 (+1)
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red drop target 56 (+1)
-                // select red bonus points (+3)
+                [5, 6], // move to red drop target 56
+                // select red bonus points
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2673,23 +2675,23 @@ describe("Game", () => {
         it('should allow the user to select gaining 3 bonus points and award those 3 points a 2nd time', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red drop target 12 (+1)
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red drop target 3 (+1)
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red drop target 4 (+1)
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red drop target 56 (+1)
-                // select red bonus points (+3)
+                [5, 6], // move to red drop target 56
+                // select red bonus points
                 [1, 1], // move to drain
-                [1, 2], // move from start to red drop target 12 (+1)
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red drop target 3 (+1)
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red drop target 4 (+1)
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red drop target 56 (+1)
-                // select red bonus points again (+3)
+                [5, 6], // move to red drop target 56
+                // select red bonus points again
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
