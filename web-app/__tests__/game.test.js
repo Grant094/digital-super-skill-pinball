@@ -1919,7 +1919,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // select skill shot 1
+                // gain skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1945,7 +1945,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // select skill shot 1
+                // gain skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1972,8 +1972,8 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // select skill shot 1
-                // attempt to select skill shot 2
+                // gain skill shot 1
+                // attempt to gain skill shot 2
                 [1, 1], // final roll 
             ];
             const user = userEvent.setup();
@@ -2001,14 +2001,14 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // select skill shot 1
+                // gain skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // select skill shot 6
+                // gain skill shot 6
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2042,14 +2042,14 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // select skill shot 1
+                // gain skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // attempt to select already-selected skill shot 1
+                // attempt to gain already-gain skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3053,7 +3053,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // to gain skill shot 1
-            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // to select skill shot 1
+            await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID)); // to gain skill shot 1
             await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID)); // should do nothing
             //#endregion
             //#region assert
