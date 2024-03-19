@@ -847,7 +847,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region drain
-        it('should be able to move from start to start via the red outlane, fill the box, and award 0 points, all on a roll of {1, 1}', async () => {
+        it('should be able to click on the red outlane, move the ball back to start, and award 0 points, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -866,7 +866,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to start via the yel outlane, fill the box, and award 0 points, all on a roll of {6, 6}', async () => {
+        it('should be able to click on the yel outlane, move the ball back to start, and award 0 points, all on a roll of {6, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -885,7 +885,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to start via drain, fill the box, and award 0 points, all on a roll of {3, 4}', async () => {
+        it('should be able to click on the drain box, move the ball back to start, and award 0 points, all on a roll of {3, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 4],
