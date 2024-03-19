@@ -84,7 +84,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
-        it('should render bonus indicator components with transparent borders', async () => {
+        it('should render bonus indicator components with BONUS_INDICATOR_INACTIVE_BORDER_COLOR borders', async () => {
             //#region arrange
             render(<Game />);
             //#endregion
