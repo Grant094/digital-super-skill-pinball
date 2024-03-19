@@ -1766,13 +1766,13 @@ describe("Game", () => {
         it('should award 12 points when using the red outlane and three red flipper boxes have been filled and the outlane bonus is active', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red drop target 12 (+1)
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red drop target 3 (+1)
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red drop target 4 (+1)
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red drop target 6 (+1)
+                [5, 6], // move to red drop target 6
                 // select outlane bonus
                 [1, 1], // move to red outlane
                 [1, 1], // final roll
@@ -1800,13 +1800,13 @@ describe("Game", () => {
         it('should award 12 points when using the yel outlane and three yel flipper boxes have been filled and the outlane bonus is active', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red droptarget 12 (+1)
+                [1, 2], // move from start to red droptarget 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red droptarget 3 (+1)
+                [3, 3], // move to red droptarget 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red droptarget 4 (+1)
+                [4, 4], // move to red droptarget 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red droptarget 56 (+1)
+                [5, 6], // move to red droptarget 56
                 // select outlane bonus
                 [1, 1], // move to yel flipper box 1
                 [2, 3], // move to yel flipper box 23
