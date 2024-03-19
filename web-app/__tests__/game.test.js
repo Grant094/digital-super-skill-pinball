@@ -2082,12 +2082,15 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
+                // gain skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
+                // click on already-gained skill shot 1
+                // gain skill shot 6
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
