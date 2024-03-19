@@ -4461,7 +4461,7 @@ describe("Game", () => {
             });
         });
         describe('when moving a ball to the drain', () => {
-            describe('when moving a ball to the drain with the first move', () => {
+            describe('when moving a ball to the drain with the first move of a turn', () => {
                 it('should not end the round', async () => {
                     //#region arrange
                     const DIE_VALUES = [
@@ -4496,7 +4496,7 @@ describe("Game", () => {
                     //#endregion
                 });
             });
-            describe('when moving a ball to the drain with the second move', () => {
+            describe('when moving a ball to the drain with the second move of a turn', () => {
                 it('should not end the round', async () => {
                     //#region arrange
                     const DIE_VALUES = [
@@ -4507,8 +4507,8 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // select ball 1 and move it with die 1 (=3) to the red flipper box 3
-                        // move ball 2 with die 2 (=4) to the drain via the drain box
+                        // move ball 1 with die 1 (=3) to red flipper box 3
+                        // move ball 2 with die 2 (=4) to the drain box
                         [1, 1], // final roll
                     ];
                     const user = userEvent.setup();
@@ -4544,8 +4544,8 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // select ball 1 and move it with die 1 (=3) to the drain via the drain box
-                        // move ball 2 with die 2 (=4) to the drain via the drain box
+                        // move ball 1 with die 1 (=3) to the drain box
+                        // move ball 2 with die 2 (=4) to the drain box
                         [1, 1], // final roll
                     ];
                     const user = userEvent.setup();
