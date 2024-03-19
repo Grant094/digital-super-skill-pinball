@@ -2427,7 +2427,9 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
-                [5, 5], // move to yel inlane after choosing flipper pass
+                [5, 5], // move to yel inlane
+                // select flipper pass
+                // move to yel inlane
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
