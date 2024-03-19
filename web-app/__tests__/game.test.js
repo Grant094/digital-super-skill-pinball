@@ -1075,7 +1075,6 @@ describe("Game", () => {
                 [2, 2], // move from start to bumper 12 1st 2 box (+1)
                 [4, 4], // move to yel flipper box 4
                 [2, 2], // attempt to select bumper 12 1st 2 box
-                [1, 1], // final roll which should not be reached
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -4135,7 +4134,6 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4], // select ball 2 and attempt to move it without selecting either die
-                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4201,7 +4199,6 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4], // select die 1 (=3) and attempt to move either ball to red flipper box 3
-                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4237,7 +4234,6 @@ describe("Game", () => {
                     [3, 4],
                     // select die 1 (=3) and attempt to move either ball to red flipper box 3
                     // select ball 1
-                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4269,7 +4265,6 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4], // attempt to move either ball with either die to red flipper box 3
-                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4305,7 +4300,6 @@ describe("Game", () => {
                         [3, 4],
                         // attempt to move to the red flipper box 3
                         // select die 1 (=3)
-                        [1, 1], // final roll which should not be reached
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4338,7 +4332,6 @@ describe("Game", () => {
                         [3, 4],
                         // attempt to move to the red flipper box 3
                         // select ball 1 (at yel drop target 56)
-                        [1, 1], // final roll which should not be reached
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4372,7 +4365,6 @@ describe("Game", () => {
                         // attempt to move to the red flipper box 3
                         // select ball 1 (at yel drop target 56)
                         // select die 1 (=3)
-                        [1, 1], // final roll which should not be reached
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4441,7 +4433,6 @@ describe("Game", () => {
                     [3, 4],
                     // select ball 2 and move it with die 1 (=3) to ferris wheel car 34
                     // attempt to select ball 2 again without having moved ball 1
-                    [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -5442,7 +5433,6 @@ describe("Game", () => {
                 [2, 3], // move to drain after choosing the bumper bonus
                 [1, 1], // move to bumper 12 via 1st 1 box (+1)
                 [5, 5], // attempt to move to bumper 56 via 1st 5 box
-                [1, 1], // final roll which should not be reached
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
