@@ -1104,8 +1104,9 @@ describe("Game", () => {
             const DIE1_1ST_VALUE = 2;
             const DIE2_1ST_VALUE = 5;
             const DIE_VALUES = [
-                [DIE1_1ST_VALUE, DIE2_1ST_VALUE], // nudge 2 to 1 and click on red outlane
-                [1, 1], // final roll
+                [DIE1_1ST_VALUE, DIE2_1ST_VALUE],
+                // nudge die 1 (=2) down to 1
+                // attempt to move to the red outlane
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -1122,10 +1123,16 @@ describe("Game", () => {
             expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(Number(DIE2_1ST_VALUE));
             //#endregion
         });
-        it('should remove the alert after the player makes a valid move', async () => {
+    });
+    describe('when attempting to make a valid move after attempting to nudge into an outlane', () => {
+        it('should remove the alert', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // nudge die1 by -1 to 1
+                [2, 2],
+                // nudge die1 (=2) down to 1
+                // attempt to move to the red outlane
+                // nudge die1 (=1) up to 2
+                // move to ferris wheel car 12
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
