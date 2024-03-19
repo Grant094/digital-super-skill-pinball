@@ -2606,7 +2606,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.OUTLANE_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
-        it('should allow the user to activate multiball with ball1 via the red multiball bonus and deselect the activating ball', async () => {
+        it('should allow the user to activate multiball with ball 1 via the red multiball bonus and deselect the activating ball', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
