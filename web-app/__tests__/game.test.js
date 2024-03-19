@@ -6,7 +6,7 @@ import * as constants from "../src/app/constants";
 import * as utilities from "../src/app/utilities";
 
 describe("Game", () => {
-    describe('when the game loads', () => {
+    describe('when loading the game', () => {
         it('should render all boxes as visible and unfilled', () => {
             //#region arrange
             render(<Game />);
