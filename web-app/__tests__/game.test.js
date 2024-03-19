@@ -1212,14 +1212,16 @@ describe("Game", () => {
         it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge die 1 by +1 to move to bumper 34 via 1st 3 box
+                [2, 2],
+                // nudge die 1 (=2) up to 3
+                // move from start to bumper 34 1st 3 box
                 [1, 6], // final roll that avoids tilting
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
@@ -1234,7 +1236,9 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge die 1 by +1 to move from start to bumper 34 via 1st 3 box
+                [2, 2],
+                // nudge die 1 (=2) up to 3
+                // move from start to bumper 34 1st 3 box
                 [6, 6], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
@@ -1242,7 +1246,7 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die 1 from 2 to 3
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
@@ -1264,14 +1268,16 @@ describe("Game", () => {
         it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge die 2 by -1 to move to bumper 12 via 1st 1 box
+                [2, 2],
+                // nudge die 2 (=2) down to 1
+                // move from start to bumper 12 1st 1 box
                 [1, 6], // final roll that avoids tilting
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
@@ -1286,7 +1292,9 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // will nudge die 2 by -1 to move from start to red inlane
+                [3, 3],
+                // nudge die 2 (=3) down to 2
+                // move from start to the red inlane
                 [6, 6], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
@@ -1294,7 +1302,7 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID));
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
@@ -1316,14 +1324,16 @@ describe("Game", () => {
         it('should increment nudges used, award points, and not end the round when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge die 2 by +1 to move to bumper 34 via 1st 3 box
+                [2, 2],
+                // nudge die 2 (=2) up to 3
+                // move from start to bumper 34 1st 3 box
                 [1, 6], // final roll that avoids tilting
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
@@ -1338,7 +1348,9 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge die 2 by +1 to move from start to bumper 34 via 1st 3 box
+                [2, 2],
+                // nudge die 2 (=2) up to 3
+                // move from start to bumper 34 1st 3 box
                 [6, 6], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
@@ -1346,7 +1358,7 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID)); // nudge die 1 from 2 to 3
+            await user.click(screen.getByTitle(constants.DIE2_NUDGE_UP_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
