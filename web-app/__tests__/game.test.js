@@ -2480,7 +2480,7 @@ describe("Game", () => {
         });
     });
     describe('when filling all boxes in the red drop targets group', () => {
-        it('should clear all boxes in the red droptargets group', async () => {
+        it('should clear all boxes in the red drop targets group', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red droptarget 12
