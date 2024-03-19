@@ -4269,7 +4269,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    [3, 4], // attempt to move either ball with either die to red flipper box 3
+                    [3, 4], // click on red flipper box 3
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
