@@ -2887,8 +2887,8 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 // gain skill shot 1
-                // select skill shot 1
                 [1, 1], // final roll
+                // select skill shot 1
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2915,9 +2915,9 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 // gain skill shot 1
+                [6, 6], // final roll
                 // select skill shot 1
                 // select die 1, overriding it
-                [6, 6], // final roll on whose turn die1 will be overridden
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2947,9 +2947,9 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 // gain skill shot 1
+                [6, 6], // final roll
                 // select skill shot 1
                 // select die 2, overriding it
-                [6, 6], // final roll on whose turn die 2 will be overridden
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2979,9 +2979,10 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 // gain skill shot 1
+                [6, 6],
                 // select skill shot 1
                 // select die 1, overriding it
-                [6, 6], // move to bumper 12 1st 1 box
+                // move to bumper 12 1st 1 box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
