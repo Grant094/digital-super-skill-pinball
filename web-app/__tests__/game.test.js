@@ -685,7 +685,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region flippers
-        it('should be able to move from start to red flipper via the red inlane, fill the box, and add 2 to the score, all on a roll of {2, 2}', async () => {
+        it('should be able to move from start to the red inlane, fill the box, and add 2 to the score, all on a roll of {2, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -705,7 +705,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should be able to move from start to red flipper via red flipper box 3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to red flipper box 3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -725,7 +725,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to red flipper via red flipper box 45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to red flipper box 45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -745,7 +745,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to red flipper via red flipper box 6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
+        it('should be able to move from start to red flipper box 6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -765,7 +765,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to yel flipper via the yel inlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to the yel inlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -785,7 +785,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should be able to move from start to yel flipper via yel flipper box 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to yel flipper box 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -805,7 +805,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to yel flipper via yel flipper box 23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
+        it('should be able to move from start to yel flipper box 23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 3],
@@ -825,7 +825,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to yel flipper via yel flipper box 4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to yel flipper box 4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -910,7 +910,7 @@ describe("Game", () => {
         it('should be able to move from red flipper to hammer space 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // from start to red flipper via red flipper box 3
+                [3, 3], // from start to red flipper box 3
                 [1, 1], // to hammer space 1
                 [1, 1], // final roll
             ];
@@ -933,18 +933,18 @@ describe("Game", () => {
         it('should be able to move to each hammer space in the correct order and award the correct number of points each time', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // from start to red flipper via red inlane
+                [2, 2], // from start to red inlane
                 [1, 1], // to hammer space 1 (+0)
-                [3, 3], // to red flipper via red flipper box 3
+                [3, 3], // to red flipper box 3
                 [2, 2], // to hammer space 2 (+1)
-                [4, 4], // to red flipper via red flipper box 45
+                [4, 4], // to red flipper box 45
                 [3, 3], // to hammer space 3 (+1)
-                [6, 6], // to red flipper via red flipper box 6
+                [6, 6], // to red flipper box 6
                 [4, 4], // to hammer space 4 (+2)
                 [1, 1], // to drain via drain box since all boxes for red flipper are filled
-                [2, 2], // from start to red flipper via red inlane
+                [2, 2], // from start to red inlane
                 [5, 5], // to hammer space 5 (+5)
-                [3, 3], // to red flipper via red flipper box 3
+                [3, 3], // to red flipper box 3
                 [6, 6], // to hammer space 6 (+20)
                 [1, 1], // final roll
             ];
@@ -993,9 +993,9 @@ describe("Game", () => {
         it('should have an alert and no other change when attempting to go out of sequence', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // from start to red flipper via red flipper box 3
+                [3, 3], // from start to red flipper box 3
                 [1, 1], // to hammer space 1
-                [4, 5], // to red flipper via red flipper box 45
+                [4, 5], // to red flipper box 45
                 [6, 6], // attempt to move to hammer space 6 out of sequence
                 [1, 1], // final roll
             ];
@@ -1070,7 +1070,7 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // move from start to bumper 12 via 1st 2 box (worth 1 point)
-                [4, 4], // move to yel flipper via yel flipper box 4
+                [4, 4], // move to yel flipper box 4
                 [2, 2], // attempt to select bumper 12 1st 2 box
                 [1, 1], // final roll which should not be reached
             ];
@@ -1167,7 +1167,7 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // will nudge -1 to move from start to red flipper via red inlane
+                [3, 3], // will nudge -1 to move from start to red inlane
                 [6, 6], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
@@ -1271,7 +1271,7 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // will nudge die 2 by -1 to move from start to red flipper via red inlane
+                [3, 3], // will nudge die 2 by -1 to move from start to red inlane
                 [6, 6], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
@@ -1390,9 +1390,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 6], // move from start to yel drop target 56
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel drop target 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [1, 2], // move to yel drop target 12
                 // select flipper pass
                 [1, 6], // move to drain via drain box
@@ -1518,7 +1518,7 @@ describe("Game", () => {
         it('should add 0 points when using the red outlane after the inlane but no red flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // move from start to red flipper via red inlane (worth 2 points)
+                [2, 2], // move from start to red inlane (worth 2 points)
                 [1, 1], // move to red outlane
                 [1, 1], // final roll
             ];
@@ -1537,7 +1537,7 @@ describe("Game", () => {
         it('should add 2 points when using the yel outlane and one yel flipper box has been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to yel flipper via yel flipper box 1
+                [1, 1], // move from start to yel flipper box 1
                 [6, 6], // move to drain via yel outlane
                 [1, 1], // final roll
             ];
@@ -1556,8 +1556,8 @@ describe("Game", () => {
         it('should add 4 points when using the yel outlane and two yel flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to yel flipper via yel flipper box 1
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [1, 1], // move from start to yel flipper box 1
+                [2, 3], // move to yel flipper box 23
                 [6, 6], // move to drain via yel outlane
                 [1, 1], // final roll
             ];
@@ -1577,9 +1577,9 @@ describe("Game", () => {
         it('should add 6 points when using the yel outlane and three yel flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to yel flipper via yel flipper box 1
-                [2, 3], // move to yel flipper via yel flipper box 23
-                [4, 4], // move to yel flipper via yel flipper box 4
+                [1, 1], // move from start to yel flipper box 1
+                [2, 3], // move to yel flipper box 23
+                [4, 4], // move to yel flipper box 4
                 [6, 6], // move to drain via yel outlane
                 [1, 1], // final roll
             ];
@@ -1600,7 +1600,7 @@ describe("Game", () => {
         it('should add 0 points when using the yel outlane after the inlane but no yel flipper boxes have been filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [5, 5], // move from start to yel flipper via yel inlane (worth 2 points)
+                [5, 5], // move from start to yel inlane (worth 2 points)
                 [6, 6], // move to drain via yel outlane
                 [1, 1], // final roll
             ];
@@ -1621,9 +1621,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // move to drain
                 [1, 1], // final roll
@@ -1648,9 +1648,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 [1, 1], // move to the drain
                 [1, 1], // final roll
@@ -1675,11 +1675,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 [1, 6], // move to drain after choosing bumper bonus
                 [1, 1], // final roll
@@ -1706,11 +1706,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 // select outlane bonus
                 [1, 6], // move to drain via drain box
@@ -1772,16 +1772,16 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red droptarget 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red droptarget 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red droptarget 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red droptarget 56 (+1)
                 // select outlane bonus
-                [1, 1], // move to yel flipper via yel flipper box 1
-                [2, 3], // move to yel flipper via yel flipper box 23
-                [4, 4], // move to yel flipper via yel flipper box 4
+                [1, 1], // move to yel flipper box 1
+                [2, 3], // move to yel flipper box 23
+                [4, 4], // move to yel flipper box 4
                 [6, 6], // move to drain via yel outlane
                 [1, 1], // final roll
             ];
@@ -1814,9 +1814,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll
             ];
@@ -1842,9 +1842,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [3, 4], // attempt to click on boxes that can receive on this
                 [1, 1], // final roll that should not be reached
@@ -1883,9 +1883,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll that should not be used to move
             ];
@@ -1908,9 +1908,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll which should never be used to move
             ];
@@ -1934,9 +1934,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll 
             ];
@@ -1961,15 +1961,15 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll
             ];
@@ -2000,15 +2000,15 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll
             ];
@@ -2038,15 +2038,15 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll
             ];
@@ -2131,9 +2131,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 [1, 1], // final roll
             ];
@@ -2157,9 +2157,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 [1, 1], // final roll
             ];
@@ -2181,9 +2181,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 [1, 1], // final roll
             ];
@@ -2209,9 +2209,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select fill two hammer spaces bonus
                 [1, 1], // final roll
@@ -2235,9 +2235,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
                 [1, 1], // final roll
@@ -2265,9 +2265,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select yellow bonus points (+2)
                 [1, 1], // final roll
@@ -2293,16 +2293,16 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select yellow bonus points (+2)
                 [1, 1], // move to drain via drain box
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select yellow bonus points again (+2)
                 [1, 1], // final roll
@@ -2336,9 +2336,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 [2, 5], // roll after filling all yel drop targets
                 [1, 1], // final roll
@@ -2372,11 +2372,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
-                [5, 5], // move to yel flipper via yel inlane after choosing flipper pass
+                [5, 5], // move to yel inlane after choosing flipper pass
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2401,9 +2401,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // attempt to select red bonus
                 [1, 1], // final roll
@@ -2431,11 +2431,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red droptarget 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red droptarget 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red droptarget 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red droptarget 56
                 [1, 1], // final roll
             ];
@@ -2462,11 +2462,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 [1, 1], // final roll
             ];
@@ -2491,11 +2491,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 [1, 1], // final roll
             ];
@@ -2523,11 +2523,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 [1, 1], // final roll
             ];
@@ -2555,11 +2555,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 // select red multiball bonus
                 [1, 1], // final roll
@@ -2589,11 +2589,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
                 // select red bonus points (+3)
                 [1, 1], // final roll
@@ -2621,20 +2621,20 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
                 // select red bonus points (+3)
                 [1, 1], // move to drain via drain box
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
                 // select red bonus points again (+3)
                 [1, 1], // final roll
@@ -2672,11 +2672,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 [1, 1], // final roll which should not be used to move
             ];
@@ -2709,13 +2709,13 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                [2, 3], // move to yel flipper via yel flipper box 23 after choosing a red bonus
+                [2, 3], // move to yel flipper box 23 after choosing a red bonus
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2742,11 +2742,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 // attempt to select flipper pass
                 [1, 1], // final roll
@@ -2775,18 +2775,18 @@ describe("Game", () => {
         it('should clear all hammer space boxes', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // from start to red flipper via red inlane
+                [2, 2], // from start to red inlane
                 [1, 1], // to hammer space 1
-                [3, 3], // to red flipper via red flipper box 3
+                [3, 3], // to red flipper box 3
                 [2, 2], // to hammer space 2
-                [4, 4], // to red flipper via red flipper box 45
+                [4, 4], // to red flipper box 45
                 [3, 3], // to hammer space 3
-                [6, 6], // to red flipper via red flipper box 6
+                [6, 6], // to red flipper box 6
                 [4, 4], // to hammer space 4
                 [1, 1], // to drain via drain box since all boxes for the red flipper are filled
-                [2, 2], // from start to red flipper via red inlane
+                [2, 2], // from start to red inlane
                 [5, 5], // to hammer space 5
-                [3, 3], // to red flipper via red flipper box 3
+                [3, 3], // to red flipper box 3
                 [6, 6], // to hammer space 6
                 [1, 1], // final roll
             ];
@@ -2823,9 +2823,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [1, 1], // final roll
             ];
@@ -2849,9 +2849,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [6, 6], // final roll on whose turn die1 will be overridden
             ];
@@ -2878,9 +2878,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [6, 6], // final roll on whose turn die 2 will be overridden
             ];
@@ -2907,9 +2907,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [6, 6], // override die1 to 1 and move to bumper 12 via 1st 1 box
                 [1, 1], // final roll
@@ -2937,9 +2937,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [6, 6], // override die1 to 1 and move to bumper 12 via 1st 1 box
                 [1, 6], // avoid tilt on final roll
@@ -2968,9 +2968,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [6, 6], // final roll that should neither be overridden nor used to move
             ];
@@ -2997,9 +2997,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
                 [6, 6], // final roll
             ];
@@ -3028,11 +3028,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
-                [4, 4], // move to yel flipper via yel flipper box 4
+                [4, 4], // move to yel flipper box 4
                 [1, 1], // move to hammer space 1
                 [1, 6], // final roll
             ];
@@ -3058,11 +3058,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [1, 1], // move to ferris wheel car 12
                 [1, 6], // final roll
             ];
@@ -3090,12 +3090,12 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 [1, 1], // move to drain
-                [4, 4], // move from start to yel flipper via yel flipper box 4
+                [4, 4], // move from start to yel flipper box 4
                 [1, 1], // attempt to move to hammer space 1
                 [1, 6], // final roll
             ];
@@ -3126,9 +3126,9 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select fill two hammer spaces (spaces 1 + 2 = 0 + 1 = +1)
                 [1, 1], // final roll
@@ -3160,11 +3160,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1 (+0)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select fill two hammer spaces (spaces 2 + 3 = 1 + 1 = +2)
                 [1, 1], // final roll
@@ -3198,13 +3198,13 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1 (+0)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [2, 2], // move to hammer space 2 (+1)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select fill two hammer spaces (spaces 3 + 4 = 1 + 2= +3)
                 [1, 1], // final roll
@@ -3240,15 +3240,15 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1 (+0)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [2, 2], // move to hammer space 2 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [3, 3], // move to hammer space 3 (+1)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select fill two hammer spaces (spaces 4 + 5 = 2 + 5 = +7)
                 [1, 1], // final roll
@@ -3286,17 +3286,17 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1 (+0)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [2, 2], // move to hammer space 2 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [3, 3], // move to hammer space 3 (+1)
-                [2, 2], // move to red flipper via red inlane (+2)
+                [2, 2], // move to red inlane (+2)
                 [4, 4], // move to hammer space 4 (+2)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select fill two hammer spaces (spaces 5 + 6 = 5 + 20 = +25)
                 [1, 1], // final roll
@@ -3336,20 +3336,20 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [1, 1], // move to hammer space 1 (+0)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [2, 2], // move to hammer space 2 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [3, 3], // move to hammer space 3 (+1)
-                [2, 2], // move to red flipper via red inlane (+2)
+                [2, 2], // move to red inlane (+2)
                 [4, 4], // move to hammer space 4 (+2)
                 [1, 1], // move to drain via drain box
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [5, 5], // move to hammer space 5 (+5)
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select fill two hammer spaces (spaces 6 + 1 = 20 + 0 = +20)
                 [1, 1], // final roll
@@ -3388,19 +3388,19 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
                 [1, 2],
                 // move ball 1 with die 1 (=1) to the drain via the drain box
                 // move ball 2 with die 2 (=2) to red drop target 12
-                [3, 3], // move ball 2 to red flipper via red flipper box 3
+                [3, 3], // move ball 2 to red flipper box 3
                 [3, 3], // move ball 2 to red drop target 3
-                [4, 5], // move ball 2 to red flipper via red flipper box 45
+                [4, 5], // move ball 2 to red flipper box 45
                 [4, 4], // move ball 2 to red drop target 4
-                [6, 6], // move ball 2 to red flipper via red flipper box 6
+                [6, 6], // move ball 2 to red flipper box 6
                 [5, 6], // move ball 2 to red drop target 56
                 // select red multiball bonus
                 [1, 1], // final roll
@@ -3436,20 +3436,20 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
                 [3, 2],
-                // move ball 1 from yel drop target 56 with die 1 (=3) to red flipper via red flipper box 3
+                // move ball 1 from yel drop target 56 with die 1 (=3) to red flipper box 3
                 // move ball 2 from start with die 2 (=2) to red drop target 12
                 [3, 1],
                 // move ball 1 with die 1 (=3) to red drop target 3
                 // move ball 2 with die 2 (=1) to the drain via the drain box
-                [4, 5], // move ball 1 to red flipper via red flipper box 45
+                [4, 5], // move ball 1 to red flipper box 45
                 [4, 4], // move ball 1 to red drop target 4
-                [6, 6], // move ball 1 to red flipper via red flipper box 6
+                [6, 6], // move ball 1 to red flipper box 6
                 [5, 6], // move ball 1 to red drop target 56
                 // select red multiball bonus
                 [1, 1], // final roll
@@ -3490,9 +3490,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [1, 1], // final roll
@@ -3518,9 +3518,9 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [1, 1], // final roll
@@ -3554,9 +3554,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [1, 1], // final roll
@@ -3582,13 +3582,13 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 1], // final roll
-                        // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                        // move ball 1 with die 1 (=3) to red flipper box 3
                         // attempt to select ball 1 again
                     ];
                     const user = userEvent.setup();
@@ -3618,9 +3618,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select die 1
@@ -3646,13 +3646,13 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                    // move ball 1 with die 1 (=3) to red flipper box 3
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3681,9 +3681,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select die 2
@@ -3709,13 +3709,13 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // move ball 1 with die 2 (=4) to red flipper via red flipper box 45
+                    // move ball 1 with die 2 (=4) to red flipper box 45
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3744,9 +3744,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
@@ -3775,9 +3775,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
@@ -3806,9 +3806,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [1, 2], // move ball 2 with die 1 (=1) to bumper 12 via 1st 1 box
@@ -3838,9 +3838,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
@@ -3869,9 +3869,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
@@ -3900,9 +3900,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     // select ball2
@@ -3931,14 +3931,14 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
-                    // move ball 1 with die1=3 to red flipper via red flipper box 3
+                    // move ball 1 with die1=3 to red flipper box 3
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -3966,14 +3966,14 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
-                    // move ball 1 with die1=3 to red flipper via red flipper box 3
+                    // move ball 1 with die1=3 to red flipper box 3
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -4001,14 +4001,14 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
                     // select ball2 and move it with die2=4 to ferris wheel car 34
-                    // move ball1 with die1=3 to red flipper via red flipper box 3
+                    // move ball1 with die1=3 to red flipper box 3
                     [2, 6],
                     // select ball 1 and move it with die2=6 to bumper 56 via 1st 6 box
                     // move ball 2 with die1=2 to bumper 12 via 1st 2 box
@@ -4048,9 +4048,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4], // select ball 2 and attempt to move it without selecting either die
@@ -4080,9 +4080,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
@@ -4114,12 +4114,12 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
-                    [3, 4], // select die 1 (=3) and attempt to move either ball to red flipper via red flipper box 3
+                    [3, 4], // select die 1 (=3) and attempt to move either ball to red flipper box 3
                     [1, 1], // final roll which should not be reached
                 ];
                 const user = userEvent.setup();
@@ -4148,13 +4148,13 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select die 1 (=3) and attempt to move either ball to red flipper via red flipper box 3
+                    // select die 1 (=3) and attempt to move either ball to red flipper box 3
                     // select ball 1
                     [1, 1], // final roll which should not be reached
                 ];
@@ -4182,9 +4182,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4], // attempt to move either ball with either die to red flipper box 3
@@ -4216,13 +4216,13 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper via red flipper box 3
+                        // attempt to move to the red flipper box 3
                         // select die 1 (=3)
                         [1, 1], // final roll which should not be reached
                     ];
@@ -4249,13 +4249,13 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper via red flipper box 3
+                        // attempt to move to the red flipper box 3
                         // select ball 1 (at yel drop target 56)
                         [1, 1], // final roll which should not be reached
                     ];
@@ -4282,13 +4282,13 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper via red flipper box 3
+                        // attempt to move to the red flipper box 3
                         // select ball 1 (at yel drop target 56)
                         // select die 1 (=3)
                         [1, 1], // final roll which should not be reached
@@ -4315,14 +4315,14 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper via red flipper box 3
-                        // move ball 1 with die 1 (=3) to the red flipper via red flipper box 3
+                        // attempt to move to the red flipper box 3
+                        // move ball 1 with die 1 (=3) to the red flipper box 3
                         [1, 1], // final roll that should not be reached
                     ];
                     const user = userEvent.setup();
@@ -4352,9 +4352,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
@@ -4389,9 +4389,9 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
@@ -4424,13 +4424,13 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
-                        // select ball 1 and move it with die 1 (=3) to the red flipper via red flipper box 3
+                        // select ball 1 and move it with die 1 (=3) to the red flipper box 3
                         // move ball 2 with die 2 (=4) to the drain via the drain box
                         [1, 1], // final roll
                     ];
@@ -4461,9 +4461,9 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 4],
@@ -4502,25 +4502,25 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 2],
-                        // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                        // move ball 1 with die 1 (=3) to red flipper box 3
                         // move ball 2 with die 2 (=2) to red drop target 12
                         [3, 4],
                         // move ball 1 with die 1 (=3) to red drop target 3
-                        // move ball 2 with die 2 (=4) to yel flipper via yel flipper box 4
+                        // move ball 2 with die 2 (=4) to yel flipper box 4
                         [4, 1],
-                        // move ball 1 with die 1 (=4) to red flipper via red flipper box 45
+                        // move ball 1 with die 1 (=4) to red flipper box 45
                         // move ball 2 with die 2 (=1) to ferris wheel car 12
                         [4, 1],
                         // move ball 1 with die 1 (=4) to red drop target 4
                         // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
                         [6, 3],
-                        // move ball 1 with die 1 (=6) to red flipper via red flipper box 6
+                        // move ball 1 with die 1 (=6) to red flipper box 6
                         // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
                         [5, 5],
                         // move ball 1 with die 1 (=5) to red drop target 56
@@ -4574,25 +4574,25 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to yel droptarget 12
-                        [1, 1], // move to yel flipper via yel flipper box 1
+                        [1, 1], // move to yel flipper box 1
                         [3, 4], // move to yel droptarget 34
-                        [2, 3], // move to yel flipper via yel flipper box 23
+                        [2, 3], // move to yel flipper box 23
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 2],
-                        // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                        // move ball 1 with die 1 (=3) to red flipper box 3
                         // move ball 2 with die 2 (=2) to red drop target 12
                         [3, 4],
                         // move ball 1 with die 1 (=3) to red drop target 3
-                        // move ball 2 with die 2 (=4) to yel flipper via yel flipper box 4
+                        // move ball 2 with die 2 (=4) to yel flipper box 4
                         [4, 1],
-                        // move ball 1 with die 1 (=4) to red flipper via red flipper box 45
+                        // move ball 1 with die 1 (=4) to red flipper box 45
                         // move ball 2 with die 2 (=1) to ferris wheel car 12
                         [4, 1],
                         // move ball 1 with die 1 (=4) to red drop target 4
                         // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
                         [6, 3],
-                        // move ball 1 with die 1 (=6) to red flipper via red flipper box 6
+                        // move ball 1 with die 1 (=6) to red flipper box 6
                         // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
                         [5, 5],
                         // move ball 2 with die 2 (=5) to the drain via the drain box
@@ -4646,25 +4646,25 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 2],
-                    // move ball 1 with die 1 (=3) to red flipper via red flipper box 3
+                    // move ball 1 with die 1 (=3) to red flipper box 3
                     // move ball 2 with die 2 (=2) to red drop target 12
                     [3, 4],
                     // move ball 1 with die 1 (=3) to red drop target 3
-                    // move ball 2 with die 2 (=4) to yel flipper via yel flipper box 4
+                    // move ball 2 with die 2 (=4) to yel flipper box 4
                     [4, 1],
-                    // move ball 1 with die 1 (=4) to red flipper via red flipper box 45
+                    // move ball 1 with die 1 (=4) to red flipper box 45
                     // move ball 2 with die 2 (=1) to ferris wheel car 12
                     [4, 1],
                     // move ball 1 with die 1 (=4) to red drop target 4
                     // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
                     [6, 3],
-                    // move ball 1 with die 1 (=6) to red flipper via red flipper box 6
+                    // move ball 1 with die 1 (=6) to red flipper box 6
                     // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
                     [5, 5],
                     // move ball 1 with die 1 (=5) to red drop target 56
@@ -4720,27 +4720,27 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to red droptarget 12
-                        [3, 3], // move to red flipper via red flipper box 3
+                        [3, 3], // move to red flipper box 3
                         [3, 3], // move to red droptarget 3
-                        [4, 5], // move to red flipper via red flipper box 45
+                        [4, 5], // move to red flipper box 45
                         [4, 4], // move to red droptarget 4
-                        [6, 6], // move to red flipper via red flipper box 6
+                        [6, 6], // move to red flipper box 6
                         [5, 6], // move to red droptarget 56
                         // select red multiball bonus
                         [1, 2],
-                        // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper via yel flipper box 1
+                        // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
                         // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
                         [1, 3],
                         // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
                         // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
                         [2, 5],
-                        // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper via yel flipper box 23
+                        // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper box 23
                         // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
                         [3, 1],
                         // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
                         // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
                         [4, 4],
-                        // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper via yel flipper box 4
+                        // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper box 4
                         // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
                         [5, 6],
                         // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
@@ -4795,27 +4795,27 @@ describe("Game", () => {
                     //#region arrange
                     const DIE_VALUES = [
                         [1, 2], // move from start to red droptarget 12
-                        [3, 3], // move to red flipper via red flipper box 3
+                        [3, 3], // move to red flipper box 3
                         [3, 3], // move to red droptarget 3
-                        [4, 5], // move to red flipper via red flipper box 45
+                        [4, 5], // move to red flipper box 45
                         [4, 4], // move to red droptarget 4
-                        [6, 6], // move to red flipper via red flipper box 6
+                        [6, 6], // move to red flipper box 6
                         [5, 6], // move to red droptarget 56
                         // select red multiball bonus
                         [1, 2],
-                        // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper via yel flipper box 1
+                        // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
                         // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
                         [1, 3],
                         // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
                         // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
                         [2, 5],
-                        // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper via yel flipper box 23
+                        // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper box 23
                         // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
                         [3, 1],
                         // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
                         // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
                         [4, 4],
-                        // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper via yel flipper box 4
+                        // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper box 4
                         // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
                         [5, 6],
                         // move ball 2 with die 2 (=6) from bumper 34 to the drain via the drain box
@@ -4870,27 +4870,27 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to red droptarget 12
-                    [3, 3], // move to red flipper via red flipper box 3
+                    [3, 3], // move to red flipper box 3
                     [3, 3], // move to red droptarget 3
-                    [4, 5], // move to red flipper via red flipper box 45
+                    [4, 5], // move to red flipper box 45
                     [4, 4], // move to red droptarget 4
-                    [6, 6], // move to red flipper via red flipper box 6
+                    [6, 6], // move to red flipper box 6
                     [5, 6], // move to red droptarget 56
                     // select red multiball bonus
                     [1, 2],
-                    // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper via yel flipper box 1
+                    // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
                     // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
                     [1, 3],
                     // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
                     // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
                     [2, 5],
-                    // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper via yel flipper box 23
+                    // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper box 23
                     // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
                     [3, 1],
                     // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
                     // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
                     [4, 4],
-                    // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper via yel flipper box 4
+                    // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper box 4
                     // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
                     [5, 6],
                     // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
@@ -4947,9 +4947,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [6, 1],
@@ -4986,9 +4986,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [6, 1],
@@ -5022,9 +5022,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [1, 1],
@@ -5058,9 +5058,9 @@ describe("Game", () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
-                    [1, 1], // move to yel flipper via yel flipper box 1
+                    [1, 1], // move to yel flipper box 1
                     [3, 4], // move to yel droptarget 34
-                    [2, 3], // move to yel flipper via yel flipper box 23
+                    [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 1],
@@ -5125,14 +5125,14 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
                 [1, 6],
                 // select ball 2 and move it with die 1 (=1) to the drain via the drain box
-                // move ball 1 with die 2 (=6) to red flipper via red flipper box 6
+                // move ball 1 with die 2 (=6) to red flipper box 6
                 [1, 1], // move ball 1 to hammer space 1
                 [1, 1], // final roll
             ];
@@ -5163,14 +5163,14 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
                 [1, 6],
                 // select ball 1 and move it with die 1 (=1) to the drain via the drain box
-                // move ball 2 with die 2 (=6) to red flipper via red flipper box 6
+                // move ball 2 with die 2 (=6) to red flipper box 6
                 [1, 1], // move ball 2 to hammer space 1
                 [1, 1], // final roll
             ];
@@ -5201,14 +5201,14 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
-                [1, 1], // move to yel flipper via yel flipper box 1
+                [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
-                [2, 3], // move to yel flipper via yel flipper box 23
+                [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
                 // select yel multiball bonus
                 [1, 6],
                 // select ball 2 and move it with die 1 (=1) to the drain via the drain box
-                // move ball 1 with die 2 (=6) to red flipper via red flipper box 6
+                // move ball 1 with die 2 (=6) to red flipper box 6
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -5238,13 +5238,13 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23 after choosing the bumper bonus
+                [2, 3], // move to yel flipper box 23 after choosing the bumper bonus
                 [1, 1], // move to bumper 12 via 1st 1 box (+2)
                 [1, 1], // final roll
             ];
@@ -5273,13 +5273,13 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
-                [2, 3], // move to yel flipper via yel flipper box 23 after choosing the bumper bonus
+                [2, 3], // move to yel flipper box 23 after choosing the bumper bonus
                 [1, 1], // move to bumper 12 via 1st 1 box (+2)
                 [5, 5], // move to bumper 56 via 1st 5 box (+2)
                 [3, 3], // move to bumper 34 via 1st 3 box (+2)
@@ -5317,11 +5317,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
                 [2, 3], // move to drain after choosing the bumper bonus
                 [1, 1], // move to bumper 12 via 1st 1 box (+1)
@@ -5352,11 +5352,11 @@ describe("Game", () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12 (+1)
-                [3, 3], // move to red flipper via red flipper box 3
+                [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
-                [4, 5], // move to red flipper via red flipper box 45
+                [4, 5], // move to red flipper box 45
                 [4, 4], // move to red drop target 4 (+1)
-                [6, 6], // move to red flipper via red flipper box 6
+                [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
                 [2, 3], // move to drain via drain box after choosing the bumper bonus
                 [1, 1], // move to bumper 12 via 1st 1 box (+1)
@@ -5440,7 +5440,7 @@ describe("Game", () => {
                 [1, 1], // go to drain to go from round 1 to round 2
                 [1, 1], // go to drain to go from round 2 to round 3
                 [1, 1], // go from start to ferris wheel car 12
-                [2, 2], // go to red flipper via red inlane
+                [2, 2], // go to red inlane
                 [1, 1], // go to drain to end the game
                 [1, 1], // final roll
             ];
