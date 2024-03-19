@@ -2378,14 +2378,19 @@ describe("Game", () => {
         });
         it('should ignore all other clicks before the user chooses a yellow bonus', async () => {
             //#region arrange
+            const DIE1_FINAL_VALUE = 2;
+            const DIE2_FINAL_VALUE = 5;
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
-                [2, 5], // roll after filling all yel drop targets
-                [1, 1], // final roll
+                [DIE1_FINAL_VALUE, DIE2_FINAL_VALUE],
+                // attempt to move to yel flipper box 4
+                // attempt to move to red outlane
+                // attempt to move to yel outlane
+                // attempt to move to red flipper box 45
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2410,6 +2415,8 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeVisible();
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForChoosingABonus("yellow"));
+            expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(DIE1_FINAL_VALUE);
+            expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(DIE2_FINAL_VALUE);
             //#endregion
         });
         it('should allow the user to move after choosing a yellow bonus', async () => {
