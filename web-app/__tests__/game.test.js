@@ -277,7 +277,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
-        it('should be able to move from start to ferris wheel car 56, fill the box, and maintain score, on a roll of {5, 6}', async () => {
+        it('should be able to move from start to ferris wheel car 56, fill the box, and maintain score, all on a roll of {5, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 6],
