@@ -685,7 +685,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region flippers
-        it('should be able to move from start to the red inlane, fill the box, and add 2 to the score, all on a roll of {2, 2}', async () => {
+        it('should be able to move from start to the red inlane, fill the box, and award 2 points, all on a roll of {2, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -765,7 +765,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to the yel inlane, fill the box, and add 2 to the score, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to the yel inlane, fill the box, and award 2 points, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
