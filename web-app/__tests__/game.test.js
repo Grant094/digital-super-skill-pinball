@@ -5067,7 +5067,7 @@ describe("Game", () => {
                     // select yel multiball bonus
                     [6, 1],
                     // move ball 1 with die 1 (=6) from yel drop target 56 to yel outlane
-                    // move ball 2 with die 2 (=1) from start to bumper 12 via 1st 1 box
+                    // move ball 2 with die 2 (=1) from start to bumper 12 1st 1 box
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -5103,7 +5103,7 @@ describe("Game", () => {
                     // select yel multiball bonus
                     [1, 1],
                     // move ball 1 with die 1 (=1) from yel drop target 56 to red outlane
-                    // move ball 2 with die 2 (=1) from start to bumper 12 via 1st 1 box
+                    // move ball 2 with die 2 (=1) from start to bumper 12 1st 1 box
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -5127,7 +5127,7 @@ describe("Game", () => {
                 //#endregion
             });
         });
-        describe('when moving a ball to a box, besides the middle drain box, which contains the other ball', () => {
+        describe('when moving a ball to a box, besides the drain box, which contains the other ball', () => {
             it('should not move the ball and should display the alert for this specific situation', async () => {
                 //#region arrange
                 const DIE_VALUES = [
@@ -5148,11 +5148,10 @@ describe("Game", () => {
                     // move ball 2 with die 2 (=4) from red flipper box 45 to red drop target 4
                     [6, 2],
                     // move ball 1 with die 1 (=6) from red flipper box 6 to red drop target 56
-                    // select red points bonus
+                    // select 3 points (red) bonus
                     // move ball 2 with die 2 (=2) from red drop target 4 to red inlane
                     [5, 5],
                     // attempt to move ball 2 with die 2 (=5) from red inlane to red drop target 56
-                    [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
