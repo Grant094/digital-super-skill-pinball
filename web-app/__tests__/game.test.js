@@ -2458,7 +2458,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
-                // attempt to select red bonus
+                // attempt to select bumper (red) bonus
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
