@@ -1041,10 +1041,10 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
-        it('should allow the user to make a valid move after the invalid one and hide the alert while making the valid move', async () => {
+        it('should allow the user to make a valid move after the invalid one, hide the alert when making the valid move, and award the relevant points', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // eventually move to bumper 34 via 1st 3 box
+                [3, 3], // eventually move to bumper 34 1st 3
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
