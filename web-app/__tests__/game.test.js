@@ -5194,7 +5194,7 @@ describe("Game", () => {
         });
     });
     describe('after multiball is deactivated', () => {
-        it('should resume auto-selecting the only remaining ball, ball1', async () => {
+        it('should resume auto-selecting the only remaining ball, ball 1', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel drop target 12
@@ -5204,8 +5204,8 @@ describe("Game", () => {
                 [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 6],
-                // select ball 2 and move it with die 1 (=1) to the drain via the drain box
-                // move ball 1 with die 2 (=6) to red flipper box 6
+                // move ball 2 with die 1 (=1) from start to the drain box
+                // move ball 1 with die 2 (=6) from yel drop target 56 to red flipper box 6
                 [1, 1], // move ball 1 to hammer space 1
                 [1, 1], // final roll
             ];
@@ -5232,7 +5232,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID).style.left);
             //#endregion
         });
-        it('should resume auto-selecting the only remaining ball, ball2', async () => {
+        it('should resume auto-selecting the only remaining ball, ball 2', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel drop target 12
@@ -5242,8 +5242,8 @@ describe("Game", () => {
                 [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 6],
-                // select ball 1 and move it with die 1 (=1) to the drain via the drain box
-                // move ball 2 with die 2 (=6) to red flipper box 6
+                // move ball 1 with die 1 (=1) from yel drop target 56 to the drain box
+                // move ball 2 with die 2 (=6) from start to red flipper box 6
                 [1, 1], // move ball 2 to hammer space 1
                 [1, 1], // final roll
             ];
@@ -5280,9 +5280,10 @@ describe("Game", () => {
                 [5, 6], // move to yel drop target 56
                 // select yel multiball bonus
                 [1, 6],
-                // select ball 2 and move it with die 1 (=1) to the drain via the drain box
-                // move ball 1 with die 2 (=6) to red flipper box 6
+                // move ball 2 with die 1 (=1) from start to the drain box
+                // move ball 1 with die 2 (=6) from yel drop target 56 to red flipper box 6
                 [1, 1], // final roll
+                // click on die 1
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
