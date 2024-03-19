@@ -3115,6 +3115,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
+                // select flipper pass
                 [4, 4], // move to yel flipper box 4
                 [1, 1], // move to hammer space 1
                 [1, 6], // final roll
@@ -3145,6 +3146,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
+                // select flipper pass
                 [6, 6], // move to red flipper box 6
                 [1, 1], // move to ferris wheel car 12
                 [1, 6], // final roll
