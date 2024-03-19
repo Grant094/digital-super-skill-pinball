@@ -1007,6 +1007,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
             await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID));
             await user.click(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("You must fill in the hammer spaces in sequence from 1 to 6!");
@@ -1014,7 +1015,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.RED_FLIPPER_BOX_45_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("6");
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
     });
