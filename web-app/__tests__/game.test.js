@@ -3571,17 +3571,18 @@ describe("Game", () => {
         });
     });
     describe('when multiball is active', () => {
-        describe('when ball2 is clicked on', () => {
-            it('should change the border color of ball2 to BALL_SELECTED_BORDER_COLOR', async () => {
+        describe('when ball 2 is clicked on', () => {
+            it('should change the border color of ball 2 to BALL_SELECTED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
-                    [1, 2], // move from start to yel droptarget 12
+                    [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
-                    [3, 4], // move to yel droptarget 34
+                    [3, 4], // move to yel drop target 34
                     [2, 3], // move to yel flipper box 23
-                    [5, 6], // move to yel droptarget 56
+                    [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [1, 1], // final roll
+                    // select ball 2
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3610,7 +3611,7 @@ describe("Game", () => {
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [1, 1], // final roll
-                        // move ball 2 with die 1 (=1) to ferris wheel car 12
+                        // move ball 2 with die 1 (=1) from start to ferris wheel car 12
                         // attempt to select ball 2 again
                     ];
                     const user = userEvent.setup();
@@ -3635,8 +3636,8 @@ describe("Game", () => {
                 });
             });
         });
-        describe('when ball1 is clicked on', () => {
-            it('should change the border color of ball1 to BALL_SELECTED_BORDER_COLOR', async () => {
+        describe('when ball 1 is clicked on', () => {
+            it('should change the border color of ball 1 to BALL_SELECTED_BORDER_COLOR', async () => {
                 //#region arrange
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel droptarget 12
@@ -3646,6 +3647,7 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [1, 1], // final roll
+                    // select ball 1
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3674,7 +3676,7 @@ describe("Game", () => {
                         [5, 6], // move to yel droptarget 56
                         // select yel multiball bonus
                         [3, 1], // final roll
-                        // move ball 1 with die 1 (=3) to red flipper box 3
+                        // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
                         // attempt to select ball 1 again
                     ];
                     const user = userEvent.setup();
@@ -3709,8 +3711,8 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
-                    // select die 1
                     [1, 1], // final roll
+                    // select die 1
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3738,8 +3740,9 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // move ball 1 with die 1 (=3) to red flipper box 3
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
                     [1, 1], // final roll
+                    // attempt to select die 1
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3772,8 +3775,8 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
-                    // select die 2
                     [1, 1], // final roll
+                    // select die 2
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3801,8 +3804,9 @@ describe("Game", () => {
                     [5, 6], // move to yel droptarget 56
                     // select yel multiball bonus
                     [3, 4],
-                    // move ball 1 with die 2 (=4) to red flipper box 45
+                    // move ball 1 with die 2 (=4) from yel drop target 56 to red flipper box 45
                     [1, 1], // final roll
+                    // attempt to select die 2
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
