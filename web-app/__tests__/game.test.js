@@ -239,7 +239,7 @@ describe("Game", () => {
     });
     describe('when attempting to move the only ball from start via boxes that can receive from start', () => {
         //#region ferris wheel cars
-        it('should be able to move from start to ferris wheel car 12, fill the box, and maintain score, all on a roll of {1, 2}', async () => {
+        it('should be able to move from start to ferris wheel car 12, fill the box, and award 0 points, all on a roll of {1, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2],
@@ -250,15 +250,16 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to ferris wheel car 34, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
+        it('should be able to move from start to ferris wheel car 34, fill the box, and award 0 points, all on a roll of {3, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 4],
@@ -269,15 +270,16 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to ferris wheel car 56, fill the box, and maintain score, all on a roll of {5, 6}', async () => {
+        it('should be able to move from start to ferris wheel car 56, fill the box, and award 0 points, all on a roll of {5, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 6],
@@ -288,12 +290,13 @@ describe("Game", () => {
             //#endregion
             //#region act
             await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID));
+            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.left);
-            expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
+            expect(pointsAwarded).toEqual(0);
             //#endregion
         });
         //#endregion
