@@ -4738,14 +4738,13 @@ describe("Game", () => {
                     // move ball 2 with die 2 (=1) to ferris wheel car 12
                     [4, 1],
                     // move ball 1 with die 1 (=4) to red drop target 4
-                    // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
+                    // move ball 2 with die 2 (=1) to bumper 12 1st 1 box
                     [6, 3],
                     // move ball 1 with die 1 (=6) to red flipper box 6
-                    // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
+                    // move ball 2 with die 2 (=3) to bumper 34 1st 3 box
                     [5, 5],
                     // move ball 1 with die 1 (=5) to red drop target 56
-                    // attempt to select red multiball bonus
-                    [1, 1], // final roll
+                    // select red multiball bonus
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
