@@ -2308,12 +2308,12 @@ describe("Game", () => {
         it('should allow the user to select 2 bonus points and be awarded those 2 bonus points', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select yellow bonus points (+2)
+                [5, 6], // move to yel droptarget 56
+                // select 2 bonus points
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
