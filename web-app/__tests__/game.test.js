@@ -846,7 +846,7 @@ describe("Game", () => {
             //#endregion
         });
         //#endregion
-        //#region drain
+        //#region outlanes and drain
         it('should be able to click on the red outlane, move the ball back to start, and award 0 points, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
