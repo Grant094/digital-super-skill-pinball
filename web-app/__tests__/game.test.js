@@ -3179,6 +3179,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
+                // select flipper pass
                 [1, 1], // move to drain
                 [4, 4], // move from start to yel flipper box 4
                 [1, 1], // attempt to move to hammer space 1
