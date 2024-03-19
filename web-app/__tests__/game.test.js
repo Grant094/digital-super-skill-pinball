@@ -5311,15 +5311,16 @@ describe("Game", () => {
         it('should award two points when moving to a bumper', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red drop target 12 (+1)
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red drop target 3 (+1)
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red drop target 4 (+1)
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red drop target 56 (+1)
-                [2, 3], // move to yel flipper box 23 after choosing the bumper bonus
-                [1, 1], // move to bumper 12 via 1st 1 box (+2)
+                [5, 6], // move to red drop target 56
+                // select bumper bonus
+                [2, 3], // move to yel flipper box 23
+                [1, 1], // move to bumper 12 1st 1 box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -5346,19 +5347,20 @@ describe("Game", () => {
         it('should allow the user to move counterclockwise between bumpers', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to red drop target 12 (+1)
+                [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
-                [3, 3], // move to red drop target 3 (+1)
+                [3, 3], // move to red drop target 3
                 [4, 5], // move to red flipper box 45
-                [4, 4], // move to red drop target 4 (+1)
+                [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
-                [5, 6], // move to red drop target 56 (+1)
-                [2, 3], // move to yel flipper box 23 after choosing the bumper bonus
-                [1, 1], // move to bumper 12 via 1st 1 box (+2)
-                [5, 5], // move to bumper 56 via 1st 5 box (+2)
-                [3, 3], // move to bumper 34 via 1st 3 box (+2)
-                [2, 2], // move to bumper 12 via 1st 2 box (+2)
-                [6, 6], // move to bumper 56 via 1st 6 box (+2)
+                [5, 6], // move to red drop target 56
+                // select bumper bonus
+                [2, 3], // move to yel flipper box 23
+                [1, 1], // move to bumper 12 1st 1 box
+                [5, 5], // move to bumper 56 1st 5 box
+                [3, 3], // move to bumper 34 1st 3 box
+                [2, 2], // move to bumper 12 1st 2 box
+                [6, 6], // move to bumper 56 1st 6 box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
