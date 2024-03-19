@@ -4585,22 +4585,22 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 2],
-                        // move ball 1 with die 1 (=3) to red flipper box 3
-                        // move ball 2 with die 2 (=2) to red drop target 12
+                        // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                        // move ball 2 with die 2 (=2) from start to red drop target 12
                         [3, 4],
-                        // move ball 1 with die 1 (=3) to red drop target 3
-                        // move ball 2 with die 2 (=4) to yel flipper box 4
+                        // move ball 1 with die 1 (=3) from red flipper box 3 to red drop target 3
+                        // move ball 2 with die 2 (=4) from red drop target 12 to yel flipper box 4
                         [4, 1],
-                        // move ball 1 with die 1 (=4) to red flipper box 45
-                        // move ball 2 with die 2 (=1) to ferris wheel car 12
+                        // move ball 1 with die 1 (=4) from red flipper drop target 3 to red flipper box 45
+                        // move ball 2 with die 2 (=1) from yel flipper box 4 to ferris wheel car 12
                         [4, 1],
-                        // move ball 1 with die 1 (=4) to red drop target 4
-                        // move ball 2 with die 2 (=1) to bumper 12 1st 1 box
+                        // move ball 1 with die 1 (=4) red flipper box 45 to red drop target 4
+                        // move ball 2 with die 2 (=1) from ferris wheel car 12 to bumper 12 1st 1 box
                         [6, 3],
-                        // move ball 1 with die 1 (=6) to red flipper box 6
-                        // move ball 2 with die 2 (=3) to bumper 34 1st 3 box
+                        // move ball 1 with die 1 (=6) from red drop target 4 to red flipper box 6
+                        // move ball 2 with die 2 (=3) from bumper 12 1st 1 box to bumper 34 1st 3 box
                         [5, 5],
-                        // move ball 1 with die 1 (=5) to red drop target 56
+                        // move ball 1 with die 1 (=5) from red flipper box 6 to red drop target 56
                         // attempt to select red multiball bonus
                     ];
                     const user = userEvent.setup();
@@ -4656,8 +4656,8 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 2],
-                        // move ball 1 with die 1 (=3) to red flipper box 3
-                        // move ball 2 with die 2 (=2) to red drop target 12
+                        // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                        // move ball 2 with die 2 (=2) from start to red drop target 12
                         [3, 4],
                         // move ball 1 with die 1 (=3) to red drop target 3
                         // move ball 2 with die 2 (=4) to yel flipper box 4
@@ -4728,8 +4728,8 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 2],
-                    // move ball 1 with die 1 (=3) to red flipper box 3
-                    // move ball 2 with die 2 (=2) to red drop target 12
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                    // move ball 2 with die 2 (=2) from start to red drop target 12
                     [3, 4],
                     // move ball 1 with die 1 (=3) to red drop target 3
                     // move ball 2 with die 2 (=4) to yel flipper box 4
@@ -4806,19 +4806,19 @@ describe("Game", () => {
                         // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
                         // move ball 2 with die 2 (=2) from start to bumper 12 1st 2 box
                         [1, 3],
-                        // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
-                        // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 1st 3 box
+                        // move ball 1 with die 1 (=1) from yel flipper box 1 to yel drop target 12
+                        // move ball 2 with die 2 (=3) from bumper 12 1st 2 box to bumper 34 1st 3 box
                         [2, 5],
                         // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper box 23
-                        // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 1st 5 box
+                        // move ball 2 with die 2 (=5) from bumper 34 1st 3 box to bumper 56 1st 5 box
                         [3, 1],
-                        // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
-                        // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 1st 1 box
+                        // move ball 1 with die 1 (=3) from yel flipper box 23 to yel drop target 34
+                        // move ball 2 with die 2 (=1) from bumper 56 1st 5 box to bumper 12 1st 1 box
                         [4, 4],
                         // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper box 4
-                        // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 1st 4 box
+                        // move ball 2 with die 2 (=4) from bumper 12 1st 1 box to bumper 34 1st 4 box
                         [5, 6],
-                        // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
+                        // move ball 1 with die 1 (=5) from yel flipper box 4 to yel drop target 56
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4880,20 +4880,20 @@ describe("Game", () => {
                         // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
                         // move ball 2 with die 2 (=2) from start to bumper 12 1st 2 box
                         [1, 3],
-                        // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
-                        // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 1st 3 box
+                        // move ball 1 with die 1 (=1) from yel flipper box 1 to yel drop target 12
+                        // move ball 2 with die 2 (=3) from bumper 12 1st 2 box to bumper 34 1st 3 box
                         [2, 5],
                         // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper box 23
-                        // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 1st 5 box
+                        // move ball 2 with die 2 (=5) from bumper 34 1st 3 box to bumper 56 1st 5 box
                         [3, 1],
-                        // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
-                        // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 1st 1 box
+                        // move ball 1 with die 1 (=3) from yel flipper box 23 to yel drop target 34
+                        // move ball 2 with die 2 (=1) from bumper 56 1st 5 box to bumper 12 1st 1 box
                         [4, 4],
                         // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper box 4
-                        // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 1st 4 box
+                        // move ball 2 with die 2 (=4) from bumper 12 1st 1 box to bumper 34 1st 4 box
                         [5, 6],
-                        // move ball 2 with die 2 (=6) from bumper 34 to the drain box
-                        // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
+                        // move ball 2 with die 2 (=6) from bumper 34 1st 4 box to the drain box
+                        // move ball 1 with die 1 (=5) from yel flipper box 4 to yel drop target 56
                         // select yel multiball bonus
                         [1, 1], // final roll
                     ];
@@ -4956,21 +4956,20 @@ describe("Game", () => {
                     // move ball 1 with die 1 (=1) from red drop target 56 to yel flipper box 1
                     // move ball 2 with die 2 (=2) from start to bumper 12 via 1st 2 box
                     [1, 3],
-                    // move ball 1 with die 1 (=1) from yel flipper to yel drop target 12
-                    // move ball 2 with die 2 (=3) from bumper 12 to bumper 34 via 1st 3 box
+                    // move ball 1 with die 1 (=1) to yel drop target 12
+                    // move ball 2 with die 2 (=3) to bumper 34 via 1st 3 box
                     [2, 5],
-                    // move ball 1 with die 1 (=2) from yel drop target 12 to yel flipper box 23
-                    // move ball 2 with die 2 (=5) from bumper 34 to bumper 56 via 1st 5 box
+                    // move ball 1 with die 1 (=2) to yel flipper box 23
+                    // move ball 2 with die 2 (=5) to bumper 56 via 1st 5 box
                     [3, 1],
-                    // move ball 1 with die 1 (=3) from yel flipper to yel drop target 34
-                    // move ball 2 with die 2 (=1) from bumper 56 to bumper 12 via 1st 1 box
+                    // move ball 1 with die 1 (=3) to yel drop target 34
+                    // move ball 2 with die 2 (=1) to bumper 12 via 1st 1 box
                     [4, 4],
-                    // move ball 1 with die 1 (=4) from yel drop target 34 to yel flipper box 4
-                    // move ball 2 with die 2 (=4) from bumper 12 to bumper 34 via 1st 4 box
+                    // move ball 1 with die 1 (=4) to yel flipper box 4
+                    // move ball 2 with die 2 (=4) to bumper 34 via 1st 4 box
                     [5, 6],
-                    // move ball 1 with die 1 (=5) from yel flipper to yel drop target 56
-                    // select yel points bonus
-                    [1, 1], // final roll
+                    // move ball 1 with die 1 (=5) to yel drop target 56
+                    // select 2 points bonus
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
