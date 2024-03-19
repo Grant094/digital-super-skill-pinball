@@ -705,7 +705,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should be able to move from start to red flipper box 3, fill the box, and maintain score, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to red flipper box 3, fill the box, and award 0 points, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -725,7 +725,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to red flipper box 45, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to red flipper box 45, fill the box, and award 0 points, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -745,7 +745,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to red flipper box 6, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
+        it('should be able to move from start to red flipper box 6, fill the box, and award 0 points, all on a roll of {6, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -785,7 +785,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(2);
             //#endregion
         });
-        it('should be able to move from start to yel flipper box 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to yel flipper box 1, fill the box, and award 0 points, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -805,7 +805,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to yel flipper box 23, fill the box, and maintain score, all on a roll of {2, 3}', async () => {
+        it('should be able to move from start to yel flipper box 23, fill the box, and award 0 points, all on a roll of {2, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 3],
@@ -825,7 +825,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to yel flipper box 4, fill the box, and maintain score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to yel flipper box 4, fill the box, and award 0 points, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -847,7 +847,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region drain
-        it('should be able to move from start to start via the red outlane, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to start via the red outlane, fill the box, and award 0 points, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -866,7 +866,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to start via the yel outlane, fill the box, and maintain score, all on a roll of {6, 6}', async () => {
+        it('should be able to move from start to start via the yel outlane, fill the box, and award 0 points, all on a roll of {6, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -885,7 +885,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should be able to move from start to start via drain, fill the box, and maintain score, all on a roll of {3, 4}', async () => {
+        it('should be able to move from start to start via drain, fill the box, and award 0 points, all on a roll of {3, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 4],
@@ -907,7 +907,7 @@ describe("Game", () => {
         //#endregion
     });
     describe('when attempting to move the only ball to a hammer space', () => {
-        it('should be able to move from red flipper to hammer space 1, fill the box, and maintain score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from red flipper to hammer space 1, fill the box, and award 0 points, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // from start to red flipper box 3
