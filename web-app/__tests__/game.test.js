@@ -1069,10 +1069,10 @@ describe("Game", () => {
         });
     });
     describe('when clicking on an already filled-in box', () => {
-        it('should do nothing and maintain state', async () => {
+        it('should not move the ball and should maintain score and dice values', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // move from start to bumper 12 via 1st 2 box (worth 1 point)
+                [2, 2], // move from start to bumper 12 1st 2 box (+1)
                 [4, 4], // move to yel flipper box 4
                 [2, 2], // attempt to select bumper 12 1st 2 box
                 [1, 1], // final roll which should not be reached
@@ -1083,12 +1083,13 @@ describe("Game", () => {
             //#region act
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
             await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID));
+            let prevScore = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
-            const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
+            const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(pointsAwarded).toEqual(1);
+            expect(pointsAwarded).toEqual(0);
             expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.top);
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.YEL_FLIPPER_BOX_4_BOX_ID).style.left);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("2");
