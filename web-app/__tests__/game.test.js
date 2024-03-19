@@ -4303,7 +4303,7 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper box 3
+                        // click on red flipper box 3
                         // select die 1 (=3)
                     ];
                     const user = userEvent.setup();
@@ -4335,8 +4335,8 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper box 3
-                        // select ball 1 (at yel drop target 56)
+                        // click on red flipper box 3
+                        // select ball 1
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
@@ -4367,8 +4367,8 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper box 3
-                        // select ball 1 (at yel drop target 56)
+                        // click on red flipper box 3
+                        // select ball 1
                         // select die 1 (=3)
                     ];
                     const user = userEvent.setup();
@@ -4399,9 +4399,9 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // attempt to move to the red flipper box 3
-                        // move ball 1 with die 1 (=3) to the red flipper box 3
-                        [1, 1], // final roll that should not be reached
+                        // click on red flipper box 3
+                        // move ball 1 with die 1 (=3) to red flipper box 3
+                        [1, 1], // final roll
                     ];
                     const user = userEvent.setup();
                     render(<Game dieValues={DIE_VALUES} />);
