@@ -1177,7 +1177,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+        it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -1231,7 +1231,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+        it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // will nudge die 1 by +1 to move from start to bumper 34 via 1st 3 box
@@ -1283,7 +1283,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+        it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // will nudge die 2 by -1 to move from start to red inlane
@@ -1335,7 +1335,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
+        it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2], // will nudge die 2 by +1 to move from start to bumper 34 via 1st 3 box
