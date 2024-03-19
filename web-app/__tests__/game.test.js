@@ -2640,7 +2640,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_AVAILABLE_BORDER_COLOR);
             //#endregion
         });
-        it('should allow the user to select gaining 3 bonus points and award those 3 points', async () => {
+        it('should allow the user to select 3 points bonus and award those 3 points', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
@@ -2650,7 +2650,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                // select red bonus points
+                // select 3 points bonus
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2672,7 +2672,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(3);
             //#endregion
         });
-        it('should allow the user to select gaining 3 bonus points and award those 3 points a 2nd time', async () => {
+        it('should allow the user to select 3 points bonus and award those 3 points a 2nd time', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
@@ -2682,7 +2682,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                // select red bonus points
+                // select 3 points bonus
                 [1, 1], // move to drain
                 [1, 2], // move from start to red drop target 12
                 [3, 3], // move to red flipper box 3
@@ -2691,7 +2691,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                // select red bonus points again
+                // select 3 points bonus again
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2733,7 +2733,10 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                [1, 1], // final roll which should not be used to move
+                // attempt to move to yel inlane
+                // attempt to move to the red inlane
+                // attempt to move to ferris wheel car 34
+                [1, 1], // final roll
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -2770,7 +2773,8 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                [2, 3], // move to yel flipper box 23 after choosing a red bonus
+                // select bumper bonus
+                [2, 3], // move to yel flipper box 23
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2793,7 +2797,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BUMPER_BONUS_INDICATOR_ID).style.borderColor).toEqual(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
             //#endregion
         });
-        it('should not allow the user to select a yellow bonus', async () => {
+        it('should not allow the user to select a yel bonus', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to red drop target 12
@@ -2803,7 +2807,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                // attempt to select flipper pass
+                // attempt to select flipper pass (yel bonus)
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
