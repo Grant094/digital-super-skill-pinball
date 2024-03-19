@@ -301,7 +301,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region bumpers
-        it('should be able to move from start to bumper 12 via the 1st 1 box, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to bumper 12 via the 1st 1 box, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -321,7 +321,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 12 via the 2nd 1 box, fill the box, and add 1 to the score, on a roll of {1, 1}', async () => {
+        it('should be able to move from start to bumper 12 via the 2nd 1 box, fill the box, and award 1 point, on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -341,7 +341,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 12 via the 1st 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
+        it('should be able to move from start to bumper 12 via the 1st 2 box, fill the box, and award 1 point, all on a roll of {2, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -361,7 +361,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 12 via the 2nd 2 box, fill the box, and add 1 to the score, all on a roll of {2, 2}', async () => {
+        it('should be able to move from start to bumper 12 via the 2nd 2 box, fill the box, and award 1 point, all on a roll of {2, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -381,7 +381,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 34 via the 1st 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to bumper 34 via the 1st 3 box, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -401,7 +401,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 34 via the 2nd 3 box, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to bumper 34 via the 2nd 3 box, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -421,7 +421,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 34 via the 1st 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to bumper 34 via the 1st 4 box, fill the box, and award 1 point, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -441,7 +441,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 34 via the 2nd 4 box, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to bumper 34 via the 2nd 4 box, fill the box, and award 1 point, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -461,7 +461,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 56 via the 1st 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to bumper 56 via the 1st 5 box, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -481,7 +481,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 56 via the 2nd 5 box, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to bumper 56 via the 2nd 5 box, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -501,7 +501,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 56 via the 1st 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
+        it('should be able to move from start to bumper 56 via the 1st 6 box, fill the box, and award 1 point, all on a roll of {6, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -521,7 +521,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to bumper 56 via the 2nd 6 box, fill the box, and add 1 to the score, all on a roll of {6, 6}', async () => {
+        it('should be able to move from start to bumper 56 via the 2nd 6 box, fill the box, and award 1 point, all on a roll of {6, 6}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [6, 6],
@@ -543,7 +543,7 @@ describe("Game", () => {
         });
         //#endregion
         //#region drop targets
-        it('should be able to move from start to yel droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to yel droptarget 12, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -563,7 +563,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to yel droptarget 34, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to yel droptarget 34, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -583,7 +583,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to yel droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to yel droptarget 56, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
@@ -603,7 +603,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 12, fill the box, and add 1 to the score, all on a roll of {1, 1}', async () => {
+        it('should be able to move from start to red droptarget 12, fill the box, and award 1 point, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -623,7 +623,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 3, fill the box, and add 1 to the score, all on a roll of {3, 3}', async () => {
+        it('should be able to move from start to red droptarget 3, fill the box, and award 1 point, all on a roll of {3, 3}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3],
@@ -643,7 +643,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 4, fill the box, and add 1 to the score, all on a roll of {4, 4}', async () => {
+        it('should be able to move from start to red droptarget 4, fill the box, and award 1 point, all on a roll of {4, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 4],
@@ -663,7 +663,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(1);
             //#endregion
         });
-        it('should be able to move from start to red droptarget 56, fill the box, and add 1 to the score, all on a roll of {5, 5}', async () => {
+        it('should be able to move from start to red droptarget 56, fill the box, and award 1 point, all on a roll of {5, 5}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [5, 5],
