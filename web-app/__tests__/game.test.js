@@ -3128,7 +3128,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34 (+1)
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 1 & 2 = 0 + 1 = +1)
+                // select fill two hammer spaces (spaces 1 + 2 = 0 + 1 = +1)
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3164,7 +3164,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34 (+1)
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 2 & 3 = 1 + 1 = +2)
+                // select fill two hammer spaces (spaces 2 + 3 = 1 + 1 = +2)
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3204,7 +3204,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34 (+1)
                 [2, 3], // move to yel flipper via yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 3 & 4 = 1 + 2= +3)
+                // select fill two hammer spaces (spaces 3 + 4 = 1 + 2= +3)
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
