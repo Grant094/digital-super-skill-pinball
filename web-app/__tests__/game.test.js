@@ -4472,7 +4472,7 @@ describe("Game", () => {
                         [5, 6], // move to yel drop target 56
                         // select yel multiball bonus
                         [3, 4],
-                        // select ball 2 and move it with die 1 (=3) to the drain via the drain box
+                        // move ball 2 with die 1 (=3) to the drain box
                         [1, 1], // final roll
                     ];
                     const user = userEvent.setup();
