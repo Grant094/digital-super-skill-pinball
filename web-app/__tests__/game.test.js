@@ -164,7 +164,7 @@ describe("Game", () => {
         });
     });
     describe('when attempting to move the only ball via boxes that can receive on one of the dice values', () => {
-        it('should be able to go from start to ferris wheel car 12 and fill it in on a roll of {1, 1}', async () => {
+        it('should be able to move from start to ferris wheel car 12 and fill it in on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 1],
@@ -182,7 +182,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
-        it('should be able to go from start to ferris wheel car 12 and fill it in on a roll of {2, 2}', async () => {
+        it('should be able to move from start to ferris wheel car 12 and fill it in on a roll of {2, 2}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [2, 2],
@@ -200,7 +200,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
-        it('should be able to go from start to ferris wheel car 12 and fill it in on a roll of {1, 4}', async () => {
+        it('should be able to move from start to ferris wheel car 12 and fill it in on a roll of {1, 4}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 4],
@@ -218,7 +218,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_12_BOX_ID).style.left);
             //#endregion
         });
-        it('should be able to go from start to ferris wheel car 12 and fill it in on a roll of {4, 1}', async () => {
+        it('should be able to move from start to ferris wheel car 12 and fill it in on a roll of {4, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [4, 1],
