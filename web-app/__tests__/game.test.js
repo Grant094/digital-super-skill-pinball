@@ -4133,7 +4133,9 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    [3, 4], // select ball 2 and attempt to move it without selecting either die
+                    [3, 4],
+                    // select ball 2
+                    // attempt to move ball 2 without selecting either die to ferris wheel car 34
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4165,9 +4167,9 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball 2 and attempt to move it without selecting either die
-                    // select die1 (=3)
-                    [1, 1], // final roll that should not be reached
+                    // select ball 2
+                    // attempt to move ball 2 without selecting either die to ferris wheel car 34
+                    // select die 1 (=3)
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
