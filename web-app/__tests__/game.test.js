@@ -1462,16 +1462,16 @@ describe("Game", () => {
         it('should make all round indicators visible at the start of round 3', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to drain box to start round 2
-                [1, 1], // move from start to drain box to start round 3
+                [1, 1], // move from start to drain box to end round 1
+                [1, 1], // move from start to drain box to end round 2
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // to start round 2
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // to start round 3
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ROUND_1_INDICATOR_ID)).toBeVisible();
