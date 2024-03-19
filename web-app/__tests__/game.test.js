@@ -2275,7 +2275,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FILL_TWO_HAMMER_SPACES_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             //#endregion
         });
-        it('should allow the user to activate multiball with ball1 via the yel multiball bonus and deselect the activating ball', async () => {
+        it('should allow the user to activate multiball with ball 1 via the yel multiball bonus and deselect the activating ball', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to yel droptarget 12
