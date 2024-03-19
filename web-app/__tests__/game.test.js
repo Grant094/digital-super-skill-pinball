@@ -2122,18 +2122,18 @@ describe("Game", () => {
         it('should clear all boxes in the bumper group', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to 1st 1
-                [3, 3],
-                [5, 5],
-                [1, 1], // 2nd round of odd boxes
-                [3, 3],
-                [5, 5],
-                [2, 2], // 1st round of even boxes
-                [4, 4],
-                [6, 6],
-                [2, 2], // 2nd round of even boxes
-                [4, 4],
-                [6, 6],
+                [1, 1], // move from start to bumper 12 1st 1 box
+                [3, 3], // move to bumper 34 1st 3 box
+                [5, 5], // move to bumper 56 1st 5 box
+                [1, 1], // move to bumper 12 2nd 1 box
+                [3, 3], // move to bumper 34 2nd 3 box
+                [5, 5], // move to bumper 56 2nd 5 box
+                [2, 2], // move to bumper 12 1st 2 box
+                [4, 4], // move to bumper 34 1st 4 box
+                [6, 6], // move to bumper 56 1st 6 box
+                [2, 2], // move to bumper 12 2nd 2 box
+                [4, 4], // move to bumper 34 2nd 4 box
+                [6, 6], // move to bumper 56 2nd 6 box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
