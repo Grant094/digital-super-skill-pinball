@@ -1679,6 +1679,7 @@ describe("Game", () => {
                 [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56
+                // select flipper pass bonus
                 [1, 1], // move to the drain
                 [1, 1], // final roll
             ];
@@ -1708,7 +1709,8 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
-                [1, 6], // move to drain after choosing bumper bonus
+                // select bumper bonus
+                [1, 6], // move to drain
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
