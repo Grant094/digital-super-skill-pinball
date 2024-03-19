@@ -3839,9 +3839,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    // select ball2
-                    [1, 2], // move ball2 with die1=1 to ferris wheel car 12
-                    [1, 1], // final roll
+                    [1, 2], // move ball 2 with die1 (=1) from start to ferris wheel car 12
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3870,9 +3868,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    // select ball2
-                    [1, 2], // move ball2 with die1=1 to ferris wheel car 12
-                    [1, 1], // final roll
+                    [1, 2], // move ball 2 with die 1 (=1) to ferris wheel car 12
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3901,8 +3897,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    [1, 2], // move ball 2 with die 1 (=1) to bumper 12 via 1st 1 box
-                    [1, 1], // final roll
+                    [1, 2], // move ball 2 with die 1 (=1) to bumper 12 1st 1 box
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3933,9 +3928,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    // select ball2
-                    [3, 4], // move ball2 with die1=3 to ferris wheel car 34
-                    [1, 1], // final roll which should not be reached
+                    [3, 4], // move ball 2 with die 1 (=3) from start to ferris wheel car 34
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3964,9 +3957,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    // select ball2
-                    [3, 4], // move ball 2 with die 1 (=3) to ferris wheel car 34
-                    [1, 1], // final roll which should not be reached
+                    [3, 4], // move ball 2 with die 1 (=3) from start to ferris wheel car 34
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -3988,6 +3979,8 @@ describe("Game", () => {
             });
             it('should not roll the dice after only one ball has been moved', async () => {
                 //#region arrange
+                const DIE1_FINAL_VALUE = 3;
+                const DIE2_FINAL_VALUE = 4;
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
@@ -3995,9 +3988,7 @@ describe("Game", () => {
                     [2, 3], // move to yel flipper box 23
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
-                    // select ball2
-                    [3, 4], // move ball2 to ferris wheel car 34
-                    [1, 1], // final roll which should not be reached
+                    [DIE1_FINAL_VALUE, DIE2_FINAL_VALUE], // move ball 2 with die 1 (=3) from start to ferris wheel car 34
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4010,15 +4001,18 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
                 await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL2_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
                 //#endregion
                 //#region assert
-                expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("3");
-                expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("4");
+                expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(DIE1_FINAL_VALUE);
+                expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(DIE2_FINAL_VALUE);
                 //#endregion
             });
             it('should roll the dice after both balls have been moved', async () => {
                 //#region arrange
+                const DIE1_FINAL_VALUE = 1;
+                const DIE2_FINAL_VALUE = 1;
                 const DIE_VALUES = [
                     [1, 2], // move from start to yel drop target 12
                     [1, 1], // move to yel flipper box 1
@@ -4027,9 +4021,9 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
-                    // move ball 1 with die1=3 to red flipper box 3
-                    [1, 1], // final roll
+                    // move ball 2 with die 2 (=4) from start to ferris wheel car 34
+                    // move ball 1 with die 1 (=3) from yel drop target to red flipper box 3
+                    [DIE1_FINAL_VALUE, DIE2_FINAL_VALUE], // final roll
                 ];
                 const user = userEvent.setup();
                 render(<Game dieValues={DIE_VALUES} />);
@@ -4048,8 +4042,8 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 //#endregion
                 //#region assert
-                expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
-                expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
+                expect(Number(screen.getByTitle(constants.DIE1_ID).innerHTML)).toEqual(DIE1_FINAL_VALUE);
+                expect(Number(screen.getByTitle(constants.DIE2_ID).innerHTML)).toEqual(DIE2_FINAL_VALUE);
                 //#endregion
             });
             it('should change border colors of both dice to DIE_AVAILABLE_BORDER_COLOR after both balls have been moved', async () => {
@@ -4062,8 +4056,8 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball 2, select die2=4, and move ball 2 to ferris wheel car 34
-                    // move ball 1 with die1=3 to red flipper box 3
+                    // move ball 2 with die 2 (=4) from start to ferris wheel car 34
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -4079,7 +4073,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 //#endregion
                 //#region assert
@@ -4097,11 +4090,11 @@ describe("Game", () => {
                     [5, 6], // move to yel drop target 56
                     // select yel multiball bonus
                     [3, 4],
-                    // select ball2 and move it with die2=4 to ferris wheel car 34
-                    // move ball1 with die1=3 to red flipper box 3
+                    // move ball 2 with die 2 (=4) from start to ferris wheel car 34
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
                     [2, 6],
-                    // select ball 1 and move it with die2=6 to bumper 56 via 1st 6 box
-                    // move ball 2 with die1=2 to bumper 12 via 1st 2 box
+                    // move ball 1 with die 2 (=6) from red flipper box 3 to bumper 56 1st 6 box
+                    // move ball 2 with die 1 (=2) from ferris wheel car 34 to bumper 12 1st 2 box
                     [1, 1], // final roll
                 ];
                 const user = userEvent.setup();
@@ -4117,12 +4110,10 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.FERRISWHEEL_CAR_34_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.BUMPER_56_1ST_6_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.BUMPER_12_1ST_2_BOX_ID));
                 //#endregion
                 //#region assert
