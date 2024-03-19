@@ -1180,7 +1180,9 @@ describe("Game", () => {
         it('should increment nudges used, award points, show message, and resolve round end when tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // will nudge -1 to move from start to red inlane
+                [3, 3],
+                // nudge die 1 (=3) down to 2
+                // move from start to red inlane
                 [6, 6], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
@@ -1188,7 +1190,7 @@ describe("Game", () => {
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID));
             await user.click(screen.getByTitle(constants.RED_INLANE_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
