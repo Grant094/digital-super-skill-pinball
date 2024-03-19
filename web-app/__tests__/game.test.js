@@ -163,7 +163,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when attempting to move the only ball via boxes that can receive on one of the dice values', () => {
+    describe('when attempting to move the only ball to boxes that can receive on one of the dice values', () => {
         it('should be able to move from start to ferris wheel car 12 and fill it in on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
@@ -237,7 +237,7 @@ describe("Game", () => {
             //#endregion
         });
     });
-    describe('when attempting to move the only ball from start via boxes that can receive from start', () => {
+    describe('when attempting to move the only ball from start to boxes that can receive from start', () => {
         //#region ferris wheel cars
         it('should be able to move from start to ferris wheel car 12, fill the box, and award 0 points, all on a roll of {1, 2}', async () => {
             //#region arrange
