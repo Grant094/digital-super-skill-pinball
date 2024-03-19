@@ -1972,6 +1972,8 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
+                // select skill shot 1
+                // attempt to select skill shot 2
                 [1, 1], // final roll 
             ];
             const user = userEvent.setup();
