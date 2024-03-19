@@ -1398,7 +1398,7 @@ describe("Game", () => {
         it('should not clear a solid-lined box', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to bumper 12 via its 1st 1 box
+                [1, 1], // move from start to bumper 12 1st 1 box
                 [1, 1], // move to drain box
                 [1, 1], // final roll
             ];
@@ -1441,17 +1441,17 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.FLIPPER_PASS_BONUS_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             //#endregion
         });
-        it('should make the relevant round indicators visible in round 2 while keeping the round 3 indicator hidden', async () => {
+        it('should make the indicators for rounds 1 and 2 visible in round 2 while keeping the round 3 indicator hidden', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to drain box and back to start to start round 2
+                [1, 1], // move from start to drain box to end round 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // to start round 2
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ROUND_1_INDICATOR_ID)).toBeVisible();
