@@ -1875,8 +1875,11 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                [3, 4], // attempt to click on boxes that can receive on this
-                [1, 1], // final roll that should not be reached
+                [3, 4],
+                // attempt to move to bumper 34 1st 3 box
+                // attempt to move to bumper 34 1st 4 box
+                // attempt to move to red drop target 3
+                // attempt to move to red drop target 4
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
