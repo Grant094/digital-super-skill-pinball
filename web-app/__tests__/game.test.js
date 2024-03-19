@@ -3208,15 +3208,15 @@ describe("Game", () => {
         });
     });
     describe('when choosing to fill two hammer spaces', () => {
-        it('should only fill hammer spaces 1 and 2 and award 1 additional point if no hammer spaces are filled', async () => {
+        it('should only fill hammer spaces 1 and 2 and award 1 point if no hammer spaces are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 1 + 2 = 0 + 1 = +1)
+                [5, 6], // move to yel droptarget 56
+                // select fill two hammer spaces
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3239,20 +3239,20 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(pointsAwarded).toEqual(1);
+            expect(pointsAwarded).toEqual(1); // spaces 1 + 2 = 0 + 1 = +1
             //#endregion
         });
-        it('should only fill hammer spaces 2 and 3 and award 2 additional points if only hammer space 1 is filled', async () => {
+        it('should only fill hammer spaces 2 and 3 and award 2 points if only hammer space 1 is filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [3, 3], // move to red flipper box 3
-                [1, 1], // move to hammer space 1 (+0)
+                [1, 1], // move to hammer space 1
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 2 + 3 = 1 + 1 = +2)
+                [5, 6], // move to yel droptarget 56
+                // select fill two hammer spaces
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3277,22 +3277,22 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(pointsAwarded).toEqual(2);
+            expect(pointsAwarded).toEqual(2); // spaces 2 + 3 = 1 + 1 = +2
             //#endregion
         });
-        it('should only fill hammer spaces 3 and 4 and award 3 additional points if only hammer spaces 1 & 2 are filled', async () => {
+        it('should only fill hammer spaces 3 and 4 and award 3 points if only hammer spaces 1 & 2 are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [3, 3], // move to red flipper box 3
-                [1, 1], // move to hammer space 1 (+0)
+                [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
-                [2, 2], // move to hammer space 2 (+1)
+                [2, 2], // move to hammer space 2
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 3 + 4 = 1 + 2= +3)
+                [5, 6], // move to yel droptarget 56
+                // select fill two hammer spaces
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3319,24 +3319,24 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(pointsAwarded).toEqual(3);
+            expect(pointsAwarded).toEqual(3); // spaces 3 + 4 = 1 + 2 = +7
             //#endregion
         });
-        it('should only fill hammer spaces 4 and 5 and award 7 additional points if only hammer spaces 1-3 are filled', async () => {
+        it('should only fill hammer spaces 4 and 5 and award 7 additional points if only hammer spaces [1, 3] are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [3, 3], // move to red flipper box 3
-                [1, 1], // move to hammer space 1 (+0)
+                [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
-                [2, 2], // move to hammer space 2 (+1)
+                [2, 2], // move to hammer space 2
                 [6, 6], // move to red flipper box 6
-                [3, 3], // move to hammer space 3 (+1)
+                [3, 3], // move to hammer space 3
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 4 + 5 = 2 + 5 = +7)
+                [5, 6], // move to yel droptarget 56
+                // select fill two hammer spaces
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3365,26 +3365,26 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(pointsAwarded).toEqual(7);
+            expect(pointsAwarded).toEqual(7); // spaces 4 + 5 = 2 + 5 = +7
             //#endregion
         });
-        it('should fill hammer spaces 5 and 6, award 25 additional points, and unfill all hammer spaces, all if only hammer spaces 1-4 are filled', async () => {
+        it('should fill hammer spaces 5 and 6, award 25 points, and unfill all hammer spaces, all if only hammer spaces 1-4 are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [3, 3], // move to red flipper box 3
-                [1, 1], // move to hammer space 1 (+0)
+                [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
-                [2, 2], // move to hammer space 2 (+1)
+                [2, 2], // move to hammer space 2
                 [6, 6], // move to red flipper box 6
-                [3, 3], // move to hammer space 3 (+1)
-                [2, 2], // move to red inlane (+2)
-                [4, 4], // move to hammer space 4 (+2)
+                [3, 3], // move to hammer space 3
+                [2, 2], // move to red inlane
+                [4, 4], // move to hammer space 4
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 5 + 6 = 5 + 20 = +25)
+                [5, 6], // move to yel droptarget 56
+                // select fill two hammer spaces
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3415,29 +3415,29 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.HAMMER_SPACE_4_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_5_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
             expect(screen.getByTitle(constants.HAMMER_SPACE_6_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(pointsAwarded).toEqual(25);
+            expect(pointsAwarded).toEqual(25); // spaces 5 + 6 = 5 + 20 = +25
             //#endregion
         });
         it('should fill hammer spaces 6 and 1, unfill other hammer spaces, and award 20 additional points, all if only hammer spaces 1-5 are filled', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 2], // move from start to yel droptarget 12 (+1)
+                [1, 2], // move from start to yel droptarget 12
                 [3, 3], // move to red flipper box 3
-                [1, 1], // move to hammer space 1 (+0)
+                [1, 1], // move to hammer space 1
                 [4, 5], // move to red flipper box 45
-                [2, 2], // move to hammer space 2 (+1)
+                [2, 2], // move to hammer space 2
                 [6, 6], // move to red flipper box 6
-                [3, 3], // move to hammer space 3 (+1)
-                [2, 2], // move to red inlane (+2)
-                [4, 4], // move to hammer space 4 (+2)
+                [3, 3], // move to hammer space 3
+                [2, 2], // move to red inlane
+                [4, 4], // move to hammer space 4
                 [1, 1], // move to drain
                 [3, 3], // move to red flipper box 3
-                [5, 5], // move to hammer space 5 (+5)
+                [5, 5], // move to hammer space 5
                 [1, 1], // move to yel flipper box 1
-                [3, 4], // move to yel droptarget 34 (+1)
+                [3, 4], // move to yel droptarget 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel droptarget 56 (+1)
-                // select fill two hammer spaces (spaces 6 + 1 = 20 + 0 = +20)
+                [5, 6], // move to yel droptarget 56
+                // select fill two hammer spaces
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3465,7 +3465,7 @@ describe("Game", () => {
             const pointsAwarded = (Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML) - prevScore);
             //#endregion
             //#region assert
-            expect(pointsAwarded).toEqual(20);
+            expect(pointsAwarded).toEqual(20); // spaces 6 + 1 = 20 + 0 = +20
             //#endregion
         });
     });
