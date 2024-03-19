@@ -910,8 +910,8 @@ describe("Game", () => {
         it('should be able to move from red flipper to hammer space 1, fill the box, and award 0 points, all on a roll of {1, 1}', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // from start to red flipper box 3
-                [1, 1], // to hammer space 1
+                [3, 3], // move from start to red flipper box 3
+                [1, 1], // move to hammer space 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -933,19 +933,19 @@ describe("Game", () => {
         it('should be able to move to each hammer space in the correct order and award the correct number of points each time', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // from start to red inlane
-                [1, 1], // to hammer space 1 (+0)
-                [3, 3], // to red flipper box 3
-                [2, 2], // to hammer space 2 (+1)
-                [4, 4], // to red flipper box 45
-                [3, 3], // to hammer space 3 (+1)
-                [6, 6], // to red flipper box 6
-                [4, 4], // to hammer space 4 (+2)
-                [1, 1], // to drain via drain box since all boxes for red flipper are filled
-                [2, 2], // from start to red inlane
-                [5, 5], // to hammer space 5 (+5)
-                [3, 3], // to red flipper box 3
-                [6, 6], // to hammer space 6 (+20)
+                [2, 2], // move from start to red inlane
+                [1, 1], // move to hammer space 1 (+0)
+                [3, 3], // move to red flipper box 3
+                [2, 2], // move to hammer space 2 (+1)
+                [4, 4], // move to red flipper box 45
+                [3, 3], // move to hammer space 3 (+1)
+                [6, 6], // move to red flipper box 6
+                [4, 4], // move to hammer space 4 (+2)
+                [1, 1], // move to drain box since all boxes for red flipper are filled
+                [2, 2], // move from start to red inlane
+                [5, 5], // move to hammer space 5 (+5)
+                [3, 3], // move to red flipper box 3
+                [6, 6], // move to hammer space 6 (+20)
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -993,9 +993,9 @@ describe("Game", () => {
         it('should have an alert and no other change when attempting to go out of sequence', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [3, 3], // from start to red flipper box 3
-                [1, 1], // to hammer space 1
-                [4, 5], // to red flipper box 45
+                [3, 3], // move from start to red flipper box 3
+                [1, 1], // move to hammer space 1
+                [4, 5], // move to red flipper box 45
                 [6, 6], // attempt to move to hammer space 6 out of sequence
                 [1, 1], // final roll
             ];
@@ -1353,8 +1353,8 @@ describe("Game", () => {
         it('should clear a dashed box', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // from start to yel flipper box 1
-                [1, 1], // to drain box
+                [1, 1], // move from start to yel flipper box 1
+                [1, 1], // move to drain box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1371,8 +1371,8 @@ describe("Game", () => {
         it('should not clear a solid-lined box', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // from start to bumper 12 via its 1st 1 box
-                [1, 1], // to drain box
+                [1, 1], // move from start to bumper 12 via its 1st 1 box
+                [1, 1], // move to drain box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1395,7 +1395,7 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper box 23
                 [1, 2], // move to yel drop target 12
                 // select flipper pass
-                [1, 6], // move to drain via drain box
+                [1, 6], // move to drain box
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1417,7 +1417,7 @@ describe("Game", () => {
         it('should make the relevant round indicators visible in round 2 while keeping the round 3 indicator hidden', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // from start to start via drain box to start round 2
+                [1, 1], // move from start to drain box and back to start to start round 2
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1435,8 +1435,8 @@ describe("Game", () => {
         it('should make all round indicators visible at the start of round 3', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // from start to drain box to start round 2
-                [1, 1], // from start to drain box to start round 3
+                [1, 1], // move from start to drain box to start round 2
+                [1, 1], // move from start to drain box to start round 3
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1713,7 +1713,7 @@ describe("Game", () => {
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56
                 // select outlane bonus
-                [1, 6], // move to drain via drain box
+                [1, 6], // move to drain
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2298,7 +2298,7 @@ describe("Game", () => {
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to yel droptarget 56 (+1)
                 // select yellow bonus points (+2)
-                [1, 1], // move to drain via drain box
+                [1, 1], // move to drain
                 [1, 2], // move from start to yel droptarget 12 (+1)
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel droptarget 34 (+1)
@@ -2628,7 +2628,7 @@ describe("Game", () => {
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
                 // select red bonus points (+3)
-                [1, 1], // move to drain via drain box
+                [1, 1], // move to drain
                 [1, 2], // move from start to red drop target 12 (+1)
                 [3, 3], // move to red flipper box 3
                 [3, 3], // move to red drop target 3 (+1)
@@ -2775,19 +2775,19 @@ describe("Game", () => {
         it('should clear all hammer space boxes', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // from start to red inlane
-                [1, 1], // to hammer space 1
-                [3, 3], // to red flipper box 3
-                [2, 2], // to hammer space 2
-                [4, 4], // to red flipper box 45
-                [3, 3], // to hammer space 3
-                [6, 6], // to red flipper box 6
-                [4, 4], // to hammer space 4
-                [1, 1], // to drain via drain box since all boxes for the red flipper are filled
-                [2, 2], // from start to red inlane
-                [5, 5], // to hammer space 5
-                [3, 3], // to red flipper box 3
-                [6, 6], // to hammer space 6
+                [2, 2], // move from start to red inlane
+                [1, 1], // move to hammer space 1
+                [3, 3], // move to red flipper box 3
+                [2, 2], // move to hammer space 2
+                [4, 4], // move to red flipper box 45
+                [3, 3], // move to hammer space 3
+                [6, 6], // move to red flipper box 6
+                [4, 4], // move to hammer space 4
+                [1, 1], // move to drain since all boxes for the red flipper are filled
+                [2, 2], // move from start to red inlane
+                [5, 5], // move to hammer space 5
+                [3, 3], // move to red flipper box 3
+                [6, 6], // move to hammer space 6
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -3344,7 +3344,7 @@ describe("Game", () => {
                 [3, 3], // move to hammer space 3 (+1)
                 [2, 2], // move to red inlane (+2)
                 [4, 4], // move to hammer space 4 (+2)
-                [1, 1], // move to drain via drain box
+                [1, 1], // move to drain
                 [3, 3], // move to red flipper box 3
                 [5, 5], // move to hammer space 5 (+5)
                 [1, 1], // move to yel flipper box 1
@@ -5358,7 +5358,7 @@ describe("Game", () => {
                 [4, 4], // move to red drop target 4 (+1)
                 [6, 6], // move to red flipper box 6
                 [5, 6], // move to red drop target 56 (+1)
-                [2, 3], // move to drain via drain box after choosing the bumper bonus
+                [2, 3], // move to drain after choosing the bumper bonus
                 [1, 1], // move to bumper 12 via 1st 1 box (+1)
                 [5, 5], // attempt to move to bumper 56 via 1st 5 box
                 [1, 1], // final roll which should not be reached
