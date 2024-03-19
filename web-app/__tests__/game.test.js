@@ -1156,14 +1156,16 @@ describe("Game", () => {
         it('should increment nudges used, award points, and not trigger round end when avoiding tilting', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [2, 2], // will nudge -1 to move to bumper 12 via 1st 1 box
+                [2, 2],
+                // nudge die 1 (=2) down to 1
+                // move to bumper 12 1st 1 box
                 [1, 6], // final roll that avoids tilting
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID)); // nudge die1 from 2 to 1
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_DN_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
             const pointsAwarded = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
             //#endregion
