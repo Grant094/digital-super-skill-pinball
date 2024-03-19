@@ -1041,7 +1041,9 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML).toEqual("0");
             //#endregion
         });
-        it('should allow the user to make a valid move after the invalid one, hide the alert when making the valid move, and award the relevant points', async () => {
+    });
+    describe('when attempting to make a valid move after attempting to make an invalid move', () => {
+        it('should allow the user to make the valid move, hide the alert for the previous invalid move attempt, and award the relevant points', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [3, 3], // eventually move to bumper 34 1st 3
