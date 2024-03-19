@@ -5467,18 +5467,17 @@ describe("Game", () => {
         it('should display the game over message in the alert tray', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // go to drain to go from round 1 to round 2
-                [1, 1], // go to drain to go from round 2 to round 3
-                [1, 1], // go to drain to end the game
-                [1, 1], // final roll
+                [1, 1], // move from start to drain box to end round 1
+                [1, 1], // move from start to drain box to end round 2
+                [1, 1], // move from start to drain box to the game
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).toBeInTheDocument()
@@ -5490,18 +5489,17 @@ describe("Game", () => {
         it('should hide both balls', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // go to drain to go from round 1 to round 2
-                [1, 1], // go to drain to go from round 2 to round 3
-                [1, 1], // go to drain to end the game
-                [1, 1], // final roll
+                [1, 1], // move from start to drain box to end round 1
+                [1, 1], // move from start to drain box to end round 2
+                [1, 1], // move from start to drain box to the game
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
             expect(screen.getByTitle(constants.BALL1_ID)).toBeInTheDocument();
@@ -5513,12 +5511,11 @@ describe("Game", () => {
         it('should keep boxes filled in', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // go to drain to go from round 1 to round 2
-                [1, 1], // go to drain to go from round 2 to round 3
-                [1, 1], // go from start to ferris wheel car 12
-                [2, 2], // go to red inlane
-                [1, 1], // go to drain to end the game
-                [1, 1], // final roll
+                [1, 1], // move from start to drain box to end round 1
+                [1, 1], // move from start to drain box to end round 2
+                [1, 1], // move from start to ferris wheel car 12
+                [2, 2], // move to red inlane
+                [1, 1], // move to drain box to end the game
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
@@ -5538,22 +5535,24 @@ describe("Game", () => {
         it('should maintain score and nudges used', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // go to drain to go from round 1 to round 2
-                [1, 1], // go to drain to go from round 2 to round 3
-                [2, 2], // nudge up 1 to 3 and move from start to bumper 34 via 1st 3 (worth 1 point)
-                [1, 6], // avoid tilt and then go to drain to end the game
-                [1, 1], // final roll
+                [1, 1], // move from start to drain box to end round 1
+                [1, 1], // move from start to drain box to end round 2
+                [2, 2],
+                // nudge die 1 (=2) up to 3
+                // move from start with die 1 (=3) to bumper 34 1st 3 box
+                [1, 6],
+                // avoid tilt and move to the drain box to end the game
             ];
             const user = userEvent.setup();
             render(<Game dieValues={DIE_VALUES} />);
             //#endregion
             //#region act
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 1
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 2
-            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID)); // nudge die1 from 2 to 3
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
+            await user.click(screen.getByTitle(constants.DIE1_NUDGE_UP_BUTTON_ID));
             await user.click(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID));
             const pointsBeforeLastTurn = Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML);
-            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID)); // end round 3
+            await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
             expect(Number(screen.getByTitle(constants.SCORE_PARAGRAPH_ID).innerHTML)).toEqual(pointsBeforeLastTurn);
@@ -5563,9 +5562,9 @@ describe("Game", () => {
         it('should not roll the dice after ending the game', async () => {
             //#region arrange
             const DIE_VALUES = [
-                [1, 1], // move from start to drain to end round 1/3
-                [1, 1], // move from start to drain to end round 2/3
-                [3, 3], // move from start to drain to end round 3/3
+                [1, 1], // move from start to drain to end round 1
+                [1, 1], // move from start to drain to end round 2
+                [3, 3], // move from start to drain to end the game
                 [1, 1], // final roll which should not be used to move
             ];
             const user = userEvent.setup();
