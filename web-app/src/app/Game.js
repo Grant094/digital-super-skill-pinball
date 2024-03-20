@@ -300,7 +300,7 @@ export default function Game(props) {
         return (boxBackgroundColor === constants.FILLED_BACKGROUND_COLOR);
     }
 
-    function canReceiveFromSelectedDie(canReceiveOn) {
+    function canReceiveOnSelectedDie(canReceiveOn) {
         if (selectedDieId === constants.DIE1_ID) {
             return (canReceiveOn.includes(die1));
         } else if (selectedDieId === constants.DIE2_ID) {
@@ -310,7 +310,7 @@ export default function Game(props) {
         }
     }
 
-    function canReceiveFromEitherDie(canReceiveOn) {
+    function canReceiveOnEitherDie(canReceiveOn) {
         return (canReceiveOn.includes(die1) || canReceiveOn.includes(die2));
     }
 
@@ -321,9 +321,9 @@ export default function Game(props) {
         );
 
         if (isMultiballActive()) {
-            return (partialRet && canReceiveFromSelectedDie(canReceiveOn));
+            return (partialRet && canReceiveOnSelectedDie(canReceiveOn));
         } else {
-            return (partialRet && canReceiveFromEitherDie(canReceiveOn));
+            return (partialRet && canReceiveOnEitherDie(canReceiveOn));
         }
     }
 
