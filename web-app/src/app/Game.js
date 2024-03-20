@@ -532,7 +532,7 @@ export default function Game(props) {
                 }
 
                 if (
-                    (   // since you do not select the ball in the drain, if either ball is in the drain, it must be the non-selected ball
+                    (   // since you do not select a ball in the drain, if either ball is in the drain, it must be the non-selected ball
                         ball1BoxId === constants.DRAIN_BOX_ID ||
                         ball2BoxId === constants.DRAIN_BOX_ID
                     ) &&
