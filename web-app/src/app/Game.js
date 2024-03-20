@@ -446,12 +446,7 @@ export default function Game(props) {
     }
 
     function addPoints(pointsToAdd) {
-        const multiballMulitplier = (
-            (
-                (ball1BoxId !== constants.DRAIN_BOX_ID || (ball1BoxId === constants.DRAIN_BOX_ID && wasBall1MovedThisTurn)) &&
-                (ball2BoxId !== constants.DRAIN_BOX_ID || (ball2BoxId === constants.DRAIN_BOX_ID && wasBall2MovedThisTurn))
-            ) ? 2 : 1
-        )
+        const multiballMulitplier = (isMultiballActive() ? 2 : 1)
         setScore(Number(score) + (Number(pointsToAdd) * Number(multiballMulitplier)));
     }
 
@@ -669,10 +664,7 @@ export default function Game(props) {
             skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
 
             setAlertParagraphText("");
-        } else if (
-            (ball1BoxId !== constants.DRAIN_BOX_ID || wasBall1MovedThisTurn) &&
-            (ball2BoxId !== constants.DRAIN_BOX_ID || wasBall2MovedThisTurn)
-        ) {
+        } else if (isMultiballActive()) {
             if (dieId === constants.DIE1_ID && !wasDie1UsedThisTurn) {
                 setSelectedDieId(constants.DIE1_ID);
             } else if (dieId === constants.DIE2_ID && !wasDie2UsedThisTurn) {
