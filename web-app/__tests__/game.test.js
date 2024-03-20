@@ -76,12 +76,12 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should render bonus indicator components with BONUS_INDICATOR_INACTIVE_BORDER_COLOR borders', async () => {
@@ -1667,7 +1667,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should deactivate the flipper pass indicator if it is active', async () => {
@@ -1933,7 +1933,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should clear the alert paragraph and hide the alert tray after gaining a skill shot', async () => {
@@ -1988,8 +1988,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should allow gaining a 2nd skill shot if the ferris wheel cars have been filled a 2nd time', async () => {
@@ -2029,8 +2029,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should do nothing if clicking on an already gained skill shot when otherwise validly attempting to gain a 2nd skill shot', async () => {
@@ -2112,8 +2112,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
     });
@@ -2934,7 +2934,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should change the selected die, die 2, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
@@ -2966,7 +2966,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should allow the user to move with the skill shot', async () => {
@@ -3068,7 +3068,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.DIE1_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
             //#endregion
         });
