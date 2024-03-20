@@ -10,7 +10,7 @@ export const START_BOX_ID = "box-start";
 export const RED_FLIPPER_BOX_3_BOX_ID = "box-redflipperbox-3";
 export const RED_FLIPPER_BOX_45_BOX_ID = "box-redflipperbox-45";
 export const RED_FLIPPER_BOX_6_BOX_ID = "box-redflipperbox-6";
-export const RED_FLIPPER_GROUP_BOX_IDS = [
+export const RED_FLIPPER_BOX_IDS = [
     RED_FLIPPER_BOX_3_BOX_ID,
     RED_FLIPPER_BOX_45_BOX_ID,
     RED_FLIPPER_BOX_6_BOX_ID,
@@ -20,13 +20,13 @@ export const RED_FLIPPER_GROUP_BOX_IDS = [
 export const YEL_FLIPPER_BOX_1_BOX_ID = "box-yelflipperbox-1";
 export const YEL_FLIPPER_BOX_23_BOX_ID = "box-yelflipperbox-23";
 export const YEL_FLIPPER_BOX_4_BOX_ID = "box-yelflipperbox-4";
-export const YEL_FLIPPER_GROUP_BOX_IDS = [
+export const YEL_FLIPPER_BOX_IDS = [
     YEL_FLIPPER_BOX_1_BOX_ID,
     YEL_FLIPPER_BOX_23_BOX_ID,
     YEL_FLIPPER_BOX_4_BOX_ID,
 ];
 //#endregion
-export const FLIPPER_GROUP_BOX_IDS = [...RED_FLIPPER_GROUP_BOX_IDS, ...YEL_FLIPPER_GROUP_BOX_IDS];
+export const FLIPPER_BOX_IDS = [...RED_FLIPPER_BOX_IDS, ...YEL_FLIPPER_BOX_IDS];
 //#endregion
 //#region inlanes
 export const RED_INLANE_BOX_ID = "box-redinlane-2";
@@ -45,7 +45,7 @@ export const OUTLANE_BOX_IDS = [
 ];
 //#endregion
 export const DASHED_BOX_IDS = [
-    ...FLIPPER_GROUP_BOX_IDS,
+    ...FLIPPER_BOX_IDS,
     ...INLANE_BOX_IDS,
     ...OUTLANE_BOX_IDS,
 ];
@@ -63,7 +63,7 @@ export const FERRISWHEEL_GROUP_BOX_IDS = [
 //#endregion
 export const FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM = [
     START_BOX_ID,
-    ...YEL_FLIPPER_GROUP_BOX_IDS,
+    ...YEL_FLIPPER_BOX_IDS,
     YEL_INLANE_BOX_ID,
 ];
 //#endregion
@@ -145,9 +145,9 @@ export const BUMPER_GROUP_BOX_IDS = [
 export const BUMPERS_DEFAULT_CAN_RECEIVE_FROM = [
     START_BOX_ID,
     ...FERRISWHEEL_GROUP_BOX_IDS,
-    ...RED_FLIPPER_GROUP_BOX_IDS,
+    ...RED_FLIPPER_BOX_IDS,
     RED_INLANE_BOX_ID,
-    ...YEL_FLIPPER_GROUP_BOX_IDS,
+    ...YEL_FLIPPER_BOX_IDS,
     YEL_INLANE_BOX_ID,
 ];
 export const BUMPER_12_DEFAULT_CAN_RECEIVE_FROM = [
@@ -182,7 +182,7 @@ export const HAMMER_SPACE_GROUP_BOX_IDS = [
 ];
 //#endregion
 export const HAMMER_SPACES_DEFAULT_CAN_RECEIVE_FROM = [
-    ...RED_FLIPPER_GROUP_BOX_IDS,
+    ...RED_FLIPPER_BOX_IDS,
     RED_INLANE_BOX_ID,
 ];
 //#endregion
@@ -218,12 +218,12 @@ export const DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM = [
 ];
 export const YEL_DROPTARGETS_CAN_RECEIVE_FROM = [
     ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM,
-    ...YEL_FLIPPER_GROUP_BOX_IDS,
+    ...YEL_FLIPPER_BOX_IDS,
     YEL_INLANE_BOX_ID,
 ];
 export const RED_DROPTARGETS_CAN_RECEIVE_FROM = [
     ...DROPTARGETS_DEFAULT_CAN_RECEIVE_FROM,
-    ...RED_FLIPPER_GROUP_BOX_IDS,
+    ...RED_FLIPPER_BOX_IDS,
     RED_INLANE_BOX_ID,
 ]
 //#endregion
