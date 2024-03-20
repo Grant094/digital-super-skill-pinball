@@ -798,7 +798,7 @@ export default function Game(props) {
     //#endregion
 
     function valueOfBumpers() {
-        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? "2" : "1");
+        return ((bumperBonusIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ? 2 : 1);
     }
     //#endregion
 
