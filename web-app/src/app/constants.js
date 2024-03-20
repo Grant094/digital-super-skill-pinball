@@ -300,8 +300,8 @@ export const SKILL_SHOT_BOX_5_ID = "skill-shot-box-5";
 export const SKILL_SHOT_BOX_6_ID = "skill-shot-box-6";
 //#endregion
 //#region skill shot box border colors
-export const SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR = "transparent";
-export const SKILL_SHOT_BOX_GAINED_BORDER_COLOR = "black";
+export const SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR = "transparent";
+export const SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR = "black";
 export const SKILL_SHOT_BOX_SELECTED_BORDER_COLOR = SELECTED_BORDER_COLOR;
 //#endregion
 //#endregion

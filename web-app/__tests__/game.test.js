@@ -62,7 +62,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
             //#endregion
         });
-        it('should render skill shot boxes with SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR borders', () => {
+        it('should render skill shot boxes with SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR borders', () => {
             //#region arrange
             render(<Game />);
             //#endregion
@@ -76,12 +76,12 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID)).toBeInTheDocument();
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID)).toBeInTheDocument();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_3_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_4_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_5_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should render bonus indicator components with BONUS_INDICATOR_INACTIVE_BORDER_COLOR borders', async () => {
@@ -1643,7 +1643,7 @@ describe("Game", () => {
             expect(pointsAwarded).toEqual(0);
             //#endregion
         });
-        it('should maintain gained skill shots', async () => {
+        it('should maintain circled skill shots', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -1667,7 +1667,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should deactivate the flipper pass indicator if it is active', async () => {
@@ -1910,7 +1910,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.FERRISWHEEL_CAR_56_BOX_ID).style.left);
             //#endregion
         });
-        it('should allow a skill shot to be gained', async () => {
+        it('should allow a skill shot to be circled', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -1918,7 +1918,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1933,10 +1933,10 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
-        it('should clear the alert paragraph and hide the alert tray after gaining a skill shot', async () => {
+        it('should clear the alert paragraph and hide the alert tray after circling a skill shot', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -1944,7 +1944,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -1963,7 +1963,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("");
             //#endregion
         });
-        it('should not allow a user to gain a 2nd skill shot after filling all ferris wheel cars only once', async () => {
+        it('should not allow a user to circle a 2nd skill shot after filling all ferris wheel cars only once', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -1971,8 +1971,8 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
-                // attempt to gain skill shot 2
+                // circle skill shot 1
+                // attempt to circle skill shot 2
                 [1, 1], // final roll 
             ];
             const user = userEvent.setup();
@@ -1988,11 +1988,11 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_2_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
-        it('should allow gaining a 2nd skill shot if the ferris wheel cars have been filled a 2nd time', async () => {
+        it('should allow circling a 2nd skill shot if the ferris wheel cars have been filled a 2nd time', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2000,14 +2000,14 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 6
+                // circle skill shot 6
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2029,11 +2029,11 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
-        it('should do nothing if clicking on an already gained skill shot when otherwise validly attempting to gain a 2nd skill shot', async () => {
+        it('should do nothing if clicking on an already circled skill shot when otherwise validly attempting to circle a 2nd skill shot', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2041,14 +2041,14 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // attempt to gain already-gain skill shot 1
+                // attempt to circle already-circle skill shot 1
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2073,7 +2073,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(constants.SELECT_SKILL_SHOT_ALERT);
             //#endregion
         });
-        it('should allow gaining a 2nd skill shot even after clicking on an already gained skill shot', async () => {
+        it('should allow circling a 2nd skill shot even after clicking on an already circled skill shot', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2081,15 +2081,15 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [1, 1], // move to drain
                 [1, 2], // move from start to ferris wheel car 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // click on already-gained skill shot 1
-                // gain skill shot 6
+                // click on already-circled skill shot 1
+                // circle skill shot 6
                 [1, 1], // final roll
             ];
             const user = userEvent.setup();
@@ -2112,8 +2112,8 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_6_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             //#endregion
         });
     });
@@ -2885,7 +2885,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [1, 1], // final roll
                 // select skill shot 1
             ];
@@ -2905,7 +2905,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
             //#endregion
         });
-        it('should change the selected die, die 1, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
+        it('should change the selected die, die 1, not show an alert, and make the used skill shot uncircled, all after overriding a die', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2913,7 +2913,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [6, 6], // final roll
                 // select skill shot 1
                 // select die 1, overriding it
@@ -2934,10 +2934,10 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
-        it('should change the selected die, die 2, not show an alert, and make the used skill shot available, all after overriding a die', async () => {
+        it('should change the selected die, die 2, not show an alert, and make the used skill shot uncircled, all after overriding a die', async () => {
             //#region arrange
             const DIE_VALUES = [
                 [1, 2], // move from start to ferris wheel car 12
@@ -2945,7 +2945,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [6, 6], // final roll
                 // select skill shot 1
                 // select die 2, overriding it
@@ -2966,7 +2966,7 @@ describe("Game", () => {
             //#region assert
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.ALERT_TRAY_ID)).not.toBeVisible();
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
             //#endregion
         });
         it('should allow the user to move with the skill shot', async () => {
@@ -2977,7 +2977,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [6, 6],
                 // select skill shot 1
                 // select die 1, overriding it
@@ -3011,7 +3011,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [6, 6],
                 // select skill shot 1
                 // select die 1, overriding it
@@ -3047,7 +3047,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [6, 6], // final roll
                 // select skill shot 1
                 // deselect skill shot 1
@@ -3068,7 +3068,7 @@ describe("Game", () => {
             await user.click(screen.getByTitle(constants.DIE1_ID));
             //#endregion
             //#region assert
-            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            expect(screen.getByTitle(constants.SKILL_SHOT_BOX_1_ID).style.borderColor).toEqual(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("6");
             //#endregion
         });
@@ -3080,7 +3080,7 @@ describe("Game", () => {
                 [3, 4], // move to ferris wheel car 34
                 [2, 3], // move to yel flipper box 23
                 [5, 6], // move to ferris wheel car 56
-                // gain skill shot 1
+                // circle skill shot 1
                 [6, 6], // final roll
                 // select skill shot 1
                 // attempt to move to bumper 56 1st 6 box

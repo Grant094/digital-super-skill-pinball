@@ -100,12 +100,12 @@ export default function Game(props) {
     const [drainBoxBackgroundColor, setDrainBoxBackgroundColor] = useState(constants.UNFILLED_BACKGROUND_COLOR);
     //#endregion
     //#region skill shot box border colors
-    const [skillShotBox1BorderColor, setSkillShotBox1BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-    const [skillShotBox2BorderColor, setSkillShotBox2BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-    const [skillShotBox3BorderColor, setSkillShotBox3BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-    const [skillShotBox4BorderColor, setSkillShotBox4BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-    const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
-    const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState(constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+    const [skillShotBox1BorderColor, setSkillShotBox1BorderColor] = useState(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+    const [skillShotBox2BorderColor, setSkillShotBox2BorderColor] = useState(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+    const [skillShotBox3BorderColor, setSkillShotBox3BorderColor] = useState(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+    const [skillShotBox4BorderColor, setSkillShotBox4BorderColor] = useState(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+    const [skillShotBox5BorderColor, setSkillShotBox5BorderColor] = useState(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
+    const [skillShotBox6BorderColor, setSkillShotBox6BorderColor] = useState(constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
     //#endregion
     //#region bonus indicator border colors
     const [flipperPassIndicatorBorderColor, setFlipperPassIndicatorBorderColor] = useState(constants.BONUS_INDICATOR_INACTIVE_BORDER_COLOR);
@@ -666,7 +666,7 @@ export default function Game(props) {
                 setDie2(indexOfSelectedSkillShotBox + 1);
             }
 
-            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR);
+            skillShotBoxBorderColorSetters[indexOfSelectedSkillShotBox](constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR);
 
             setAlertParagraphText("");
         } else if (
@@ -733,20 +733,20 @@ export default function Game(props) {
     function handleSkillShotBoxClick(skillShotBoxBorderColor, skillShotBoxBorderColorSetter) {
         if (
             alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT &&
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_AVAILABLE_BORDER_COLOR
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_UNCIRCLED_BORDER_COLOR
         ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             setAlertParagraphText("");
         } else if (
             alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
-            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR
+            skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR
         ) {
             skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR);
             setAlertParagraphText(constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT);
         } else if (
             skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_SELECTED_BORDER_COLOR
         ) {
-            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_GAINED_BORDER_COLOR);
+            skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             setAlertParagraphText("");
         }
     }
