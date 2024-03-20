@@ -890,11 +890,11 @@ export default function Game(props) {
                             [3, 4],
                             () => setFerriswheelcar34BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR),
                             0,
-                            () => { }, // boxAction
+                            () => { },
                             ferriswheelBoxBackgroundColors,
                             ferriswheelBoxBackgroundColorSetters,
                             ferriswheelcarClearGroupAction,
-                            undefined // isPrecedingHammerspaceBoxFilled
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(ferriswheelcar34BoxBackgroundColor)}
                         left="255px"
