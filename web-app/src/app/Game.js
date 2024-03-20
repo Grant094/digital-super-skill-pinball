@@ -771,9 +771,9 @@ export default function Game(props) {
             (flipperPassIndicatorBorderColor === constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR) ?
                 defaultCanReceiveFrom.concat(
                     [
-                        ...(constants.RED_FLIPPER_GROUP_BOX_IDS),
+                        ...(constants.RED_FLIPPER_BOX_IDS),
                         constants.RED_INLANE_BOX_ID,
-                        ...(constants.YEL_FLIPPER_GROUP_BOX_IDS),
+                        ...(constants.YEL_FLIPPER_BOX_IDS),
                         constants.YEL_INLANE_BOX_ID,
                     ]
                 ) : defaultCanReceiveFrom
