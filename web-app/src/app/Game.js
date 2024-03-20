@@ -864,17 +864,17 @@ export default function Game(props) {
                 <Fragment key="ferriswheel">
                     <Box boxId={constants.FERRISWHEEL_CAR_12_BOX_ID}
                         handleClick={() => handleDiceBoxClick(
-                            constants.FERRISWHEEL_CAR_12_BOX_ID, // boxId
-                            ferriswheelcar12BoxBackgroundColor, // boxBackgroundColor
-                            possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM), // canReceiveFrom
-                            [1, 2], // canReceiveOn
-                            (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)), // fillBox
-                            0, // points
-                            () => { }, // boxAction
-                            ferriswheelBoxBackgroundColors, // boxGroupBoxBackgroundColors
-                            ferriswheelBoxBackgroundColorSetters, // boxBackgroundColorSetters
-                            ferriswheelcarClearGroupAction, // groupAction
-                            undefined // isPrecedingHammerspaceBoxFilled
+                            constants.FERRISWHEEL_CAR_12_BOX_ID,
+                            ferriswheelcar12BoxBackgroundColor,
+                            possiblyReceiveFromEitherFlipper(constants.FERRISWHEEL_CARS_DEFAULT_CAN_RECEIVE_FROM),
+                            [1, 2],
+                            (() => setFerriswheelcar12BoxBackgroundColor(constants.FILLED_BACKGROUND_COLOR)),
+                            0,
+                            () => { },
+                            ferriswheelBoxBackgroundColors,
+                            ferriswheelBoxBackgroundColorSetters,
+                            ferriswheelcarClearGroupAction,
+                            undefined
                         )}
                         isThisBoxFilled={isBoxFilled(ferriswheelcar12BoxBackgroundColor)}
                         left="160px"
