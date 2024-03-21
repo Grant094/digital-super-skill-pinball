@@ -499,7 +499,7 @@ export default function Game(props) {
             ) &&
             utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)
         ) {
-            // a user cannot nudge to use an outlane, so this situation is checked for first
+            // a user cannot nudge to use an outlane
             setAlertParagraphText(constants.OUTLANE_NUDGE_ALERT);
         } else if (couldReceiveSelectedBall(boxBackgroundColor, canReceiveFrom, canReceiveOn)) {
             if (
