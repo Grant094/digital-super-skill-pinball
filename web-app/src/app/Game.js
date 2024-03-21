@@ -274,8 +274,8 @@ export default function Game(props) {
 
     function ballBorderColor(ballId) {
         if (
-            (ballId === constants.BALL1_ID && ball1BoxId === constants.START_BOX_ID && ball2BoxId === constants.DRAIN_BOX_ID) ||
-            (ballId === constants.BALL2_ID && ball2BoxId === constants.START_BOX_ID && ball1BoxId === constants.DRAIN_BOX_ID)
+            (ballId === constants.BALL1_ID && ball1BoxId === constants.START_BOX_ID && isBall2Drained()) ||
+            (ballId === constants.BALL2_ID && ball2BoxId === constants.START_BOX_ID && isBall1Drained())
         ) {
             return constants.BALL_SELECTED_BORDER_COLOR;
         } else if (
@@ -287,12 +287,31 @@ export default function Game(props) {
             return (ballId === selectedBallId ? constants.BALL_SELECTED_BORDER_COLOR : constants.BALL_AVAILABLE_BORDER_COLOR);
         }
     }
+    //#region isBallDrained
+    function isBallDrained(ballId) {
+        if (ballId === constants.BALL1_ID && constants.DRAIN_CORRESPONDING_BOX_IDS.includes(ball1BoxId)) {
+            return true;
+        } else if (ballId === constants.BALL2_ID && constants.DRAIN_CORRESPONDING_BOX_IDS.includes(ball2BoxId)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isBall1Drained() {
+        return isBallDrained(constants.BALL1_ID);
+    }
+
+    function isBall2Drained() {
+        return isBallDrained(constants.BALL2_ID);
+    }
+    //#endregion
     //#endregion
     //#region handle dice box click
     function isMultiballActive() {
         return (
-            (ball1BoxId !== constants.DRAIN_BOX_ID || wasBall1MovedThisTurn) &&
-            (ball2BoxId !== constants.DRAIN_BOX_ID || wasBall2MovedThisTurn)
+            (!isBall1Drained() || wasBall1MovedThisTurn) &&
+            (!isBall2Drained() || wasBall2MovedThisTurn)
         )
     }
 
@@ -387,9 +406,9 @@ export default function Game(props) {
             }
         }
 
-        if (ball1BoxId === constants.DRAIN_BOX_ID && ball2BoxId !== constants.DRAIN_BOX_ID) {
+        if (isBall1Drained() && !isBall2Drained()) {
             setSelectedBallId(constants.BALL2_ID);
-        } else if (ball2BoxId === constants.DRAIN_BOX_ID && ball1BoxId !== constants.DRAIN_BOX_ID) {
+        } else if (isBall2Drained() && !isBall1Drained()) {
             setSelectedBallId(constants.BALL1_ID);
         } else if (unselectedBallId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
             setSelectedBallId(constants.BALL2_ID);
@@ -427,11 +446,7 @@ export default function Game(props) {
     function moveWillEndTheGame(boxId) {
         return (
             (round === constants.MAX_ROUNDS) &&
-            (
-                boxId === constants.YEL_OUTLANE_BOX_ID ||
-                boxId === constants.RED_OUTLANE_BOX_ID ||
-                boxId === constants.DRAIN_BOX_ID
-            )
+            constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId)
         )
     }
 
@@ -528,8 +543,8 @@ export default function Game(props) {
 
                 if (
                     (   // since you do not select a ball in the drain, if either ball is in the drain, it must be the non-selected ball
-                        ball1BoxId === constants.DRAIN_BOX_ID ||
-                        ball2BoxId === constants.DRAIN_BOX_ID
+                        isBall1Drained() ||
+                        isBall2Drained()
                     ) &&
                     (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId)) // does this box send the ball to the drain?
                 ) {
@@ -552,7 +567,7 @@ export default function Game(props) {
 
                 if (
                     !(moveWillEndTheGame(boxId)) && (
-                        notMovedByThisClickballBoxId === constants.DRAIN_BOX_ID ||
+                        constants.DRAIN_CORRESPONDING_BOX_IDS.includes(notMovedByThisClickballBoxId) ||
                         wasBallNotMovedByThisClickMovedThisTurn
                     )
                 ) {
@@ -638,9 +653,9 @@ export default function Game(props) {
     }
 
     function activateMultiball() {
-        if (ball1BoxId === constants.DRAIN_BOX_ID) {
+        if (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(ball1BoxId)) {
             setBall1BoxId(constants.START_BOX_ID);
-        } else if (ball2BoxId === constants.DRAIN_BOX_ID) {
+        } else if (constants.DRAIN_CORRESPONDING_BOX_IDS.includes(ball2BoxId)) {
             setBall2BoxId(constants.START_BOX_ID);
         }
 
@@ -745,7 +760,7 @@ export default function Game(props) {
 
     function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined, willActivateMultiball = false) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
-            if (ball1BoxId !== constants.DRAIN_BOX_ID && ball2BoxId !== constants.DRAIN_BOX_ID && willActivateMultiball) {
+            if (!isBall1Drained() && !isBall2Drained() && willActivateMultiball) {
                 // do nothing
             } else {
                 if (bonusBoxBackgroundColorSetter) {
