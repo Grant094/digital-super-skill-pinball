@@ -758,23 +758,17 @@ export default function Game(props) {
         }
     }
 
-    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = undefined, bonusIndicatorBorderColorSetter = undefined, bonusAction = undefined, willActivateMultiball = false) {
+    function handleBonusBoxClick(color, bonusBoxBackgroundColorSetter = ((param) => { }), bonusIndicatorBorderColorSetter = ((param) => { }), bonusAction = ((param) => { }), willActivateMultiball = false) {
         if (alertParagraphText === utilities.alertMessageForChoosingABonus(color)) {
             if (!isBall1Drained() && !isBall2Drained() && willActivateMultiball) {
                 // do nothing
             } else {
-                if (bonusBoxBackgroundColorSetter) {
-                    bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
-                }
+                bonusBoxBackgroundColorSetter(constants.FILLED_BACKGROUND_COLOR);
 
-                if (bonusIndicatorBorderColorSetter) {
-                    bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
-                }
+                bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
 
-                if (bonusAction) {
-                    bonusAction();
-                }
-
+                bonusAction();
+                
                 setAlertParagraphText("");
             }
         }
