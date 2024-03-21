@@ -95,7 +95,7 @@ export const BUMPER_12_BOX_IDS = [
 //#region bumper 34 3 box ids
 export const BUMPER_34_1ST_3_BOX_ID = "box-bumper-34-1st-3";
 export const BUMPER_34_2ND_3_BOX_ID = "box-bumper-34-2nd-3";
-export const BUMPER_34_3_BOX_ID = [
+export const BUMPER_34_3_BOX_IDS = [
     BUMPER_34_1ST_3_BOX_ID,
     BUMPER_34_2ND_3_BOX_ID,
 ];
@@ -109,7 +109,7 @@ export const BUMPER_34_4_BOX_IDS = [
 ];
 //#endregion
 export const BUMPER_34_BOX_IDS = [
-    ...BUMPER_34_3_BOX_ID,
+    ...BUMPER_34_3_BOX_IDS,
     ...BUMPER_34_4_BOX_IDS
 ];
 //#endregion
