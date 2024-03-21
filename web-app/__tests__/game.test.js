@@ -5223,7 +5223,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
                 //#endregion
@@ -5261,7 +5260,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
                 //#endregion
@@ -5299,7 +5297,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.DRAIN_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 //#endregion
@@ -5337,7 +5334,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
                 //#endregion
@@ -5375,7 +5371,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
                 //#endregion
@@ -5413,7 +5408,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.RED_OUTLANE_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 //#endregion
@@ -5451,7 +5445,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
                 //#endregion
@@ -5489,7 +5482,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL1_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.HAMMER_SPACE_1_BOX_ID));
                 //#endregion
@@ -5527,7 +5519,6 @@ describe("Game", () => {
                 await user.click(screen.getByTitle(constants.BALL2_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 await user.click(screen.getByTitle(constants.YEL_OUTLANE_BOX_ID));
-                await user.click(screen.getByTitle(constants.DIE2_ID));
                 await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_6_BOX_ID));
                 await user.click(screen.getByTitle(constants.DIE1_ID));
                 //#endregion
