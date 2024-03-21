@@ -274,8 +274,8 @@ export default function Game(props) {
 
     function ballBorderColor(ballId) {
         if (
-            (ballId === constants.BALL1_ID && ball1BoxId === constants.START_BOX_ID && isBall2Drained()) ||
-            (ballId === constants.BALL2_ID && ball2BoxId === constants.START_BOX_ID && isBall1Drained())
+            (ballId === constants.BALL1_ID && isBall2Drained()) ||
+            (ballId === constants.BALL2_ID && isBall1Drained())
         ) {
             return constants.BALL_SELECTED_BORDER_COLOR;
         } else if (
