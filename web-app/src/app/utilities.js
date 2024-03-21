@@ -17,3 +17,7 @@ export function isLastRound(round) {
 export function alertMessageForChoosingABonus(color) {
     return (`Choose a ${color} bonus!`);
 }
+
+export function alertMessageForTilting(die1Value, die2Value) {
+    return (`Tilted on {${die1Value}, ${die2Value}}!`);
+}

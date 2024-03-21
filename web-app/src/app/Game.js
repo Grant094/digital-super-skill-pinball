@@ -713,7 +713,7 @@ export default function Game(props) {
     }
 
     function tilt(nextValueOfDie1, nextValueOfDie2) {
-        setAlertParagraphText(`Tilted on {${nextValueOfDie1}, ${nextValueOfDie2}}!`);
+        setAlertParagraphText(utilities.alertMessageForTilting(nextValueOfDie1, nextValueOfDie2));
         endRound();
 
         const postTiltValueOfDie1 = props.dieValues ? props.dieValues[dieValuesIndex + 1][0] : utilities.getRndIntegerInclusive(1, 6);

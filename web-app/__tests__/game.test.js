@@ -1178,11 +1178,13 @@ describe("Game", () => {
         });
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
+            const DIE1_THAT_CAUSES_TILT = 6;
+            const DIE2_THAT_CAUSES_TILT = 6;
             const DIE_VALUES = [
                 [3, 3],
                 // nudge die 1 (=3) down to 2
                 // move from start to red inlane
-                [6, 6], // roll that causes tilt
+                [DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
             const user = userEvent.setup();
@@ -1200,7 +1202,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(pointsAwarded).toEqual(2);
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForTilting(DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT));
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
@@ -1234,11 +1236,13 @@ describe("Game", () => {
         });
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
+            const DIE1_THAT_CAUSES_TILT = 6;
+            const DIE2_THAT_CAUSES_TILT = 6;
             const DIE_VALUES = [
                 [2, 2],
                 // nudge die 1 (=2) up to 3
                 // move from start to bumper 34 1st 3 box
-                [6, 6], // roll that causes tilt
+                [DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
             const user = userEvent.setup();
@@ -1256,7 +1260,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForTilting(DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT));
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
@@ -1290,11 +1294,13 @@ describe("Game", () => {
         });
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
+            const DIE1_THAT_CAUSES_TILT = 6;
+            const DIE2_THAT_CAUSES_TILT = 6;
             const DIE_VALUES = [
                 [3, 3],
                 // nudge die 2 (=3) down to 2
                 // move from start to the red inlane
-                [6, 6], // roll that causes tilt
+                [DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
             const user = userEvent.setup();
@@ -1312,7 +1318,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(pointsAwarded).toEqual(2);
             expect(screen.getByTitle(constants.RED_INLANE_BOX_ID).style.backgroundColor).toEqual(constants.UNFILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForTilting(DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT));
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
@@ -1346,11 +1352,13 @@ describe("Game", () => {
         });
         it('should increment nudges used, award points, show message, and end the round when tilting', async () => {
             //#region arrange
+            const DIE1_THAT_CAUSES_TILT = 6;
+            const DIE2_THAT_CAUSES_TILT = 6;
             const DIE_VALUES = [
                 [2, 2],
                 // nudge die 2 (=2) up to 3
                 // move from start to bumper 34 1st 3 box
-                [6, 6], // roll that causes tilt
+                [DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT], // roll that causes tilt
                 [1, 1], // final roll post-tilt
             ];
             const user = userEvent.setup();
@@ -1368,7 +1376,7 @@ describe("Game", () => {
             expect(screen.getByTitle(constants.NUDGES_USED_PARAGRAPH_ID).innerHTML).toEqual("Nudges Used: 1");
             expect(pointsAwarded).toEqual(1);
             expect(screen.getByTitle(constants.BUMPER_34_1ST_3_BOX_ID).style.backgroundColor).toEqual(constants.FILLED_BACKGROUND_COLOR);
-            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual("Tilted on {6, 6}!");
+            expect(screen.getByTitle(constants.ALERT_PARAGRAPH_ID).innerHTML).toEqual(utilities.alertMessageForTilting(DIE1_THAT_CAUSES_TILT, DIE2_THAT_CAUSES_TILT));
             expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
             expect(screen.getByTitle(constants.DIE1_ID).innerHTML).toEqual("1");
             expect(screen.getByTitle(constants.DIE2_ID).innerHTML).toEqual("1");
