@@ -332,6 +332,7 @@ export const MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT = "Select a ball and 
 export const INVALID_CHOICE_ALERT = "Invalid choice!";
 export const ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT = "Balls cannot be on the same space";
 export const GAME_OVER_ALERT = "Game over!";
+export const HAMMER_SPACE_SEQUENCE_ALERT = "You must fill in the hammer spaces in sequence from 1 to 6!";
 //#endregion
 //#region misc
 export const MAX_ROUNDS = 3;

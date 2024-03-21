@@ -507,7 +507,7 @@ export default function Game(props) {
                 (boxId !== constants.HAMMER_SPACE_1_BOX_ID) &&
                 (!isPrecedingHammerspaceBoxFilled)
             ) {
-                setAlertParagraphText(`You must fill in the hammer spaces in sequence from 1 to 6!`);
+                setAlertParagraphText(constants.HAMMER_SPACE_SEQUENCE_ALERT);
             } else {
                 setAlertParagraphText("");
                 // if nudged, increment nudges used
