@@ -34,7 +34,7 @@ export default function Game(props) {
     const [wasBall2MovedThisTurn, setWasBall2MovedThisTurn] = useState(false);
     const [selectedBallId, setSelectedBallId] = useState(constants.BALL1_ID);
     const [alertParagraphText, setAlertParagraphText] = useState("");
-    const selectedballBoxId = (
+    const selectedBallBoxId = (
         selectedBallId === constants.BALL1_ID ? ball1BoxId :
             selectedBallId === constants.BALL2_ID ? ball2BoxId : undefined
     );
@@ -335,7 +335,7 @@ export default function Game(props) {
 
     function couldReceiveSelectedBall(boxBackgroundColor, canReceiveFrom, canReceiveOn) {
         const partialRet = (
-            canReceiveFrom.includes(selectedballBoxId) &&
+            canReceiveFrom.includes(selectedBallBoxId) &&
             !isBoxFilled(boxBackgroundColor)
         );
 
@@ -559,7 +559,7 @@ export default function Game(props) {
                     movedByThisClickBallId === constants.BALL1_ID ? constants.BALL2_ID :
                         movedByThisClickBallId === constants.BALL2_ID ? constants.BALL1_ID : undefined
                 );
-                const notMovedByThisClickballBoxId = (notMovedByThisClickBallId === constants.BALL1_ID ? ball1BoxId : ball2BoxId);
+                const notMovedByThisClickBallBoxId = (notMovedByThisClickBallId === constants.BALL1_ID ? ball1BoxId : ball2BoxId);
                 const wasBallNotMovedByThisClickMovedThisTurn = (notMovedByThisClickBallId === constants.BALL1_ID ? wasBall1MovedThisTurn : wasBall2MovedThisTurn);
 
                 deselectMovedBall();
@@ -567,7 +567,7 @@ export default function Game(props) {
 
                 if (
                     !(moveWillEndTheGame(boxId)) && (
-                        constants.DRAIN_CORRESPONDING_BOX_IDS.includes(notMovedByThisClickballBoxId) ||
+                        constants.DRAIN_CORRESPONDING_BOX_IDS.includes(notMovedByThisClickBallBoxId) ||
                         wasBallNotMovedByThisClickMovedThisTurn
                     )
                 ) {
