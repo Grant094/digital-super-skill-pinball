@@ -576,12 +576,25 @@ export default function Game(props) {
             }
         } else {
             if (isMultiballActive()) {
-                if (selectedBallId === constants.BALL1_ID || selectedBallId === constants.BALL2_ID) {
+                if (
+                    (selectedBallId === constants.BALL1_ID || selectedBallId === constants.BALL2_ID) &&
+                    (selectedDieId !== constants.DIE1_ID && selectedDieId !== constants.DIE2_ID)
+                ) {
                     setAlertParagraphText(constants.MULTIBALL_ONLY_BALL_IS_SELECTED_ALERT);
-                } else if (selectedDieId === constants.DIE1_ID || selectedDieId === constants.DIE2_ID) {
+                } else if (
+                    (selectedDieId === constants.DIE1_ID || selectedDieId === constants.DIE2_ID) &&
+                    (selectedBallId !== constants.BALL1_ID && selectedBallId !== constants.BALL2_ID)
+                ) {
                     setAlertParagraphText(constants.MULTIBALL_ONLY_DIE_IS_SELECTED_ALERT);
-                } else {
+                } else if (
+                    selectedBallId !== constants.BALL1_ID &&
+                    selectedBallId !== constants.BALL2_ID &&
+                    selectedDieId !== constants.DIE1_ID &&
+                    selectedDieId !== constants.DIE2_ID
+                ) {
                     setAlertParagraphText(constants.MULTIBALL_NEITHER_BALL_NOR_DIE_SELECTED_ALERT);
+                } else {
+                    setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
                 }
             } else {
                 setAlertParagraphText(constants.INVALID_CHOICE_ALERT);
@@ -768,7 +781,7 @@ export default function Game(props) {
                 bonusIndicatorBorderColorSetter(constants.BONUS_INDICATOR_ACTIVE_BORDER_COLOR);
 
                 bonusAction();
-                
+
                 setAlertParagraphText("");
             }
         }
