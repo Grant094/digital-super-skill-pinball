@@ -1807,6 +1807,15 @@ export default function Game(props) {
                         width="45px"
                     />
                 </Fragment>
+                <p id="arrow"
+                    style={{
+                        position: "absolute",
+                        top: "902px",
+                        left: "240px",
+                        color: "black",
+                        fontSize: "90px"
+                    }}
+                >{'\u21e9'}</p>
                 <Box boxId={constants.DRAIN_BOX_ID}
                     handleClick={() => handleDiceBoxClick(
                         constants.DRAIN_BOX_ID,
@@ -1824,8 +1833,8 @@ export default function Game(props) {
                     isThisBoxFilled={isBoxFilled(drainBoxBackgroundColor)}
                     left={constants.DRAIN_BOX_LEFT}
                     top={constants.DRAIN_BOX_TOP}
-                    height="85px"
-                    width="98px"
+                    height="80px"
+                    width="78px"
                 />
                 <Ball ballId={constants.BALL1_ID}
                     handleClick={() => handleBallClick(constants.BALL1_ID)}
@@ -1883,6 +1892,6 @@ export default function Game(props) {
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
                 alertParagraphText={alertParagraphText}
             />
-        </div>
+        </div >
     );
 }

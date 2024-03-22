@@ -230,7 +230,7 @@ export const RED_DROPTARGETS_CAN_RECEIVE_FROM = [
 //#endregion
 //#region drain
 export const DRAIN_BOX_ID = "box-drain-123456";
-export const DRAIN_BOX_LEFT = "220px";
+export const DRAIN_BOX_LEFT = "230px";
 export const DRAIN_BOX_TOP = "920px";
 export const DRAIN_GROUP_BOX_ID = [DRAIN_BOX_ID];
 export const DRAIN_CORRESPONDING_BOX_IDS = [YEL_OUTLANE_BOX_ID, RED_OUTLANE_BOX_ID, DRAIN_BOX_ID];

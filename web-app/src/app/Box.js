@@ -20,7 +20,7 @@ export default function Box(props) {
     return (
         <div id={props.boxId}
             title={props.boxId}
-            className={styles.box}
+            className={props.boxId === constants.DRAIN_BOX_ID ? styles.DrainBox : styles.box}
             onClick={props.handleClick}
             style={{
                 backgroundColor: (props.isThisBoxFilled ? constants.FILLED_BACKGROUND_COLOR : constants.UNFILLED_BACKGROUND_COLOR),
