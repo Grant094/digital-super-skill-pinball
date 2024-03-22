@@ -399,6 +399,7 @@ export default function Game(props) {
 
         setBall1BoxId(constants.START_BOX_ID);
         setWasBall1MovedThisTurn(false);
+        setSelectedBallId(constants.BALL1_ID);
     }
     //#endregion
 
