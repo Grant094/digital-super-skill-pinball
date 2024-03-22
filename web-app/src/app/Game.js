@@ -388,8 +388,11 @@ export default function Game(props) {
 
         clearActiveBonuses();
 
-        setSelectedBallId(constants.BALL1_ID);
-        moveSelectedBall(constants.START_BOX_ID);
+        setBall2BoxId(constants.DRAIN_BOX_ID)
+        setWasBall2MovedThisTurn(false);
+        
+        setBall1BoxId(constants.START_BOX_ID);
+        setWasBall1MovedThisTurn(false);
     }
     //#endregion
 

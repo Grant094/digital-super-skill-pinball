@@ -4607,10 +4607,10 @@ describe("Game", () => {
                     //#endregion
                     //#region assert
                     expect(screen.getByTitle(constants.ROUND_2_INDICATOR_ID)).toBeVisible();
-                    expect(screen.getByTitle(constants.BALL2_ID)).toBeVisible();
-                    expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
-                    expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
-                    expect(screen.getByTitle(constants.BALL1_ID)).not.toBeVisible();
+                    expect(screen.getByTitle(constants.BALL1_ID)).toBeVisible();
+                    expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                    expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+                    expect(screen.getByTitle(constants.BALL2_ID)).not.toBeVisible();
                     //#endregion
                 });
             });
@@ -5302,6 +5302,118 @@ describe("Game", () => {
                 //#endregion
                 //#region assert
                 expect(screen.getByTitle("nudges-used").innerHTML).toEqual("Nudges Used: 1");
+                //#endregion
+            });
+        });
+        describe('when tilting', () => {
+            it('should move ball 1 to START_BOX_ID', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel drop target 12
+                    [1, 1], // move to yel flipper box 1
+                    [3, 4], // move to yel drop target 34
+                    [2, 3], // move to yel flipper box 23
+                    [5, 6], // move to yel drop target 56
+                    // select yel multiball bonus
+                    [3, 2],
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                    // nudge die 2 (=2) down to 1
+                    // move ball 2 with die 2 (=1) from start to bumper 12 1st 1 box
+                    [1, 1], // tilt
+                    [6, 6], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID));
+                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL1_ID).style.top).toEqual(screen.getByTitle(constants.START_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL1_ID).style.left).toEqual(screen.getByTitle(constants.START_BOX_ID).style.left);
+                //#endregion
+            });
+            it('should move ball 2 to DRAIN_BOX_ID', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel drop target 12
+                    [1, 1], // move to yel flipper box 1
+                    [3, 4], // move to yel drop target 34
+                    [2, 3], // move to yel flipper box 23
+                    [5, 6], // move to yel drop target 56
+                    // select yel multiball bonus
+                    [3, 2],
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                    // nudge die 2 (=2) down to 1
+                    // move ball 2 with die 2 (=1) from start to bumper 12 1st 1 box
+                    [1, 1], // tilt
+                    [6, 6], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID));
+                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL2_ID).style.top).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.top);
+                expect(screen.getByTitle(constants.BALL2_ID).style.left).toEqual(screen.getByTitle(constants.DRAIN_BOX_ID).style.left);
+                //#endregion
+            });
+            it('should auto-select ball 1', async () => {
+                //#region arrange
+                const DIE_VALUES = [
+                    [1, 2], // move from start to yel drop target 12
+                    [1, 1], // move to yel flipper box 1
+                    [3, 4], // move to yel drop target 34
+                    [2, 3], // move to yel flipper box 23
+                    [5, 6], // move to yel drop target 56
+                    // select yel multiball bonus
+                    [3, 2],
+                    // move ball 1 with die 1 (=3) from yel drop target 56 to red flipper box 3
+                    // nudge die 2 (=2) down to 1
+                    // move ball 2 with die 2 (=1) from start to bumper 12 1st 1 box
+                    [1, 1], // tilt
+                    [6, 6], // final roll
+                ];
+                const user = userEvent.setup();
+                render(<Game dieValues={DIE_VALUES} />);
+                //#endregion
+                //#region act
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_12_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_1_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_34_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_FLIPPER_BOX_23_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_DROPTARGET_56_BOX_ID));
+                await user.click(screen.getByTitle(constants.YEL_MULTIBALL_BONUS_BOX_ID));
+                await user.click(screen.getByTitle(constants.BALL1_ID));
+                await user.click(screen.getByTitle(constants.DIE1_ID));
+                await user.click(screen.getByTitle(constants.RED_FLIPPER_BOX_3_BOX_ID));
+                await user.click(screen.getByTitle(constants.DIE2_NUDGE_DN_BUTTON_ID));
+                await user.click(screen.getByTitle(constants.BUMPER_12_1ST_1_BOX_ID));
+                //#endregion
+                //#region assert
+                expect(screen.getByTitle(constants.BALL1_ID).style.borderColor).toEqual(constants.BALL_SELECTED_BORDER_COLOR);
                 //#endregion
             });
         });
