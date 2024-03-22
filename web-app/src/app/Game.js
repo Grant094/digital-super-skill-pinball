@@ -433,6 +433,8 @@ export default function Game(props) {
         setWasDie2UsedThisTurn(false);
 
         if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
+            incNudgesUsed();
+
             if (hasTilted(nextValueOfDie1, nextValueOfDie2)) {
                 tilt(nextValueOfDie1, nextValueOfDie2);
             }
@@ -510,10 +512,6 @@ export default function Game(props) {
                 setAlertParagraphText(constants.HAMMER_SPACE_SEQUENCE_ALERT);
             } else {
                 setAlertParagraphText("");
-                // if nudged, increment nudges used
-                if (utilities.calcNetNudgeAmount(die1AmountNudgedBy, die2AmountNudgedBy)) {
-                    incNudgesUsed();
-                }
 
                 fillBox();
 
