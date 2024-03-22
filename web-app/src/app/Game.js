@@ -1048,7 +1048,7 @@ export default function Game(props) {
                                 possiblyReceiveFromEitherOtherBumper(
                                     possiblyReceiveFromEitherFlipper(constants.BUMPER_12_DEFAULT_CAN_RECEIVE_FROM),
                                     [
-                                        ...constants.BUMPER_12_BOX_IDS,
+                                        ...constants.BUMPER_34_BOX_IDS,
                                     ]
                                 ),
                                 [2],
