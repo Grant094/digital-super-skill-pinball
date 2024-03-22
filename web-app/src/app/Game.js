@@ -454,10 +454,13 @@ export default function Game(props) {
         }
     }
 
-    function moveWillEndTheGame(boxId) {
+    function moveWillEndTheGame(boxId, ballId) {
+        const otherBallId = (ballId === constants.BALL1_ID ? constants.BALL2_ID : constants.BALL1_ID);
+        const isOtherBallDrained = (otherBallId === constants.BALL1_ID ? isBall1Drained() : isBall2Drained());
         return (
             (round === constants.MAX_ROUNDS) &&
-            constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId)
+            constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId) &&
+            isOtherBallDrained
         )
     }
 
@@ -575,7 +578,7 @@ export default function Game(props) {
                 possiblyAutoSelectBall(constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId));
 
                 if (
-                    !(moveWillEndTheGame(boxId)) &&
+                    !(moveWillEndTheGame(boxId, movedByThisClickBallId)) &&
                     (
                         constants.DRAIN_CORRESPONDING_BOX_IDS.includes(notMovedByThisClickBallBoxId) ||
                         wasBallNotMovedByThisClickMovedThisTurn
