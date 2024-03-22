@@ -2385,15 +2385,14 @@ describe("Game", () => {
         });
         it('should ignore all other clicks before the user chooses a yellow bonus', async () => {
             //#region arrange
-            const DIE1_FINAL_VALUE = 2;
-            const DIE2_FINAL_VALUE = 5;
+            const DIE1_FINAL_VALUE = 5;
+            const DIE2_FINAL_VALUE = 6;
             const DIE_VALUES = [
                 [1, 2], // move from start to yel drop target 12
                 [1, 1], // move to yel flipper box 1
                 [3, 4], // move to yel drop target 34
                 [2, 3], // move to yel flipper box 23
-                [5, 6], // move to yel drop target 56
-                [DIE1_FINAL_VALUE, DIE2_FINAL_VALUE],
+                [DIE1_FINAL_VALUE, DIE2_FINAL_VALUE], // move to yel drop target 56
                 // attempt to move to yel flipper box 4
                 // attempt to move to red outlane
                 // attempt to move to yel outlane
