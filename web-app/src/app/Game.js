@@ -315,6 +315,10 @@ export default function Game(props) {
         )
     }
 
+    function movedAllAvailableBallsThisTurn() {
+        return (!(isMultiballActive()) || (wasBall1MovedThisTurn && wasBall2MovedThisTurn));
+    }
+
     function isBoxFilled(boxBackgroundColor) {
         return (boxBackgroundColor === constants.FILLED_BACKGROUND_COLOR);
     }
@@ -392,7 +396,7 @@ export default function Game(props) {
 
         setBall2BoxId(constants.DRAIN_BOX_ID)
         setWasBall2MovedThisTurn(false);
-        
+
         setBall1BoxId(constants.START_BOX_ID);
         setWasBall1MovedThisTurn(false);
     }
@@ -571,9 +575,17 @@ export default function Game(props) {
                 possiblyAutoSelectBall(constants.DRAIN_CORRESPONDING_BOX_IDS.includes(boxId));
 
                 if (
-                    !(moveWillEndTheGame(boxId)) && (
+                    !(moveWillEndTheGame(boxId)) &&
+                    (
                         constants.DRAIN_CORRESPONDING_BOX_IDS.includes(notMovedByThisClickBallBoxId) ||
                         wasBallNotMovedByThisClickMovedThisTurn
+                    ) &&
+                    !(
+                        groupWasCleared && (
+                            constants.YEL_DROPTARGET_GROUP_BOX_IDS.includes(boxId) ||
+                            constants.RED_DROPTARGET_GROUP_BOX_IDS.includes(boxId) ||
+                            constants.FERRISWHEEL_GROUP_BOX_IDS.includes(boxId)
+                        )
                     )
                 ) {
                     rollDice();
@@ -762,6 +774,9 @@ export default function Game(props) {
         ) {
             skillShotBoxBorderColorSetter(constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR);
             setAlertParagraphText("");
+            if (movedAllAvailableBallsThisTurn()) {
+                rollDice();
+            }
         } else if (
             alertParagraphText !== constants.SELECT_SKILL_SHOT_ALERT &&
             skillShotBoxBorderColor === constants.SKILL_SHOT_BOX_CIRCLED_BORDER_COLOR
@@ -788,6 +803,10 @@ export default function Game(props) {
                 bonusAction();
 
                 setAlertParagraphText("");
+
+                if (movedAllAvailableBallsThisTurn()) {
+                    rollDice();
+                }
             }
         }
     }
