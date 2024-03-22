@@ -485,6 +485,8 @@ export default function Game(props) {
         groupAction = (() => { }),
         isPrecedingHammerspaceBoxFilled = undefined,
     ) {
+        let groupWasCleared = false;
+
         if (
             (alertParagraphText === constants.SELECT_SKILL_SHOT_ALERT) ||
             (alertParagraphText === constants.OVERRIDE_DIE_WITH_SKILL_SHOT_ALERT) ||
@@ -526,7 +528,7 @@ export default function Game(props) {
 
                 boxAction();
 
-                possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction);
+                groupWasCleared = possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction);
 
                 if (selectedDieId === constants.DIE1_ID) {
                     if (!wasDie2UsedThisTurn) {
