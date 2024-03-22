@@ -1811,7 +1811,7 @@ export default function Game(props) {
                     style={{
                         position: "absolute",
                         top: "902px",
-                        left: "240px",
+                        left: "243px",
                         color: "black",
                         fontSize: "90px"
                     }}
