@@ -364,9 +364,8 @@ export default function Game(props) {
     function possiblyClearBoxGroup(boxGroupBoxBackgroundColors, boxBackgroundColorSetters, groupAction = (() => { })) {
         if (shouldClearBoxGroup(boxGroupBoxBackgroundColors)) {
             unfillBoxes(boxBackgroundColorSetters);
+            groupAction();
         }
-
-        groupAction();
     }
     //#endregion
 
