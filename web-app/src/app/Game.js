@@ -274,11 +274,6 @@ export default function Game(props) {
 
     function ballBorderColor(ballId) {
         if (
-            (ballId === constants.BALL1_ID && isBall2Drained()) ||
-            (ballId === constants.BALL2_ID && isBall1Drained())
-        ) {
-            return constants.BALL_SELECTED_BORDER_COLOR;
-        } else if (
             (ballId === constants.BALL1_ID && wasBall1MovedThisTurn) ||
             (ballId === constants.BALL2_ID && wasBall2MovedThisTurn)
         ) {
@@ -408,22 +403,24 @@ export default function Game(props) {
     }
 
     function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
-        if (doesThisSendSelectedBallToDrain) {
-            if (selectedBallId === constants.BALL1_ID) {
+        if (doesThisSendSelectedBallToDrain && isMultiballActive()) {
+            if (isMultiballActive()) {
+                if (selectedBallId === constants.BALL1_ID) {
+                    setSelectedBallId(constants.BALL2_ID);
+                } else if (selectedBallId === constants.BALL2_ID) {
+                    setSelectedBallId(constants.BALL1_ID);
+                }
+            }
+        } else {
+            if (isBall1Drained() && !isBall2Drained()) {
                 setSelectedBallId(constants.BALL2_ID);
-            } else if (selectedBallId === constants.BALL2_ID) {
+            } else if (isBall2Drained() && !isBall1Drained()) {
+                setSelectedBallId(constants.BALL1_ID);
+            } else if (unselectedBallId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
+                setSelectedBallId(constants.BALL2_ID);
+            } else if (unselectedBallId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
                 setSelectedBallId(constants.BALL1_ID);
             }
-        }
-
-        if (isBall1Drained() && !isBall2Drained()) {
-            setSelectedBallId(constants.BALL2_ID);
-        } else if (isBall2Drained() && !isBall1Drained()) {
-            setSelectedBallId(constants.BALL1_ID);
-        } else if (unselectedBallId === constants.BALL2_ID && !wasBall2MovedThisTurn) {
-            setSelectedBallId(constants.BALL2_ID);
-        } else if (unselectedBallId === constants.BALL1_ID && !wasBall1MovedThisTurn) {
-            setSelectedBallId(constants.BALL1_ID);
         }
     }
 
