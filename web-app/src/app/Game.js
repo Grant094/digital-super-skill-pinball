@@ -403,13 +403,15 @@ export default function Game(props) {
     }
 
     function possiblyAutoSelectBall(doesThisSendSelectedBallToDrain = false) {
-        if (doesThisSendSelectedBallToDrain && isMultiballActive()) {
+        if (doesThisSendSelectedBallToDrain) {
             if (isMultiballActive()) {
                 if (selectedBallId === constants.BALL1_ID) {
                     setSelectedBallId(constants.BALL2_ID);
                 } else if (selectedBallId === constants.BALL2_ID) {
                     setSelectedBallId(constants.BALL1_ID);
                 }
+            } else {
+                setSelectedBallId(constants.BALL1_ID);
             }
         } else {
             if (isBall1Drained() && !isBall2Drained()) {
