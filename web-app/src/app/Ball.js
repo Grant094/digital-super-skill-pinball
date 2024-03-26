@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import styles from "./ball.module.css";
 import * as constants from "./constants";
 
 export default function Ball(props) {
@@ -39,9 +40,10 @@ export default function Ball(props) {
     //#endregion
 
     return (
-        <img id={props.ballId}
+        <div id={props.ballId}
             alt={props.ballId}
             title={props.ballId}
+            className={styles.Ball}
             style={{
                 position: "absolute",
                 top: ballTop,
@@ -51,9 +53,23 @@ export default function Ball(props) {
                 borderStyle: "solid",
             }}
             onClick={props.handleClick}
-            src="/images/ball.jpg"
-            height="25px"
-            width="25px"
-        />
+        >
+        </div>
+        // <img id={props.ballId}
+        //     alt={props.ballId}
+        //     title={props.ballId}
+        //     style={{
+        //         position: "absolute",
+        //         top: ballTop,
+        //         left: ballLeft,
+        //         visibility: (isBallInDrain() ? "hidden" : "visible"),
+        //         borderColor: props.borderColor,
+        //         borderStyle: "solid",
+        //     }}
+        //     onClick={props.handleClick}
+        //     src="/images/ball.jpg"
+        //     height="25px"
+        //     width="25px"
+        // />
     );
 }
