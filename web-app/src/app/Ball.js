@@ -55,21 +55,5 @@ export default function Ball(props) {
             onClick={props.handleClick}
         >
         </div>
-        // <img id={props.ballId}
-        //     alt={props.ballId}
-        //     title={props.ballId}
-        //     style={{
-        //         position: "absolute",
-        //         top: ballTop,
-        //         left: ballLeft,
-        //         visibility: (isBallInDrain() ? "hidden" : "visible"),
-        //         borderColor: props.borderColor,
-        //         borderStyle: "solid",
-        //     }}
-        //     onClick={props.handleClick}
-        //     src="/images/ball.jpg"
-        //     height="25px"
-        //     width="25px"
-        // />
     );
 }
