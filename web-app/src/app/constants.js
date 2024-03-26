@@ -334,6 +334,9 @@ export const ATTEMPT_TO_MOVE_BALLS_TO_SAME_LOCATION_ALERT = "Balls cannot be on 
 export const GAME_OVER_ALERT = "Game over!";
 export const HAMMER_SPACE_SEQUENCE_ALERT = "You must fill in the hammer spaces in sequence from 1 to 6!";
 //#endregion
+//#region rules tray
+export const RULES_TRAY_ID = "rules-tray";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
