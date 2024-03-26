@@ -7,10 +7,15 @@ This digital version will only include pins (also known as boards or maps) that 
 
 This app is in no way affiliated with WizKids or the Super-Skill Pinball brand.
 
+# Technology
+- JavaScript
+- React
+- HTML/CSS
+
 # Roadmap
 Features to include in the minimum viable product (MVP):
-- Carniball Pin
-- Global High Score Tracking connected to a backend server (if someone gets on the global leaderboard, they can input their initials)
+- [x] Carniball Pin
+- [ ] Global High Score Tracking connected to a backend server (if someone gets on the global leaderboard, they can input their initials)
 
 Beyond the MVP, this app may later include:
 - Cyberhack Pin, with separate global high score tracking
