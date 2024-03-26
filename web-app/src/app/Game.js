@@ -13,6 +13,7 @@ import RoundIndicator from "./RoundIndicator";
 import SkillShotBox from "./SkillShotBox";
 import BonusIndicator from "./BonusIndicator";
 import BonusBox from "./BonusBox";
+import RulesTray from "./RulesTray";
 
 export default function Game(props) {
     //#region state
@@ -1919,6 +1920,7 @@ export default function Game(props) {
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
                 alertParagraphText={alertParagraphText}
             />
+            <RulesTray />
         </div >
     );
 }
