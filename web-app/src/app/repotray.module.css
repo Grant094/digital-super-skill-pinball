@@ -1,15 +1,14 @@
-.AlertTray {
+.SourceCodeTray {
     width: 200px;
     border-style: solid;
     border-color: white;
     border-width: 10px;
     background-color: orange;
     left: 550px;
-    top: 500px;
+    top: 420px;
     position: absolute;
-}
-
-.AlertTrayParagraph {
-    color: white;
     font-size: 32px;
+    text-align: center;
+    text-decoration: underline;
+    color: blue;
 }

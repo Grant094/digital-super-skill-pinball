@@ -14,6 +14,7 @@ import SkillShotBox from "./SkillShotBox";
 import BonusIndicator from "./BonusIndicator";
 import BonusBox from "./BonusBox";
 import RulesTray from "./RulesTray";
+import RepoTray from "./RepoTray";
 
 export default function Game(props) {
     //#region state
@@ -1921,6 +1922,7 @@ export default function Game(props) {
                 alertParagraphText={alertParagraphText}
             />
             <RulesTray />
+            <RepoTray />
         </div >
     );
 }
