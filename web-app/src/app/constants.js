@@ -337,6 +337,9 @@ export const HAMMER_SPACE_SEQUENCE_ALERT = "You must fill in the hammer spaces i
 //#region rules tray
 export const RULES_TRAY_ID = "rules-tray";
 //#endregion
+//#region source code tray
+export const REPO_TRAY_ID = "repo-tray";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
