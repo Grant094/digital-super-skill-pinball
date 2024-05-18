@@ -8,7 +8,7 @@ This digital version will only include pins (also known as boards or maps) that 
 This app is in no way affiliated with WizKids or the Super-Skill Pinball brand.
 
 # Play Now
-You can play a live version of this right now at [https://ss-pinball-online.vercel.app/](https://ss-pinball-online.vercel.app/).
+You can play a live version of this right now at [https://pinball.grantoxer.com/](https://pinball.grantoxer.com/).
 
 # Technology
 - JavaScript
