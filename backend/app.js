@@ -11,11 +11,7 @@ app.use(
 );
 
 app.use(bodyParser.json());
-/*
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-*/
+
 app.post('/score', db.addScore);
 
 app.listen(PORT, () => {
