@@ -27,7 +27,15 @@ export default function PostScoreTray(props) {
         >
             <form action="https://localhost:3001/score" method="POST">
                 <label htmlFor="initials">Initials:</label>
-                <input type="text" className={styles.initialsInput} name="initials" required maxLength="3" pattern="[A-Z]+" title="ONLY USE CAPS!"></input>
+                <input
+                    type="text"
+                    className={styles.initialsInput}
+                    name="initials"
+                    required
+                    maxLength="3"
+                    pattern="[A-Z]+"
+                    title="ONLY USE CAPS!"
+                ></input>
 
                 <br />
 
