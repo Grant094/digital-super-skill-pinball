@@ -17,7 +17,7 @@ const addScore = (req, res) => {
             if (err) {
                 res.status(400).send(err);
             } else {
-                res.status(201).send(results);
+                res.status(201).redirect("http://localhost:3000/");
             }
         }
     );
