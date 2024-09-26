@@ -25,12 +25,12 @@ export default function PostScoreTray(props) {
                 visibility: (props.alertParagraphText === constants.GAME_OVER_ALERT ? "visible" : "hidden"),
             }}
         >
-            <form action="https://localhost:3001/score" method="POST">
-                <label htmlFor="initials">Initials:</label>
+            <form action="http://localhost:3001/score" method="POST">
+                <label htmlFor="name">Initials:</label>
                 <input
                     type="text"
                     className={styles.initialsInput}
-                    name="initials"
+                    name="name"
                     required
                     maxLength="3"
                     pattern="[A-Z]+"
@@ -38,6 +38,10 @@ export default function PostScoreTray(props) {
                 ></input>
 
                 <br />
+                <div style={{visibility: "hidden"}}>
+                    <label htmlFor="score"></label>
+                    <input type="text" value={props.score} name="score" readOnly></input>
+                </div>
 
                 <button type="submit" className={styles.scoreSubmitButton}>Submit</button>
             </form>

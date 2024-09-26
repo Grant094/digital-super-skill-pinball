@@ -1922,7 +1922,10 @@ export default function Game(props) {
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
                 alertParagraphText={alertParagraphText}
             />
-            <PostScoreTray alertParagraphText={alertParagraphText} />
+            <PostScoreTray
+                alertParagraphText={alertParagraphText}
+                score={score}
+            />
             <RulesTray />
             <RepoTray />
         </div >
