@@ -38,10 +38,14 @@ export default function PostScoreTray(props) {
                 ></input>
 
                 <br />
-                <div style={{visibility: "hidden"}}>
-                    <label htmlFor="score"></label>
-                    <input type="text" value={props.score} name="score" readOnly></input>
-                </div>
+                
+                <input
+                    type="text"
+                    value={props.score}
+                    name="score"
+                    readOnly
+                    style={{visibility: "hidden"}}
+                ></input>
 
                 <button type="submit" className={styles.scoreSubmitButton}>Submit</button>
             </form>
