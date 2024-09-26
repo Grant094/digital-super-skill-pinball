@@ -21,6 +21,9 @@ export default function PostScoreTray(props) {
         <div id={constants.POST_SCORE_TRAY_ID}
             title={constants.POST_SCORE_TRAY_ID}
             className={styles.PostScoreTray}
+            style={{
+                visibility: (props.alertParagraphText === constants.GAME_OVER_ALERT ? "visible" : "hidden"),
+            }}
         >
             <form action="https://localhost:3001/score" method="POST">
                 <label htmlFor="initials">Initials:</label>
