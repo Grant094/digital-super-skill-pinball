@@ -340,6 +340,9 @@ export const RULES_TRAY_ID = "rules-tray";
 //#region source code tray
 export const REPO_TRAY_ID = "repo-tray";
 //#endregion
+//#region post high scores tray
+export const POST_SCORE_TRAY_ID = "post-score-tray";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
