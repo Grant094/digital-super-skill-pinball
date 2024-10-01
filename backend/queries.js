@@ -2,11 +2,12 @@ const Pool = require('pg').Pool;
 require('dotenv').config();
 
 const pool = new Pool({
-    user: process.env.POOL_USER,
-    password: process.env.POOL_PASSWORD,
-    host: process.env.POOL_HOST,
-    port: process.env.POOL_PORT,
-    database: process.env.POOL_DATABASE,
+    // user: process.env.POOL_USER,
+    // password: process.env.POOL_PASSWORD,
+    // host: process.env.POOL_HOST,
+    // port: process.env.POOL_PORT,
+    // database: process.env.POOL_DATABASE,
+    connectionString: process.env.POSTGRES_URL,
 });
 
 const addScore = (req, res) => {
