@@ -1,0 +1,23 @@
+.PostScoreTray {
+    width: 200px;
+    border-style: solid;
+    border-color: white;
+    border-width: 10px;
+    background-color: orange;
+    left: 550px;
+    top: 575px;
+    position: absolute;
+    font-size: 32px;
+    text-align: center;
+    color: white;
+}
+
+.initialsInput {
+    font-size: 32px;
+    text-align: center;
+    width: 120px;
+}
+
+.scoreSubmitButton {
+    font-size: 28px;
+}

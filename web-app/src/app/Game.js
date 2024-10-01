@@ -15,6 +15,7 @@ import BonusIndicator from "./BonusIndicator";
 import BonusBox from "./BonusBox";
 import RulesTray from "./RulesTray";
 import RepoTray from "./RepoTray";
+import PostScoreTray from "./PostScoreTray";
 
 export default function Game(props) {
     //#region state
@@ -1920,6 +1921,10 @@ export default function Game(props) {
             <AlertTray alertTrayId={constants.ALERT_TRAY_ID}
                 paragraphId={constants.ALERT_PARAGRAPH_ID}
                 alertParagraphText={alertParagraphText}
+            />
+            <PostScoreTray
+                alertParagraphText={alertParagraphText}
+                score={score}
             />
             <RulesTray />
             <RepoTray />
