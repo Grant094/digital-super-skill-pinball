@@ -25,7 +25,7 @@ export default function PostScoreTray(props) {
                 visibility: (props.alertParagraphText === constants.GAME_OVER_ALERT ? "visible" : "hidden"),
             }}
         >
-            <form action="http://localhost:3001/score" method="POST">
+            <form action="https://super-skill-pinball-backend.onrender.com/score" method="POST">
                 <label htmlFor="name">Initials:</label>
                 <input
                     type="text"
