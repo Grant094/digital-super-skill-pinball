@@ -21,7 +21,7 @@ const addScore = (req, res) => {
 
 const getScores = (req, res) => {
     pool.query(
-        `SELECT * FROM super_skill_pinball_high_scores ORDER BY score DESC LIMIT 10`,
+        `SELECT * FROM super_skill_pinball_high_scores ORDER BY score DESC`,
         (err, results) => {
             if (err) {
                 res.status(400).send(err);
