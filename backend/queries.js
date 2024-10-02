@@ -19,6 +19,20 @@ const addScore = (req, res) => {
     );
 }
 
+const getScores = (req, res) => {
+    pool.query(
+        `SELECT * FROM super_skill_pinball_high_scores ORDER BY score DESC LIMIT 10`,
+        (err, results) => {
+            if (err) {
+                res.status(400).send(err);
+            } else {
+                res.status(200).send(results);
+            }
+        }
+    );
+}
+
 module.exports = {
     addScore,
+    getScores,
 }
