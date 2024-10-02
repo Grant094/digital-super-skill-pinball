@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.post('/score', db.addScore);
 
-app.get('/scores', db.getScores);
+app.get('/', db.getScores);
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
