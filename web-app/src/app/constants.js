@@ -343,6 +343,9 @@ export const REPO_TRAY_ID = "repo-tray";
 //#region post high scores tray
 export const POST_SCORE_TRAY_ID = "post-score-tray";
 //#endregion
+//#region see high scores tray
+export const SEE_HIGH_SCORES_TRAY_ID = "see-high-scores-tray";
+//#endregion
 //#region misc
 export const MAX_ROUNDS = 3;
 export const UNFILLED_BACKGROUND_COLOR = "transparent";
