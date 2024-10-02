@@ -16,7 +16,6 @@ import BonusBox from "./BonusBox";
 import RulesTray from "./RulesTray";
 import RepoTray from "./RepoTray";
 import PostScoreTray from "./PostScoreTray";
-import HighScores from "./HighScores";
 
 export default function Game(props) {
     //#region state
@@ -1929,7 +1928,6 @@ export default function Game(props) {
             />
             <RulesTray />
             <RepoTray />
-            <HighScores />
         </div >
     );
 }
