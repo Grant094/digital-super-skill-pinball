@@ -12,10 +12,10 @@ You can play a live version of this right now at https://pinball.grantoxer.com/.
 
 # Technology
 - JavaScript
-- React
+- React.js
 - HTML/CSS
+- PostgreSQL
 
 # Potential Future Features
-- Global High Score Tracking connected to a backend server (if someone gets on the global leaderboard, they can input their initials)
 - Cyberhack Pin, with separate global high score tracking
 - Ability for someone to sign-in with a Google Account and store personal high score data with their Google Drive storage
